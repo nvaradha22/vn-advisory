@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insight Detail | VN Advisory</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"></script>
+    <style>
+        .post-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        zero-md::part(markdown-body) {
+            background: transparent !important;
+            color: #e6e6e6 !important;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo">VN Advisory</div>
+        <div><a href="insights.html">← Back to Insights</a></div>
+    </nav>
+
+    <div class="post-container">
+        <zero-md id="md-viewer" src=""></zero-md>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const article = params.get('article');
+        if (article) {
+            document.getElementById('md-viewer').src = `/articles/${article}.md`;
+        } else {
+            window.location.href = 'insights.html';
+        }
+    </script>
+</body>
+</html>
