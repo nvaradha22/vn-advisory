@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights & Impact — VN Advisory</title>
+  <meta name="description" content="10 strategic insights and 5 case studies on supply chain AI, CBAM, procurement transformation, geopolitical risk, and digital workforce from VN Advisory.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter','sans-serif'], serif: ['Newsreader','serif'] },
+          colors: { brand: { sky:'#38BDF8', dark:'#050505', panel:'#0F110E', gold:'#E2B340' } },
+          animation: { 'fade-up':'fadeUp 0.8s ease-out forwards', 'fade-up-d':'fadeUp 0.8s ease-out 0.15s forwards' }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#030303; color:#fff; font-family:'Inter',sans-serif; overflow-x:hidden; }
+    .bg-grid { background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 100px 100px; mask-image: radial-gradient(circle at center, black 30%, transparent 80%); -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%); }
+    .hero-radial { background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(56,189,248,0.06) 0%, rgba(5,5,5,0) 70%); }
+    .section-radial { background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(56,189,248,0.03) 0%, transparent 70%); }
+    .sky-gradient { background: linear-gradient(135deg,#38BDF8,#0EA5E9,#38BDF8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .gold-gradient { background: linear-gradient(135deg,#E2B340,#F5D76E,#E2B340); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .nav-dropdown { display:none; position:absolute; top:100%; left:0; min-width:240px; z-index:100; }
+    .nav-item:hover .nav-dropdown { display:block; }
+    .reveal { opacity:0; transform:translateY(30px); transition:opacity 0.8s ease,transform 0.8s ease; }
+    .reveal.active { opacity:1; transform:translateY(0); }
+    @keyframes fadeUp { 0% { opacity:0; transform:translateY(30px); } 100% { opacity:1; transform:translateY(0); } }
+    .filter-btn { transition:all 0.3s; }
+    .filter-btn.active { background:rgba(56,189,248,0.1); border-color:rgba(56,189,248,0.3); color:#38BDF8; }
+    .article-card { transition: all 0.3s ease; }
+    .article-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3); }
+    .article-body { max-height:0; overflow:hidden; transition:max-height 0.6s ease; background: rgba(255,255,255,0.02); border-radius: 0 0 1rem 1rem; }
+    .article-body.open { max-height: 8000px; padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 1.5rem; }
+    .cs-card { transition: all 0.3s ease; }
+    .cs-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3); }
+    .cs-body { max-height:0; overflow:hidden; transition:max-height 0.6s ease; background: rgba(226,179,64,0.02); border-radius: 0 0 1rem 1rem; }
+    .cs-body.open { max-height: 8000px; padding: 1.5rem; border-top: 1px solid rgba(226,179,64,0.1); margin-top: 1.5rem; }
+    .share-btn { transition:all 0.2s; }
+    .share-btn:hover { transform:scale(1.15); }
+    .mobile-menu { transform:translateX(100%); transition:transform 0.3s ease; }
+    .mobile-menu.open { transform:translateX(0); }
+    .toast { position:fixed; bottom:2rem; right:2rem; z-index:9999; transform:translateY(120%); opacity:0; transition:transform 0.4s ease,opacity 0.4s ease; }
+    .toast.show { transform:translateY(0); opacity:1; }
+    .article-content p { margin-bottom:1rem; }
+    .article-content h4 { font-size:.875rem; font-weight:600; margin:1.5rem 0 .75rem; color:rgba(255,255,255,0.8); }
+    .article-content ul { margin:.75rem 0; padding-left:1.25rem; }
+    .article-content li { margin-bottom:.5rem; color:rgba(255,255,255,0.5); font-size:.875rem; line-height:1.6; }
+    .highlight-box { border-left:2px solid #38BDF8; background:rgba(56,189,248,0.03); padding:1rem 1.25rem; border-radius:0 .5rem .5rem 0; margin:1rem 0; }
+    .gold-highlight-box { border-left:2px solid #E2B340; background:rgba(226,179,64,0.03); padding:1rem 1.25rem; border-radius:0 .5rem .5rem 0; margin:1rem 0; }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:rgba(5,5,5,0.8);backdrop-filter:blur(24px)">
+  <div class="max-w-7xl mx-auto px-6"><div class="flex items-center justify-between h-16 lg:h-20">
+    <a href="index.html" class="flex items-center gap-3 group"><div class="w-9 h-9 rounded-lg bg-brand-sky/20 border border-brand-sky/30 flex items-center justify-center"><span class="iconify text-brand-sky text-lg" data-icon="carbon:analytics"></span></div><span class="text-white font-semibold text-base tracking-tight">VN Advisory</span></a>
+    <div class="hidden lg:flex items-center gap-1">
+      <a href="index.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Home</a>
+      <div class="nav-item relative"><button class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors flex items-center gap-1">Services <span class="iconify text-xs" data-icon="carbon:chevron-down"></span></button><div class="nav-dropdown pt-2"><div class="bg-brand-dark/95 backdrop-blur-xl border border-white/10 rounded-xl p-2 shadow-2xl"><a href="supply-chain.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-brand-sky/60" data-icon="carbon:network-4"></span><div><div class="text-sm text-white font-medium">Supply Chain</div></div></a><a href="procurement.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-brand-sky/60" data-icon="carbon:procurement"></span><div><div class="text-sm text-white font-medium">Procurement</div></div></a><a href="logistics.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-brand-sky/60" data-icon="carbon:shipment"></span><div><div class="text-sm text-white font-medium">Logistics & Trade</div></div></a><a href="digital.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-brand-gold/60" data-icon="carbon:machine-learning-model"></span><div><div class="text-sm text-white font-medium">Digital Workforce</div></div></a></div></div></div>
+      <a href="industries.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Industries</a>
+      <a href="market.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Market Intelligence</a>
+      <a href="digital.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Digital Workforce</a>
+      <a href="insights.html" class="px-4 py-2 text-sm text-white font-medium rounded-lg hover:bg-white/5 transition-colors">Insights & Impact</a>
+      <a href="contact.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Contact</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="contact.html" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition-colors">Request Demo <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></a>
+      <button id="mobileToggle" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5"><span class="iconify text-xl text-white" data-icon="carbon:menu"></span></button>
+    </div>
+  </div></div>
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-brand-dark/98 backdrop-blur-xl border-l border-white/10 z-50 overflow-y-auto lg:hidden"><div class="p-6"><div class="flex items-center justify-between mb-8"><span class="text-white font-semibold">Menu</span><button id="mobileClose" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5"><span class="iconify text-xl text-white" data-icon="carbon:close"></span></button></div><div class="flex flex-col gap-1"><a href="index.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Home</a><a href="services.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Services</a><a href="industries.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Industries</a><a href="market.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Market Intelligence</a><a href="digital.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Digital Workforce</a><a href="insights.html" class="px-4 py-3 text-white font-medium rounded-lg bg-white/5">Insights & Impact</a><a href="contact.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Contact</a><div class="border-t border-white/5 my-3"></div><a href="contact.html" class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white text-black text-sm font-medium rounded-lg">Request Demo</a></div></div></div>
+  <div id="mobileOverlay" class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden" style="backdrop-filter:blur(4px)"></div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="pt-20 lg:pt-24 border-b border-white/5"><div class="max-w-7xl mx-auto px-6 py-3"><div class="flex items-center gap-2 text-xs text-white/30"><a href="index.html" class="hover:text-white/60 transition-colors">Home</a><span class="iconify text-[10px]" data-icon="carbon:chevron-right"></span><span class="text-white/60">Insights & Impact</span></div></div></div>
+
+<!-- HERO -->
+<section class="relative py-16 lg:py-24 overflow-hidden">
+  <div class="absolute inset-0 bg-grid"></div>
+  <div class="absolute inset-0 hero-radial"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl opacity-0 animate-fade-up">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] mb-6">
+        <span class="text-xs font-medium text-white/50 tracking-wide uppercase">Strategic Intelligence · 2025</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif italic tracking-tight leading-[1.08] mb-6">Insights & <span class="sky-gradient">Impact</span></h1>
+      <p class="text-lg text-white/50 font-light leading-relaxed mb-8">10 deep-analysis articles and 5 cross-industry case studies on supply chain transformation, AI, trade policy, and operational resilience.</p>
+    </div>
+    <div class="grid grid-cols-3 gap-4 mt-8 opacity-0 animate-fade-up-d">
+      <div class="bg-white/[0.02] border border-white/[0.06] rounded-xl p-4 text-center"><div class="text-2xl font-serif sky-gradient">10</div><div class="text-[10px] text-white/30 uppercase tracking-widest mt-1">Insights</div></div>
+      <div class="bg-white/[0.02] border border-white/[0.06] rounded-xl p-4 text-center"><div class="text-2xl font-serif gold-gradient">5</div><div class="text-[10px] text-white/30 uppercase tracking-widest mt-1">Case Studies</div></div>
+      <div class="bg-white/[0.02] border border-white/[0.06] rounded-xl p-4 text-center"><div class="text-2xl font-serif sky-gradient">90 min</div><div class="text-[10px] text-white/30 uppercase tracking-widest mt-1">Total Reading</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PART I: INSIGHTS ========== -->
+<section class="relative py-12 lg:py-16 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 reveal">
+      <div>
+        <div class="flex items-center gap-2 mb-3"><span class="text-xs text-white/30 uppercase tracking-widest font-medium">Part I</span><span class="w-8 h-px bg-white/10"></span></div>
+        <h2 class="text-2xl md:text-3xl font-serif tracking-tight">Insights</h2>
+      </div>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="flex flex-wrap gap-2 mb-8 reveal" id="filterBar">
+      <button class="filter-btn active px-4 py-2 text-xs font-medium border border-white/10 rounded-lg text-white/50 hover:text-white/80 transition-all" data-cat="all" onclick="filterArticles('all',this)">All (10)</button>
+      <button class="filter-btn px-4 py-2 text-xs font-medium border border-white/10 rounded-lg text-white/50 hover:text-white/80 transition-all" data-cat="ai" onclick="filterArticles('ai',this)">AI & Automation</button>
+      <button class="filter-btn px-4 py-2 text-xs font-medium border border-white/10 rounded-lg text-white/50 hover:text-white/80 transition-all" data-cat="trade" onclick="filterArticles('trade',this)">Trade Policy</button>
+      <button class="filter-btn px-4 py-2 text-xs font-medium border border-white/10 rounded-lg text-white/50 hover:text-white/80 transition-all" data-cat="sustainability" onclick="filterArticles('sustainability',this)">Sustainability</button>
+      <button class="filter-btn px-4 py-2 text-xs font-medium border border-white/10 rounded-lg text-white/50 hover:text-white/80 transition-all" data-cat="digital" onclick="filterArticles('digital',this)">Digital SC</button>
+      <button class="filter-btn px-4 py-2 text-xs font-medium border border-white/10 rounded-lg text-white/50 hover:text-white/80 transition-all" data-cat="strategy" onclick="filterArticles('strategy',this)">Future Strategy</button>
+      <button class="filter-btn px-4 py-2 text-xs font-medium border border-white/10 rounded-lg text-white/50 hover:text-white/80 transition-all" data-cat="geopolitics" onclick="filterArticles('geopolitics',this)">Geopolitics</button>
+      <button class="filter-btn px-4 py-2 text-xs font-medium border border-white/10 rounded-lg text-white/50 hover:text-white/80 transition-all" data-cat="operations" onclick="filterArticles('operations',this)">Operations</button>
+      <button class="filter-btn px-4 py-2 text-xs font-medium border border-white/10 rounded-lg text-white/50 hover:text-white/80 transition-all" data-cat="manufacturing" onclick="filterArticles('manufacturing',this)">Manufacturing</button>
+      <button class="filter-btn px-4 py-2 text-xs font-medium border border-white/10 rounded-lg text-white/50 hover:text-white/80 transition-all" data-cat="procurement" onclick="filterArticles('procurement',this)">Procurement</button>
+      <button class="filter-btn px-4 py-2 text-xs font-medium border border-white/10 rounded-lg text-white/50 hover:text-white/80 transition-all" data-cat="risk" onclick="filterArticles('risk',this)">Risk</button>
+    </div>
+
+    <!-- Articles Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal" id="articlesGrid">
+      
+      <!-- ARTICLE 01 -->
+      <div class="article-card bg-white/[0.02] border border-white/[0.06] rounded-xl overflow-hidden" data-cat="ai" data-slug="ai-supply-chain" id="article-1">
+        <div class="relative h-40 overflow-hidden">
+          <img src="https://picsum.photos/id/1043/400/200" alt="AI Supply Chain" class="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity">
+          <div class="absolute top-3 left-3"><span class="px-2 py-0.5 text-[10px] text-brand-sky/80 border border-brand-sky/20 rounded-full bg-black/40 backdrop-blur-sm uppercase tracking-wider">Supply Chain AI</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-medium mb-2 leading-tight">AI-Driven Supply Chains: From Planning to Autonomous Execution</h3>
+          <p class="text-xs text-white/40 mb-3 line-clamp-2">The gap between planning a supply chain and running one has always been a source of costly delays. AI is closing that gap — not by making existing processes faster, but by replacing the sequential logic of plan‑then‑execute with a continuous decision loop.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-white/25">15 Mar 2025 · 9 min read</span>
+            <button onclick="toggleArticle(1)" class="text-xs text-brand-sky/70 hover:text-brand-sky flex items-center gap-1 transition-colors">Read more <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></button>
+          </div>
+          <div class="flex items-center gap-2 mt-3 pt-3 border-t border-white/5">
+            <button onclick="event.stopPropagation();shareOnLinkedIn('ai-supply-chain','AI-Driven Supply Chains')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:linkedin"></span></button>
+            <button onclick="event.stopPropagation();shareOnTwitter('ai-supply-chain','AI-Driven Supply Chains')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="ri:twitter-x-fill"></span></button>
+            <button onclick="event.stopPropagation();shareOnWhatsApp('ai-supply-chain','AI-Driven Supply Chains')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:whatsapp"></span></button>
+          </div>
+        </div>
+        <div class="article-body" id="body-1">
+          <div class="article-content">
+            <p>The gap between planning a supply chain and running one has always been a source of costly delays. AI is closing that gap — not by making existing processes faster, but by replacing the sequential logic of plan‑then‑execute with a continuous decision loop that adapts in real time.</p>
+            <h4>THE PROBLEM</h4>
+            <p>Why Traditional Planning Cycles Are Now a Liability. Most supply chains still operate on a weekly or monthly planning cycle. Demand gets reviewed on Monday. Purchase orders go out by Wednesday. The logistics team books capacity on Thursday. By the time the plan reaches execution, three days have passed — and the market has moved.</p>
+            <div class="highlight-box"><p class="label text-xs uppercase tracking-wider text-brand-sky/70 font-semibold mb-1">THE CORE PROBLEM</p><p class="text-sm">Traditional supply chain planning is sequential: sense the market, plan the response, execute the plan. Each step takes time. By the time execution begins, the situation has often changed. The plan is already stale.</p></div>
+            <h4>WHAT IS CHANGING</h4>
+            <p>AI is not making the planning cycle faster. It is replacing the cycle itself with a continuous process. A demand shift at 2am triggers a supply response before the planning team arrives at 9am.</p>
+            <ul>
+              <li><strong>Demand sensing at point of sale:</strong> AI reads retailer POS data, weather patterns, social signals, and macroeconomic indicators to produce a demand signal updated daily — sometimes hourly.</li>
+              <li><strong>Predictive exception management:</strong> AI identifies signals that precede disruptions — supplier shipping history, port congestion trends, financial health — and flags exceptions 48–96 hours before they materialise.</li>
+              <li><strong>Autonomous micro-decisions:</strong> Low-risk, high-frequency decisions — carrier selection, buffer stock drawdown, replenishment triggers — are delegated to AI agents within defined governance parameters.</li>
+              <li><strong>Digital twin simulation:</strong> Before executing a major decision, AI runs the scenario through a digital twin to model outcomes across multiple variables.</li>
+            </ul>
+            <h4>THE IMPACT</h4>
+            <table class="w-full text-xs border-collapse">
+              <thead><tr class="border-b border-white/10"><th class="text-left py-2">Capability</th><th class="text-left py-2">Conventional SC</th><th class="text-left py-2">AI-Enabled SC</th></tr></thead>
+              <tbody>
+                <tr class="border-b border-white/5"><td class="py-2">Forecast accuracy (SKU-location)</td><td>55–65%</td><td>78–88%</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Safety stock requirement</td><td>100% baseline</td><td>60–75% of baseline</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Disruption response time</td><td>48–96 hours</td><td>4–12 hours</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Logistics cost (% of revenue)</td><td>8–12%</td><td>6–9%</td></tr>
+                <tr><td class="py-2">Planner time on exceptions</td><td>60–70%</td><td>20–30%</td></tr>
+              </tbody>
+            </table>
+            <div class="highlight-box"><p class="label text-xs uppercase tracking-wider text-brand-sky/70 font-semibold mb-1">THE COMPOUNDING EFFECT</p><p class="text-sm">AI-enabled supply chains improve faster than conventional ones because they learn from every decision. The forecast that was 78% accurate in month one is 83% accurate in month six — not because the algorithm changed, but because it has processed more outcome data.</p></div>
+            <h4>WHAT TO DO</h4>
+            <p><strong>Phase 1: Data Foundation (Months 1–6)</strong> — Unified data architecture. Map all data sources. Define master data standards. Build the integration layer. Establish data quality measurement.</p>
+            <p><strong>Phase 2: Intelligence Layer (Months 6–18)</strong> — Deploy demand sensing, supply risk scoring, and logistics disruption prediction. Each demonstrates payback within 6–9 months.</p>
+            <p><strong>Phase 3: Autonomous Execution (Months 18–36)</strong> — Define the decision boundary. Deploy agentic systems. Expand the boundary as confidence develops.</p>
+            <div class="highlight-box"><p class="label text-xs uppercase tracking-wider text-brand-sky/70 font-semibold mb-1">CRITICAL SUCCESS FACTOR</p><p class="text-sm">The scarcest resource in AI supply chain transformation is not technology — it is people who understand both the operational domain and the AI capability well enough to design effective human-AI decision governance.</p></div>
+            <div class="gold-highlight-box"><p class="label text-xs uppercase tracking-wider text-brand-gold/70 font-semibold mb-1">STRATEGIC TAKEAWAY</p><p class="text-sm">AI supply chain transformation is not a technology project. It is an operating model redesign that happens to involve technology.</p></div>
+            <div class="mt-6 pt-5 border-t border-white/5 flex flex-wrap gap-2"><span class="text-[10px] text-white/25">Related:</span><a href="supply-chain.html" class="text-[10px] text-brand-sky/50 hover:text-brand-sky transition-colors">Supply Chain Intelligence</a><a href="digital.html" class="text-[10px] text-brand-sky/50 hover:text-brand-sky transition-colors">AI Operations</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTICLE 02 -->
+      <div class="article-card bg-white/[0.02] border border-white/[0.06] rounded-xl overflow-hidden" data-cat="trade" data-slug="cbam-2026" id="article-2">
+        <div class="relative h-40 overflow-hidden">
+          <img src="https://picsum.photos/id/120/400/200" alt="CBAM Trade" class="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity">
+          <div class="absolute top-3 left-3"><span class="px-2 py-0.5 text-[10px] text-brand-gold/80 border border-brand-gold/20 rounded-full bg-black/40 backdrop-blur-sm uppercase tracking-wider">Trade Policy</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-medium mb-2 leading-tight">CBAM 2026: The New Cost Architecture of Global Trade</h3>
+          <p class="text-xs text-white/40 mb-3 line-clamp-2">CBAM has moved from a policy discussion to a financial line item. For GCC and Indian exporters shipping energy‑intensive goods to the EU, carbon is now a cost that appears in the P&L whether or not you have a strategy for it.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-white/25">1 Apr 2025 · 10 min read</span>
+            <button onclick="toggleArticle(2)" class="text-xs text-brand-sky/70 hover:text-brand-sky flex items-center gap-1 transition-colors">Read more <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></button>
+          </div>
+          <div class="flex items-center gap-2 mt-3 pt-3 border-t border-white/5">
+            <button onclick="event.stopPropagation();shareOnLinkedIn('cbam-2026','CBAM 2026')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:linkedin"></span></button>
+            <button onclick="event.stopPropagation();shareOnTwitter('cbam-2026','CBAM 2026')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="ri:twitter-x-fill"></span></button>
+            <button onclick="event.stopPropagation();shareOnWhatsApp('cbam-2026','CBAM 2026')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:whatsapp"></span></button>
+          </div>
+        </div>
+        <div class="article-body" id="body-2">
+          <div class="article-content">
+            <p>CBAM has moved from a policy discussion to a financial line item. For GCC and Indian exporters shipping energy-intensive goods to the EU, carbon is now a cost that appears in the P&L whether or not you have a strategy for it.</p>
+            <h4>CONTEXT</h4>
+            <p>The EU Carbon Border Adjustment Mechanism reached full financial enforcement in 2026. Importers of steel, aluminium, cement, fertilisers, and hydrogen derivatives into the EU must now purchase CBAM certificates to cover embedded carbon. The certificate price tracks EU ETS, which has traded in the €55–85/tonne range.</p>
+            <div class="gold-highlight-box"><p class="label text-xs uppercase tracking-wider text-brand-gold/70 font-semibold mb-1">HOW LARGE IS THE GAP?</p><p class="text-sm">In our direct experience assessing GCC steel and aluminium exporters, the gap between internally estimated CBAM liability and actual liability — once multi-tier carbon accounting is applied correctly — has consistently been 50–110%. The difference is not rounding error. It is the difference between a manageable cost and a strategic problem.</p></div>
+            <h4>COST BY SECTOR</h4>
+            <table class="w-full text-xs border-collapse">
+              <thead><tr class="border-b border-white/10"><th class="text-left py-2">Sector</th><th class="text-left py-2">CBAM Cost at €70/t</th><th class="text-left py-2">2028 Projection at €95/t</th></tr></thead>
+              <tbody>
+                <tr class="border-b border-white/5"><td class="py-2">Steel (integrated, coal-based)</td><td>12–18%</td><td>16–24%</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Aluminium (grid-powered)</td><td>9–14%</td><td>12–19%</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Cement</td><td>10–16%</td><td>14–21%</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Fertilisers</td><td>5–9%</td><td>7–12%</td></tr>
+                <tr><td class="py-2">Green hydrogen</td><td>Near zero</td><td>Near zero</td></tr>
+              </tbody>
+            </table>
+            <h4>WHAT TO DO</h4>
+            <p><strong>Track 1:</strong> Quantify actual liability with product-level carbon audit covering Scope 1, 2, and 3.</p>
+            <p><strong>Track 2:</strong> Reduce liability — renewable energy sourcing (fastest payback), supplier carbon qualification, capital investment in lower-carbon production.</p>
+            <p><strong>Track 3:</strong> Build compliance infrastructure — CBAM owner, ERP integration, accredited verifier relationships.</p>
+            <div class="gold-highlight-box"><p class="label text-xs uppercase tracking-wider text-brand-gold/70 font-semibold mb-1">REFRAME THE INVESTMENT</p><p class="text-sm">A solar project that looked marginal at a standard discount rate may show a 3–4 year payback when €1.2M in annual CBAM savings is included in the model.</p></div>
+            <div class="gold-highlight-box"><p class="label text-xs uppercase tracking-wider text-brand-gold/70 font-semibold mb-1">STRATEGIC TAKEAWAY</p><p class="text-sm">CBAM is not a compliance exercise. It is a structural change in the cost architecture of GCC-to-EU trade. Companies that treat it as a reporting obligation will absorb the cost. Companies that treat it as a strategic problem will convert the reduction into a commercial advantage.</p></div>
+            <div class="mt-6 pt-5 border-t border-white/5 flex flex-wrap gap-2"><span class="text-[10px] text-white/25">Related:</span><a href="logistics.html" class="text-[10px] text-brand-sky/50 hover:text-brand-sky transition-colors">Commodity & Trade Advisory</a><a href="procurement.html" class="text-[10px] text-brand-sky/50 hover:text-brand-sky transition-colors">Procurement & Strategic Sourcing</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTICLE 03 -->
+      <div class="article-card bg-white/[0.02] border border-white/[0.06] rounded-xl overflow-hidden" data-cat="sustainability" data-slug="climate-compliance" id="article-3">
+        <div class="relative h-40 overflow-hidden">
+          <img src="https://picsum.photos/id/116/400/200" alt="Climate Compliance" class="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity">
+          <div class="absolute top-3 left-3"><span class="px-2 py-0.5 text-[10px] text-emerald-400/80 border border-emerald-400/20 rounded-full bg-black/40 backdrop-blur-sm uppercase tracking-wider">Sustainability</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-medium mb-2 leading-tight">Climate Regulations and Compliance-Driven Supply Chains</h3>
+          <p class="text-xs text-white/40 mb-3 line-clamp-2">Climate regulation has left the sustainability department and arrived on the operations director's desk. CBAM, CSDDD, CSRD, and SEC Climate Disclosure now embed carbon consequences into routine commercial decisions.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-white/25">25 Jan 2025 · 8 min read</span>
+            <button onclick="toggleArticle(3)" class="text-xs text-brand-sky/70 hover:text-brand-sky flex items-center gap-1 transition-colors">Read more <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></button>
+          </div>
+          <div class="flex items-center gap-2 mt-3 pt-3 border-t border-white/5">
+            <button onclick="event.stopPropagation();shareOnLinkedIn('climate-compliance','Climate Regulations')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:linkedin"></span></button>
+            <button onclick="event.stopPropagation();shareOnTwitter('climate-compliance','Climate Regulations')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="ri:twitter-x-fill"></span></button>
+            <button onclick="event.stopPropagation();shareOnWhatsApp('climate-compliance','Climate Regulations')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:whatsapp"></span></button>
+          </div>
+        </div>
+        <div class="article-body" id="body-3">
+          <div class="article-content">
+            <p>Climate regulation has left the sustainability department and arrived on the operations director's desk. CBAM, CSDDD, CSRD, and SEC Climate Disclosure now embed carbon consequences into routine commercial decisions.</p>
+            <h4>THE SHIFT</h4>
+            <p>A sourcing decision between two aluminium suppliers — one 8% cheaper, one with lower carbon intensity — reverses under CBAM when certificate cost and the European customer's Scope 3 pressure are factored in.</p>
+            <div class="highlight-box"><p class="label text-xs uppercase tracking-wider text-brand-sky/70 font-semibold mb-1">THE CALCULATION MISSING FROM MOST CATEGORY REVIEWS</p><p class="text-sm">For CBAM-exposed categories, the carbon cost differential between high and low carbon supplier options can be 6–15% of product value — enough to change a sourcing decision.</p></div>
+            <h4>WHAT TO DO</h4>
+            <p><strong>Step 1:</strong> Carbon visibility — map your supply chain's carbon intensity by top 15 categories and top 20 suppliers (8–10 week exercise covering 80% of exposure).</p>
+            <p><strong>Step 2:</strong> Integrate carbon into procurement criteria as a scored factor alongside price, quality, and lead time.</p>
+            <p><strong>Step 3:</strong> Build supplier carbon capability with joint baseline programmes for strategic Tier 1 suppliers.</p>
+            <div class="highlight-box"><p class="label text-xs uppercase tracking-wider text-brand-sky/70 font-semibold mb-1">PRACTICAL TIMELINE</p><p class="text-sm">A company starting from zero carbon visibility can reach CBAM-ready reporting capability in 6–9 months with focused effort.</p></div>
+            <div class="gold-highlight-box"><p class="label text-xs uppercase tracking-wider text-brand-gold/70 font-semibold mb-1">STRATEGIC TAKEAWAY</p><p class="text-sm">Climate compliance is now structural to supply chain design. Companies building carbon intelligence into procurement today are building a capability that will compound in value as regulations tighten.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTICLE 04 -->
+      <div class="article-card bg-white/[0.02] border border-white/[0.06] rounded-xl overflow-hidden" data-cat="digital" data-slug="control-tower-2" id="article-4">
+        <div class="relative h-40 overflow-hidden">
+          <img src="https://picsum.photos/id/180/400/200" alt="Control Tower" class="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity">
+          <div class="absolute top-3 left-3"><span class="px-2 py-0.5 text-[10px] text-brand-sky/80 border border-brand-sky/20 rounded-full bg-black/40 backdrop-blur-sm uppercase tracking-wider">Digital Supply Chain</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-medium mb-2 leading-tight">Control Tower 2.0: From Visibility Dashboard to Decision Intelligence</h3>
+          <p class="text-xs text-white/40 mb-3 line-clamp-2">The first generation of supply chain control towers solved the visibility problem. You could see what was happening. The problem they did not solve was what to do about it — and how fast.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-white/25">1 Mar 2025 · 9 min read</span>
+            <button onclick="toggleArticle(4)" class="text-xs text-brand-sky/70 hover:text-brand-sky flex items-center gap-1 transition-colors">Read more <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></button>
+          </div>
+          <div class="flex items-center gap-2 mt-3 pt-3 border-t border-white/5">
+            <button onclick="event.stopPropagation();shareOnLinkedIn('control-tower-2','Control Tower 2.0')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:linkedin"></span></button>
+            <button onclick="event.stopPropagation();shareOnTwitter('control-tower-2','Control Tower 2.0')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="ri:twitter-x-fill"></span></button>
+            <button onclick="event.stopPropagation();shareOnWhatsApp('control-tower-2','Control Tower 2.0')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:whatsapp"></span></button>
+          </div>
+        </div>
+        <div class="article-body" id="body-4">
+          <div class="article-content">
+            <p>The first generation of supply chain control towers solved the visibility problem. You could see what was happening. The problem they did not solve was what to do about it — and how fast.</p>
+            <h4>THREE STAGES OF EVOLUTION</h4>
+            <p><strong>Stage 1 — Descriptive:</strong> Shows what is happening. Alerts on threshold breaches. Human reviews and decides. Most organisations are here.</p>
+            <p><strong>Stage 2 — Prescriptive:</strong> Generates ranked response options when exceptions are detected. Planner reviews and approves. Decision time drops from hours to minutes.</p>
+            <p><strong>Stage 3 — Autonomous:</strong> For defined exception categories, the system executes directly. Human monitors outcomes. Reserved for complex decisions.</p>
+            <table class="w-full text-xs border-collapse">
+              <thead><tr class="border-b border-white/10"><th class="text-left py-2">Metric</th><th class="text-left py-2">Stage 1</th><th class="text-left py-2">Stage 2</th><th class="text-left py-2">Stage 3</th></tr></thead>
+              <tbody>
+                <tr class="border-b border-white/5"><td class="py-2">Exception ID to resolution</td><td>48–72 hrs</td><td>8–18 hrs</td><td>2–6 hrs</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Planner exception time</td><td>60–70%</td><td>35–45%</td><td>15–25%</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Expediting cost</td><td>Baseline</td><td>–25 to –35%</td><td>–38 to –50%</td></tr>
+                <tr><td class="py-2">Stock-out rate</td><td>Baseline</td><td>–30 to –40%</td><td>–50 to –65%</td></tr>
+              </tbody>
+            </table>
+            <div class="gold-highlight-box"><p class="label text-xs uppercase tracking-wider text-brand-gold/70 font-semibold mb-1">STRATEGIC TAKEAWAY</p><p class="text-sm">The technology to build a decision intelligence control tower is available at mid-market scale. The constraint is not capability — it is the organisational readiness to define governance, trust AI recommendations, and measure performance with honesty.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTICLE 05 -->
+      <div class="article-card bg-white/[0.02] border border-white/[0.06] rounded-xl overflow-hidden" data-cat="strategy" data-slug="future-operating-model" id="article-5">
+        <div class="relative h-40 overflow-hidden">
+          <img src="https://picsum.photos/id/1041/400/200" alt="Future Strategy" class="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity">
+          <div class="absolute top-3 left-3"><span class="px-2 py-0.5 text-[10px] text-brand-sky/80 border border-brand-sky/20 rounded-full bg-black/40 backdrop-blur-sm uppercase tracking-wider">Future Strategy</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-medium mb-2 leading-tight">Future Supply Chain Operating Model: Intelligence, Resilience, Autonomy</h3>
+          <p class="text-xs text-white/40 mb-3 line-clamp-2">Most supply chain operating models were designed for a world that no longer exists. Understanding what the replacement should look like — and building it before competitive pressure forces the issue — is the most consequential strategic question today.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-white/25">5 Apr 2025 · 10 min read</span>
+            <button onclick="toggleArticle(5)" class="text-xs text-brand-sky/70 hover:text-brand-sky flex items-center gap-1 transition-colors">Read more <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></button>
+          </div>
+          <div class="flex items-center gap-2 mt-3 pt-3 border-t border-white/5">
+            <button onclick="event.stopPropagation();shareOnLinkedIn('future-operating-model','Future Operating Model')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:linkedin"></span></button>
+            <button onclick="event.stopPropagation();shareOnTwitter('future-operating-model','Future Operating Model')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="ri:twitter-x-fill"></span></button>
+            <button onclick="event.stopPropagation();shareOnWhatsApp('future-operating-model','Future Operating Model')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:whatsapp"></span></button>
+          </div>
+        </div>
+        <div class="article-body" id="body-5">
+          <div class="article-content">
+            <p>Most supply chain operating models were designed for a world that no longer exists. Understanding what the replacement should look like — and building it before competitive pressure forces the issue — is the most consequential strategic question in supply chain leadership today.</p>
+            <h4>THREE PILLARS</h4>
+            <p><strong>Pillar 1 — Intelligence:</strong> Real-time, multi-tier, cross-functional data foundation integrating demand signals, supplier health, carbon intensity, logistics status, and financial impact.</p>
+            <p><strong>Pillar 2 — Resilience:</strong> Strategic buffers at defined points, qualified alternative suppliers, pre-designed routing contingencies, regular disruption exercises.</p>
+            <p><strong>Pillar 3 — Autonomy:</strong> AI decision-making for categories where human involvement adds no value — freeing human capability for genuinely complex decisions.</p>
+            <div class="highlight-box"><p class="label text-xs uppercase tracking-wider text-brand-sky/70 font-semibold mb-1">THE COMPOUNDING ADVANTAGE</p><p class="text-sm">Intelligence, resilience, and autonomy compound. A resilient supply chain with AI intelligence responds faster than one without. An autonomous layer that is also intelligent optimises in real time. The three together produce more than the sum of their parts.</p></div>
+            <table class="w-full text-xs border-collapse">
+              <thead><tr class="border-b border-white/10"><th class="text-left py-2">Horizon</th><th class="text-left py-2">Timeline</th><th class="text-left py-2">Focus</th></tr></thead>
+              <tbody>
+                <tr class="border-b border-white/5"><td class="py-2">Now</td><td>0–12 months</td><td>Data foundation</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Near</td><td>12–24 months</td><td>Intelligence layer</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Medium</td><td>24–36 months</td><td>Autonomy layer</td></tr>
+                <tr><td class="py-2">Strategic</td><td>36+ months</td><td>Network intelligence</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTICLE 06 -->
+      <div class="article-card bg-white/[0.02] border border-white/[0.06] rounded-xl overflow-hidden" data-cat="geopolitics" data-slug="geopolitical-fragmentation" id="article-6">
+        <div class="relative h-40 overflow-hidden">
+          <img src="https://picsum.photos/id/124/400/200" alt="Geopolitics" class="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity">
+          <div class="absolute top-3 left-3"><span class="px-2 py-0.5 text-[10px] text-red-400/80 border border-red-400/20 rounded-full bg-black/40 backdrop-blur-sm uppercase tracking-wider">Geopolitics</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-medium mb-2 leading-tight">Geopolitical Fragmentation of Global Supply Chains</h3>
+          <p class="text-xs text-white/40 mb-3 line-clamp-2">The supply chain model built on stable globalisation — efficient, concentrated, single-sourced — is under simultaneous structural attack from multiple directions. This is not a temporary disruption cycle.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-white/25">20 Feb 2025 · 9 min read</span>
+            <button onclick="toggleArticle(6)" class="text-xs text-brand-sky/70 hover:text-brand-sky flex items-center gap-1 transition-colors">Read more <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></button>
+          </div>
+          <div class="flex items-center gap-2 mt-3 pt-3 border-t border-white/5">
+            <button onclick="event.stopPropagation();shareOnLinkedIn('geopolitical-fragmentation','Geopolitical Fragmentation')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:linkedin"></span></button>
+            <button onclick="event.stopPropagation();shareOnTwitter('geopolitical-fragmentation','Geopolitical Fragmentation')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="ri:twitter-x-fill"></span></button>
+            <button onclick="event.stopPropagation();shareOnWhatsApp('geopolitical-fragmentation','Geopolitical Fragmentation')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:whatsapp"></span></button>
+          </div>
+        </div>
+        <div class="article-body" id="body-6">
+          <div class="article-content">
+            <p>The supply chain model built on stable globalisation — efficient, concentrated, single-sourced — is under simultaneous structural attack from multiple directions. This is not a temporary disruption cycle. It is a permanent shift in the operating environment.</p>
+            <h4>MARITIME CHOKEPOINT VULNERABILITY</h4>
+            <ul>
+              <li><strong>Red Sea / Suez:</strong> 12–15% of global trade; currently disrupted by Houthi attacks</li>
+              <li><strong>Strait of Hormuz:</strong> ~20% of global oil trade; exposed to Iran-US tensions</li>
+              <li><strong>Taiwan Strait:</strong> ~50% of global container traffic and ~88% of advanced semiconductors</li>
+              <li><strong>Malacca Strait:</strong> ~30% of global trade</li>
+            </ul>
+            <h4>COST OF INACTION vs ACTION</h4>
+            <table class="w-full text-xs border-collapse">
+              <thead><tr class="border-b border-white/10"><th class="text-left py-2">Risk Exposure</th><th class="text-left py-2">Cost of Managing</th><th class="text-left py-2">Cost of Not Managing</th></tr></thead>
+              <tbody>
+                <tr class="border-b border-white/5"><td class="py-2">Single-region sourcing</td><td>5–12% higher unit cost</td><td>Full supply disruption: 2–5x margin</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Red Sea routing</td><td>10–18% higher logistics cost</td><td>Emergency logistics + stock-out + penalties</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">CBAM for high-carbon SC</td><td>Carbon reduction programme</td><td>6–18% of EU export value annually</td></tr>
+                <tr><td class="py-2">US-China tariff exposure</td><td>Supply chain restructuring</td><td>25–145% tariff on affected value</td></tr>
+              </tbody>
+            </table>
+            <div class="highlight-box"><p class="label text-xs uppercase tracking-wider text-brand-sky/70 font-semibold mb-1">GCC–INDIA CORRIDOR OPPORTUNITY</p><p class="text-sm">India's PLI incentive schemes, improving port infrastructure, and large skilled workforce, combined with GCC capital and market access, create complementary supply chain partnerships that serve both regional markets and EU export flows.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTICLE 07 -->
+      <div class="article-card bg-white/[0.02] border border-white/[0.06] rounded-xl overflow-hidden" data-cat="operations" data-slug="adaptive-operations" id="article-7">
+        <div class="relative h-40 overflow-hidden">
+          <img src="https://picsum.photos/id/128/400/200" alt="Adaptive Operations" class="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity">
+          <div class="absolute top-3 left-3"><span class="px-2 py-0.5 text-[10px] text-brand-sky/80 border border-brand-sky/20 rounded-full bg-black/40 backdrop-blur-sm uppercase tracking-wider">Operations</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-medium mb-2 leading-tight">Lean is No Longer Enough: The Case for Adaptive Operations</h3>
+          <p class="text-xs text-white/40 mb-3 line-clamp-2">Lean manufacturing is one of the most rigorously tested operational philosophies. The problem is applying a philosophy designed for stable conditions to an operating environment that is structurally volatile.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-white/25">15 Feb 2025 · 8 min read</span>
+            <button onclick="toggleArticle(7)" class="text-xs text-brand-sky/70 hover:text-brand-sky flex items-center gap-1 transition-colors">Read more <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></button>
+          </div>
+          <div class="flex items-center gap-2 mt-3 pt-3 border-t border-white/5">
+            <button onclick="event.stopPropagation();shareOnLinkedIn('adaptive-operations','Lean is No Longer Enough')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:linkedin"></span></button>
+            <button onclick="event.stopPropagation();shareOnTwitter('adaptive-operations','Lean is No Longer Enough')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="ri:twitter-x-fill"></span></button>
+            <button onclick="event.stopPropagation();shareOnWhatsApp('adaptive-operations','Lean is No Longer Enough')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:whatsapp"></span></button>
+          </div>
+        </div>
+        <div class="article-body" id="body-7">
+          <div class="article-content">
+            <p>Lean manufacturing is one of the most rigorously tested operational philosophies in industrial history. Its principles are sound. The problem is not with lean. The problem is applying a philosophy designed for stable conditions to an operating environment that is structurally volatile.</p>
+            <h4>THE CORE TENSION</h4>
+            <p>Lean's core tool — waste elimination — treats inventory as waste. Buffer stock is a lean violation. In a volatile environment, buffer stock is a risk management instrument. The tension is not resolvable by choosing one over the other — it requires a more sophisticated model.</p>
+            <h4>ADAPTIVE OPERATIONS</h4>
+            <ul>
+              <li><strong>Modular production architecture:</strong> Production cells reconfigurable for different outputs. 8–15% capital premium, but 40–60% faster demand response.</li>
+              <li><strong>Risk-adjusted inventory policy:</strong> Dynamic model holding more buffer in high-risk, high-revenue categories and less in stable ones.</li>
+              <li><strong>Supplier portfolio management:</strong> Primary suppliers for cost, secondary for resilience, spot market for flexibility.</li>
+            </ul>
+            <div class="highlight-box"><p class="label text-xs uppercase tracking-wider text-brand-sky/70 font-semibold mb-1">PRACTICAL PATH</p><p class="text-sm">Map volatility across your production and supply categories. High volatility + high disruption cost = adaptive design priority. Low volatility + low cost = maintain lean discipline. You don't have to choose between lean and adaptive — apply each where it fits.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTICLE 08 -->
+      <div class="article-card bg-white/[0.02] border border-white/[0.06] rounded-xl overflow-hidden" data-cat="manufacturing" data-slug="manufacturing-shift" id="article-8">
+        <div class="relative h-40 overflow-hidden">
+          <img src="https://picsum.photos/id/60/400/200" alt="Manufacturing Shift" class="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity">
+          <div class="absolute top-3 left-3"><span class="px-2 py-0.5 text-[10px] text-brand-sky/80 border border-brand-sky/20 rounded-full bg-black/40 backdrop-blur-sm uppercase tracking-wider">Manufacturing</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-medium mb-2 leading-tight">Manufacturing Shift: From China+1 to Multi-Regional Networks</h3>
+          <p class="text-xs text-white/40 mb-3 line-clamp-2">The China+1 narrative has evolved. What started as a risk mitigation exercise — establishing a secondary production base — has become a multi-regional manufacturing reality.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-white/25">10 Feb 2025 · 9 min read</span>
+            <button onclick="toggleArticle(8)" class="text-xs text-brand-sky/70 hover:text-brand-sky flex items-center gap-1 transition-colors">Read more <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></button>
+          </div>
+          <div class="flex items-center gap-2 mt-3 pt-3 border-t border-white/5">
+            <button onclick="event.stopPropagation();shareOnLinkedIn('manufacturing-shift','Manufacturing Shift')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:linkedin"></span></button>
+            <button onclick="event.stopPropagation();shareOnTwitter('manufacturing-shift','Manufacturing Shift')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="ri:twitter-x-fill"></span></button>
+            <button onclick="event.stopPropagation();shareOnWhatsApp('manufacturing-shift','Manufacturing Shift')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:whatsapp"></span></button>
+          </div>
+        </div>
+        <div class="article-body" id="body-8">
+          <div class="article-content">
+            <p>The China+1 narrative has evolved. What started as a risk mitigation exercise — establishing a secondary production base — has become a multi-regional manufacturing reality. India, Vietnam, Indonesia, Mexico, and GCC are all active participants in a structural reshaping of global production networks.</p>
+            <h4>THE REAL COMPLEXITY</h4>
+            <p>Multi-regional manufacturing is not just about finding a cheaper location. It requires building entirely new supplier ecosystems, qualifying workforces with different skill profiles, navigating different regulatory environments, and managing a supply chain that is inherently more complex than a single-country model.</p>
+            <p>The companies succeeding in this transition are those who planned it deliberately — building supplier relationships in target geographies 12–24 months before they needed them, rather than scrambling under disruption pressure.</p>
+            <div class="highlight-box"><p class="label text-xs uppercase tracking-wider text-brand-sky/70 font-semibold mb-1">KEY INSIGHT</p><p class="text-sm">The transition cost of moving supply under disruption pressure is 3–5x higher than a planned transition made on your own timeline. The cheapest time to build supplier relationships is before the disruption that makes them necessary.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTICLE 09 -->
+      <div class="article-card bg-white/[0.02] border border-white/[0.06] rounded-xl overflow-hidden" data-cat="procurement" data-slug="procurement-transformation" id="article-9">
+        <div class="relative h-40 overflow-hidden">
+          <img src="https://picsum.photos/id/26/400/200" alt="Procurement Transformation" class="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity">
+          <div class="absolute top-3 left-3"><span class="px-2 py-0.5 text-[10px] text-brand-sky/80 border border-brand-sky/20 rounded-full bg-black/40 backdrop-blur-sm uppercase tracking-wider">Procurement</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-medium mb-2 leading-tight">Procurement Transformation: From Cost Centre to Value Engine</h3>
+          <p class="text-xs text-white/40 mb-3 line-clamp-2">Most procurement functions handle 40–70% of organisational spend but operate as tactical buying units — processing purchase orders rather than driving strategic value.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-white/25">5 Feb 2025 · 9 min read</span>
+            <button onclick="toggleArticle(9)" class="text-xs text-brand-sky/70 hover:text-brand-sky flex items-center gap-1 transition-colors">Read more <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></button>
+          </div>
+          <div class="flex items-center gap-2 mt-3 pt-3 border-t border-white/5">
+            <button onclick="event.stopPropagation();shareOnLinkedIn('procurement-transformation','Procurement Transformation')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:linkedin"></span></button>
+            <button onclick="event.stopPropagation();shareOnTwitter('procurement-transformation','Procurement Transformation')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="ri:twitter-x-fill"></span></button>
+            <button onclick="event.stopPropagation();shareOnWhatsApp('procurement-transformation','Procurement Transformation')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:whatsapp"></span></button>
+          </div>
+        </div>
+        <div class="article-body" id="body-9">
+          <div class="article-content">
+            <p>Most procurement functions handle 40–70% of organisational spend but operate as tactical buying units — processing purchase orders rather than driving strategic value. The transformation from cost centre to value engine requires three things: spend visibility, category intelligence, and AI-driven automation of routine decisions.</p>
+            <h4>THE TRANSFORMATION STACK</h4>
+            <ul>
+              <li><strong>Spend analytics:</strong> From fragmented data to cleansed, classified, actionable spend visibility across all categories.</li>
+              <li><strong>Category strategy:</strong> Data-driven sourcing policies with clear value levers per category.</li>
+              <li><strong>Supplier intelligence:</strong> Financial health, carbon intensity, performance benchmarking, and risk scoring.</li>
+              <li><strong>Autonomous PO processing:</strong> AI agents handle requisition-to-PO for catalog and contract items — freeing procurement for strategy.</li>
+            </ul>
+            <div class="highlight-box"><p class="label text-xs uppercase tracking-wider text-brand-sky/70 font-semibold mb-1">THE VALUE SHIFT</p><p class="text-sm">When procurement teams spend 60–70% of their time on PO processing, the strategic value they can create is structurally limited. AI-driven automation of routine purchasing doesn't reduce procurement headcount — it redirects it toward activities that create 5–10x more value: supplier development, category innovation, and risk management.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTICLE 10 -->
+      <div class="article-card bg-white/[0.02] border border-white/[0.06] rounded-xl overflow-hidden" data-cat="risk" data-slug="sc-risk-financial-risk" id="article-10">
+        <div class="relative h-40 overflow-hidden">
+          <img src="https://picsum.photos/id/100/400/200" alt="Supply Chain Risk" class="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity">
+          <div class="absolute top-3 left-3"><span class="px-2 py-0.5 text-[10px] text-red-400/80 border border-red-400/20 rounded-full bg-black/40 backdrop-blur-sm uppercase tracking-wider">Risk</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-medium mb-2 leading-tight">Supply Chain Risk is Now Financial Risk</h3>
+          <p class="text-xs text-white/40 mb-3 line-clamp-2">Supply chain risk has traditionally been managed as an operational concern. That framing is now dangerously outdated. In a world of CBAM carbon costs, Red Sea freight premiums, and tariff exposure, supply chain risk is financial risk.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-white/25">28 Jan 2025 · 9 min read</span>
+            <button onclick="toggleArticle(10)" class="text-xs text-brand-sky/70 hover:text-brand-sky flex items-center gap-1 transition-colors">Read more <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></button>
+          </div>
+          <div class="flex items-center gap-2 mt-3 pt-3 border-t border-white/5">
+            <button onclick="event.stopPropagation();shareOnLinkedIn('sc-risk-financial-risk','Supply Chain Risk')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:linkedin"></span></button>
+            <button onclick="event.stopPropagation();shareOnTwitter('sc-risk-financial-risk','Supply Chain Risk')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="ri:twitter-x-fill"></span></button>
+            <button onclick="event.stopPropagation();shareOnWhatsApp('sc-risk-financial-risk','Supply Chain Risk')" class="share-btn w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center"><span class="iconify text-white/25 text-sm" data-icon="mdi:whatsapp"></span></button>
+          </div>
+        </div>
+        <div class="article-body" id="body-10">
+          <div class="article-content">
+            <p>Supply chain risk has traditionally been managed as an operational concern — a supply disruption is an operations problem. That framing is now dangerously outdated. In a world of CBAM carbon costs, Red Sea freight premiums, US-China tariff exposure, and CSDDD compliance penalties, supply chain risk is financial risk that belongs on the CFO's agenda.</p>
+            <h4>THE TRANSLATION GAP</h4>
+            <p>Supply chain teams assess risk in operational terms: probability of disruption, potential lead time impact, number of affected SKUs. Finance assesses risk in monetary terms: revenue at risk, working capital impact, margin compression, penalty exposure. The gap between these two languages means supply chain risk is systematically under-prioritised in capital allocation decisions.</p>
+            <div class="highlight-box"><p class="label text-xs uppercase tracking-wider text-brand-sky/70 font-semibold mb-1">THE BRIDGE</p><p class="text-sm">Every supply chain risk assessment should produce a financial exposure statement: "This scenario puts $X million of revenue at risk, requires $Y million of additional working capital, and compresses margin by Z percentage points over N months." That language gets CFO attention. Operational language does not.</p></div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- end articlesGrid -->
+  </div>
+</section>
+
+<!-- ========== PART II: CASE STUDIES ========== -->
+<section class="relative py-16 lg:py-20 border-t border-white/5" id="case-studies">
+  <div class="absolute inset-0 section-radial"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+    <div class="mb-10 reveal">
+      <div class="flex items-center gap-2 mb-3"><span class="text-xs text-white/30 uppercase tracking-widest font-medium">Part II</span><span class="w-8 h-px bg-white/10"></span></div>
+      <h2 class="text-2xl md:text-3xl font-serif tracking-tight">Case Studies</h2>
+      <p class="text-white/40 font-light mt-2">Five cross-industry engagements — anonymised — demonstrating measurable impact.</p>
+    </div>
+
+    <!-- Case Studies Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal" id="caseStudiesGrid">
+      
+      <!-- CS01 -->
+      <div class="cs-card bg-brand-gold/[0.02] border border-brand-gold/10 rounded-xl overflow-hidden" id="cs-1">
+        <div class="relative h-40 overflow-hidden">
+          <img src="https://picsum.photos/id/1047/400/200" alt="Steel CBAM" class="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity">
+          <div class="absolute top-3 left-3"><span class="px-2 py-0.5 text-[10px] text-brand-gold/80 border border-brand-gold/20 rounded-full bg-black/40 backdrop-blur-sm uppercase tracking-wider">Carbon & Trade Compliance</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-medium mb-2 leading-tight">Navigating CBAM: Carbon Cost Restructuring for a GCC Steel Exporter</h3>
+          <p class="text-xs text-white/40 mb-3 line-clamp-2">Product‑level carbon audit revealed 85% gap between estimated and actual CBAM liability. Structured reduction programme targeting €4.2M annual savings by 2028.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-white/25">CS01</span>
+            <button onclick="toggleCS(1)" class="text-xs text-brand-gold/70 hover:text-brand-gold flex items-center gap-1 transition-colors">Read more <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></button>
+          </div>
+          <div class="flex items-center gap-2 mt-3 pt-3 border-t border-brand-gold/10">
+            <button onclick="event.stopPropagation();shareOnLinkedIn('cs-cbam-gcc-steel','CBAM Case Study: GCC Steel Exporter')" class="share-btn w-7 h-7 rounded-md hover:bg-brand-gold/5 flex items-center justify-center"><span class="iconify text-brand-gold/30 text-sm" data-icon="mdi:linkedin"></span></button>
+            <button onclick="event.stopPropagation();shareOnTwitter('cs-cbam-gcc-steel','CBAM Case Study')" class="share-btn w-7 h-7 rounded-md hover:bg-brand-gold/5 flex items-center justify-center"><span class="iconify text-brand-gold/30 text-sm" data-icon="ri:twitter-x-fill"></span></button>
+            <button onclick="event.stopPropagation();shareOnWhatsApp('cs-cbam-gcc-steel','CBAM Case Study')" class="share-btn w-7 h-7 rounded-md hover:bg-brand-gold/5 flex items-center justify-center"><span class="iconify text-brand-gold/30 text-sm" data-icon="mdi:whatsapp"></span></button>
+          </div>
+        </div>
+        <div class="cs-body" id="cs-body-1">
+          <div class="article-content">
+            <h4>SITUATION</h4>
+            <p>A GCC-based integrated steel producer exporting flat products to the EU conducted an internal CBAM assessment using plant-average emissions factors. The assessment estimated annual CBAM liability at €1.8M — a manageable figure that did not trigger urgent action.</p>
+            <h4>INTERVENTION</h4>
+            <p>VN Advisory commissioned a product-level carbon audit covering Scope 1 (direct production), Scope 2 (purchased electricity — coal-grid intensive), and Scope 3 upstream (iron ore pellets, scrap, alloy inputs). The audit revealed the actual liability was €3.3M — an 85% gap driven by three errors: plant-average rather than product-level factors, exclusion of Scope 2 grid emissions, and missing upstream Scope 3 from raw materials.</p>
+            <h4>APPROACH</h4>
+            <ul><li>Phase 1: Full multi-tier carbon audit with accredited verification readiness</li><li>Phase 2: Renewable energy sourcing strategy — 40% Scope 2 reduction within 18 months via rooftop and PPA solar</li><li>Phase 3: Supplier carbon qualification programme for top 15 input material suppliers</li><li>Phase 4: ERP-integrated CBAM tracking and declaration automation</li></ul>
+            <h4>IMPACT</h4>
+            <table class="w-full text-xs border-collapse">
+              <thead><tr class="border-b border-white/10"><th class="text-left py-2">Metric</th><th class="text-left py-2">Before</th><th class="text-left py-2">After (Projected 2028)</th></tr></thead>
+              <tbody>
+                <tr class="border-b border-white/5"><td class="py-2">CBAM liability accuracy</td><td>54% of actual</td><td>95%+ product-level</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Annual CBAM cost</td><td>€3.3M (unmanaged)</td><td>€1.1M (managed)</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Scope 2 emissions</td><td>100% grid-coal</td><td>60% renewable</td></tr>
+                <tr><td class="py-2">EU buyer preference</td><td>No carbon data</td><td>Verified low-carbon preference</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- CS02 -->
+      <div class="cs-card bg-brand-gold/[0.02] border border-brand-gold/10 rounded-xl overflow-hidden" id="cs-2">
+        <div class="relative h-40 overflow-hidden">
+          <img src="https://picsum.photos/id/26/400/200" alt="Procurement Transformation" class="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity">
+          <div class="absolute top-3 left-3"><span class="px-2 py-0.5 text-[10px] text-brand-gold/80 border border-brand-gold/20 rounded-full bg-black/40 backdrop-blur-sm uppercase tracking-wider">Procurement Strategy</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-medium mb-2 leading-tight">Procurement Intelligence Transformation: From Fragmented Buying to Strategic Control</h3>
+          <p class="text-xs text-white/40 mb-3 line-clamp-2">Spend visibility increased from 35% to 97%. First-year savings of $6.8M identified across 12 categories. AI-driven PO automation deployed for 60% of routine purchases.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-white/25">CS02</span>
+            <button onclick="toggleCS(2)" class="text-xs text-brand-gold/70 hover:text-brand-gold flex items-center gap-1 transition-colors">Read more <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></button>
+          </div>
+          <div class="flex items-center gap-2 mt-3 pt-3 border-t border-brand-gold/10">
+            <button onclick="event.stopPropagation();shareOnLinkedIn('cs-procurement-transform','Procurement Transformation')" class="share-btn w-7 h-7 rounded-md hover:bg-brand-gold/5 flex items-center justify-center"><span class="iconify text-brand-gold/30 text-sm" data-icon="mdi:linkedin"></span></button>
+            <button onclick="event.stopPropagation();shareOnTwitter('cs-procurement-transform','Procurement Transformation')" class="share-btn w-7 h-7 rounded-md hover:bg-brand-gold/5 flex items-center justify-center"><span class="iconify text-brand-gold/30 text-sm" data-icon="ri:twitter-x-fill"></span></button>
+            <button onclick="event.stopPropagation();shareOnWhatsApp('cs-procurement-transform','Procurement Transformation')" class="share-btn w-7 h-7 rounded-md hover:bg-brand-gold/5 flex items-center justify-center"><span class="iconify text-brand-gold/30 text-sm" data-icon="mdi:whatsapp"></span></button>
+          </div>
+        </div>
+        <div class="cs-body" id="cs-body-2">
+          <div class="article-content">
+            <h4>SITUATION</h4>
+            <p>A mid-size manufacturing group with $180M annual procurement spend across 2,400 suppliers operated with fragmented buying — category managers making decisions based on relationship and urgency rather than data. Spend visibility was 35%. No category strategies existed. PO processing consumed 70% of procurement team capacity.</p>
+            <h4>APPROACH</h4>
+            <ul><li>Spend cleansing and AI-powered classification across 8 ERP instances</li><li>Category strategy development for top 12 categories (covering 78% of spend)</li><li>Supplier segmentation and risk scoring for top 200 suppliers</li><li>Tally-integrated AI procurement agent for catalog and contract items</li></ul>
+            <h4>IMPACT</h4>
+            <table class="w-full text-xs border-collapse">
+              <thead><tr class="border-b border-white/10"><th class="text-left py-2">Metric</th><th class="text-left py-2">Before</th><th class="text-left py-2">After</th></tr></thead>
+              <tbody>
+                <tr class="border-b border-white/5"><td class="py-2">Spend visibility</td><td>35%</td><td>97%</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">First-year savings identified</td><td>Not tracked</td><td>$6.8M (3.8%)</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">PO processing time</td><td>4.2 days avg</td><td>0.6 days (automated 60%)</td></tr>
+                <tr><td class="py-2">Procurement team strategic time</td><td>30%</td><td>65%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- CS03 -->
+      <div class="cs-card bg-brand-gold/[0.02] border border-brand-gold/10 rounded-xl overflow-hidden" id="cs-3">
+        <div class="relative h-40 overflow-hidden">
+          <img src="https://picsum.photos/id/180/400/200" alt="Control Tower" class="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity">
+          <div class="absolute top-3 left-3"><span class="px-2 py-0.5 text-[10px] text-brand-gold/80 border border-brand-gold/20 rounded-full bg-black/40 backdrop-blur-sm uppercase tracking-wider">Digital Supply Chain</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-medium mb-2 leading-tight">Control Tower Deployment: From Reactive Exception Management to Decision Intelligence</h3>
+          <p class="text-xs text-white/40 mb-3 line-clamp-2">Exception resolution time reduced from 64 hours to 6 hours. Expediting costs down 42%. Stock-out rate reduced by 58%.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-white/25">CS03</span>
+            <button onclick="toggleCS(3)" class="text-xs text-brand-gold/70 hover:text-brand-gold flex items-center gap-1 transition-colors">Read more <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></button>
+          </div>
+          <div class="flex items-center gap-2 mt-3 pt-3 border-t border-brand-gold/10">
+            <button onclick="event.stopPropagation();shareOnLinkedIn('cs-control-tower','Control Tower Case Study')" class="share-btn w-7 h-7 rounded-md hover:bg-brand-gold/5 flex items-center justify-center"><span class="iconify text-brand-gold/30 text-sm" data-icon="mdi:linkedin"></span></button>
+            <button onclick="event.stopPropagation();shareOnTwitter('cs-control-tower','Control Tower Case Study')" class="share-btn w-7 h-7 rounded-md hover:bg-brand-gold/5 flex items-center justify-center"><span class="iconify text-brand-gold/30 text-sm" data-icon="ri:twitter-x-fill"></span></button>
+            <button onclick="event.stopPropagation();shareOnWhatsApp('cs-control-tower','Control Tower Case Study')" class="share-btn w-7 h-7 rounded-md hover:bg-brand-gold/5 flex items-center justify-center"><span class="iconify text-brand-gold/30 text-sm" data-icon="mdi:whatsapp"></span></button>
+          </div>
+        </div>
+        <div class="cs-body" id="cs-body-3">
+          <div class="article-content">
+            <h4>SITUATION</h4>
+            <p>An FMCG distributor operating across 8 countries with 4,000+ retail accounts had invested in a control tower two years prior. The system delivered visibility — the team could see shipments, inventory, and exceptions. But the decision process after exception identification remained manual: alert → review → gather data → assess options → escalate → decide → execute. Average resolution: 64 hours.</p>
+            <h4>APPROACH</h4>
+            <ul><li>Decision governance framework: defined Tier 1 (automated), Tier 2 (AI-recommended), Tier 3 (human discretion) decisions</li><li>Data quality remediation: 6-week programme fixing carrier ETAs, inventory feeds, and product master data</li><li>Prescriptive AI engine: response option generation ranked by cost, service impact, and risk</li><li>Autonomous execution for Tier 1 exceptions: carrier rebooking, buffer stock drawdown, route adjustment</li></ul>
+            <h4>IMPACT</h4>
+            <table class="w-full text-xs border-collapse">
+              <thead><tr class="border-b border-white/10"><th class="text-left py-2">Metric</th><th class="text-left py-2">Before</th><th class="text-left py-2">After</th></tr></thead>
+              <tbody>
+                <tr class="border-b border-white/5"><td class="py-2">Exception resolution</td><td>64 hours</td><td>6 hours</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Expediting cost</td><td>$2.1M/year</td><td>$1.2M/year (–42%)</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Stock-out rate</td><td>4.8%</td><td>2.0% (–58%)</td></tr>
+                <tr><td class="py-2">Human decisions per exception</td><td>5.2</td><td>0.8</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- CS04 -->
+      <div class="cs-card bg-brand-gold/[0.02] border border-brand-gold/10 rounded-xl overflow-hidden" id="cs-4">
+        <div class="relative h-40 overflow-hidden">
+          <img src="https://picsum.photos/id/60/400/200" alt="Manufacturing Transition" class="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity">
+          <div class="absolute top-3 left-3"><span class="px-2 py-0.5 text-[10px] text-brand-gold/80 border border-brand-gold/20 rounded-full bg-black/40 backdrop-blur-sm uppercase tracking-wider">Manufacturing Strategy</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-medium mb-2 leading-tight">Multi-Regional Manufacturing Transition: From Single Factory to Distributed Network</h3>
+          <p class="text-xs text-white/40 mb-3 line-clamp-2">Planned transition from single-country to 3-country production. Supply risk concentration reduced from 78% to 32%. First-year incremental cost contained to 6%.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-white/25">CS04</span>
+            <button onclick="toggleCS(4)" class="text-xs text-brand-gold/70 hover:text-brand-gold flex items-center gap-1 transition-colors">Read more <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></button>
+          </div>
+          <div class="flex items-center gap-2 mt-3 pt-3 border-t border-brand-gold/10">
+            <button onclick="event.stopPropagation();shareOnLinkedIn('cs-multi-regional-mfg','Multi-Regional Mfg')" class="share-btn w-7 h-7 rounded-md hover:bg-brand-gold/5 flex items-center justify-center"><span class="iconify text-brand-gold/30 text-sm" data-icon="mdi:linkedin"></span></button>
+            <button onclick="event.stopPropagation();shareOnTwitter('cs-multi-regional-mfg','Multi-Regional Mfg')" class="share-btn w-7 h-7 rounded-md hover:bg-brand-gold/5 flex items-center justify-center"><span class="iconify text-brand-gold/30 text-sm" data-icon="ri:twitter-x-fill"></span></button>
+            <button onclick="event.stopPropagation();shareOnWhatsApp('cs-multi-regional-mfg','Multi-Regional Mfg')" class="share-btn w-7 h-7 rounded-md hover:bg-brand-gold/5 flex items-center justify-center"><span class="iconify text-brand-gold/30 text-sm" data-icon="mdi:whatsapp"></span></button>
+          </div>
+        </div>
+        <div class="cs-body" id="cs-body-4">
+          <div class="article-content">
+            <h4>SITUATION</h4>
+            <p>A manufacturer with 78% of production in a single country faced simultaneous pressure: customer mandates for regional supply, rising tariff exposure, and a competitor already establishing a secondary base. The board mandated a transition plan — but wanted it planned, not reactive.</p>
+            <h4>APPROACH</h4>
+            <ul><li>Network optimization modeling across 5 potential locations with cost, risk, and market access scoring</li><li>18-month supplier qualification programme in target geography — 45 new suppliers qualified before first production run</li><li>Phased production migration: 20% volume in Year 1, 45% in Year 2, full target mix by Year 3</li><li>Digital twin of both old and new supply chains for parallel monitoring during transition</li></ul>
+            <h4>IMPACT</h4>
+            <table class="w-full text-xs border-collapse">
+              <thead><tr class="border-b border-white/10"><th class="text-left py-2">Metric</th><th class="text-left py-2">Before</th><th class="text-left py-2">After (Year 3 Target)</th></tr></thead>
+              <tbody>
+                <tr class="border-b border-white/5"><td class="py-2">Supply concentration (single country)</td><td>78%</td><td>32%</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Tariff exposure reduction</td><td>Baseline</td><td>–65%</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Incremental unit cost (transition)</td><td>—</td><td>6% Year 1, 2% Year 3</td></tr>
+                <tr><td class="py-2">Qualified alternative suppliers</td><td>12</td><td>57</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- CS05 -->
+      <div class="cs-card bg-brand-gold/[0.02] border border-brand-gold/10 rounded-xl overflow-hidden" id="cs-5">
+        <div class="relative h-40 overflow-hidden">
+          <img src="https://picsum.photos/id/124/400/200" alt="Maritime Risk" class="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity">
+          <div class="absolute top-3 left-3"><span class="px-2 py-0.5 text-[10px] text-brand-gold/80 border border-brand-gold/20 rounded-full bg-black/40 backdrop-blur-sm uppercase tracking-wider">Maritime Risk</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-medium mb-2 leading-tight">War Risk and Maritime Exposure: Restructuring Trade Routes Under Red Sea Disruption</h3>
+          <p class="text-xs text-white/40 mb-3 line-clamp-2">Route restructuring completed in 72 hours. Freight cost increase limited to 8% vs industry average of 15–20%. Zero shipments lost to disruption.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] text-white/25">CS05</span>
+            <button onclick="toggleCS(5)" class="text-xs text-brand-gold/70 hover:text-brand-gold flex items-center gap-1 transition-colors">Read more <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></button>
+          </div>
+          <div class="flex items-center gap-2 mt-3 pt-3 border-t border-brand-gold/10">
+            <button onclick="event.stopPropagation();shareOnLinkedIn('cs-red-sea-risk','Red Sea Disruption')" class="share-btn w-7 h-7 rounded-md hover:bg-brand-gold/5 flex items-center justify-center"><span class="iconify text-brand-gold/30 text-sm" data-icon="mdi:linkedin"></span></button>
+            <button onclick="event.stopPropagation();shareOnTwitter('cs-red-sea-risk','Red Sea Disruption')" class="share-btn w-7 h-7 rounded-md hover:bg-brand-gold/5 flex items-center justify-center"><span class="iconify text-brand-gold/30 text-sm" data-icon="ri:twitter-x-fill"></span></button>
+            <button onclick="event.stopPropagation();shareOnWhatsApp('cs-red-sea-risk','Red Sea Disruption')" class="share-btn w-7 h-7 rounded-md hover:bg-brand-gold/5 flex items-center justify-center"><span class="iconify text-brand-gold/30 text-sm" data-icon="mdi:whatsapp"></span></button>
+          </div>
+        </div>
+        <div class="cs-body" id="cs-body-5">
+          <div class="article-content">
+            <h4>SITUATION</h4>
+            <p>A GCC-based trading house with $45M monthly freight exposure on the GCC–EU corridor faced the Red Sea crisis with no pre-planned alternative routing. Industry freight rates on the corridor had spiked 15–20% for Cape of Good Hope rerouting. The client had 23 containers in transit when the disruption escalated.</p>
+            <h4>APPROACH</h4>
+            <ul><li>72-hour rapid assessment: mapped all active shipments, identified rerouting options, modelled cost/lead time trade-offs</li><li>Carrier negotiation leveraging pre-existing panel contracts with multi-route flexibility clauses</li><li>Customer communication protocol with revised ETAs and impact mitigation proposals</li><li>Long-term structural fix: designed permanent dual-route strategy with pre-negotiated contingency contracts for both Suez and Cape routes</li></ul>
+            <h4>IMPACT</h4>
+            <table class="w-full text-xs border-collapse">
+              <thead><tr class="border-b border-white/10"><th class="text-left py-2">Metric</th><th class="text-left py-2">Industry Average</th><th class="text-left py-2">Client Outcome</th></tr></thead>
+              <tbody>
+                <tr class="border-b border-white/5"><td class="py-2">Freight cost increase</td><td>15–20%</td><td>8%</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Shipments lost to disruption</td><td>Variable</td><td>Zero</td></tr>
+                <tr class="border-b border-white/5"><td class="py-2">Time to implement rerouting</td><td>2–4 weeks</td><td>72 hours</td></tr>
+                <tr><td class="py-2">Customer penalty exposure</td><td>$800K–$1.5M typical</td><td>$45K (minimal)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="relative py-16 lg:py-20 border-t border-white/5 overflow-hidden">
+  <div class="absolute inset-0 hero-radial"></div>
+  <div class="relative z-10 max-w-3xl mx-auto px-6 text-center reveal">
+    <h2 class="text-2xl md:text-3xl font-serif italic tracking-tight mb-4">Want these results for your organisation?</h2>
+    <p class="text-white/40 font-light mb-8">Every insight here is grounded in real engagements. Let's discuss how this applies to your supply chain.</p>
+    <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-black text-sm font-medium rounded-xl hover:bg-white/90 transition-colors shadow-lg shadow-white/10">Schedule a Conversation <span class="iconify" data-icon="carbon:arrow-right"></span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="relative border-t border-white/5 bg-white/[0.01]">
+  <div class="max-w-7xl mx-auto px-6 py-16 lg:py-20">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+      <div class="lg:col-span-1"><div class="flex items-center gap-3 mb-4"><div class="w-8 h-8 rounded-lg bg-brand-sky/20 border border-brand-sky/30 flex items-center justify-center"><span class="iconify text-brand-sky text-base" data-icon="carbon:analytics"></span></div><span class="text-white font-semibold text-sm">VN Advisory</span></div><p class="text-sm text-white/40 leading-relaxed mb-4">Execution. Precision. Output.</p><div class="flex items-center gap-3"><a href="https://linkedin.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg border border-white/10 hover:border-brand-sky/30 hover:bg-brand-sky/5 flex items-center justify-center transition-all"><span class="iconify text-white/40 hover:text-brand-sky text-lg" data-icon="mdi:linkedin"></span></a><a href="https://youtube.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg border border-white/10 hover:border-red-500/30 hover:bg-red-500/5 flex items-center justify-center transition-all"><span class="iconify text-white/40 hover:text-red-400 text-lg" data-icon="mdi:youtube"></span></a></div></div>
+      <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-5 font-medium">Quick Links</h4><ul class="space-y-3"><li><a href="index.html" class="text-sm text-white/50 hover:text-white transition-colors">Home</a></li><li><a href="market.html" class="text-sm text-white/50 hover:text-white transition-colors">Market Intelligence</a></li><li><a href="digital.html" class="text-sm text-white/50 hover:text-white transition-colors">Digital Workforce</a></li><li><a href="insights.html" class="text-sm text-white/50 hover:text-white transition-colors">Insights & Impact</a></li><li><a href="contact.html" class="text-sm text-white/50 hover:text-white transition-colors">Contact</a></li></ul></div>
+      <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-5 font-medium">Services</h4><ul class="space-y-3"><li><a href="supply-chain.html" class="text-sm text-white/50 hover:text-white transition-colors">Supply Chain</a></li><li><a href="procurement.html" class="text-sm text-white/50 hover:text-white transition-colors">Procurement</a></li><li><a href="logistics.html" class="text-sm text-white/50 hover:text-white transition-colors">Logistics & Trade</a></li><li><a href="digital.html" class="text-sm text-white/50 hover:text-white transition-colors">Digital Workforce</a></li></ul></div>
+      <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-5 font-medium">About</h4><ul class="space-y-3"><li class="text-sm text-white/50"><span class="text-white/80 font-medium">23+ years</span> experience</li><li class="text-sm text-white/50">Across <span class="text-white/80 font-medium">GCC · India · ASEAN</span></li><li class="text-sm text-white/50"><span class="text-white/80 font-medium">Supply Chain</span> leadership</li></ul></div>
+      <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-5 font-medium">Contact</h4><ul class="space-y-3"><li><a href="mailto:info@vnadvisory.in" class="text-sm text-white/50 hover:text-white transition-colors">info@vnadvisory.in</a></li><li><a href="mailto:varadha@vnadvisory.in" class="text-sm text-white/50 hover:text-white transition-colors">varadha@vnadvisory.in</a></li></ul></div>
+    </div>
+    <div class="border-t border-white/5 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-white/25">© 2025 VN Advisory. All rights reserved.</p><div class="flex items-center gap-6 text-xs text-white/25"><a href="#" class="hover:text-white/50 transition-colors">Privacy Policy</a><a href="#" class="hover:text-white/50 transition-colors">Terms of Service</a></div></div>
+  </div>
+</footer>
+
+<div id="toast" class="toast"><div class="flex items-center gap-3 px-5 py-3 rounded-xl bg-brand-dark/95 border border-white/10 shadow-2xl" style="backdrop-filter:blur(20px)"><span class="iconify text-emerald-400" data-icon="carbon:checkmark-filled"></span><span id="toastMsg" class="text-sm text-white/80"></span></div></div>
+
+<script>
+  // Mobile menu
+  const mt=document.getElementById('mobileToggle'),mc=document.getElementById('mobileClose'),mm=document.getElementById('mobileMenu'),mo=document.getElementById('mobileOverlay');
+  function openM(){mm.classList.add('open');mo.classList.remove('hidden');document.body.style.overflow='hidden'}
+  function closeM(){mm.classList.remove('open');mo.classList.add('hidden');document.body.style.overflow=''}
+  mt.addEventListener('click',openM);mc.addEventListener('click',closeM);mo.addEventListener('click',closeM);
+  // Nav scroll
+  const nav=document.getElementById('mainNav');
+  window.addEventListener('scroll',()=>{if(window.scrollY>50){nav.style.background='rgba(5,5,5,0.95)';nav.style.borderBottom='1px solid rgba(255,255,255,0.05)'}else{nav.style.background='rgba(5,5,5,0.8)';nav.style.borderBottom='none'}});
+  // Reveal
+  const reveals=document.querySelectorAll('.reveal');
+  const ro=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('active');ro.unobserve(en.target)}})},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+  reveals.forEach(el=>ro.observe(el));
+  // Article toggle
+  function toggleArticle(n){
+    const body=document.getElementById('body-'+n);
+    document.querySelectorAll('.article-body').forEach(b=>b.classList.remove('open'));
+    if(body) body.classList.add('open');
+    setTimeout(()=>body.scrollIntoView({behavior:'smooth',block:'nearest'}),100);
+  }
+  // CS toggle
+  function toggleCS(n){
+    const body=document.getElementById('cs-body-'+n);
+    document.querySelectorAll('.cs-body').forEach(b=>b.classList.remove('open'));
+    if(body) body.classList.add('open');
+    setTimeout(()=>body.scrollIntoView({behavior:'smooth',block:'nearest'}),100);
+  }
+  // Filter
+  function filterArticles(cat,btn){
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.article-card').forEach(card=>{
+      if(cat==='all'||card.dataset.cat===cat) card.style.display='';
+      else card.style.display='none';
+    });
+  }
+  // Share
+  function shareOnLinkedIn(slug,title){
+    const url=encodeURIComponent('https://vnadvisory.in/insights/'+slug);
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url='+url,'_blank','width=600,height=400');
+    showToast('Opening LinkedIn share...');
+  }
+  function shareOnTwitter(slug,title){
+    const url=encodeURIComponent('https://vnadvisory.in/insights/'+slug);
+    const text=encodeURIComponent('Check out this insight from VN Advisory: '+title);
+    window.open('https://twitter.com/intent/tweet?url='+url+'&text='+text,'_blank','width=600,height=400');
+    showToast('Opening X/Twitter share...');
+  }
+  function shareOnWhatsApp(slug,title){
+    const url='https://vnadvisory.in/insights/'+slug;
+    const text=encodeURIComponent(title+' '+url);
+    window.open('https://wa.me/?text='+text,'_blank');
+    showToast('Opening WhatsApp share...');
+  }
+  // Toast
+  function showToast(msg){const t=document.getElementById('toast'),m=document.getElementById('toastMsg');m.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+  // Keyboard
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
+</script>
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Intelligence — VN Advisory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <script>
+    tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif'],serif:['Newsreader','serif']},colors:{brand:{sky:'#38BDF8',dark:'#050505',panel:'#0F110E',gold:'#E2B340'}},animation:{'fade-up':'fadeUp .8s ease-out forwards','fade-up-d':'fadeUp .8s ease-out .15s forwards','pulse-slow':'pulse 3s ease-in-out infinite','glow':'glow 2s ease-in-out infinite alternate','ticker':'ticker 40s linear infinite'}}}}
+  </script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}body{background:#030303;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
+    .bg-grid{background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:100px 100px;mask-image:radial-gradient(circle at center,black 30%,transparent 80%);-webkit-mask-image:radial-gradient(circle at center,black 30%,transparent 80%)}
+    .hero-radial{background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(56,189,248,.06) 0%,rgba(5,5,5,0) 70%)}
+    .section-radial{background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(56,189,248,.03) 0%,transparent 70%)}
+    .sky-gradient{background:linear-gradient(135deg,#38BDF8,#0EA5E9,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gold-gradient{background:linear-gradient(135deg,#E2B340,#F5D76E,#E2B340);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-dropdown{display:none;position:absolute;top:100%;left:0;min-width:240px;z-index:100}.nav-item:hover .nav-dropdown{display:block}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}.reveal.active{opacity:1;transform:translateY(0)}
+    @keyframes fadeUp{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
+    @keyframes glow{0%{box-shadow:0 0 20px rgba(56,189,248,.08)}100%{box-shadow:0 0 40px rgba(56,189,248,.2)}}
+    @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .ticker-wrap{overflow:hidden;white-space:nowrap}.ticker-content{display:inline-flex}
+    .stat-bar{height:4px;border-radius:2px;background:rgba(255,255,255,.05);overflow:hidden}
+    .stat-bar-fill{height:100%;border-radius:2px;transition:width 1.5s ease-out}
+    .heat-cell{transition:all .3s;cursor:pointer}.heat-cell:hover{transform:scale(1.15);z-index:10}
+    .mobile-menu{transform:translateX(100%);transition:transform .3s ease}.mobile-menu.open{transform:translateX(0)}
+    .toast{position:fixed;bottom:2rem;right:2rem;z-index:9999;transform:translateY(120%);opacity:0;transition:transform .4s ease,opacity .4s ease}.toast.show{transform:translateY(0);opacity:1}
+    .pulse-dot{animation:pulse 2s ease-in-out infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+    .skeleton{background:linear-gradient(90deg,rgba(255,255,255,.03) 25%,rgba(255,255,255,.06) 50%,rgba(255,255,255,.03) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}
+    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+  </style>
+</head>
+<body>
+
+<!-- NAV (same as other pages) -->
+<nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:rgba(5,5,5,.8);backdrop-filter:blur(24px)">
+  <div class="max-w-7xl mx-auto px-6"><div class="flex items-center justify-between h-16 lg:h-20">
+    <a href="index.html" class="flex items-center gap-3"><div class="w-9 h-9 rounded-lg bg-brand-sky/20 border border-brand-sky/30 flex items-center justify-center"><span class="iconify text-brand-sky text-lg" data-icon="carbon:analytics"></span></div><span class="text-white font-semibold text-base tracking-tight">VN Advisory</span></a>
+    <div class="hidden lg:flex items-center gap-1">
+      <a href="index.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Home</a>
+      <a href="services.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Services</a>
+      <a href="industries.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Industries</a>
+      <a href="market.html" class="px-4 py-2 text-sm text-white font-medium rounded-lg hover:bg-white/5 transition-colors">Market Intelligence</a>
+      <a href="digital.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Digital Workforce</a>
+      <a href="insights.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Insights</a>
+      <a href="contact.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Contact</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="contact.html" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition-colors">Request Demo <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></a>
+      <button id="mobileToggle" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5"><span class="iconify text-xl text-white" data-icon="carbon:menu"></span></button>
+    </div>
+  </div></div>
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-brand-dark/98 backdrop-blur-xl border-l border-white/10 z-50 overflow-y-auto lg:hidden"><div class="p-6"><div class="flex items-center justify-between mb-8"><span class="text-white font-semibold">Menu</span><button id="mobileClose" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5"><span class="iconify text-xl text-white" data-icon="carbon:close"></span></button></div><div class="flex flex-col gap-1"><a href="index.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Home</a><a href="services.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Services</a><a href="industries.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Industries</a><a href="market.html" class="px-4 py-3 text-white font-medium rounded-lg bg-white/5">Market Intelligence</a><a href="digital.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Digital Workforce</a><a href="insights.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Insights</a><a href="contact.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Contact</a><div class="border-t border-white/5 my-3"></div><a href="contact.html" class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white text-black text-sm font-medium rounded-lg">Request Demo</a></div></div></div>
+  <div id="mobileOverlay" class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden" style="backdrop-filter:blur(4px)"></div>
+</nav>
+
+<div class="pt-20 lg:pt-24 border-b border-white/5"><div class="max-w-7xl mx-auto px-6 py-3"><div class="flex items-center gap-2 text-xs text-white/30"><a href="index.html" class="hover:text-white/60 transition-colors">Home</a><span class="iconify text-[10px]" data-icon="carbon:chevron-right"></span><span class="text-white/60">Market Intelligence</span></div></div></div>
+
+<!-- HERO -->
+<section class="relative py-16 lg:py-24 overflow-hidden">
+  <div class="absolute inset-0 bg-grid"></div>
+  <div class="absolute inset-0 hero-radial"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl opacity-0 animate-fade-up">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/5 mb-6">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
+        <span class="text-xs font-medium text-emerald-400/80 tracking-wide uppercase">Live Data Feeds</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif italic tracking-tight leading-[1.08] mb-6">Market <span class="sky-gradient">Intelligence</span></h1>
+      <p class="text-lg text-white/50 font-light leading-relaxed mb-4">Real-time commodity prices, forex rates, chokepoint risk tracking, and geopolitical signals — integrated into every advisory decision.</p>
+      <div class="flex items-center gap-4 text-xs text-white/30">
+        <span class="flex items-center gap-1"><span class="iconify" data-icon="carbon:data-vis-4"></span> Alpha Vantage API</span>
+        <span>·</span>
+        <span class="flex items-center gap-1"><span class="iconify" data-icon="carbon:warning-alt"></span> GDELT Project API</span>
+        <span>·</span>
+        <span id="lastUpdate" class="flex items-center gap-1"><span class="iconify" data-icon="carbon:time"></span> Loading...</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE TICKER -->
+<div class="border-y border-white/5 bg-white/[.01]">
+  <div class="ticker-wrap py-3"><div class="ticker-content animate-ticker" id="liveTicker"><div class="inline-flex items-center gap-1 px-4 text-xs text-white/30">Loading live data...</div></div></div>
+</div>
+
+<!-- MAIN DASHBOARD -->
+<section class="relative py-12 lg:py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+      <!-- COMMODITIES PANEL -->
+      <div class="lg:col-span-2 reveal">
+        <div class="bg-white/[.02] border border-white/[.06] rounded-2xl overflow-hidden">
+          <div class="px-5 py-4 border-b border-white/5 flex items-center justify-between">
+            <div class="flex items-center gap-2"><span class="iconify text-brand-sky" data-icon="carbon:chart-bar"></span><span class="text-sm font-medium">Commodity Prices</span></div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot" id="commodityStatus"></span>
+              <span class="text-[10px] text-white/25" id="commoditySource">Alpha Vantage</span>
+              <button onclick="refreshCommodities()" class="w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center transition-colors" title="Refresh"><span class="iconify text-white/30 text-sm" data-icon="carbon:renew"></span></button>
+            </div>
+          </div>
+          <div class="p-5" id="commodityPanel">
+            <div class="space-y-1">
+              <div class="flex items-center justify-between py-3 px-3 rounded-lg"><div class="skeleton h-5 w-32 rounded"></div><div class="skeleton h-5 w-20 rounded"></div></div>
+              <div class="flex items-center justify-between py-3 px-3 rounded-lg"><div class="skeleton h-5 w-28 rounded"></div><div class="skeleton h-5 w-24 rounded"></div></div>
+              <div class="flex items-center justify-between py-3 px-3 rounded-lg"><div class="skeleton h-5 w-36 rounded"></div><div class="skeleton h-5 w-16 rounded"></div></div>
+              <div class="flex items-center justify-between py-3 px-3 rounded-lg"><div class="skeleton h-5 w-24 rounded"></div><div class="skeleton h-5 w-20 rounded"></div></div>
+              <div class="flex items-center justify-between py-3 px-3 rounded-lg"><div class="skeleton h-5 w-30 rounded"></div><div class="skeleton h-5 w-22 rounded"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOREX PANEL -->
+      <div class="reveal">
+        <div class="bg-white/[.02] border border-white/[.06] rounded-2xl overflow-hidden">
+          <div class="px-5 py-4 border-b border-white/5 flex items-center justify-between">
+            <div class="flex items-center gap-2"><span class="iconify text-brand-sky" data-icon="carbon:currency"></span><span class="text-sm font-medium">Forex Rates</span></div>
+            <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot" id="forexStatus"></span><button onclick="refreshForex()" class="w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center transition-colors"><span class="iconify text-white/30 text-sm" data-icon="carbon:renew"></span></button></div>
+          </div>
+          <div class="p-5" id="forexPanel">
+            <div class="space-y-2">
+              <div class="skeleton h-12 rounded-lg"></div><div class="skeleton h-12 rounded-lg"></div>
+              <div class="skeleton h-12 rounded-lg"></div><div class="skeleton h-12 rounded-lg"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHOKEPOINT RISK -->
+        <div class="bg-white/[.02] border border-white/[.06] rounded-2xl overflow-hidden mt-6">
+          <div class="px-5 py-4 border-b border-white/5 flex items-center justify-between">
+            <div class="flex items-center gap-2"><span class="iconify text-red-400/80" data-icon="carbon:warning-alt"></span><span class="text-sm font-medium">Chokepoint Risk</span></div>
+            <span class="text-[10px] text-white/25">GDELT</span>
+          </div>
+          <div class="p-5" id="chokepointPanel">
+            <div class="space-y-3">
+              <div class="skeleton h-10 rounded-lg"></div><div class="skeleton h-10 rounded-lg"></div><div class="skeleton h-10 rounded-lg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GEOPOLITICAL EVENTS FEED -->
+    <div class="mt-6 reveal">
+      <div class="bg-white/[.02] border border-white/[.06] rounded-2xl overflow-hidden">
+        <div class="px-5 py-4 border-b border-white/5 flex items-center justify-between">
+          <div class="flex items-center gap-2"><span class="iconify text-yellow-400/80" data-icon="carbon:globe"></span><span class="text-sm font-medium">Geopolitical Supply Chain Events</span><span class="text-[10px] text-white/25 ml-2">Last 7 days — GDELT</span></div>
+          <button onclick="refreshGdelt()" class="w-7 h-7 rounded-md hover:bg-white/5 flex items-center justify-center transition-colors"><span class="iconify text-white/30 text-sm" data-icon="carbon:renew"></span></button>
+        </div>
+        <div class="p-5" id="gdeltPanel">
+          <div class="skeleton h-8 rounded-lg mb-2"></div><div class="skeleton h-8 rounded-lg mb-2"></div><div class="skeleton h-8 rounded-lg mb-2"></div><div class="skeleton h-8 rounded-lg"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="relative border-t border-white/5 bg-white/[.01]">
+  <div class="max-w-7xl mx-auto px-6 py-16 lg:py-20">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+      <div><div class="flex items-center gap-3 mb-4"><div class="w-8 h-8 rounded-lg bg-brand-sky/20 border border-brand-sky/30 flex items-center justify-center"><span class="iconify text-brand-sky text-base" data-icon="carbon:analytics"></span></div><span class="text-white font-semibold text-sm">VN Advisory</span></div><p class="text-sm text-white/40 leading-relaxed mb-4">Execution. Precision. Output.</p><div class="flex items-center gap-3"><a href="https://linkedin.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg border border-white/10 hover:border-brand-sky/30 hover:bg-brand-sky/5 flex items-center justify-center transition-all"><span class="iconify text-white/40 hover:text-brand-sky text-lg" data-icon="mdi:linkedin"></span></a><a href="https://youtube.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg border border-white/10 hover:border-red-500/30 hover:bg-red-500/5 flex items-center justify-center transition-all"><span class="iconify text-white/40 hover:text-red-400 text-lg" data-icon="mdi:youtube"></span></a></div></div>
+      <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-5 font-medium">Quick Links</h4><ul class="space-y-3"><li><a href="index.html" class="text-sm text-white/50 hover:text-white transition-colors">Home</a></li><li><a href="market.html" class="text-sm text-white/50 hover:text-white transition-colors">Market Intelligence</a></li><li><a href="digital.html" class="text-sm text-white/50 hover:text-white transition-colors">Digital Workforce</a></li><li><a href="insights.html" class="text-sm text-white/50 hover:text-white transition-colors">Insights & Impact</a></li><li><a href="contact.html" class="text-sm text-white/50 hover:text-white transition-colors">Contact</a></li></ul></div>
+      <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-5 font-medium">Services</h4><ul class="space-y-3"><li><a href="supply-chain.html" class="text-sm text-white/50 hover:text-white transition-colors">Supply Chain</a></li><li><a href="procurement.html" class="text-sm text-white/50 hover:text-white transition-colors">Procurement</a></li><li><a href="logistics.html" class="text-sm text-white/50 hover:text-white transition-colors">Logistics & Trade</a></li><li><a href="digital.html" class="text-sm text-white/50 hover:text-white transition-colors">Digital Workforce</a></li><li><a href="industries.html" class="text-sm text-white/50 hover:text-white transition-colors">Industries</a></li></ul></div>
+      <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-5 font-medium">About</h4><ul class="space-y-3"><li class="text-sm text-white/50"><span class="text-white/80 font-medium">23+ years</span> experience</li><li class="text-sm text-white/50">Across <span class="text-white/80 font-medium">GCC · India · ASEAN</span></li><li class="text-sm text-white/50"><span class="text-white/80 font-medium">Supply Chain</span> leadership</li></ul></div>
+      <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-5 font-medium">Contact</h4><ul class="space-y-3"><li><a href="mailto:info@vnadvisory.in" class="text-sm text-white/50 hover:text-white transition-colors">info@vnadvisory.in</a></li><li><a href="mailto:varadha@vnadvisory.in" class="text-sm text-white/50 hover:text-white transition-colors">varadha@vnadvisory.in</a></li></ul></div>
+    </div>
+    <div class="border-t border-white/5 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-white/25">© 2025 VN Advisory. All rights reserved.</p><div class="flex items-center gap-6 text-xs text-white/25"><a href="#" class="hover:text-white/50 transition-colors">Privacy</a><a href="#" class="hover:text-white/50 transition-colors">Terms</a></div></div>
+  </div>
+</footer>
+
+<div id="toast" class="toast"><div class="flex items-center gap-3 px-5 py-3 rounded-xl bg-brand-dark/95 border border-white/10 shadow-2xl" style="backdrop-filter:blur(20px)"><span id="toastIcon" class="iconify text-emerald-400" data-icon="carbon:checkmark-filled"></span><span id="toastMsg" class="text-sm text-white/80"></span></div></div>
+
+<script>
+// Mobile menu
+const mt=document.getElementById('mobileToggle'),mc=document.getElementById('mobileClose'),mm=document.getElementById('mobileMenu'),mo=document.getElementById('mobileOverlay');
+function openM(){mm.classList.add('open');mo.classList.remove('hidden');document.body.style.overflow='hidden'}
+function closeM(){mm.classList.remove('open');mo.classList.add('hidden');document.body.style.overflow=''}
+mt.addEventListener('click',openM);mc.addEventListener('click',closeM);mo.addEventListener('click',closeM);
+
+// Nav
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{if(window.scrollY>50){nav.style.background='rgba(5,5,5,.95)';nav.style.borderBottom='1px solid rgba(255,255,255,.05)'}else{nav.style.background='rgba(5,5,5,.8)';nav.style.borderBottom='none'}});
+
+// Reveal
+const reveals=document.querySelectorAll('.reveal');
+const ro=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('active');ro.unobserve(en.target)}})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+reveals.forEach(el=>ro.observe(el));
+
+// ========================
+// API CALLS (via Cloudflare Functions proxy — NO API KEYS IN BROWSER)
+// ========================
+
+const API_BASE = '';  // Same origin — Cloudflare Functions handle /api/*
+
+// Symbol display names mapping
+const symbolNames = {
+  'STEEL': 'Steel (HRC)',
+  'ALUMINUM': 'Aluminium',
+  'COPPER': 'Copper',
+  'CRUDE_OIL': 'Crude Oil (WTI)',
+  'IRON_ORE': 'Iron Ore',
+};
+
+const flagMap = { 'EUR':'🇪🇺', 'GBP':'🇬🇧', 'USD':'🇺🇸', 'INR':'🇮🇳', 'AED':'🇦🇪', 'SAR':'🇸🇦' };
+
+// ---- COMMODITIES ----
+async function refreshCommodities() {
+  try {
+    const resp = await fetch(`${API_BASE}/api/commodities?symbols=STEEL,ALUMINUM,COPPER,CRUDE_OIL,IRON_ORE`);
+    if (!resp.ok) throw new Error('API error');
+    const { data, timestamp } = await resp.json();
+    renderCommodities(data, timestamp);
+  } catch (err) {
+    console.error('Commodities fetch failed:', err);
+    renderCommoditiesFallback();
+  }
+}
+
+function renderCommodities(data, timestamp) {
+  const panel = document.getElementById('commodityPanel');
+  const status = document.getElementById('commodityStatus');
+  status.style.background = '#34d399';
+
+  let html = '';
+  for (const [symbol, info] of Object.entries(data)) {
+    const change = parseFloat(info.change);
+    const pct = parseFloat(info.changePercent);
+    const up = change >= 0;
+    const color = up ? 'text-emerald-400' : 'text-red-400';
+    const arrow = up ? '▲' : '▼';
+
+    html += `<div class="flex items-center justify-between py-3 px-3 rounded-lg hover:bg-white/[.02] transition-colors">
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-white/60 w-36">${symbolNames[symbol] || symbol}</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="text-sm text-white/80 font-medium font-mono">$${info.price}</span>
+        <span class="text-xs ${color} w-20 text-right font-mono">${arrow} ${Math.abs(change).toFixed(2)} (${pct}%)</span>
+      </div>
+    </div>`;
+  }
+  panel.innerHTML = html;
+  updateTicker(data);
+  if (timestamp) document.getElementById('lastUpdate').innerHTML = `<span class="iconify" data-icon="carbon:time"></span> Updated ${new Date(timestamp).toLocaleTimeString()}`;
+}
+
+function renderCommoditiesFallback() {
+  const panel = document.getElementById('commodityPanel');
+  const status = document.getElementById('commodityStatus');
+  status.style.background = '#f87171';
+  // Show simulated data with "simulated" label
+  const fallback = {
+    STEEL: { price: '645.00', change: '-12.50', changePercent: '-1.89%' },
+    ALUMINUM: { price: '2,385.00', change: '18.00', changePercent: '0.76%' },
+    COPPER: { price: '9,125.00', change: '-45.00', changePercent: '-0.49%' },
+    CRUDE_OIL: { price: '78.42', change: '1.23', changePercent: '1.59%' },
+    IRON_ORE: { price: '108.30', change: '2.10', changePercent: '1.98%' },
+  };
+  renderCommodities(fallback, null);
+  panel.innerHTML = '<div class="text-[10px] text-yellow-400/50 px-3 pb-2">⚠ Simulated data — API unavailable</div>' + panel.innerHTML;
+}
+
+function updateTicker(data) {
+  const ticker = document.getElementById('liveTicker');
+  let html = '';
+  const items = Object.entries(data);
+  for (let i = 0; i < 2; i++) { // Double for seamless loop
+    for (const [sym, info] of items) {
+      const up = parseFloat(info.change) >= 0;
+      const color = up ? 'text-emerald-400' : 'text-red-400';
+      const arrow = up ? '▲' : '▼';
+      html += `<div class="inline-flex items-center gap-3 px-5 py-1 border-r border-white/5">
+        <span class="text-xs text-white/50 whitespace-nowrap">${symbolNames[sym] || sym}</span>
+        <span class="text-xs text-white/80 font-medium whitespace-nowrap font-mono">$${info.price}</span>
+        <span class="text-xs ${color} whitespace-nowrap font-mono">${arrow} ${info.changePercent}</span>
+      </div>`;
+    }
+  }
+  ticker.innerHTML = html;
+}
+
+// ---- FOREX ----
+async function refreshForex() {
+  try {
+    const resp = await fetch(`${API_BASE}/api/forex?pairs=EUR/USD,GBP/USD,USD/INR,USD/AED,USD/SAR`);
+    if (!resp.ok) throw new Error('API error');
+    const { data, timestamp } = await resp.json();
+    renderForex(data);
+  } catch (err) {
+    console.error('Forex fetch failed:', err);
+    renderForexFallback();
+  }
+}
+
+function renderForex(data) {
+  const panel = document.getElementById('forexPanel');
+  const status = document.getElementById('forexStatus');
+  status.style.background = '#34d399';
+  let html = '';
+  for (const [pair, info] of Object.entries(data)) {
+    const [from, to] = pair.split('/');
+    const flag = flagMap[from] || '🌏';
+    html += `<div class="flex items-center justify-between py-3 px-3 rounded-lg hover:bg-white/[.02] transition-colors">
+      <div class="flex items-center gap-2">
+        <span class="text-base">${flag}</span>
+        <span class="text-sm text-white/60">${pair}</span>
+      </div>
+      <span class="text-sm text-white/80 font-medium font-mono">${info.rate}</span>
+    </div>`;
+  }
+  panel.innerHTML = html;
+}
+
+function renderForexFallback() {
+  const panel = document.getElementById('forexPanel');
+  const status = document.getElementById('forexStatus');
+  status.style.background = '#f87171';
+  const fallback = {
+    'EUR/USD': { rate: '1.0845' },
+    'GBP/USD': { rate: '1.2634' },
+    'USD/INR': { rate: '83.45' },
+    'USD/AED': { rate: '3.6725' },
+    'USD/SAR': { rate: '3.7500' },
+  };
+  renderForex(fallback);
+  panel.innerHTML = '<div class="text-[10px] text-yellow-400/50 px-3 pb-2">⚠ Simulated data — API unavailable</div>' + panel.innerHTML;
+}
+
+// ---- CHOKEPOINT RISK (GDELT) ----
+async function refreshChokepoints() {
+  try {
+    const resp = await fetch(`${API_BASE}/api/gdelt?mode=chokepoints`);
+    if (!resp.ok) throw new Error('API error');
+    const { riskScore, eventCount } = await resp.json();
+    renderChokepoints(riskScore, eventCount);
+  } catch (err) {
+    console.error('GDELT fetch failed:', err);
+    renderChokepointsFallback();
+  }
+}
+
+function renderChokepoints(riskScore, eventCount) {
+  const panel = document.getElementById('chokepointPanel');
+  const chokepoints = [
+    { name: 'Red Sea / Suez', baseRisk: 78 },
+    { name: 'Strait of Hormuz', baseRisk: 55 },
+    { name: 'Malacca Strait', baseRisk: 30 },
+  ];
+  // Adjust base risk by GDELT signal
+  const adjustedRisk = parseInt(riskScore);
+  let html = '';
+  chokepoints.forEach(cp => {
+    const risk = Math.min(98, cp.baseRisk + (adjustedRisk - 50) * 0.3);
+    const color = risk > 70 ? 'bg-red-500' : risk > 50 ? 'bg-amber-500' : 'bg-yellow-500';
+    const textColor = risk > 70 ? 'text-red-400' : risk > 50 ? 'text-amber-400' : 'text-yellow-400';
+    const label = risk > 70 ? 'HIGH' : risk > 50 ? 'ELEVATED' : 'MODERATE';
+    html += `<div class="flex items-center gap-3 py-2.5 px-3 rounded-lg hover:bg-white/[.02] transition-colors">
+      <span class="text-sm text-white/60 flex-1">${cp.name}</span>
+      <div class="w-24 h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="h-full ${color} rounded-full" style="width:${risk}%"></div></div>
+      <span class="text-[10px] font-medium ${textColor} uppercase tracking-wider w-16 text-right">${label}</span>
+    </div>`;
+  });
+  html += `<div class="mt-3 pt-3 border-t border-white/5 text-center">
+    <span class="text-[10px] text-white/25">${eventCount} relevant events detected (7 days)</span>
+  </div>`;
+  panel.innerHTML = html;
+}
+
+function renderChokepointsFallback() {
+  renderChokepoints(65, 12);
+  document.getElementById('chokepointPanel').innerHTML =
+    '<div class="text-[10px] text-yellow-400/50 px-3 pb-2">⚠ GDELT unavailable — using baseline risk scores</div>' +
+    document.getElementById('chokepointPanel').innerHTML;
+}
+
+// ---- GEOPOLITICAL EVENTS (GDELT) ----
+async function refreshGdelt() {
+  try {
+    const resp = await fetch(`${API_BASE}/api/gdelt?mode=chokepoints`);
+    if (!resp.ok) throw new Error('API error');
+    const { articles } = await resp.json();
+    renderGdelt(articles);
+  } catch (err) {
+    console.error('GDELT events fetch failed:', err);
+    renderGdeltFallback();
+  }
+}
+
+function renderGdelt(articles) {
+  const panel = document.getElementById('gdeltPanel');
+  if (!articles || articles.length === 0) {
+    panel.innerHTML = '<div class="text-sm text-white/30 text-center py-4">No events detected in the last 7 days</div>';
+    return;
+  }
+  let html = '';
+  articles.slice(0, 8).forEach((a, i) => {
+    const date = a.date ? new Date(a.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '';
+    const domain = a.domain ? a.domain.replace('www.', '') : '';
+    html += `<a href="${a.url}" target="_blank" rel="noopener" class="flex items-start gap-3 py-3 px-3 rounded-lg hover:bg-white/[.02] transition-colors group ${i < articles.length - 1 ? 'border-b border-white/[.03]' : ''}">
+      <span class="iconify text-white/15 mt-0.5 shrink-0" data-icon="carbon:document"></span>
+      <div class="flex-1 min-w-0">
+        <div class="text-sm text-white/60 group-hover:text-white/80 transition-colors leading-snug line-clamp-2">${a.title}</div>
+        <div class="flex items-center gap-2 mt-1">
+          <span class="text-[10px] text-white/20">${domain}</span>
+          <span class="text-[10px] text-white/15">·</span>
+          <span class="text-[10px] text-white/20">${date}</span>
+        </div>
+      </div>
+      <span class="iconify text-white/10 group-hover:text-white/30 transition-colors shrink-0 mt-1" data-icon="carbon:arrow-up-right"></span>
+    </a>`;
+  });
+  panel.innerHTML = html;
+}
+
+function renderGdeltFallback() {
+  document.getElementById('gdeltPanel').innerHTML =
+    '<div class="text-[10px] text-yellow-400/50 px-3 pb-2">⚠ GDELT unavailable — showing cached sample</div>' +
+    '<div class="text-sm text-white/30 text-center py-6">Geopolitical event feed requires GDELT API access</div>';
+}
+
+function refreshAll() {
+  refreshCommodities();
+  refreshForex();
+  refreshChokepoints();
+  refreshGdelt();
+}
+
+// ---- INITIAL LOAD ----
+refreshAll();
+
+// Auto-refresh every 5 minutes (respecting API rate limits)
+setInterval(refreshAll, 300000);
+
+// Toast
+function showToast(msg, isError) {
+  const t = document.getElementById('toast'), m = document.getElementById('toastMsg'), ic = document.getElementById('toastIcon');
+  m.textContent = msg;
+  ic.setAttribute('data-icon', isError ? 'carbon:warning-alt' : 'carbon:checkmark-filled');
+  ic.style.color = isError ? '#f87171' : '#34d399';
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeM(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VN Advisory — Execution. Precision. Output.</title>
+  <meta name="description" content="VN Advisory: AI-powered supply chain intelligence, procurement transformation, and digital workforce solutions across GCC, India, and global markets.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Newsreader', 'serif'],
+          },
+          colors: {
+            brand: {
+              sky: '#38BDF8',
+              dark: '#050505',
+              panel: '#0F110E',
+              gold: '#E2B340',
+            }
+          },
+          animation: {
+            'marquee': 'marquee 50s linear infinite',
+            'marquee-reverse': 'marquee-reverse 45s linear infinite',
+            'ticker': 'ticker 40s linear infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 3s ease-in-out infinite',
+            'fade-up': 'fadeUp 0.8s ease-out forwards',
+            'fade-up-delay': 'fadeUp 0.8s ease-out 0.2s forwards',
+            'fade-up-delay2': 'fadeUp 0.8s ease-out 0.4s forwards',
+            'slide-in': 'slideIn 0.6s ease-out forwards',
+            'border-spin': 'borderSpin 2.5s linear infinite',
+            'glow': 'glow 2s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } },
+            'marquee-reverse': { '0%': { transform: 'translateX(-50%)' }, '100%': { transform: 'translateX(0%)' } },
+            ticker: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
+            float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-12px)' } },
+            fadeUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            slideIn: { '0%': { opacity: '0', transform: 'translateX(-20px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } },
+            borderSpin: { '0%': { '--gradient-angle': '0deg' }, '100%': { '--gradient-angle': '360deg' } },
+            glow: { '0%': { boxShadow: '0 0 20px rgba(56,189,248,0.1)' }, '100%': { boxShadow: '0 0 40px rgba(56,189,248,0.25)' } },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @property --gradient-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: #030303; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+    .bg-grid {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 100px 100px;
+      mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+    }
+
+    .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; min-width: 240px; z-index: 100; }
+    .nav-item:hover .nav-dropdown { display: block; }
+
+    .ticker-wrap { overflow: hidden; white-space: nowrap; }
+    .ticker-content { display: inline-flex; gap: 0; }
+
+    .card-glow:hover { box-shadow: 0 0 30px rgba(56,189,248,0.08); }
+
+    .hero-radial {
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(56,189,248,0.08) 0%, rgba(5,5,5,0) 70%);
+    }
+
+    .section-radial {
+      background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(56,189,248,0.04) 0%, transparent 70%);
+    }
+
+    .gold-gradient { background: linear-gradient(135deg, #E2B340, #F5D76E, #E2B340); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .sky-gradient { background: linear-gradient(135deg, #38BDF8, #0EA5E9, #38BDF8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .cta-border {
+      background: conic-gradient(from var(--gradient-angle), transparent 0%, #0ea5e9 5%, #38BDF8 15%, #0ea5e9 30%, transparent 40%);
+      animation: borderSpin 2.5s linear infinite;
+    }
+
+    .insight-slide { transition: opacity 0.8s ease, transform 0.8s ease; }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    .agent-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(56,189,248,0.3), transparent 50%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .agent-card:hover::before { opacity: 1; }
+
+    .toast {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 9999;
+      transform: translateY(120%); opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    @media (max-width: 768px) {
+      .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; }
+      .mobile-menu.open { transform: translateX(0); }
+    }
+
+    .workflow-line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(56,189,248,0.3), transparent);
+    }
+
+    .heat-cell { transition: all 0.3s ease; cursor: pointer; }
+    .heat-cell:hover { transform: scale(1.15); z-index: 10; }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: rgba(5,5,5,0.8); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-brand-sky/20 border border-brand-sky/30 flex items-center justify-center group-hover:bg-brand-sky/30 transition-colors">
+            <span class="iconify text-brand-sky text-lg" data-icon="carbon:analytics"></span>
+          </div>
+          <div>
+            <span class="text-white font-semibold text-base tracking-tight">VN Advisory</span>
+            <span class="hidden sm:inline text-white/40 text-xs ml-2 tracking-widest uppercase">Strategic Intelligence</span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center gap-1">
+          <a href="index.html" class="px-4 py-2 text-sm text-white font-medium rounded-lg hover:bg-white/5 transition-colors">Home</a>
+
+          <!-- Services Dropdown -->
+          <div class="nav-item relative">
+            <button class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors flex items-center gap-1">
+              Services <span class="iconify text-xs" data-icon="carbon:chevron-down"></span>
+            </button>
+            <div class="nav-dropdown pt-2">
+              <div class="bg-brand-dark/95 backdrop-blur-xl border border-white/10 rounded-xl p-2 shadow-2xl">
+                <a href="supply-chain.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors group">
+                  <span class="iconify text-brand-sky/60 group-hover:text-brand-sky transition-colors" data-icon="carbon:network-4"></span>
+                  <div><div class="text-sm text-white font-medium">Supply Chain</div><div class="text-xs text-white/40">Intelligence & Transformation</div></div>
+                </a>
+                <a href="procurement.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors group">
+                  <span class="iconify text-brand-sky/60 group-hover:text-brand-sky transition-colors" data-icon="carbon:procurement"></span>
+                  <div><div class="text-sm text-white font-medium">Procurement</div><div class="text-xs text-white/40">Strategic Sourcing & Value</div></div>
+                </a>
+                <a href="logistics.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors group">
+                  <span class="iconify text-brand-sky/60 group-hover:text-brand-sky transition-colors" data-icon="carbon:shipment"></span>
+                  <div><div class="text-sm text-white font-medium">Logistics & Trade</div><div class="text-xs text-white/40">Freight, Routes & Compliance</div></div>
+                </a>
+                <a href="digital.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors group">
+                  <span class="iconify text-brand-gold/60 group-hover:text-brand-gold transition-colors" data-icon="carbon:machine-learning-model"></span>
+                  <div><div class="text-sm text-white font-medium">Digital Workforce</div><div class="text-xs text-white/40">AI Agents & Automation</div></div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Industries Dropdown -->
+          <div class="nav-item relative">
+            <button class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors flex items-center gap-1">
+              Industries <span class="iconify text-xs" data-icon="carbon:chevron-down"></span>
+            </button>
+            <div class="nav-dropdown pt-2">
+              <div class="bg-brand-dark/95 backdrop-blur-xl border border-white/10 rounded-xl p-2 shadow-2xl">
+                <a href="industries.html#manufacturing" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-white/40" data-icon="carbon:factory"></span><span class="text-sm text-white/80">Manufacturing</span></a>
+                <a href="industries.html#commodities" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-white/40" data-icon="carbon:chart-bar"></span><span class="text-sm text-white/80">Commodities & Trading</span></a>
+                <a href="industries.html#logistics" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-white/40" data-icon="carbon:container-shipment"></span><span class="text-sm text-white/80">Logistics & Freight</span></a>
+                <a href="industries.html#procurement" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-white/40" data-icon="carbon:shopping-cart"></span><span class="text-sm text-white/80">Procurement-Driven</span></a>
+                <a href="industries.html#infrastructure" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-white/40" data-icon="carbon:building"></span><span class="text-sm text-white/80">Infrastructure</span></a>
+              </div>
+            </div>
+          </div>
+
+          <a href="market.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Market Intelligence</a>
+
+          <!-- Digital Workforce Dropdown -->
+          <div class="nav-item relative">
+            <button class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors flex items-center gap-1">
+              Digital Workforce <span class="iconify text-xs" data-icon="carbon:chevron-down"></span>
+            </button>
+            <div class="nav-dropdown pt-2">
+              <div class="bg-brand-dark/95 backdrop-blur-xl border border-white/10 rounded-xl p-2 shadow-2xl">
+                <a href="digital.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors group">
+                  <span class="iconify text-brand-gold/60 group-hover:text-brand-gold transition-colors" data-icon="carbon:machine-learning-model"></span>
+                  <div><div class="text-sm text-white font-medium">Platform Overview</div><div class="text-xs text-white/40">Orchestrator & Architecture</div></div>
+                </a>
+                <div class="border-t border-white/5 my-1"></div>
+                <a href="procurement-agent.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-white/40" data-icon="carbon:purchase"></span><span class="text-sm text-white/80">Procurement Agent</span></a>
+                <a href="inventory-agent.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-white/40" data-icon="carbon:inventory-management"></span><span class="text-sm text-white/80">Inventory Agent</span></a>
+                <a href="logistics-agent.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-white/40" data-icon="carbon:delivery-truck"></span><span class="text-sm text-white/80">Logistics Agent</span></a>
+                <a href="trade-agent.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-white/40" data-icon="carbon:document-export"></span><span class="text-sm text-white/80">Trade Agent</span></a>
+              </div>
+            </div>
+          </div>
+
+          <a href="insights.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Insights & Impact</a>
+          <a href="contact.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Contact</a>
+        </div>
+
+        <!-- CTA + Mobile Toggle -->
+        <div class="flex items-center gap-3">
+          <a href="contact.html" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition-colors">
+            Request Demo <span class="iconify text-sm" data-icon="carbon:arrow-right"></span>
+          </a>
+          <button id="mobileToggle" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5 transition-colors">
+            <span class="iconify text-xl text-white" data-icon="carbon:menu"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-brand-dark/98 backdrop-blur-xl border-l border-white/10 z-50 overflow-y-auto lg:hidden">
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-8">
+          <span class="text-white font-semibold">Menu</span>
+          <button id="mobileClose" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5 transition-colors">
+            <span class="iconify text-xl text-white" data-icon="carbon:close"></span>
+          </button>
+        </div>
+        <div class="flex flex-col gap-1">
+          <a href="index.html" class="px-4 py-3 text-white font-medium rounded-lg hover:bg-white/5 transition-colors">Home</a>
+          <div class="border-t border-white/5 my-2"></div>
+          <p class="px-4 text-xs text-white/40 uppercase tracking-widest mb-1">Services</p>
+          <a href="supply-chain.html" class="px-4 py-2.5 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Supply Chain</a>
+          <a href="procurement.html" class="px-4 py-2.5 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Procurement</a>
+          <a href="logistics.html" class="px-4 py-2.5 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Logistics & Trade</a>
+          <a href="digital.html" class="px-4 py-2.5 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Digital Workforce</a>
+          <div class="border-t border-white/5 my-2"></div>
+          <p class="px-4 text-xs text-white/40 uppercase tracking-widest mb-1">Industries</p>
+          <a href="industries.html" class="px-4 py-2.5 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">All Industries</a>
+          <div class="border-t border-white/5 my-2"></div>
+          <a href="market.html" class="px-4 py-3 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Market Intelligence</a>
+          <a href="insights.html" class="px-4 py-3 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Insights & Impact</a>
+          <a href="contact.html" class="px-4 py-3 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Contact</a>
+          <div class="border-t border-white/5 my-3"></div>
+          <a href="contact.html" class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition-colors">
+            Request Demo <span class="iconify" data-icon="carbon:arrow-right"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="mobileOverlay" class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden" style="backdrop-filter:blur(4px)"></div>
+  </nav>
+
+
+  <!-- ===================== HERO ===================== -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background layers -->
+    <div class="absolute inset-0 bg-grid"></div>
+    <div class="absolute inset-0 hero-radial"></div>
+    <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full opacity-10" style="background: radial-gradient(circle, rgba(56,189,248,0.3), transparent 70%); filter: blur(80px);"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full opacity-5" style="background: radial-gradient(circle, rgba(226,179,64,0.3), transparent 70%); filter: blur(60px);"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-6 pt-32 pb-20 text-center">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03] mb-8 opacity-0 animate-fade-up">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-xs font-medium text-white/60 tracking-wide uppercase">AI-Powered Supply Chain Intelligence</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif italic font-normal tracking-tight leading-[1.05] mb-8 opacity-0 animate-fade-up-delay">
+        Execution.<br>
+        <span class="sky-gradient">Precision.</span><br>
+        Output.
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-lg md:text-xl text-white/60 font-light leading-relaxed max-w-2xl mx-auto mb-12 opacity-0 animate-fade-up-delay2">
+        From purchase to delivery — AI managing every decision.<br class="hidden md:block">
+        Advisory intelligence across GCC, India & global markets.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-up-delay2">
+        <a href="contact.html" class="group relative inline-flex items-center gap-2 px-8 py-4 bg-white text-black text-sm font-medium rounded-xl hover:bg-white/90 transition-all duration-300 shadow-lg shadow-white/10">
+          Schedule AI Assessment
+          <span class="iconify transition-transform group-hover:translate-x-1" data-icon="carbon:arrow-right"></span>
+        </a>
+        <a href="digital.html" class="group relative inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-medium text-white/80 hover:text-white transition-all duration-300" style="background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%); border: 1px solid rgba(255,255,255,0.1);">
+          <span class="iconify text-brand-gold" data-icon="carbon:machine-learning-model"></span>
+          Explore Digital Workforce
+          <span class="iconify transition-transform group-hover:translate-x-1" data-icon="carbon:arrow-right"></span>
+        </a>
+      </div>
+
+      <!-- Trust bar -->
+      <div class="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 text-white/30 text-xs tracking-widest uppercase opacity-0 animate-fade-up-delay2">
+        <span>GCC · India · ASEAN</span>
+        <span class="hidden sm:inline w-1 h-1 rounded-full bg-white/20"></span>
+        <span>23+ Years Experience</span>
+        <span class="hidden sm:inline w-1 h-1 rounded-full bg-white/20"></span>
+        <span>Supply Chain Leadership</span>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40 animate-float">
+      <span class="text-[10px] uppercase tracking-[0.2em] text-white/40">Scroll</span>
+      <div class="w-px h-8 bg-gradient-to-b from-white/40 to-transparent"></div>
+    </div>
+  </section>
+
+
+  <!-- ===================== MARKET TICKER ===================== -->
+  <div class="relative border-y border-white/5 bg-white/[0.01]">
+    <div class="ticker-wrap py-3">
+      <div class="ticker-content animate-ticker" id="marketTicker">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===================== FLAGSHIP AI — 4 AGENTS ===================== -->
+  <section class="relative py-24 lg:py-32 overflow-hidden">
+    <div class="absolute inset-0 section-radial"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <!-- Section header -->
+      <div class="text-center mb-16 reveal">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-gold/20 bg-brand-gold/5 mb-6">
+          <span class="iconify text-brand-gold text-sm" data-icon="carbon:machine-learning-model"></span>
+          <span class="text-xs font-medium text-brand-gold/80 tracking-wide uppercase">VN Autonomous Operations AI</span>
+        </div>
+        <h2 class="text-3xl md:text-5xl font-serif tracking-tight mb-6">Four Agents. One Engine.</h2>
+        <p class="text-white/50 font-light text-lg max-w-2xl mx-auto">An orchestrator-powered AI platform that manages procurement, inventory, logistics, and trade — continuously, autonomously, in real time.</p>
+      </div>
+
+      <!-- Agent Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+        <!-- Procurement Agent -->
+        <a href="procurement-agent.html" class="agent-card relative group bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 hover:bg-white/[0.04] transition-all duration-500 card-glow">
+          <div class="w-12 h-12 rounded-xl bg-brand-sky/10 border border-brand-sky/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+            <span class="iconify text-brand-sky text-2xl" data-icon="carbon:purchase"></span>
+          </div>
+          <h3 class="text-lg font-medium mb-2 group-hover:text-brand-sky transition-colors">Procurement Agent</h3>
+          <p class="text-sm text-white/40 leading-relaxed mb-4">Autonomous PO generation, supplier scoring, price benchmarking, and contract compliance monitoring.</p>
+          <div class="flex items-center gap-1 text-xs text-white/30 group-hover:text-brand-sky/60 transition-colors">
+            <span>Explore</span><span class="iconify transition-transform group-hover:translate-x-1" data-icon="carbon:arrow-right"></span>
+          </div>
+          <!-- Status dot -->
+          <div class="absolute top-6 right-6 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-[10px] text-emerald-400/60 uppercase tracking-wider">Live</span>
+          </div>
+        </a>
+
+        <!-- Inventory Agent -->
+        <a href="inventory-agent.html" class="agent-card relative group bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 hover:bg-white/[0.04] transition-all duration-500 card-glow">
+          <div class="w-12 h-12 rounded-xl bg-brand-sky/10 border border-brand-sky/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+            <span class="iconify text-brand-sky text-2xl" data-icon="carbon:inventory-management"></span>
+          </div>
+          <h3 class="text-lg font-medium mb-2 group-hover:text-brand-sky transition-colors">Inventory Agent</h3>
+          <p class="text-sm text-white/40 leading-relaxed mb-4">Demand-driven replenishment, safety stock optimization, dead-stock identification, and multi-location balancing.</p>
+          <div class="flex items-center gap-1 text-xs text-white/30 group-hover:text-brand-sky/60 transition-colors">
+            <span>Explore</span><span class="iconify transition-transform group-hover:translate-x-1" data-icon="carbon:arrow-right"></span>
+          </div>
+          <div class="absolute top-6 right-6 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-[10px] text-emerald-400/60 uppercase tracking-wider">Live</span>
+          </div>
+        </a>
+
+        <!-- Logistics Agent -->
+        <a href="logistics-agent.html" class="agent-card relative group bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 hover:bg-white/[0.04] transition-all duration-500 card-glow">
+          <div class="w-12 h-12 rounded-xl bg-brand-sky/10 border border-brand-sky/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+            <span class="iconify text-brand-sky text-2xl" data-icon="carbon:delivery-truck"></span>
+          </div>
+          <h3 class="text-lg font-medium mb-2 group-hover:text-brand-sky transition-colors">Logistics Agent</h3>
+          <p class="text-sm text-white/40 leading-relaxed mb-4">Carrier selection, route optimization, shipment tracking, exception management, and freight cost control.</p>
+          <div class="flex items-center gap-1 text-xs text-white/30 group-hover:text-brand-sky/60 transition-colors">
+            <span>Explore</span><span class="iconify transition-transform group-hover:translate-x-1" data-icon="carbon:arrow-right"></span>
+          </div>
+          <div class="absolute top-6 right-6 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-[10px] text-emerald-400/60 uppercase tracking-wider">Live</span>
+          </div>
+        </a>
+
+        <!-- Trade Agent -->
+        <a href="trade-agent.html" class="agent-card relative group bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 hover:bg-white/[0.04] transition-all duration-500 card-glow">
+          <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+            <span class="iconify text-brand-gold text-2xl" data-icon="carbon:document-export"></span>
+          </div>
+          <h3 class="text-lg font-medium mb-2 group-hover:text-brand-gold transition-colors">Trade Agent</h3>
+          <p class="text-sm text-white/40 leading-relaxed mb-4">CBAM compliance, documentation automation, chokepoint risk monitoring, and trade signal generation.</p>
+          <div class="flex items-center gap-1 text-xs text-white/30 group-hover:text-brand-gold/60 transition-colors">
+            <span>Explore</span><span class="iconify transition-transform group-hover:translate-x-1" data-icon="carbon:arrow-right"></span>
+          </div>
+          <div class="absolute top-6 right-6 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-[10px] text-emerald-400/60 uppercase tracking-wider">Live</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Orchestrator bar -->
+      <div class="mt-8 reveal">
+        <div class="relative bg-white/[0.02] border border-white/[0.06] rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-sky/20 to-brand-gold/20 border border-white/10 flex items-center justify-center animate-glow">
+              <span class="iconify text-white text-xl" data-icon="carbon:iot-platform"></span>
+            </div>
+            <div>
+              <div class="text-sm font-medium">Orchestrator — Control Tower</div>
+              <div class="text-xs text-white/40">Coordinates all agents, manages decision governance, enforces business rules</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-6 text-xs">
+            <div class="text-center"><div class="text-white font-medium">4</div><div class="text-white/30">Agents</div></div>
+            <div class="text-center"><div class="text-white font-medium">24/7</div><div class="text-white/30">Operation</div></div>
+            <div class="text-center"><div class="text-emerald-400 font-medium">< 4hrs</div><div class="text-white/30">Response</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== SERVICES OVERVIEW ===================== -->
+  <section class="relative py-24 lg:py-32 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-3xl md:text-5xl font-serif tracking-tight mb-6">Four Pillars of Capability</h2>
+        <p class="text-white/50 font-light text-lg max-w-2xl mx-auto">Advisory intelligence backed by AI execution — from strategy to autonomous operations.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+        <!-- Supply Chain -->
+        <a href="supply-chain.html" class="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 card-glow">
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://picsum.photos/seed/supplychain-network/800/400.jpg" alt="Supply Chain" class="w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent"></div>
+            <div class="absolute bottom-4 left-6 right-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="iconify text-brand-sky" data-icon="carbon:network-4"></span>
+                <span class="text-xs text-brand-sky/60 uppercase tracking-widest">01</span>
+              </div>
+              <h3 class="text-xl font-medium">Supply Chain Intelligence</h3>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-sm text-white/40 leading-relaxed mb-4">End-to-end supply chain transformation — from network design and demand planning to AI-powered control towers and autonomous execution systems.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2.5 py-1 text-[10px] text-white/40 border border-white/10 rounded-md uppercase tracking-wider">Network Design</span>
+              <span class="px-2.5 py-1 text-[10px] text-white/40 border border-white/10 rounded-md uppercase tracking-wider">Demand Planning</span>
+              <span class="px-2.5 py-1 text-[10px] text-white/40 border border-white/10 rounded-md uppercase tracking-wider">Control Tower</span>
+              <span class="px-2.5 py-1 text-[10px] text-white/40 border border-white/10 rounded-md uppercase tracking-wider">AI Execution</span>
+            </div>
+            <div class="flex items-center gap-1 text-xs text-white/30 group-hover:text-brand-sky/60 transition-colors">
+              <span>Learn more</span><span class="iconify transition-transform group-hover:translate-x-1" data-icon="carbon:arrow-right"></span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Procurement -->
+        <a href="procurement.html" class="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 card-glow">
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://picsum.photos/seed/procurement-strategy/800/400.jpg" alt="Procurement" class="w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent"></div>
+            <div class="absolute bottom-4 left-6 right-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="iconify text-brand-sky" data-icon="carbon:procurement"></span>
+                <span class="text-xs text-brand-sky/60 uppercase tracking-widest">02</span>
+              </div>
+              <h3 class="text-xl font-medium">Procurement & Strategic Sourcing</h3>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-sm text-white/40 leading-relaxed mb-4">Transform procurement from a cost centre to a value engine — category strategy, supplier intelligence, contract optimization, and AI-driven purchase automation.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2.5 py-1 text-[10px] text-white/40 border border-white/10 rounded-md uppercase tracking-wider">Category Strategy</span>
+              <span class="px-2.5 py-1 text-[10px] text-white/40 border border-white/10 rounded-md uppercase tracking-wider">Supplier Intelligence</span>
+              <span class="px-2.5 py-1 text-[10px] text-white/40 border border-white/10 rounded-md uppercase tracking-wider">Contract Mgmt</span>
+              <span class="px-2.5 py-1 text-[10px] text-white/40 border border-white/10 rounded-md uppercase tracking-wider">Spend Analytics</span>
+            </div>
+            <div class="flex items-center gap-1 text-xs text-white/30 group-hover:text-brand-sky/60 transition-colors">
+              <span>Learn more</span><span class="iconify transition-transform group-hover:translate-x-1" data-icon="carbon:arrow-right"></span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Logistics & Trade -->
+        <a href="logistics.html" class="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 card-glow">
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://picsum.photos/seed/logistics-freight-port/800/400.jpg" alt="Logistics" class="w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent"></div>
+            <div class="absolute bottom-4 left-6 right-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="iconify text-brand-sky" data-icon="carbon:shipment"></span>
+                <span class="text-xs text-brand-sky/60 uppercase tracking-widest">03</span>
+              </div>
+              <h3 class="text-xl font-medium">Logistics & Trade</h3>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-sm text-white/40 leading-relaxed mb-4">Freight optimization, trade compliance, route risk management, and CBAM-ready documentation — from first mile to last mile across global corridors.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2.5 py-1 text-[10px] text-white/40 border border-white/10 rounded-md uppercase tracking-wider">Freight Optimization</span>
+              <span class="px-2.5 py-1 text-[10px] text-white/40 border border-white/10 rounded-md uppercase tracking-wider">CBAM Compliance</span>
+              <span class="px-2.5 py-1 text-[10px] text-white/40 border border-white/10 rounded-md uppercase tracking-wider">Route Risk</span>
+              <span class="px-2.5 py-1 text-[10px] text-white/40 border border-white/10 rounded-md uppercase tracking-wider">Trade Docs</span>
+            </div>
+            <div class="flex items-center gap-1 text-xs text-white/30 group-hover:text-brand-sky/60 transition-colors">
+              <span>Learn more</span><span class="iconify transition-transform group-hover:translate-x-1" data-icon="carbon:arrow-right"></span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Digital Workforce -->
+        <a href="digital.html" class="group relative overflow-hidden rounded-2xl border border-brand-gold/20 bg-brand-gold/[0.02] hover:bg-brand-gold/[0.04] transition-all duration-500 card-glow">
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://picsum.photos/seed/ai-digital-workforce/800/400.jpg" alt="Digital Workforce" class="w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent"></div>
+            <div class="absolute bottom-4 left-6 right-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="iconify text-brand-gold" data-icon="carbon:machine-learning-model"></span>
+                <span class="text-xs text-brand-gold/60 uppercase tracking-widest">04</span>
+              </div>
+              <h3 class="text-xl font-medium gold-gradient">Digital Workforce</h3>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-sm text-white/40 leading-relaxed mb-4">AI agents that don't just advise — they execute. Autonomous procurement, inventory management, logistics coordination, and trade intelligence running 24/7.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2.5 py-1 text-[10px] text-brand-gold/40 border border-brand-gold/20 rounded-md uppercase tracking-wider">AI Agents</span>
+              <span class="px-2.5 py-1 text-[10px] text-brand-gold/40 border border-brand-gold/20 rounded-md uppercase tracking-wider">Orchestrator</span>
+              <span class="px-2.5 py-1 text-[10px] text-brand-gold/40 border border-brand-gold/20 rounded-md uppercase tracking-wider">Autonomous</span>
+              <span class="px-2.5 py-1 text-[10px] text-brand-gold/40 border border-brand-gold/20 rounded-md uppercase tracking-wider">24/7</span>
+            </div>
+            <div class="flex items-center gap-1 text-xs text-brand-gold/40 group-hover:text-brand-gold/70 transition-colors">
+              <span>Explore platform</span><span class="iconify transition-transform group-hover:translate-x-1" data-icon="carbon:arrow-right"></span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== MARKET INTELLIGENCE PREVIEW ===================== -->
+  <section class="relative py-24 lg:py-32 border-t border-white/5 overflow-hidden">
+    <div class="absolute inset-0 section-radial"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left: Content -->
+        <div class="reveal">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/5 mb-6">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-xs font-medium text-emerald-400/80 tracking-wide uppercase">Live Data</span>
+          </div>
+          <h2 class="text-3xl md:text-5xl font-serif tracking-tight mb-6">Market Intelligence</h2>
+          <p class="text-white/50 font-light text-lg leading-relaxed mb-8">
+            Real-time commodity prices, forex rates, chokepoint risk tracking, and trade signals — integrated into every advisory decision.
+          </p>
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start gap-3">
+              <span class="iconify text-brand-sky mt-0.5" data-icon="carbon:checkmark-filled"></span>
+              <div><span class="text-sm text-white/80 font-medium">Live Commodity Prices</span><br><span class="text-xs text-white/40">Steel, aluminium, crude, copper — real-time feeds</span></div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="iconify text-brand-sky mt-0.5" data-icon="carbon:checkmark-filled"></span>
+              <div><span class="text-sm text-white/80 font-medium">Forex Rate Monitoring</span><br><span class="text-xs text-white/40">GCC currencies, INR, EUR — impact on trade margins</span></div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="iconify text-brand-sky mt-0.5" data-icon="carbon:checkmark-filled"></span>
+              <div><span class="text-sm text-white/80 font-medium">Chokepoint Risk Tracking</span><br><span class="text-xs text-white/40">Red Sea, Hormuz, Malacca — disruption probability scoring</span></div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="iconify text-brand-sky mt-0.5" data-icon="carbon:checkmark-filled"></span>
+              <div><span class="text-sm text-white/80 font-medium">Decision Triggers</span><br><span class="text-xs text-white/40">Automated alerts when market conditions cross action thresholds</span></div>
+            </div>
+          </div>
+          <a href="market.html" class="group inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium text-white/80 hover:text-white transition-all duration-300 border border-white/10 hover:border-white/20 hover:bg-white/[0.03]">
+            Open Full Dashboard
+            <span class="iconify transition-transform group-hover:translate-x-1" data-icon="carbon:arrow-right"></span>
+          </a>
+        </div>
+
+        <!-- Right: Live Data Preview -->
+        <div class="reveal">
+          <div class="bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden">
+            <!-- Header -->
+            <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-red-500/60"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500/60"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500/60"></span>
+              </div>
+              <span class="text-[10px] text-white/30 uppercase tracking-widest">Market Feed — Live</span>
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            </div>
+
+            <!-- Commodity table -->
+            <div class="p-5">
+              <div class="text-xs text-white/30 uppercase tracking-widest mb-3">Commodities</div>
+              <div class="space-y-2" id="commodityTable">
+                <!-- Populated by JS -->
+              </div>
+
+              <div class="border-t border-white/5 mt-5 pt-5">
+                <div class="text-xs text-white/30 uppercase tracking-widest mb-3">Forex Rates</div>
+                <div class="grid grid-cols-2 gap-3" id="forexTable">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+
+              <div class="border-t border-white/5 mt-5 pt-5">
+                <div class="text-xs text-white/30 uppercase tracking-widest mb-3">Chokepoint Risk</div>
+                <div class="space-y-2" id="chokepointTable">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== DIGITAL WORKFORCE PREVIEW ===================== -->
+  <section class="relative py-24 lg:py-32 border-t border-white/5 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left: Animation/Visual -->
+        <div class="reveal order-2 lg:order-1">
+          <div class="relative bg-white/[0.02] border border-white/[0.06] rounded-2xl p-8 lg:p-10" style="min-height: 400px;">
+            <!-- Orchestrator hub -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full border border-brand-gold/20 bg-brand-gold/5 flex items-center justify-center animate-glow z-10">
+              <div class="text-center">
+                <span class="iconify text-brand-gold text-3xl" data-icon="carbon:iot-platform"></span>
+                <div class="text-[9px] text-brand-gold/60 uppercase tracking-wider mt-1">Orchestrator</div>
+              </div>
+            </div>
+
+            <!-- Connection lines -->
+            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 400" fill="none">
+              <line x1="200" y1="120" x2="200" y2="165" stroke="rgba(56,189,248,0.15)" stroke-width="1" stroke-dasharray="4 4"><animate attributeName="stroke-dashoffset" from="8" to="0" dur="1s" repeatCount="indefinite"/></line>
+              <line x1="80" y1="200" x2="140" y2="200" stroke="rgba(56,189,248,0.15)" stroke-width="1" stroke-dasharray="4 4"><animate attributeName="stroke-dashoffset" from="8" to="0" dur="1.2s" repeatCount="indefinite"/></line>
+              <line x1="320" y1="200" x2="260" y2="200" stroke="rgba(56,189,248,0.15)" stroke-width="1" stroke-dasharray="4 4"><animate attributeName="stroke-dashoffset" from="8" to="0" dur="1.1s" repeatCount="indefinite"/></line>
+              <line x1="200" y1="280" x2="200" y2="235" stroke="rgba(226,179,64,0.15)" stroke-width="1" stroke-dasharray="4 4"><animate attributeName="stroke-dashoffset" from="8" to="0" dur="1.3s" repeatCount="indefinite"/></line>
+            </svg>
+
+            <!-- Agent nodes -->
+            <div class="absolute top-6 left-1/2 -translate-x-1/2 animate-float" style="animation-delay: 0s;">
+              <div class="w-20 h-20 rounded-xl bg-brand-sky/10 border border-brand-sky/20 flex flex-col items-center justify-center">
+                <span class="iconify text-brand-sky text-xl" data-icon="carbon:purchase"></span>
+                <span class="text-[8px] text-brand-sky/60 mt-1">Procure</span>
+              </div>
+            </div>
+            <div class="absolute top-1/2 left-4 -translate-y-1/2 animate-float" style="animation-delay: 0.5s;">
+              <div class="w-20 h-20 rounded-xl bg-brand-sky/10 border border-brand-sky/20 flex flex-col items-center justify-center">
+                <span class="iconify text-brand-sky text-xl" data-icon="carbon:inventory-management"></span>
+                <span class="text-[8px] text-brand-sky/60 mt-1">Inventory</span>
+              </div>
+            </div>
+            <div class="absolute top-1/2 right-4 -translate-y-1/2 animate-float" style="animation-delay: 1s;">
+              <div class="w-20 h-20 rounded-xl bg-brand-sky/10 border border-brand-sky/20 flex flex-col items-center justify-center">
+                <span class="iconify text-brand-sky text-xl" data-icon="carbon:delivery-truck"></span>
+                <span class="text-[8px] text-brand-sky/60 mt-1">Logistics</span>
+              </div>
+            </div>
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-float" style="animation-delay: 1.5s;">
+              <div class="w-20 h-20 rounded-xl bg-brand-gold/10 border border-brand-gold/20 flex flex-col items-center justify-center">
+                <span class="iconify text-brand-gold text-xl" data-icon="carbon:document-export"></span>
+                <span class="text-[8px] text-brand-gold/60 mt-1">Trade</span>
+              </div>
+            </div>
+
+            <!-- Data flow particles -->
+            <div class="absolute top-16 left-1/2 w-1 h-1 rounded-full bg-brand-sky/40 animate-pulse"></div>
+            <div class="absolute top-1/2 left-16 w-1 h-1 rounded-full bg-brand-sky/40 animate-pulse" style="animation-delay:0.3s"></div>
+            <div class="absolute top-1/2 right-16 w-1 h-1 rounded-full bg-brand-sky/40 animate-pulse" style="animation-delay:0.6s"></div>
+            <div class="absolute bottom-16 left-1/2 w-1 h-1 rounded-full bg-brand-gold/40 animate-pulse" style="animation-delay:0.9s"></div>
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="reveal order-1 lg:order-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-gold/20 bg-brand-gold/5 mb-6">
+            <span class="iconify text-brand-gold text-sm" data-icon="carbon:machine-learning-model"></span>
+            <span class="text-xs font-medium text-brand-gold/80 tracking-wide uppercase">Core Product</span>
+          </div>
+          <h2 class="text-3xl md:text-5xl font-serif tracking-tight mb-6">
+            Your Digital<br><span class="gold-gradient">Workforce</span>
+          </h2>
+          <p class="text-white/50 font-light text-lg leading-relaxed mb-8">
+            AI agents that work alongside your team — not replacing judgment, but eliminating the 60–70% of routine decisions that consume planner time without adding value.
+          </p>
+          <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="bg-white/[0.02] border border-white/[0.06] rounded-xl p-4">
+              <div class="text-2xl font-medium text-brand-sky mb-1">60–70%</div>
+              <div class="text-xs text-white/40">Planner time freed from routine exceptions</div>
+            </div>
+            <div class="bg-white/[0.02] border border-white/[0.06] rounded-xl p-4">
+              <div class="text-2xl font-medium text-brand-sky mb-1">< 4hrs</div>
+              <div class="text-xs text-white/40">Disruption response time (vs 48–96hrs)</div>
+            </div>
+            <div class="bg-white/[0.02] border border-white/[0.06] rounded-xl p-4">
+              <div class="text-2xl font-medium text-brand-gold mb-1">24/7</div>
+              <div class="text-xs text-white/40">Autonomous operation — no sleep cycles</div>
+            </div>
+            <div class="bg-white/[0.02] border border-white/[0.06] rounded-xl p-4">
+              <div class="text-2xl font-medium text-brand-gold mb-1">Tally +</div>
+              <div class="text-xs text-white/40">ERP, WMS, TMS, API integrations</div>
+            </div>
+          </div>
+          <a href="digital.html" class="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-black text-sm font-medium hover:bg-white/90 transition-colors shadow-lg shadow-white/10">
+            See Full Architecture
+            <span class="iconify transition-transform group-hover:translate-x-1" data-icon="carbon:arrow-right"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== HOW WE WORK ===================== -->
+  <section class="relative py-24 lg:py-32 border-t border-white/5">
+    <div class="absolute inset-0 section-radial"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-3xl md:text-5xl font-serif tracking-tight mb-6">How We Work</h2>
+        <p class="text-white/50 font-light text-lg max-w-2xl mx-auto">A structured approach — from diagnosis to autonomous execution.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 reveal">
+        <div class="relative group">
+          <div class="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 h-full hover:bg-white/[0.04] transition-all duration-500">
+            <div class="text-4xl font-serif text-brand-sky/20 mb-4">01</div>
+            <h3 class="text-lg font-medium mb-3">Diagnose</h3>
+            <p class="text-sm text-white/40 leading-relaxed">Deep assessment of current supply chain maturity, data infrastructure, and operational pain points.</p>
+          </div>
+          <div class="hidden md:block absolute top-1/2 -right-3 z-10">
+            <span class="iconify text-white/10 text-xl" data-icon="carbon:arrow-right"></span>
+          </div>
+        </div>
+        <div class="relative group">
+          <div class="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 h-full hover:bg-white/[0.04] transition-all duration-500">
+            <div class="text-4xl font-serif text-brand-sky/20 mb-4">02</div>
+            <h3 class="text-lg font-medium mb-3">Design</h3>
+            <p class="text-sm text-white/40 leading-relaxed">Architecture the target operating model — data flows, AI integration points, decision governance framework.</p>
+          </div>
+          <div class="hidden md:block absolute top-1/2 -right-3 z-10">
+            <span class="iconify text-white/10 text-xl" data-icon="carbon:arrow-right"></span>
+          </div>
+        </div>
+        <div class="relative group">
+          <div class="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 h-full hover:bg-white/[0.04] transition-all duration-500">
+            <div class="text-4xl font-serif text-brand-sky/20 mb-4">03</div>
+            <h3 class="text-lg font-medium mb-3">Deploy</h3>
+            <p class="text-sm text-white/40 leading-relaxed">Phased implementation — data foundation first, then intelligence layer, then autonomous execution.</p>
+          </div>
+          <div class="hidden md:block absolute top-1/2 -right-3 z-10">
+            <span class="iconify text-white/10 text-xl" data-icon="carbon:arrow-right"></span>
+          </div>
+        </div>
+        <div class="group">
+          <div class="bg-brand-gold/[0.03] border border-brand-gold/20 rounded-2xl p-6 h-full hover:bg-brand-gold/[0.05] transition-all duration-500">
+            <div class="text-4xl font-serif text-brand-gold/30 mb-4">04</div>
+            <h3 class="text-lg font-medium mb-3 gold-gradient">Autonomize</h3>
+            <p class="text-sm text-white/40 leading-relaxed">Expand AI decision boundaries. Agents handle routine execution. Your team focuses on strategy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== INDUSTRIES GRID ===================== -->
+  <section class="relative py-24 lg:py-32 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-3xl md:text-5xl font-serif tracking-tight mb-6">Industries We Serve</h2>
+        <p class="text-white/50 font-light text-lg max-w-2xl mx-auto">Deep domain expertise across supply chain-intensive sectors.</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 reveal">
+        <a href="industries.html#manufacturing" class="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 aspect-square flex flex-col items-center justify-center p-4 text-center">
+          <span class="iconify text-3xl text-white/20 group-hover:text-brand-sky/60 transition-colors mb-3" data-icon="carbon:factory"></span>
+          <span class="text-sm text-white/60 group-hover:text-white transition-colors">Manufacturing</span>
+        </a>
+        <a href="industries.html#commodities" class="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 aspect-square flex flex-col items-center justify-center p-4 text-center">
+          <span class="iconify text-3xl text-white/20 group-hover:text-brand-sky/60 transition-colors mb-3" data-icon="carbon:chart-bar"></span>
+          <span class="text-sm text-white/60 group-hover:text-white transition-colors">Commodities & Trading</span>
+        </a>
+        <a href="industries.html#logistics" class="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 aspect-square flex flex-col items-center justify-center p-4 text-center">
+          <span class="iconify text-3xl text-white/20 group-hover:text-brand-sky/60 transition-colors mb-3" data-icon="carbon:container-shipment"></span>
+          <span class="text-sm text-white/60 group-hover:text-white transition-colors">Logistics & Freight</span>
+        </a>
+        <a href="industries.html#procurement" class="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 aspect-square flex flex-col items-center justify-center p-4 text-center">
+          <span class="iconify text-3xl text-white/20 group-hover:text-brand-sky/60 transition-colors mb-3" data-icon="carbon:shopping-cart"></span>
+          <span class="text-sm text-white/60 group-hover:text-white transition-colors">Procurement-Driven</span>
+        </a>
+        <a href="industries.html#infrastructure" class="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 aspect-square flex flex-col items-center justify-center p-4 text-center col-span-2 md:col-span-1">
+          <span class="iconify text-3xl text-white/20 group-hover:text-brand-sky/60 transition-colors mb-3" data-icon="carbon:building"></span>
+          <span class="text-sm text-white/60 group-hover:text-white transition-colors">Infrastructure</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== INSIGHTS SLIDER ===================== -->
+  <section class="relative py-24 lg:py-32 border-t border-white/5 overflow-hidden">
+    <div class="absolute inset-0 section-radial"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal">
+        <div>
+          <h2 class="text-3xl md:text-5xl font-serif tracking-tight mb-4">Insights & Impact</h2>
+          <p class="text-white/50 font-light text-lg">Strategic intelligence from the front lines of supply chain transformation.</p>
+        </div>
+        <a href="insights.html" class="group inline-flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors mt-4 md:mt-0">
+          View all 15 insights & 5 case studies
+          <span class="iconify transition-transform group-hover:translate-x-1" data-icon="carbon:arrow-right"></span>
+        </a>
+      </div>
+
+      <!-- Slider -->
+      <div class="relative reveal">
+        <div class="overflow-hidden rounded-2xl">
+          <div id="insightsSlider" class="flex transition-transform duration-700 ease-out">
+            <!-- Slide 1 -->
+            <div class="w-full flex-shrink-0">
+              <div class="grid grid-cols-1 lg:grid-cols-2 bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden">
+                <div class="relative h-64 lg:h-auto overflow-hidden">
+                  <img src="https://picsum.photos/seed/ai-supply-chain-control/800/600.jpg" alt="AI Supply Chain" class="w-full h-full object-cover opacity-50">
+                  <div class="absolute inset-0 bg-gradient-to-r from-transparent to-brand-dark/80 hidden lg:block"></div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-brand-dark to-transparent lg:hidden"></div>
+                </div>
+                <div class="p-8 lg:p-10 flex flex-col justify-center">
+                  <div class="flex items-center gap-2 mb-4">
+                    <span class="px-2.5 py-1 text-[10px] text-brand-sky/70 border border-brand-sky/20 rounded-md uppercase tracking-wider">Supply Chain AI</span>
+                    <span class="text-xs text-white/30">9 min read</span>
+                  </div>
+                  <h3 class="text-xl lg:text-2xl font-medium mb-4 leading-tight">AI-Driven Supply Chains: From Planning to Autonomous Execution</h3>
+                  <p class="text-sm text-white/40 leading-relaxed mb-6">The gap between planning a supply chain and running one has always been a source of costly delays. AI is closing that gap — not by making existing processes faster, but by replacing the sequential logic of plan-then-execute with a continuous decision loop.</p>
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs text-white/30">15 March 2025</span>
+                    <div class="flex items-center gap-3">
+                      <button onclick="shareOnLinkedIn('ai-supply-chain')" class="w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center transition-colors" title="Share on LinkedIn"><span class="iconify text-white/30 hover:text-white/60" data-icon="mdi:linkedin"></span></button>
+                      <button onclick="shareOnTwitter('ai-supply-chain')" class="w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center transition-colors" title="Share on X"><span class="iconify text-white/30 hover:text-white/60" data-icon="ri:twitter-x-fill"></span></button>
+                      <button onclick="shareOnWhatsApp('ai-supply-chain')" class="w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center transition-colors" title="Share on WhatsApp"><span class="iconify text-white/30 hover:text-white/60" data-icon="mdi:whatsapp"></span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="w-full flex-shrink-0">
+              <div class="grid grid-cols-1 lg:grid-cols-2 bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden">
+                <div class="relative h-64 lg:h-auto overflow-hidden">
+                  <img src="https://picsum.photos/seed/cbam-eu-port-carbon/800/600.jpg" alt="CBAM" class="w-full h-full object-cover opacity-50">
+                  <div class="absolute inset-0 bg-gradient-to-r from-transparent to-brand-dark/80 hidden lg:block"></div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-brand-dark to-transparent lg:hidden"></div>
+                </div>
+                <div class="p-8 lg:p-10 flex flex-col justify-center">
+                  <div class="flex items-center gap-2 mb-4">
+                    <span class="px-2.5 py-1 text-[10px] text-brand-gold/70 border border-brand-gold/20 rounded-md uppercase tracking-wider">Trade Policy</span>
+                    <span class="text-xs text-white/30">10 min read</span>
+                  </div>
+                  <h3 class="text-xl lg:text-2xl font-medium mb-4 leading-tight">CBAM 2026: The New Cost Architecture of Global Trade</h3>
+                  <p class="text-sm text-white/40 leading-relaxed mb-6">CBAM has moved from a policy discussion to a financial line item. For GCC and Indian exporters shipping energy-intensive goods to the EU, carbon is now a cost that appears in the P&L whether or not you have a strategy for it.</p>
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs text-white/30">1 April 2025</span>
+                    <div class="flex items-center gap-3">
+                      <button onclick="shareOnLinkedIn('cbam-2026')" class="w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center transition-colors"><span class="iconify text-white/30 hover:text-white/60" data-icon="mdi:linkedin"></span></button>
+                      <button onclick="shareOnTwitter('cbam-2026')" class="w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center transition-colors"><span class="iconify text-white/30 hover:text-white/60" data-icon="ri:twitter-x-fill"></span></button>
+                      <button onclick="shareOnWhatsApp('cbam-2026')" class="w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center transition-colors"><span class="iconify text-white/30 hover:text-white/60" data-icon="mdi:whatsapp"></span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="w-full flex-shrink-0">
+              <div class="grid grid-cols-1 lg:grid-cols-2 bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden">
+                <div class="relative h-64 lg:h-auto overflow-hidden">
+                  <img src="https://picsum.photos/seed/control-tower-decision/800/600.jpg" alt="Control Tower" class="w-full h-full object-cover opacity-50">
+                  <div class="absolute inset-0 bg-gradient-to-r from-transparent to-brand-dark/80 hidden lg:block"></div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-brand-dark to-transparent lg:hidden"></div>
+                </div>
+                <div class="p-8 lg:p-10 flex flex-col justify-center">
+                  <div class="flex items-center gap-2 mb-4">
+                    <span class="px-2.5 py-1 text-[10px] text-brand-sky/70 border border-brand-sky/20 rounded-md uppercase tracking-wider">Digital Supply Chain</span>
+                    <span class="text-xs text-white/30">9 min read</span>
+                  </div>
+                  <h3 class="text-xl lg:text-2xl font-medium mb-4 leading-tight">Control Tower 2.0: From Visibility Dashboard to Decision Intelligence</h3>
+                  <p class="text-sm text-white/40 leading-relaxed mb-6">The first generation of supply chain control towers solved the visibility problem. You could see what was happening. The problem they did not solve was what to do about it — and how fast.</p>
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs text-white/30">1 March 2025</span>
+                    <div class="flex items-center gap-3">
+                      <button onclick="shareOnLinkedIn('control-tower-2')" class="w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center transition-colors"><span class="iconify text-white/30 hover:text-white/60" data-icon="mdi:linkedin"></span></button>
+                      <button onclick="shareOnTwitter('control-tower-2')" class="w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center transition-colors"><span class="iconify text-white/30 hover:text-white/60" data-icon="ri:twitter-x-fill"></span></button>
+                      <button onclick="shareOnWhatsApp('control-tower-2')" class="w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center transition-colors"><span class="iconify text-white/30 hover:text-white/60" data-icon="mdi:whatsapp"></span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slider controls -->
+        <div class="flex items-center justify-between mt-6">
+          <div class="flex items-center gap-2" id="sliderDots">
+            <button onclick="goToSlide(0)" class="slider-dot w-8 h-1.5 rounded-full bg-brand-sky transition-all duration-300"></button>
+            <button onclick="goToSlide(1)" class="slider-dot w-8 h-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300"></button>
+            <button onclick="goToSlide(2)" class="slider-dot w-8 h-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300"></button>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="prevSlide()" class="w-10 h-10 rounded-lg border border-white/10 hover:border-white/20 hover:bg-white/5 flex items-center justify-center transition-all">
+              <span class="iconify text-white/50" data-icon="carbon:arrow-left"></span>
+            </button>
+            <button onclick="nextSlide()" class="w-10 h-10 rounded-lg border border-white/10 hover:border-white/20 hover:bg-white/5 flex items-center justify-center transition-all">
+              <span class="iconify text-white/50" data-icon="carbon:arrow-right"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== CTA ===================== -->
+  <section class="relative py-24 lg:py-32 border-t border-white/5 overflow-hidden">
+    <div class="absolute inset-0 hero-radial"></div>
+    <div class="absolute inset-0 bg-grid opacity-50"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center reveal">
+      <h2 class="text-3xl md:text-5xl lg:text-6xl font-serif italic tracking-tight mb-6">
+        Ready to move from <span class="sky-gradient">planning</span> to <span class="gold-gradient">execution</span>?
+      </h2>
+      <p class="text-white/50 font-light text-lg max-w-xl mx-auto mb-10">
+        Whether you need an AI assessment, advisory engagement, or a platform demo — let's start the conversation.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="contact.html" class="group relative inline-flex items-center gap-2 px-8 py-4 bg-white text-black text-sm font-medium rounded-xl hover:bg-white/90 transition-all duration-300 shadow-lg shadow-white/10">
+          Schedule AI Assessment
+          <span class="iconify transition-transform group-hover:translate-x-1" data-icon="carbon:arrow-right"></span>
+        </a>
+        <a href="mailto:info@vnadvisory.in" class="group inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-medium text-white/70 hover:text-white border border-white/10 hover:border-white/20 hover:bg-white/[0.03] transition-all duration-300">
+          <span class="iconify" data-icon="carbon:email"></span>
+          info@vnadvisory.in
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="relative border-t border-white/5 bg-white/[0.01]">
+    <div class="max-w-7xl mx-auto px-6 py-16 lg:py-20">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+
+        <!-- Column 1: Brand -->
+        <div class="lg:col-span-1">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-brand-sky/20 border border-brand-sky/30 flex items-center justify-center">
+              <span class="iconify text-brand-sky text-base" data-icon="carbon:analytics"></span>
+            </div>
+            <span class="text-white font-semibold text-sm tracking-tight">VN Advisory</span>
+          </div>
+          <p class="text-sm text-white/40 leading-relaxed mb-4">Execution. Precision. Output.<br>AI-powered supply chain intelligence.</p>
+          <div class="flex items-center gap-3">
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg border border-white/10 hover:border-brand-sky/30 hover:bg-brand-sky/5 flex items-center justify-center transition-all" title="LinkedIn">
+              <span class="iconify text-white/40 hover:text-brand-sky text-lg" data-icon="mdi:linkedin"></span>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg border border-white/10 hover:border-red-500/30 hover:bg-red-500/5 flex items-center justify-center transition-all" title="YouTube">
+              <span class="iconify text-white/40 hover:text-red-400 text-lg" data-icon="mdi:youtube"></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div>
+          <h4 class="text-xs text-white/30 uppercase tracking-widest mb-5 font-medium">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-sm text-white/50 hover:text-white transition-colors">Home</a></li>
+            <li><a href="market.html" class="text-sm text-white/50 hover:text-white transition-colors">Market Intelligence</a></li>
+            <li><a href="digital.html" class="text-sm text-white/50 hover:text-white transition-colors">Digital Workforce</a></li>
+            <li><a href="insights.html" class="text-sm text-white/50 hover:text-white transition-colors">Insights & Impact</a></li>
+            <li><a href="contact.html" class="text-sm text-white/50 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Services -->
+        <div>
+          <h4 class="text-xs text-white/30 uppercase tracking-widest mb-5 font-medium">Services</h4>
+          <ul class="space-y-3">
+            <li><a href="supply-chain.html" class="text-sm text-white/50 hover:text-white transition-colors">Supply Chain</a></li>
+            <li><a href="procurement.html" class="text-sm text-white/50 hover:text-white transition-colors">Procurement</a></li>
+            <li><a href="logistics.html" class="text-sm text-white/50 hover:text-white transition-colors">Logistics & Trade</a></li>
+            <li><a href="digital.html" class="text-sm text-white/50 hover:text-white transition-colors">Digital Workforce</a></li>
+            <li><a href="industries.html" class="text-sm text-white/50 hover:text-white transition-colors">Industries</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: About (Moved here per blueprint) -->
+        <div>
+          <h4 class="text-xs text-white/30 uppercase tracking-widest mb-5 font-medium">About</h4>
+          <ul class="space-y-3">
+            <li class="text-sm text-white/50"><span class="text-white/80 font-medium">23+ years</span> experience</li>
+            <li class="text-sm text-white/50">Across <span class="text-white/80 font-medium">GCC · India · ASEAN</span></li>
+            <li class="text-sm text-white/50"><span class="text-white/80 font-medium">Supply Chain</span> leadership</li>
+            <li class="text-sm text-white/50">AI + Advisory + Execution</li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Contact -->
+        <div>
+          <h4 class="text-xs text-white/30 uppercase tracking-widest mb-5 font-medium">Contact</h4>
+          <ul class="space-y-3">
+            <li><a href="mailto:info@vnadvisory.in" class="text-sm text-white/50 hover:text-white transition-colors">info@vnadvisory.in</a></li>
+            <li><a href="mailto:varadha@vnadvisory.in" class="text-sm text-white/50 hover:text-white transition-colors">varadha@vnadvisory.in</a></li>
+            <li class="text-sm text-white/50 pt-2">
+              <a href="contact.html" class="inline-flex items-center gap-1 text-brand-sky/70 hover:text-brand-sky transition-colors text-xs font-medium">
+                Request a Demo <span class="iconify" data-icon="carbon:arrow-right"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="border-t border-white/5 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-white/25">© 2025 VN Advisory. All rights reserved.</p>
+        <div class="flex items-center gap-6 text-xs text-white/25">
+          <a href="#" class="hover:text-white/50 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white/50 transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ===================== TOAST ===================== -->
+  <div id="toast" class="toast">
+    <div class="flex items-center gap-3 px-5 py-3 rounded-xl bg-brand-dark/95 border border-white/10 shadow-2xl" style="backdrop-filter: blur(20px);">
+      <span class="iconify text-emerald-400" data-icon="carbon:checkmark-filled"></span>
+      <span id="toastMsg" class="text-sm text-white/80"></span>
+    </div>
+  </div>
+
+
+  <!-- ===================== JAVASCRIPT ===================== -->
+  <script>
+    // ===== MOBILE MENU =====
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileClose = document.getElementById('mobileClose');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function openMobile() { mobileMenu.classList.add('open'); mobileOverlay.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+    function closeMobile() { mobileMenu.classList.remove('open'); mobileOverlay.classList.add('hidden'); document.body.style.overflow = ''; }
+    mobileToggle.addEventListener('click', openMobile);
+    mobileClose.addEventListener('click', closeMobile);
+    mobileOverlay.addEventListener('click', closeMobile);
+
+    // ===== NAV SCROLL =====
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.style.background = 'rgba(5,5,5,0.95)';
+        nav.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+      } else {
+        nav.style.background = 'rgba(5,5,5,0.8)';
+        nav.style.borderBottom = 'none';
+      }
+    });
+
+    // ===== SCROLL REVEAL =====
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // ===== MARKET TICKER =====
+    const tickerData = [
+      { name: 'Crude Oil', price: '78.42', change: '+1.23', up: true },
+      { name: 'Brent', price: '82.15', change: '+0.87', up: true },
+      { name: 'Steel HRC', price: '645.00', change: '-12.50', up: false },
+      { name: 'Aluminium', price: '2,385', change: '+18.00', up: true },
+      { name: 'Copper', price: '9,125', change: '-45.00', up: false },
+      { name: 'Iron Ore', price: '108.30', change: '+2.10', up: true },
+      { name: 'Natural Gas', price: '2.84', change: '-0.12', up: false },
+      { name: 'EUR/USD', price: '1.0845', change: '+0.0023', up: true },
+      { name: 'GBP/USD', price: '1.2634', change: '-0.0011', up: false },
+      { name: 'USD/INR', price: '83.45', change: '+0.12', up: true },
+      { name: 'USD/AED', price: '3.6725', change: '0.0000', up: true },
+      { name: 'USD/SAR', price: '3.7500', change: '0.0000', up: true },
+    ];
+
+    const tickerEl = document.getElementById('marketTicker');
+    let tickerHTML = '';
+    const doubleData = [...tickerData, ...tickerData];
+    doubleData.forEach(t => {
+      const color = t.up ? 'text-emerald-400' : 'text-red-400';
+      const arrow = t.up ? '▲' : '▼';
+      tickerHTML += `<div class="inline-flex items-center gap-3 px-5 py-1 border-r border-white/5">
+        <span class="text-xs text-white/50 whitespace-nowrap">${t.name}</span>
+        <span class="text-xs text-white/80 font-medium whitespace-nowrap">$${t.price}</span>
+        <span class="text-xs ${color} whitespace-nowrap">${arrow} ${t.change}</span>
+      </div>`;
+    });
+    tickerEl.innerHTML = tickerHTML;
+
+    // ===== COMMODITY TABLE =====
+    const commodities = [
+      { name: 'Steel HRC', price: '$645.00', change: '-1.89%', up: false },
+      { name: 'Aluminium', price: '$2,385', change: '+0.76%', up: true },
+      { name: 'Crude Oil (WTI)', price: '$78.42', change: '+1.59%', up: true },
+      { name: 'Copper', price: '$9,125', change: '-0.49%', up: false },
+      { name: 'Iron Ore', price: '$108.30', change: '+1.98%', up: true },
+    ];
+
+    const commodityEl = document.getElementById('commodityTable');
+    commodityEl.innerHTML = commodities.map(c => `
+      <div class="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-white/[0.02] transition-colors">
+        <span class="text-sm text-white/60">${c.name}</span>
+        <div class="flex items-center gap-3">
+          <span class="text-sm text-white/80 font-medium">${c.price}</span>
+          <span class="text-xs ${c.up ? 'text-emerald-400' : 'text-red-400'} w-16 text-right">${c.up ? '+' : ''}${c.change}</span>
+        </div>
+      </div>
+    `).join('');
+
+    // ===== FOREX TABLE =====
+    const forex = [
+      { pair: 'EUR/USD', rate: '1.0845', flag: '🇪🇺' },
+      { pair: 'GBP/USD', rate: '1.2634', flag: '🇬🇧' },
+      { pair: 'USD/INR', rate: '83.45', flag: '🇮🇳' },
+      { pair: 'USD/AED', rate: '3.6725', flag: '🇦🇪' },
+    ];
+
+    const forexEl = document.getElementById('forexTable');
+    forexEl.innerHTML = forex.map(f => `
+      <div class="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-white/[0.02] transition-colors">
+        <div class="flex items-center gap-2">
+          <span class="text-base">${f.flag}</span>
+          <span class="text-sm text-white/60">${f.pair}</span>
+        </div>
+        <span class="text-sm text-white/80 font-medium">${f.rate}</span>
+      </div>
+    `).join('');
+
+    // ===== CHOKEPOINT TABLE =====
+    const chokepoints = [
+      { name: 'Red Sea / Suez', risk: 'HIGH', color: 'bg-red-500', pct: '82' },
+      { name: 'Strait of Hormuz', risk: 'ELEVATED', color: 'bg-amber-500', pct: '58' },
+      { name: 'Malacca Strait', risk: 'MODERATE', color: 'bg-yellow-500', pct: '32' },
+    ];
+
+    const chokeEl = document.getElementById('chokepointTable');
+    chokeEl.innerHTML = chokepoints.map(c => `
+      <div class="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-white/[0.02] transition-colors">
+        <span class="text-sm text-white/60 flex-1">${c.name}</span>
+        <div class="w-24 h-1.5 rounded-full bg-white/5 overflow-hidden">
+          <div class="h-full ${c.color} rounded-full" style="width: ${c.pct}%"></div>
+        </div>
+        <span class="text-[10px] font-medium ${c.color.replace('bg-','text-')} uppercase tracking-wider w-16 text-right">${c.risk}</span>
+      </div>
+    `).join('');
+
+    // ===== SIMULATED PRICE UPDATES =====
+    setInterval(() => {
+      const rows = commodityEl.querySelectorAll('div');
+      const randomIdx = Math.floor(Math.random() * rows.length);
+      const priceSpan = rows[randomIdx].querySelector('.text-white\\/80');
+      if (priceSpan) {
+        priceSpan.style.transition = 'color 0.3s';
+        priceSpan.style.color = Math.random() > 0.5 ? '#34d399' : '#f87171';
+        setTimeout(() => { priceSpan.style.color = ''; }, 600);
+      }
+    }, 3000);
+
+    // ===== INSIGHTS SLIDER =====
+    let currentSlide = 0;
+    const totalSlides = 3;
+    const slider = document.getElementById('insightsSlider');
+    const dots = document.querySelectorAll('.slider-dot');
+    let sliderInterval;
+
+    function updateSlider() {
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach((dot, i) => {
+        dot.className = i === currentSlide
+          ? 'slider-dot w-8 h-1.5 rounded-full bg-brand-sky transition-all duration-300'
+          : 'slider-dot w-8 h-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300';
+      });
+    }
+
+    function nextSlide() { currentSlide = (currentSlide + 1) % totalSlides; updateSlider(); resetAutoSlide(); }
+    function prevSlide() { currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; updateSlider(); resetAutoSlide(); }
+    function goToSlide(i) { currentSlide = i; updateSlider(); resetAutoSlide(); }
+
+    function resetAutoSlide() {
+      clearInterval(sliderInterval);
+      sliderInterval = setInterval(nextSlide, 6000);
+    }
+    sliderInterval = setInterval(nextSlide, 6000);
+
+    // ===== SOCIAL SHARING =====
+    function shareOnLinkedIn(slug) {
+      const url = encodeURIComponent(`https://vnadvisory.in/insights/${slug}`);
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=600,height=400');
+      showToast('Opening LinkedIn share...');
+    }
+    function shareOnTwitter(slug) {
+      const url = encodeURIComponent(`https://vnadvisory.in/insights/${slug}`);
+      const text = encodeURIComponent('Check out this insight from VN Advisory:');
+      window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=600,height=400');
+      showToast('Opening X/Twitter share...');
+    }
+    function shareOnWhatsApp(slug) {
+      const url = `https://vnadvisory.in/insights/${slug}`;
+      const text = encodeURIComponent(`Check out this insight from VN Advisory: ${url}`);
+      window.open(`https://wa.me/?text=${text}`, '_blank');
+      showToast('Opening WhatsApp share...');
+    }
+
+    // ===== TOAST =====
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => { toast.classList.remove('show'); }, 3000);
+    }
+
+    // ===== KEYBOARD ACCESSIBILITY =====
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobile();
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+  </script>
+
+</body>
+</html>
