@@ -10,56 +10,142 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
   <script>
-    tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif'],serif:['Newsreader','serif'],mono:['ui-monospace','SFMono-Regular','Menlo','monospace']},colors:{brand:{sky:'#38BDF8',dark:'#050505',panel:'#0F110E',gold:'#E2B340'}},animation:{'fade-up':'fadeUp .8s ease-out forwards','fade-up-d':'fadeUp .8s ease-out .15s forwards','fade-up-d2':'fadeUp .8s ease-out .3s forwards','pulse-slow':'pulse 3s ease-in-out infinite','glow':'glow 2s ease-in-out infinite alternate','float':'float 6s ease-in-out infinite','float-d':'float 6s ease-in-out 1.5s infinite','float-d2':'float 6s ease-in-out 3s infinite','float-d3':'float 6s ease-in-out 4.5s infinite','dash':'dash 1.5s linear infinite','type':'type .8s steps(20) forwards','spin-slow':'spin 3s linear infinite','data-flow':'dataFlow 2s ease-in-out infinite','scan':'scan 2s ease-in-out infinite'}}}}
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter','sans-serif'], serif: ['Newsreader','serif'], mono: ['ui-monospace','SFMono-Regular','Menlo','monospace'] },
+          colors: { brand: { sky:'#38BDF8', dark:'#050505', panel:'#0F110E', gold:'#E2B340' } },
+          animation: {
+            'fade-up':'fadeUp .8s ease-out forwards',
+            'fade-up-d':'fadeUp .8s ease-out .15s forwards',
+            'fade-up-d2':'fadeUp .8s ease-out .3s forwards',
+            'pulse-slow':'pulse 3s ease-in-out infinite',
+            'glow':'glow 2s ease-in-out infinite alternate',
+            'float':'float 6s ease-in-out infinite',
+            'float-d':'float 6s ease-in-out 1.5s infinite',
+            'float-d2':'float 6s ease-in-out 3s infinite',
+            'float-d3':'float 6s ease-in-out 4.5s infinite',
+            'dash':'dash 1.5s linear infinite',
+            'type':'type .8s steps(20) forwards',
+            'spin-slow':'spin 3s linear infinite',
+            'data-flow':'dataFlow 2s ease-in-out infinite',
+            'scan':'scan 2s ease-in-out infinite'
+          }
+        }
+      }
+    }
   </script>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}body{background:#030303;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
-    .bg-grid{background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:100px 100px;mask-image:radial-gradient(circle at center,black 30%,transparent 80%);-webkit-mask-image:radial-gradient(circle at center,black 30%,transparent 80%)}
-    .hero-radial{background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(56,189,248,.06) 0%,rgba(5,5,5,0) 70%)}
-    .section-radial{background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(56,189,248,.03) 0%,transparent 70%)}
-    .sky-gradient{background:linear-gradient(135deg,#38BDF8,#0EA5E9,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .gold-gradient{background:linear-gradient(135deg,#E2B340,#F5D76E,#E2B340);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .nav-dropdown{display:none;position:absolute;top:100%;left:0;min-width:240px;z-index:100}.nav-item:hover .nav-dropdown{display:block}
-    .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}.reveal.active{opacity:1;transform:translateY(0)}
-    @keyframes fadeUp{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
-    @keyframes glow{0%{box-shadow:0 0 20px rgba(56,189,248,.08)}100%{box-shadow:0 0 40px rgba(56,189,248,.2)}}
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-    @keyframes dash{to{stroke-dashoffset:0}}
-    @keyframes dataFlow{0%{transform:translateY(0);opacity:.8}100%{transform:translateY(-40px);opacity:0}}
-    @keyframes scan{0%,100%{opacity:.3}50%{opacity:1}}
-    @keyframes slideIn{0%{opacity:0;transform:translateX(-10px)}100%{opacity:1;transform:translateX(0)}}
-    @keyframes fillBar{0%{width:0}100%{width:var(--tw)}}
-    @keyframes progressPulse{0%,100%{box-shadow:0 0 0 0 rgba(56,189,248,.4)}50%{box-shadow:0 0 0 6px rgba(56,189,248,0)}}
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#030303; color:#fff; font-family:'Inter',sans-serif; overflow-x:hidden; }
+    .bg-grid { background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 100px 100px; mask-image: radial-gradient(circle at center, black 30%, transparent 80%); -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%); }
+    .hero-radial { background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(56,189,248,.06) 0%, rgba(5,5,5,0) 70%); }
+    .section-radial { background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(56,189,248,.03) 0%, transparent 70%); }
+    .sky-gradient { background: linear-gradient(135deg,#38BDF8,#0EA5E9,#38BDF8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .gold-gradient { background: linear-gradient(135deg,#E2B340,#F5D76E,#E2B340); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .nav-dropdown { display:none; position:absolute; top:100%; left:0; min-width:240px; z-index:100; }
+    .nav-item:hover .nav-dropdown { display:block; }
+    .reveal { opacity:0; transform:translateY(30px); transition:opacity .8s ease,transform .8s ease; }
+    .reveal.active { opacity:1; transform:translateY(0); }
+    @keyframes fadeUp { 0% { opacity:0; transform:translateY(30px); } 100% { opacity:1; transform:translateY(0); } }
+    @keyframes glow { 0% { box-shadow:0 0 20px rgba(56,189,248,.08); } 100% { box-shadow:0 0 40px rgba(56,189,248,.2); } }
+    @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-12px); } }
+    @keyframes dash { to { stroke-dashoffset:0; } }
+    @keyframes dataFlow { 0% { transform:translateY(0); opacity:.8; } 100% { transform:translateY(-40px); opacity:0; } }
+    @keyframes scan { 0%,100% { opacity:.3; } 50% { opacity:1; } }
+    @keyframes slideIn { 0% { opacity:0; transform:translateX(-10px); } 100% { opacity:1; transform:translateX(0); } }
+    @keyframes fillBar { 0% { width:0; } 100% { width:var(--tw); } }
+    @keyframes progressPulse { 0%,100% { box-shadow:0 0 0 0 rgba(56,189,248,.4); } 50% { box-shadow:0 0 0 6px rgba(56,189,248,0); } }
 
-    .workflow-canvas{position:relative;background:rgba(255,255,255,.01);border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:visible;min-height:0}
-    .wf-step{display:none;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .6s ease;transform:scale(.97)}
-    .wf-step.active{display:flex;opacity:1;transform:scale(1);position:static;inset:auto}
-    .wf-node{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;transition:all .5s;word-break:break-word}
-    .wf-node.highlight{border-color:rgba(56,189,248,.4);background:rgba(56,189,248,.05);box-shadow:0 0 20px rgba(56,189,248,.1)}
-    .wf-node.success{border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.05)}
-    .wf-node.warning{border-color:rgba(251,191,36,.4);background:rgba(251,191,36,.05)}
-    .wf-bar{height:6px;border-radius:3px;background:rgba(255,255,255,.05);overflow:hidden}.wf-bar-fill{height:100%;border-radius:3px;width:0;transition:width 1.2s ease-out}
-    .wf-data-packet{width:6px;height:6px;border-radius:50%;background:#38BDF8;position:absolute;animation:dataFlow 1.5s ease-in-out infinite}
-    .wf-line{stroke:rgba(56,189,248,.15);stroke-width:1;stroke-dasharray:4 4;fill:none}
-    .wf-line.active{stroke:rgba(56,189,248,.5);animation:dash 1s linear forwards}
-    .terminal-text{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;line-height:1.6;color:rgba(255,255,255,.5);word-break:break-word;white-space:normal}
-    .terminal-text .prompt{color:rgba(56,189,248,.6)}.terminal-text .success{color:rgba(52,211,153,.7)}.terminal-text .warning{color:rgba(251,191,36,.7)}.terminal-text .value{color:rgba(255,255,255,.8)}
-    .step-indicator{display:flex;align-items:center;gap:0}.step-dot{width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:rgba(255,255,255,.2);transition:all .4s;position:relative;z-index:1;flex-shrink:0}
-    .step-dot.active{border-color:rgba(56,189,248,.5);color:#38BDF8;background:rgba(56,189,248,.08);animation:progressPulse 1.5s ease-in-out infinite}
-    .step-dot.done{border-color:rgba(52,211,153,.5);color:#34D399;background:rgba(52,211,153,.08)}
-    .step-line{width:24px;height:1.5px;background:rgba(255,255,255,.06);transition:background .4s}.step-line.done{background:rgba(52,211,153,.3)}
-    .agent-tab{transition:all .3s;position:relative;cursor:pointer}
-    .agent-tab.active{color:#fff}.agent-tab.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:#38BDF8;border-radius:1px}
-    .agent-tab-content{display:none;animation:fadeUp .5s ease-out forwards}.agent-tab-content.active{display:block}
-    .mobile-menu{transform:translateX(100%);transition:transform .3s ease}.mobile-menu.open{transform:translateX(0)}
-    .toast{position:fixed;bottom:2rem;right:2rem;z-index:9999;transform:translateY(120%);opacity:0;transition:transform .4s ease,opacity .4s ease}.toast.show{transform:translateY(0);opacity:1}
+    /* ---------- FIXED WORKFLOW STYLES — CSS GRID STACKING (NO OVERLAP) ---------- */
+    .workflow-canvas {
+      min-height: 400px;
+      display: grid;
+      grid-template-areas: "stack";
+      background: rgba(255,255,255,.01);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .wf-step {
+      grid-area: stack;               /* All steps occupy the same grid cell */
+      opacity: 0;
+      visibility: hidden;             /* Hidden by default */
+      pointer-events: none;
+      transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+      transform: scale(0.98);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .wf-step.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: scale(1);
+      z-index: 10;
+    }
+
+    .wf-node {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 16px;
+      transition: all .5s;
+      word-break: break-word;
+    }
+    .wf-node.highlight { border-color:rgba(56,189,248,.4); background:rgba(56,189,248,.05); box-shadow:0 0 20px rgba(56,189,248,.1); }
+    .wf-node.success { border-color:rgba(52,211,153,.4); background:rgba(52,211,153,.05); }
+    .wf-node.warning { border-color:rgba(251,191,36,.4); background:rgba(251,191,36,.05); }
+    .wf-bar { height:6px; border-radius:3px; background:rgba(255,255,255,.05); overflow:hidden; }
+    .wf-bar-fill { height:100%; border-radius:3px; width:0; transition:width 1.2s ease-out; }
+    .wf-data-packet { width:6px; height:6px; border-radius:50%; background:#38BDF8; position:absolute; animation:dataFlow 1.5s ease-in-out infinite; }
+    .wf-line { stroke:rgba(56,189,248,.15); stroke-width:1; stroke-dasharray:4 4; fill:none; }
+    .wf-line.active { stroke:rgba(56,189,248,.5); animation:dash 1s linear forwards; }
+    .terminal-text {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      line-height: 1.6;
+      color: rgba(255,255,255,.5);
+      word-break: break-word;
+      white-space: normal;
+    }
+    .terminal-text .prompt { color:rgba(56,189,248,.6); }
+    .terminal-text .success { color:rgba(52,211,153,.7); }
+    .terminal-text .warning { color:rgba(251,191,36,.7); }
+    .terminal-text .value { color:rgba(255,255,255,.8); }
+
+    .step-indicator { display:flex; align-items:center; gap:0; }
+    .step-dot {
+      width:32px; height:32px; border-radius:50%; border:1.5px solid rgba(255,255,255,.1);
+      display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:500;
+      color:rgba(255,255,255,.2); transition:all .4s; position:relative; z-index:1; flex-shrink:0;
+    }
+    .step-dot.active { border-color:rgba(56,189,248,.5); color:#38BDF8; background:rgba(56,189,248,.08); animation:progressPulse 1.5s ease-in-out infinite; }
+    .step-dot.done { border-color:rgba(52,211,153,.5); color:#34D399; background:rgba(52,211,153,.08); }
+    .step-line { width:24px; height:1.5px; background:rgba(255,255,255,.06); transition:background .4s; }
+    .step-line.done { background:rgba(52,211,153,.3); }
+    .agent-tab { transition:all .3s; position:relative; cursor:pointer; }
+    .agent-tab.active { color:#fff; }
+    .agent-tab.active::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:#38BDF8; border-radius:1px; }
+    .agent-tab-content { display:none; animation:fadeUp .5s ease-out forwards; }
+    .agent-tab-content.active { display:block; }
+    .mobile-menu { transform:translateX(100%); transition:transform .3s ease; }
+    .mobile-menu.open { transform:translateX(0); }
+    .toast { position:fixed; bottom:2rem; right:2rem; z-index:9999; transform:translateY(120%); opacity:0; transition:transform .4s ease,opacity .4s ease; }
+    .toast.show { transform:translateY(0); opacity:1; }
   </style>
 </head>
 <body>
-<!-- NAV (same) -->
-<nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:rgba(5,5,5,.8);backdrop-filter:blur(24px)">
+
+<!-- NAVIGATION -->
+<nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:rgba(5,5,5,0.8);backdrop-filter:blur(24px)">
   <div class="max-w-7xl mx-auto px-6"><div class="flex items-center justify-between h-16 lg:h-20">
-    <a href="index.html" class="flex items-center gap-3"><div class="w-9 h-9 rounded-lg bg-brand-sky/20 border border-brand-sky/30 flex items-center justify-center"><span class="iconify text-brand-sky text-lg" data-icon="carbon:analytics"></span></div><span class="text-white font-semibold text-base tracking-tight">VN Advisory</span></a>
+    <a href="index.html" class="flex items-center gap-3 group"><div class="w-9 h-9 rounded-lg bg-brand-sky/20 border border-brand-sky/30 flex items-center justify-center"><span class="iconify text-brand-sky text-lg" data-icon="carbon:analytics"></span></div><span class="text-white font-semibold text-base tracking-tight">VN Advisory</span></a>
     <div class="hidden lg:flex items-center gap-1">
       <a href="index.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Home</a>
       <a href="services.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Services</a>
@@ -77,76 +163,463 @@
   <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-brand-dark/98 backdrop-blur-xl border-l border-white/10 z-50 overflow-y-auto lg:hidden"><div class="p-6"><div class="flex items-center justify-between mb-8"><span class="text-white font-semibold">Menu</span><button id="mobileClose" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5"><span class="iconify text-xl text-white" data-icon="carbon:close"></span></button></div><div class="flex flex-col gap-1"><a href="index.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Home</a><a href="services.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Services</a><a href="industries.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Industries</a><a href="market.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Market Intelligence</a><a href="digital.html" class="px-4 py-3 text-white font-medium rounded-lg bg-white/5">Digital Workforce</a><a href="insights.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Insights</a><a href="contact.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Contact</a><div class="border-t border-white/5 my-3"></div><a href="contact.html" class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white text-black text-sm font-medium rounded-lg">Request Demo</a></div></div></div>
   <div id="mobileOverlay" class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden" style="backdrop-filter:blur(4px)"></div>
 </nav>
+
 <div class="pt-20 lg:pt-24 border-b border-white/5"><div class="max-w-7xl mx-auto px-6 py-3"><div class="flex items-center gap-2 text-xs text-white/30"><a href="index.html" class="hover:text-white/60 transition-colors">Home</a><span class="iconify text-[10px]" data-icon="carbon:chevron-right"></span><span class="text-white/60">Digital Workforce</span></div></div></div>
-<!-- HERO (unchanged) -->
+
+<!-- HERO -->
 <section class="relative py-16 lg:py-24 overflow-hidden">
   <div class="absolute inset-0 bg-grid"></div>
   <div class="absolute inset-0 hero-radial"></div>
   <div class="relative z-10 max-w-7xl mx-auto px-6">
     <div class="max-w-3xl opacity-0 animate-fade-up">
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-gold/20 bg-brand-gold/5 mb-6"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span><span class="text-xs font-medium text-brand-gold/80 tracking-wide uppercase">Live Platform</span></div>
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-gold/20 bg-brand-gold/5 mb-6">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-xs font-medium text-brand-gold/80 tracking-wide uppercase">Live Platform</span>
+      </div>
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif italic tracking-tight leading-[1.08] mb-6">Your Digital <span class="gold-gradient">Workforce</span></h1>
       <p class="text-lg text-white/50 font-light leading-relaxed mb-8">AI agents that don't just advise — they execute. Watch each agent work through real workflows, making decisions, processing data, and delivering outputs autonomously.</p>
-      <div class="flex flex-wrap gap-3"><a href="#workflows" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-medium rounded-xl hover:bg-white/90 transition-colors shadow-lg shadow-white/10">Watch Agents Work <span class="iconify" data-icon="carbon:arrow-down"></span></a><a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium text-white/70 hover:text-white border border-white/10 hover:border-white/20 hover:bg-white/[.03] transition-all">Request Live Demo</a></div>
+      <div class="flex flex-wrap gap-3">
+        <a href="#workflows" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-medium rounded-xl hover:bg-white/90 transition-colors shadow-lg shadow-white/10">Watch Agents Work <span class="iconify" data-icon="carbon:arrow-down"></span></a>
+        <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium text-white/70 hover:text-white border border-white/10 hover:border-white/20 hover:bg-white/[.03] transition-all">Request Live Demo</a>
+      </div>
     </div>
   </div>
 </section>
-<!-- ORCHESTRATOR (unchanged) -->
+
+<!-- LIVE ORCHESTRATOR VIEW -->
 <section class="relative py-12 lg:py-16 border-t border-white/5">
-  <div class="max-w-7xl mx-auto px-6"><div class="text-center mb-10 reveal"><h2 class="text-2xl md:text-3xl font-serif tracking-tight mb-3">Orchestrator — Live View</h2><p class="text-sm text-white/40">All four agents coordinated through a central control tower. This is running 24/7.</p></div>
-  <div class="reveal"><div class="relative bg-white/[.01] border border-white/[.06] rounded-2xl p-6 lg:p-8 overflow-hidden" style="min-height:380px">
-    <div class="absolute inset-0 opacity-30" style="background-image:linear-gradient(rgba(56,189,248,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.03) 1px,transparent 1px);background-size:40px 40px"></div>
-    <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(180deg,transparent 0%,rgba(56,189,248,.02) 50%,transparent 100%);background-size:100% 200px;animation:scan 3s ease-in-out infinite"></div>
-    <div class="relative z-10 flex flex-col items-center justify-center" style="min-height:340px">
-      <div class="w-24 h-24 rounded-full border border-brand-gold/20 bg-brand-gold/5 flex flex-col items-center justify-center animate-glow mb-8 relative"><span class="iconify text-brand-gold text-3xl" data-icon="carbon:iot-platform"></span><span class="text-[8px] text-brand-gold/60 uppercase tracking-wider mt-1">Orchestrator</span><div class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-emerald-400 border-2 border-brand-dark animate-pulse"></div></div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6 w-full max-w-3xl">
-        <a href="procurement-agent.html" class="group relative bg-white/[.02] border border-white/[.06] rounded-xl p-4 text-center hover:border-brand-sky/30 hover:bg-brand-sky/[.03] transition-all duration-500 animate-float"><span class="iconify text-brand-sky text-2xl mb-2 group-hover:scale-110 transition-transform inline-block" data-icon="carbon:purchase"></span><div class="text-xs font-medium mb-1">Procurement</div><div class="text-[10px] text-white/25">Agent</div><div class="mt-2 flex items-center justify-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span><span class="text-[9px] text-emerald-400/60">Active</span></div><div class="mt-2 text-[9px] text-white/15 font-mono" id="proc-counter">47 POs today</div></a>
-        <a href="inventory-agent.html" class="group relative bg-white/[.02] border border-white/[.06] rounded-xl p-4 text-center hover:border-brand-sky/30 hover:bg-brand-sky/[.03] transition-all duration-500 animate-float-d"><span class="iconify text-brand-sky text-2xl mb-2 group-hover:scale-110 transition-transform inline-block" data-icon="carbon:inventory-management"></span><div class="text-xs font-medium mb-1">Inventory</div><div class="text-[10px] text-white/25">Agent</div><div class="mt-2 flex items-center justify-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span><span class="text-[9px] text-emerald-400/60">Active</span></div><div class="mt-2 text-[9px] text-white/15 font-mono" id="inv-counter">12 alerts</div></a>
-        <a href="logistics-agent.html" class="group relative bg-white/[.02] border border-white/[.06] rounded-xl p-4 text-center hover:border-brand-sky/30 hover:bg-brand-sky/[.03] transition-all duration-500 animate-float-d2"><span class="iconify text-brand-sky text-2xl mb-2 group-hover:scale-110 transition-transform inline-block" data-icon="carbon:delivery-truck"></span><div class="text-xs font-medium mb-1">Logistics</div><div class="text-[10px] text-white/25">Agent</div><div class="mt-2 flex items-center justify-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span><span class="text-[9px] text-emerald-400/60">Active</span></div><div class="mt-2 text-[9px] text-white/15 font-mono" id="log-counter">89 shipments</div></a>
-        <a href="trade-agent.html" class="group relative bg-white/[.02] border border-brand-gold/10 rounded-xl p-4 text-center hover:border-brand-gold/30 hover:bg-brand-gold/[.03] transition-all duration-500 animate-float-d3"><span class="iconify text-brand-gold text-2xl mb-2 group-hover:scale-110 transition-transform inline-block" data-icon="carbon:document-export"></span><div class="text-xs font-medium mb-1">Trade</div><div class="text-[10px] text-white/25">Agent</div><div class="mt-2 flex items-center justify-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span><span class="text-[9px] text-emerald-400/60">Active</span></div><div class="mt-2 text-[9px] text-white/15 font-mono" id="trade-counter">CBAM: OK</div></a>
-      </div>
-      <svg class="absolute inset-0 w-full h-full pointer-events-none" style="z-index:-1" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet"><line x1="400" y1="140" x2="150" y2="220" class="wf-line active" style="stroke-dasharray:40 40;stroke-dashoffset:40;animation:dash 2s linear infinite"/><line x1="400" y1="140" x2="350" y2="220" class="wf-line active" style="stroke-dasharray:40 40;stroke-dashoffset:40;animation:dash 2s linear .5s infinite"/><line x1="400" y1="140" x2="450" y2="220" class="wf-line active" style="stroke-dasharray:40 40;stroke-dashoffset:40;animation:dash 2s linear 1s infinite"/><line x1="400" y1="140" x2="650" y2="220" class="wf-line" style="stroke-dasharray:40 40;stroke-dashoffset:40;animation:dash 2s linear 1.5s infinite;stroke:rgba(226,179,64,.15)"/></svg>
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-10 reveal">
+      <h2 class="text-2xl md:text-3xl font-serif tracking-tight mb-3">Orchestrator — Live View</h2>
+      <p class="text-sm text-white/40">All four agents coordinated through a central control tower. This is running 24/7.</p>
     </div>
-    <div class="relative z-10 mt-6 pt-4 border-t border-white/5 flex flex-wrap items-center justify-center gap-6 lg:gap-10 text-center"><div><div class="text-lg font-medium text-white/80" id="stat-decisions">1,247</div><div class="text-[10px] text-white/25 uppercase tracking-wider">Decisions Today</div></div><div><div class="text-lg font-medium text-emerald-400">99.2%</div><div class="text-[10px] text-white/25 uppercase tracking-wider">Accuracy</div></div><div><div class="text-lg font-medium text-white/80">< 3.2s</div><div class="text-[10px] text-white/25 uppercase tracking-wider">Avg Response</div></div><div><div class="text-lg font-medium text-brand-gold">0</div><div class="text-[10px] text-white/25 uppercase tracking-wider">Escalations</div></div></div>
-  </div></div>
+    <div class="reveal">
+      <div class="relative bg-white/[.01] border border-white/[.06] rounded-2xl p-6 lg:p-8 overflow-hidden" style="min-height:380px">
+        <div class="absolute inset-0 opacity-30" style="background-image:linear-gradient(rgba(56,189,248,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.03) 1px,transparent 1px);background-size:40px 40px"></div>
+        <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(180deg,transparent 0%,rgba(56,189,248,.02) 50%,transparent 100%);background-size:100% 200px;animation:scan 3s ease-in-out infinite"></div>
+
+        <div class="relative z-10 flex flex-col items-center justify-center" style="min-height:340px">
+          <div class="w-24 h-24 rounded-full border border-brand-gold/20 bg-brand-gold/5 flex flex-col items-center justify-center animate-glow mb-8 relative">
+            <span class="iconify text-brand-gold text-3xl" data-icon="carbon:iot-platform"></span>
+            <span class="text-[8px] text-brand-gold/60 uppercase tracking-wider mt-1">Orchestrator</span>
+            <div class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-emerald-400 border-2 border-brand-dark animate-pulse"></div>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6 w-full max-w-3xl">
+            <a href="procurement-agent.html" class="group relative bg-white/[.02] border border-white/[.06] rounded-xl p-4 text-center hover:border-brand-sky/30 hover:bg-brand-sky/[.03] transition-all duration-500 animate-float">
+              <span class="iconify text-brand-sky text-2xl mb-2 group-hover:scale-110 transition-transform inline-block" data-icon="carbon:purchase"></span>
+              <div class="text-xs font-medium mb-1">Procurement</div>
+              <div class="text-[10px] text-white/25">Agent</div>
+              <div class="mt-2 flex items-center justify-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span><span class="text-[9px] text-emerald-400/60">Active</span></div>
+              <div class="mt-2 text-[9px] text-white/15 font-mono" id="proc-counter">47 POs today</div>
+            </a>
+            <a href="inventory-agent.html" class="group relative bg-white/[.02] border border-white/[.06] rounded-xl p-4 text-center hover:border-brand-sky/30 hover:bg-brand-sky/[.03] transition-all duration-500 animate-float-d">
+              <span class="iconify text-brand-sky text-2xl mb-2 group-hover:scale-110 transition-transform inline-block" data-icon="carbon:inventory-management"></span>
+              <div class="text-xs font-medium mb-1">Inventory</div>
+              <div class="text-[10px] text-white/25">Agent</div>
+              <div class="mt-2 flex items-center justify-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span><span class="text-[9px] text-emerald-400/60">Active</span></div>
+              <div class="mt-2 text-[9px] text-white/15 font-mono" id="inv-counter">12 alerts</div>
+            </a>
+            <a href="logistics-agent.html" class="group relative bg-white/[.02] border border-white/[.06] rounded-xl p-4 text-center hover:border-brand-sky/30 hover:bg-brand-sky/[.03] transition-all duration-500 animate-float-d2">
+              <span class="iconify text-brand-sky text-2xl mb-2 group-hover:scale-110 transition-transform inline-block" data-icon="carbon:delivery-truck"></span>
+              <div class="text-xs font-medium mb-1">Logistics</div>
+              <div class="text-[10px] text-white/25">Agent</div>
+              <div class="mt-2 flex items-center justify-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span><span class="text-[9px] text-emerald-400/60">Active</span></div>
+              <div class="mt-2 text-[9px] text-white/15 font-mono" id="log-counter">89 shipments</div>
+            </a>
+            <a href="trade-agent.html" class="group relative bg-white/[.02] border border-brand-gold/10 rounded-xl p-4 text-center hover:border-brand-gold/30 hover:bg-brand-gold/[.03] transition-all duration-500 animate-float-d3">
+              <span class="iconify text-brand-gold text-2xl mb-2 group-hover:scale-110 transition-transform inline-block" data-icon="carbon:document-export"></span>
+              <div class="text-xs font-medium mb-1">Trade</div>
+              <div class="text-[10px] text-white/25">Agent</div>
+              <div class="mt-2 flex items-center justify-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span><span class="text-[9px] text-emerald-400/60">Active</span></div>
+              <div class="mt-2 text-[9px] text-white/15 font-mono" id="trade-counter">CBAM: OK</div>
+            </a>
+          </div>
+
+          <svg class="absolute inset-0 w-full h-full pointer-events-none" style="z-index:-1" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet">
+            <line x1="400" y1="140" x2="150" y2="220" class="wf-line active" style="stroke-dasharray:40 40;stroke-dashoffset:40;animation:dash 2s linear infinite"/>
+            <line x1="400" y1="140" x2="350" y2="220" class="wf-line active" style="stroke-dasharray:40 40;stroke-dashoffset:40;animation:dash 2s linear .5s infinite"/>
+            <line x1="400" y1="140" x2="450" y2="220" class="wf-line active" style="stroke-dasharray:40 40;stroke-dashoffset:40;animation:dash 2s linear 1s infinite"/>
+            <line x1="400" y1="140" x2="650" y2="220" class="wf-line" style="stroke-dasharray:40 40;stroke-dashoffset:40;animation:dash 2s linear 1.5s infinite;stroke:rgba(226,179,64,.15)"/>
+          </svg>
+        </div>
+
+        <div class="relative z-10 mt-6 pt-4 border-t border-white/5 flex flex-wrap items-center justify-center gap-6 lg:gap-10 text-center">
+          <div><div class="text-lg font-medium text-white/80" id="stat-decisions">1,247</div><div class="text-[10px] text-white/25 uppercase tracking-wider">Decisions Today</div></div>
+          <div><div class="text-lg font-medium text-emerald-400">99.2%</div><div class="text-[10px] text-white/25 uppercase tracking-wider">Accuracy</div></div>
+          <div><div class="text-lg font-medium text-white/80">< 3.2s</div><div class="text-[10px] text-white/25 uppercase tracking-wider">Avg Response</div></div>
+          <div><div class="text-lg font-medium text-brand-gold">0</div><div class="text-[10px] text-white/25 uppercase tracking-wider">Escalations</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-<!-- WORKFLOWS (shortened for brevity but full version is included in actual file) -->
+
+<!-- ========== ANIMATED WORKFLOWS ========== -->
 <section class="relative py-12 lg:py-20 border-t border-white/5" id="workflows">
   <div class="absolute inset-0 section-radial"></div>
   <div class="relative z-10 max-w-7xl mx-auto px-6">
-    <div class="text-center mb-10 reveal"><h2 class="text-2xl md:text-3xl font-serif tracking-tight mb-3">Watch Each Agent Work</h2><p class="text-sm text-white/40 max-w-lg mx-auto">Click "Play Workflow" to see each agent process a real task end-to-end — from data input to decision to output.</p></div>
-    <div class="flex flex-wrap justify-center gap-1 mb-10 border-b border-white/10 pb-px reveal">
-      <button class="agent-tab active px-5 py-3 text-sm text-white/50 hover:text-white/80 transition-colors" onclick="switchAgent('proc')" data-tab="proc"><span class="iconify text-brand-sky/50 mr-1 align-[-2px]" data-icon="carbon:purchase"></span> Procurement</button>
-      <button class="agent-tab px-5 py-3 text-sm text-white/50 hover:text-white/80 transition-colors" onclick="switchAgent('inv')" data-tab="inv"><span class="iconify text-brand-sky/50 mr-1 align-[-2px]" data-icon="carbon:inventory-management"></span> Inventory</button>
-      <button class="agent-tab px-5 py-3 text-sm text-white/50 hover:text-white/80 transition-colors" onclick="switchAgent('log')" data-tab="log"><span class="iconify text-brand-sky/50 mr-1 align-[-2px]" data-icon="carbon:delivery-truck"></span> Logistics</button>
-      <button class="agent-tab px-5 py-3 text-sm text-white/50 hover:text-white/80 transition-colors" onclick="switchAgent('trade')" data-tab="trade"><span class="iconify text-brand-gold/50 mr-1 align-[-2px]" data-icon="carbon:document-export"></span> Trade</button>
+    <div class="text-center mb-10 reveal">
+      <h2 class="text-2xl md:text-3xl font-serif tracking-tight mb-3">Watch Each Agent Work</h2>
+      <p class="text-sm text-white/40 max-w-lg mx-auto">Click "Play Workflow" to see each agent process a real task end-to-end — from data input to decision to output.</p>
     </div>
-    <!-- PROCUREMENT AGENT -->
+
+    <!-- Agent Tabs -->
+    <div class="flex flex-wrap justify-center gap-1 mb-10 border-b border-white/10 pb-px reveal">
+      <button class="agent-tab active px-5 py-3 text-sm text-white/50 hover:text-white/80 transition-colors" onclick="switchAgent('proc')" data-tab="proc">
+        <span class="iconify text-brand-sky/50 mr-1 align-[-2px]" data-icon="carbon:purchase"></span> Procurement
+      </button>
+      <button class="agent-tab px-5 py-3 text-sm text-white/50 hover:text-white/80 transition-colors" onclick="switchAgent('inv')" data-tab="inv">
+        <span class="iconify text-brand-sky/50 mr-1 align-[-2px]" data-icon="carbon:inventory-management"></span> Inventory
+      </button>
+      <button class="agent-tab px-5 py-3 text-sm text-white/50 hover:text-white/80 transition-colors" onclick="switchAgent('log')" data-tab="log">
+        <span class="iconify text-brand-sky/50 mr-1 align-[-2px]" data-icon="carbon:delivery-truck"></span> Logistics
+      </button>
+      <button class="agent-tab px-5 py-3 text-sm text-white/50 hover:text-white/80 transition-colors" onclick="switchAgent('trade')" data-tab="trade">
+        <span class="iconify text-brand-gold/50 mr-1 align-[-2px]" data-icon="carbon:document-export"></span> Trade
+      </button>
+    </div>
+
+    <!-- ====== PROCUREMENT AGENT WORKFLOW ====== -->
     <div id="agent-proc" class="agent-tab-content active">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div class="lg:col-span-2">
-          <div class="flex items-center justify-center gap-0 mb-6"><div class="step-dot" id="proc-s1">1</div><div class="step-line" id="proc-l1"></div><div class="step-dot" id="proc-s2">2</div><div class="step-line" id="proc-l2"></div><div class="step-dot" id="proc-s3">3</div><div class="step-line" id="proc-l3"></div><div class="step-dot" id="proc-s4">4</div><div class="step-line" id="proc-l4"></div><div class="step-dot" id="proc-s5">5</div></div>
-          <div class="flex items-center justify-center gap-8 text-[10px] text-white/25 uppercase tracking-wider mb-6"><span class="w-12 text-center">Requisition</span><span class="w-12 text-center">Score</span><span class="w-12 text-center">Benchmark</span><span class="w-12 text-center">Generate</span><span class="w-12 text-center">Execute</span></div>
-          <div class="workflow-canvas" id="proc-canvas">
-            <div class="wf-step" id="proc-step-1"><div class="text-center px-6"><div class="wf-node inline-block mb-4" id="proc-n1"><div class="flex items-center gap-2 mb-2"><span class="iconify text-brand-sky" data-icon="carbon:document-import"></span><span class="text-xs font-medium text-white/60">Requisition Received</span></div><div class="terminal-text text-left"><div><span class="prompt">source:</span> Tally ERP v9.2</div><div><span class="prompt">type:</span> Purchase Requisition #PR-2847</div><div><span class="prompt">item:</span> <span class="value">HR Coil 2.0mm — 150 MT</span></div><div><span class="prompt">requester:</span> Production Planning</div><div><span class="prompt">priority:</span> <span class="warning">HIGH</span> — stock below safety</div><div><span class="prompt">received:</span> <span class="value" id="proc-time-1"></span></div></div></div><div class="text-[10px] text-white/20 mt-3">▼ Data parsed and validated against master data</div></div></div>
-            <div class="wf-step" id="proc-step-2"><div class="w-full max-w-lg px-6"><div class="text-xs font-medium text-white/50 mb-4 text-center">AI Scoring 5 Qualified Suppliers</div><div class="space-y-3"><div class="wf-node" id="proc-sup1"><div class="flex items-center justify-between mb-1"><span class="text-xs text-white/60">Supplier A — Emirates Steel</span><span class="text-xs text-emerald-400 font-medium" id="proc-score1">0</span></div><div class="wf-bar"><div class="wf-bar-fill bg-emerald-400" id="proc-bar1" style="--tw:92%"></div></div><div class="text-[9px] text-white/20 mt-0.5">Price: 8.2 | Quality: 9.5 | Delivery: 9.0 | Carbon: 8.8</div></div><div class="wf-node" id="proc-sup2"><div class="flex items-center justify-between mb-1"><span class="text-xs text-white/60">Supplier B — Tata Steel</span><span class="text-xs text-white/40 font-medium" id="proc-score2">0</span></div><div class="wf-bar"><div class="wf-bar-fill bg-brand-sky" id="proc-bar2" style="--tw:87%"></div></div><div class="text-[9px] text-white/20 mt-0.5">Price: 8.8 | Quality: 9.0 | Delivery: 8.2 | Carbon: 8.5</div></div><div class="wf-node" id="proc-sup3"><div class="flex items-center justify-between mb-1"><span class="text-xs text-white/60">Supplier C — ArcelorMittal</span><span class="text-xs text-white/40 font-medium" id="proc-score3">0</span></div><div class="wf-bar"><div class="wf-bar-fill bg-brand-sky" id="proc-bar3" style="--tw:83%"></div></div><div class="text-[9px] text-white/20 mt-0.5">Price: 7.5 | Quality: 9.2 | Delivery: 8.8 | Carbon: 7.0</div></div></div><div class="text-center text-[10px] text-emerald-400/60 mt-3">✓ Emirates Steel selected — highest composite score</div></div></div>
-            <div class="wf-step" id="proc-step-3"><div class="w-full max-w-md px-6"><div class="text-xs font-medium text-white/50 mb-4 text-center">Price Benchmarking Against Market</div><div class="wf-node"><div class="grid grid-cols-3 gap-3 text-center"><div><div class="text-[9px] text-white/30 mb-1">Selected Price</div><div class="text-lg font-medium text-white/80">$645/MT</div></div><div><div class="text-[9px] text-white/30 mb-1">Market Avg</div><div class="text-lg font-medium text-white/40">$662/MT</div></div><div><div class="text-[9px] text-white/30 mb-1">Savings</div><div class="text-lg font-medium text-emerald-400">–2.6%</div></div></div><div class="mt-3 pt-3 border-t border-white/5 text-[9px] text-white/20 text-center">Source: Alpha Vantage commodity feed · Updated 2 min ago</div></div></div></div>
-            <div class="wf-step" id="proc-step-4"><div class="text-center px-6"><div class="wf-node success inline-block" id="proc-n4"><div class="flex items-center gap-2 mb-3"><span class="iconify text-emerald-400" data-icon="carbon:checkmark-filled"></span><span class="text-xs font-medium text-emerald-400">Purchase Order Generated</span></div><div class="terminal-text text-left"><div><span class="prompt">PO Number:</span> <span class="value">PO-2025-4892</span></div><div><span class="prompt">Supplier:</span> Emirates Steel Industries</div><div><span class="prompt">Material:</span> HR Coil 2.0mm — 150 MT</div><div><span class="prompt">Unit Price:</span> $645/MT</div><div><span class="prompt">Total Value:</span> <span class="value">$96,750.00</span></div><div><span class="prompt">Delivery:</span> 2025-07-18 (negotiated lead time)</div><div><span class="prompt">Contract Ref:</span> SPA-2025-ES-042</div></div></div><div class="text-[10px] text-white/20 mt-3">▼ Pushed to Tally ERP — awaiting supplier acknowledgement</div></div></div>
-            <div class="wf-step" id="proc-step-5"><div class="text-center px-6"><div class="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto mb-4 animate-glow" style="--tw-shadow-color:rgba(52,211,153,.2)"><span class="iconify text-emerald-400 text-3xl" data-icon="carbon:checkmark-outline"></span></div><div class="text-sm font-medium text-emerald-400 mb-1">Workflow Complete</div><div class="text-xs text-white/40 mb-4">Requisition → PO in 3.2 seconds · Zero human intervention</div><div class="inline-flex gap-6 text-center"><div><div class="text-lg font-medium text-white/80">3.2s</div><div class="text-[9px] text-white/25">Processing</div></div><div><div class="text-lg font-medium text-emerald-400">$2,513</div><div class="text-[9px] text-white/25">Saved vs Market</div></div><div><div class="text-lg font-medium text-white/80">0</div><div class="text-[9px] text-white/25">Human Touches</div></div></div></div></div>
+          <div class="flex items-center justify-center gap-0 mb-6">
+            <div class="step-dot" id="proc-s1">1</div><div class="step-line" id="proc-l1"></div>
+            <div class="step-dot" id="proc-s2">2</div><div class="step-line" id="proc-l2"></div>
+            <div class="step-dot" id="proc-s3">3</div><div class="step-line" id="proc-l3"></div>
+            <div class="step-dot" id="proc-s4">4</div><div class="step-line" id="proc-l4"></div>
+            <div class="step-dot" id="proc-s5">5</div>
           </div>
-          <div class="mt-5 flex items-center justify-center gap-3"><button onclick="playWorkflow('proc')" id="proc-play-btn" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-medium rounded-xl hover:bg-white/90 transition-colors"><span class="iconify" data-icon="carbon:play-filled-alt" id="proc-play-icon"></span><span id="proc-play-text">Play Workflow</span></button><button onclick="resetWorkflow('proc')" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-sm text-white/40 hover:text-white/60 border border-white/10 hover:border-white/20 transition-all"><span class="iconify" data-icon="carbon:reset"></span> Reset</button></div>
+          <div class="flex items-center justify-center gap-8 text-[10px] text-white/25 uppercase tracking-wider mb-6">
+            <span class="w-12 text-center">Requisition</span><span class="w-12 text-center">Score</span><span class="w-12 text-center">Benchmark</span><span class="w-12 text-center">Generate</span><span class="w-12 text-center">Execute</span>
+          </div>
+
+          <div class="workflow-canvas" id="proc-canvas">
+            <div class="wf-step" id="proc-step-1">
+              <div class="text-center px-6">
+                <div class="wf-node inline-block mb-4" id="proc-n1">
+                  <div class="flex items-center gap-2 mb-2"><span class="iconify text-brand-sky" data-icon="carbon:document-import"></span><span class="text-xs font-medium text-white/60">Requisition Received</span></div>
+                  <div class="terminal-text text-left">
+                    <div><span class="prompt">source:</span> Tally ERP v9.2</div>
+                    <div><span class="prompt">type:</span> Purchase Requisition #PR-2847</div>
+                    <div><span class="prompt">item:</span> <span class="value">HR Coil 2.0mm — 150 MT</span></div>
+                    <div><span class="prompt">requester:</span> Production Planning</div>
+                    <div><span class="prompt">priority:</span> <span class="warning">HIGH</span> — stock below safety</div>
+                    <div><span class="prompt">received:</span> <span class="value" id="proc-time-1"></span></div>
+                  </div>
+                </div>
+                <div class="text-[10px] text-white/20 mt-3">▼ Data parsed and validated against master data</div>
+              </div>
+            </div>
+
+            <div class="wf-step" id="proc-step-2">
+              <div class="w-full max-w-lg px-6">
+                <div class="text-xs font-medium text-white/50 mb-4 text-center">AI Scoring 5 Qualified Suppliers</div>
+                <div class="space-y-3">
+                  <div class="wf-node" id="proc-sup1"><div class="flex items-center justify-between mb-1"><span class="text-xs text-white/60">Supplier A — Emirates Steel</span><span class="text-xs text-emerald-400 font-medium" id="proc-score1">0</span></div><div class="wf-bar"><div class="wf-bar-fill bg-emerald-400" id="proc-bar1" style="--tw:92%"></div></div><div class="text-[9px] text-white/20 mt-0.5">Price: 8.2 | Quality: 9.5 | Delivery: 9.0 | Carbon: 8.8</div></div>
+                  <div class="wf-node" id="proc-sup2"><div class="flex items-center justify-between mb-1"><span class="text-xs text-white/60">Supplier B — Tata Steel</span><span class="text-xs text-white/40 font-medium" id="proc-score2">0</span></div><div class="wf-bar"><div class="wf-bar-fill bg-brand-sky" id="proc-bar2" style="--tw:87%"></div></div><div class="text-[9px] text-white/20 mt-0.5">Price: 8.8 | Quality: 9.0 | Delivery: 8.2 | Carbon: 8.5</div></div>
+                  <div class="wf-node" id="proc-sup3"><div class="flex items-center justify-between mb-1"><span class="text-xs text-white/60">Supplier C — ArcelorMittal</span><span class="text-xs text-white/40 font-medium" id="proc-score3">0</span></div><div class="wf-bar"><div class="wf-bar-fill bg-brand-sky" id="proc-bar3" style="--tw:83%"></div></div><div class="text-[9px] text-white/20 mt-0.5">Price: 7.5 | Quality: 9.2 | Delivery: 8.8 | Carbon: 7.0</div></div>
+                </div>
+                <div class="text-center text-[10px] text-emerald-400/60 mt-3">✓ Emirates Steel selected — highest composite score</div>
+              </div>
+            </div>
+
+            <div class="wf-step" id="proc-step-3">
+              <div class="w-full max-w-md px-6">
+                <div class="text-xs font-medium text-white/50 mb-4 text-center">Price Benchmarking Against Market</div>
+                <div class="wf-node">
+                  <div class="grid grid-cols-3 gap-3 text-center">
+                    <div><div class="text-[9px] text-white/30 mb-1">Selected Price</div><div class="text-lg font-medium text-white/80">$645/MT</div></div>
+                    <div><div class="text-[9px] text-white/30 mb-1">Market Avg</div><div class="text-lg font-medium text-white/40">$662/MT</div></div>
+                    <div><div class="text-[9px] text-white/30 mb-1">Savings</div><div class="text-lg font-medium text-emerald-400">–2.6%</div></div>
+                  </div>
+                  <div class="mt-3 pt-3 border-t border-white/5 text-[9px] text-white/20 text-center">Source: Alpha Vantage commodity feed · Updated 2 min ago</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="wf-step" id="proc-step-4">
+              <div class="text-center px-6">
+                <div class="wf-node success inline-block" id="proc-n4">
+                  <div class="flex items-center gap-2 mb-3"><span class="iconify text-emerald-400" data-icon="carbon:checkmark-filled"></span><span class="text-xs font-medium text-emerald-400">Purchase Order Generated</span></div>
+                  <div class="terminal-text text-left">
+                    <div><span class="prompt">PO Number:</span> <span class="value">PO-2025-4892</span></div>
+                    <div><span class="prompt">Supplier:</span> Emirates Steel Industries</div>
+                    <div><span class="prompt">Material:</span> HR Coil 2.0mm — 150 MT</div>
+                    <div><span class="prompt">Unit Price:</span> $645/MT</div>
+                    <div><span class="prompt">Total Value:</span> <span class="value">$96,750.00</span></div>
+                    <div><span class="prompt">Delivery:</span> 2025-07-18 (negotiated lead time)</div>
+                    <div><span class="prompt">Contract Ref:</span> SPA-2025-ES-042</div>
+                  </div>
+                </div>
+                <div class="text-[10px] text-white/20 mt-3">▼ Pushed to Tally ERP — awaiting supplier acknowledgement</div>
+              </div>
+            </div>
+
+            <div class="wf-step" id="proc-step-5">
+              <div class="text-center px-6">
+                <div class="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto mb-4 animate-glow" style="--tw-shadow-color:rgba(52,211,153,.2)">
+                  <span class="iconify text-emerald-400 text-3xl" data-icon="carbon:checkmark-outline"></span>
+                </div>
+                <div class="text-sm font-medium text-emerald-400 mb-1">Workflow Complete</div>
+                <div class="text-xs text-white/40 mb-4">Requisition → PO in 3.2 seconds · Zero human intervention</div>
+                <div class="inline-flex gap-6 text-center">
+                  <div><div class="text-lg font-medium text-white/80">3.2s</div><div class="text-[9px] text-white/25">Processing</div></div>
+                  <div><div class="text-lg font-medium text-emerald-400">$2,513</div><div class="text-[9px] text-white/25">Saved vs Market</div></div>
+                  <div><div class="text-lg font-medium text-white/80">0</div><div class="text-[9px] text-white/25">Human Touches</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-5 flex items-center justify-center gap-3">
+            <button onclick="playWorkflow('proc')" id="proc-play-btn" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-medium rounded-xl hover:bg-white/90 transition-colors">
+              <span class="iconify" data-icon="carbon:play-filled-alt" id="proc-play-icon"></span>
+              <span id="proc-play-text">Play Workflow</span>
+            </button>
+            <button onclick="resetWorkflow('proc')" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-sm text-white/40 hover:text-white/60 border border-white/10 hover:border-white/20 transition-all">
+              <span class="iconify" data-icon="carbon:reset"></span> Reset
+            </button>
+          </div>
         </div>
-        <div class="space-y-4"><!-- sidebar unchanged --></div>
+
+        <div class="space-y-4">
+          <div class="bg-white/[.02] border border-white/[.06] rounded-xl p-5">
+            <div class="text-[10px] text-white/30 uppercase tracking-widest mb-3">Data Sources</div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-2"><span class="iconify text-white/20 text-sm" data-icon="carbon:database"></span><span class="text-xs text-white/50">Tally ERP (requisitions)</span></div>
+              <div class="flex items-center gap-2"><span class="iconify text-white/20 text-sm" data-icon="carbon:api"></span><span class="text-xs text-white/50">Supplier Portal (scores)</span></div>
+              <div class="flex items-center gap-2"><span class="iconify text-white/20 text-sm" data-icon="carbon:chart-line"></span><span class="text-xs text-white/50">Alpha Vantage (pricing)</span></div>
+              <div class="flex items-center gap-2"><span class="iconify text-white/20 text-sm" data-icon="carbon:document"></span><span class="text-xs text-white/50">Contract DB (terms)</span></div>
+            </div>
+          </div>
+          <div class="bg-white/[.02] border border-white/[.06] rounded-xl p-5">
+            <div class="text-[10px] text-white/30 uppercase tracking-widest mb-3">Decision Rules</div>
+            <div class="space-y-2 text-xs text-white/40">
+              <div>• Score threshold: 80+ to qualify</div>
+              <div>• Price must be within 5% of market</div>
+              <div>• Carbon intensity as weighted factor</div>
+              <div>• Contract coverage required</div>
+              <div>• Auto-execute if value &lt; $500K</div>
+            </div>
+          </div>
+          <div class="bg-white/[.02] border border-white/[.06] rounded-xl p-5">
+            <div class="text-[10px] text-white/30 uppercase tracking-widest mb-3">Output</div>
+            <div class="space-y-2 text-xs text-white/40">
+              <div>• PO document (PDF + ERP record)</div>
+              <div>• Supplier notification (email)</div>
+              <div>• Savings log to finance</div>
+              <div>• Audit trail (full decision chain)</div>
+            </div>
+          </div>
+          <a href="procurement-agent.html" class="flex items-center justify-center gap-1 text-xs text-brand-sky/60 hover:text-brand-sky transition-colors py-2">Full agent detail page <span class="iconify" data-icon="carbon:arrow-right"></span></a>
+        </div>
       </div>
     </div>
-    <!-- Other agents omitted for brevity but included in full file -->
+
+    <!-- ====== INVENTORY AGENT WORKFLOW ====== -->
+    <div id="agent-inv" class="agent-tab-content">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2">
+          <div class="flex items-center justify-center gap-0 mb-6">
+            <div class="step-dot" id="inv-s1">1</div><div class="step-line" id="inv-l1"></div>
+            <div class="step-dot" id="inv-s2">2</div><div class="step-line" id="inv-l2"></div>
+            <div class="step-dot" id="inv-s3">3</div><div class="step-line" id="inv-l3"></div>
+            <div class="step-dot" id="inv-s4">4</div><div class="step-line" id="inv-l4"></div>
+            <div class="step-dot" id="inv-s5">5</div>
+          </div>
+          <div class="flex items-center justify-center gap-8 text-[10px] text-white/25 uppercase tracking-wider mb-6">
+            <span class="w-12 text-center">Demand</span><span class="w-12 text-center">Analyse</span><span class="w-12 text-center">Calculate</span><span class="w-12 text-center">Check</span><span class="w-12 text-center">Reorder</span>
+          </div>
+          <div class="workflow-canvas" id="inv-canvas">
+            <div class="wf-step" id="inv-step-1">
+              <div class="text-center px-6"><div class="wf-node inline-block mb-3" id="inv-n1"><div class="flex items-center gap-2 mb-2"><span class="iconify text-brand-sky" data-icon="carbon:chart-line-data"></span><span class="text-xs font-medium text-white/60">Demand Signal Detected</span></div><div class="terminal-text text-left"><div><span class="prompt">source:</span> POS Feed + Weather API</div><div><span class="prompt">sku:</span> <span class="value">FG-HRC-2.0-AE</span></div><div><span class="prompt">current demand:</span> <span class="warning">+34% above forecast</span></div><div><span class="prompt">weather factor:</span> Construction boom — GCC</div><div><span class="prompt">stock position:</span> <span class="warning">12 days cover (min: 21)</span></div></div></div><div class="text-[10px] text-white/20 mt-2">▼ Triggered: stock below safety threshold</div></div>
+            </div>
+            <div class="wf-step" id="inv-step-2">
+              <div class="w-full max-w-md px-6"><div class="text-xs font-medium text-white/50 mb-4 text-center">Multi-Location Stock Analysis</div>
+                <div class="space-y-2">
+                  <div class="wf-node" id="inv-loc1"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">Dubai Warehouse</span><span class="text-xs text-red-400">12 days ⚠</span></div><div class="wf-bar"><div class="wf-bar-fill bg-red-400" style="--tw:30%"></div></div></div>
+                  <div class="wf-node" id="inv-loc2"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">Abu Dhabi Warehouse</span><span class="text-xs text-yellow-400">19 days ⚠</span></div><div class="wf-bar"><div class="wf-bar-fill bg-yellow-400" style="--tw:52%"></div></div></div>
+                  <div class="wf-node" id="inv-loc3"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">Riyadh Warehouse</span><span class="text-xs text-emerald-400">38 days ✓</span></div><div class="wf-bar"><div class="wf-bar-fill bg-emerald-400" style="--tw:85%"></div></div></div>
+                </div><div class="text-center text-[10px] text-yellow-400/60 mt-2">⚠ 2 of 3 locations below safety stock</div></div>
+            </div>
+            <div class="wf-step" id="inv-step-3">
+              <div class="w-full max-w-sm px-6"><div class="text-xs font-medium text-white/50 mb-4 text-center">Reorder Point Calculation</div><div class="wf-node"><div class="terminal-text"><div><span class="prompt">demand (daily):</span> <span class="value">8.2 MT/day</span></div><div><span class="prompt">safety factor:</span> 1.65 (95% service level)</div><div><span class="prompt">lead time:</span> 18 days (Emirates Steel)</div><div><span class="prompt">safety stock:</span> <span class="value">24.3 MT</span></div><div><span class="prompt">reorder point:</span> <span class="value">172 MT</span></div><div><span class="prompt">current stock:</span> <span class="warning">98 MT</span></div><div><span class="prompt">gap:</span> <span class="warning" style="color:#f87174">–74 MT deficit</span></div></div></div></div>
+            </div>
+            <div class="wf-step" id="inv-step-4">
+              <div class="text-center px-6"><div class="wf-node inline-block mb-2"><div class="flex items-center gap-2 mb-2"><span class="iconify text-brand-sky" data-icon="carbon:time"></span><span class="text-xs font-medium text-white/60">Supplier Lead Time Check</span></div><div class="terminal-text text-left"><div><span class="prompt">Emirates Steel:</span> 18 days <span class="success">✓ available</span></div><div><span class="prompt">Tata Steel:</span> 28 days <span class="success">✓ available</span></div><div><span class="prompt">ArcelorMittal:</span> 42 days <span class="warning">— too long</span></div></div></div><div class="text-[10px] text-white/20 mt-2">▼ Emirates Steel selected — shortest lead time</div></div>
+            </div>
+            <div class="wf-step" id="inv-step-5">
+              <div class="text-center px-6"><div class="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto mb-4 animate-glow" style="--tw-shadow-color:rgba(52,211,153,.2)"><span class="iconify text-emerald-400 text-3xl" data-icon="carbon:checkmark-outline"></span></div><div class="text-sm font-medium text-emerald-400 mb-1">Replenishment Triggered</div><div class="text-xs text-white/40 mb-4">Demand → Reorder in 2.8 seconds · Stockout prevented</div><div class="inline-flex gap-6 text-center"><div><div class="text-lg font-medium text-white/80">2.8s</div><div class="text-[9px] text-white/25">Processing</div></div><div><div class="text-lg font-medium text-emerald-400">$180K</div><div class="text-[9px] text-white/25">Stockout Avoided</div></div><div><div class="text-lg font-medium text-white/80">2 loc</div><div class="text-[9px] text-white/25">Replenished</div></div></div></div>
+            </div>
+          </div>
+          <div class="mt-5 flex items-center justify-center gap-3">
+            <button onclick="playWorkflow('inv')" id="inv-play-btn" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-medium rounded-xl hover:bg-white/90 transition-colors"><span class="iconify" data-icon="carbon:play-filled-alt" id="inv-play-icon"></span><span id="inv-play-text">Play Workflow</span></button>
+            <button onclick="resetWorkflow('inv')" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-sm text-white/40 hover:text-white/60 border border-white/10 hover:border-white/20 transition-all"><span class="iconify" data-icon="carbon:reset"></span> Reset</button>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="bg-white/[.02] border border-white/[.06] rounded-xl p-5"><div class="text-[10px] text-white/30 uppercase tracking-widest mb-3">Data Sources</div><div class="space-y-2"><div class="flex items-center gap-2"><span class="iconify text-white/20 text-sm" data-icon="carbon:database"></span><span class="text-xs text-white/50">WMS (stock levels)</span></div><div class="flex items-center gap-2"><span class="iconify text-white/20 text-sm" data-icon="carbon:chart-line"></span><span class="text-xs text-white/50">POS feeds (demand)</span></div><div class="flex items-center gap-2"><span class="iconify text-white/20 text-sm" data-icon="carbon:cloud"></span><span class="text-xs text-white/50">Weather API (demand signals)</span></div><div class="flex items-center gap-2"><span class="iconify text-white/20 text-sm" data-icon="carbon:delivery-truck"></span><span class="text-xs text-white/50">Supplier lead time DB</span></div></div></div>
+          <a href="inventory-agent.html" class="flex items-center justify-center gap-1 text-xs text-brand-sky/60 hover:text-brand-sky transition-colors py-2">Full agent detail page <span class="iconify" data-icon="carbon:arrow-right"></span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== LOGISTICS AGENT WORKFLOW ====== -->
+    <div id="agent-log" class="agent-tab-content">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2">
+          <div class="flex items-center justify-center gap-0 mb-6">
+            <div class="step-dot" id="log-s1">1</div><div class="step-line" id="log-l1"></div>
+            <div class="step-dot" id="log-s2">2</div><div class="step-line" id="log-l2"></div>
+            <div class="step-dot" id="log-s3">3</div><div class="step-line" id="log-l3"></div>
+            <div class="step-dot" id="log-s4">4</div><div class="step-line" id="log-l4"></div>
+            <div class="step-dot" id="log-s5">5</div>
+          </div>
+          <div class="flex items-center justify-center gap-8 text-[10px] text-white/25 uppercase tracking-wider mb-6">
+            <span class="w-12 text-center">Shipment</span><span class="w-12 text-center">Select</span><span class="w-12 text-center">Route</span><span class="w-12 text-center">Exception</span><span class="w-12 text-center">Deliver</span>
+          </div>
+          <div class="workflow-canvas" id="log-canvas">
+            <div class="wf-step" id="log-step-1"><div class="text-center px-6"><div class="wf-node inline-block mb-3" id="log-n1"><div class="flex items-center gap-2 mb-2"><span class="iconify text-brand-sky" data-icon="carbon:container-shipment"></span><span class="text-xs font-medium text-white/60">Shipment Created</span></div><div class="terminal-text text-left"><div><span class="prompt">shipment:</span> <span class="value">SHP-2025-8934</span></div><div><span class="prompt">origin:</span> Jebel Ali, UAE</div><div><span class="prompt">destination:</span> Rotterdam, NL</div><div><span class="prompt">cargo:</span> Steel Coils — 4x 40' containers</div><div><span class="prompt">weight:</span> 96 MT</div><div><span class="prompt">deadline:</span> 2025-08-15</div></div></div></div></div>
+            <div class="wf-step" id="log-step-2"><div class="w-full max-w-md px-6"><div class="text-xs font-medium text-white/50 mb-4 text-center">Carrier Selection — AI Evaluation</div><div class="space-y-2"><div class="wf-node" id="log-car1"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">Maersk — Direct Suez</span><span class="text-xs text-yellow-400" id="log-cs1">—</span></div><div class="wf-bar"><div class="wf-bar-fill bg-yellow-400" style="--tw:45%"></div></div><div class="text-[9px] text-white/20">$4,200 · 22 days · ⚠ Red Sea risk</div></div><div class="wf-node highlight" id="log-car2"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">MSC — Cape Route</span><span class="text-xs text-emerald-400" id="log-cs2">—</span></div><div class="wf-bar"><div class="wf-bar-fill bg-emerald-400" style="--tw:82%"></div></div><div class="text-[9px] text-white/20">$4,800 · 32 days · ✓ Safe route</div></div><div class="wf-node" id="log-car3"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">CMA CGM — Suez</span><span class="text-xs text-yellow-400" id="log-cs3">—</span></div><div class="wf-bar"><div class="wf-bar-fill bg-yellow-400" style="--tw:40%"></div></div><div class="text-[9px] text-white/20">$4,350 · 24 days · ⚠ Red Sea risk</div></div></div><div class="text-center text-[10px] text-emerald-400/60 mt-2">✓ MSC selected — risk-adjusted optimal</div></div></div>
+            <div class="wf-step" id="log-step-3"><div class="text-center px-6"><div class="wf-node inline-block mb-3"><div class="flex items-center gap-2 mb-2"><span class="iconify text-brand-sky" data-icon="carbon:routing"></span><span class="text-xs font-medium text-white/60">Route Optimized</span></div><div class="terminal-text text-left"><div><span class="prompt">route:</span> Jebel Ali → <span class="value">Cape of Good Hope</span> → Rotterdam</div><div><span class="prompt">distance:</span> 11,400 nm (+3,200 nm vs Suez)</div><div><span class="prompt">ETA:</span> 2025-08-12</div><div><span class="prompt">war risk premium saved:</span> <span class="success">$1,200</span></div></div></div></div></div>
+            <div class="wf-step" id="log-step-4"><div class="text-center px-6"><div class="wf-node warning inline-block mb-3"><div class="flex items-center gap-2 mb-2"><span class="iconify text-yellow-400" data-icon="carbon:warning-alt"></span><span class="text-xs font-medium text-yellow-400">Exception: Port Congestion</span></div><div class="terminal-text text-left"><div><span class="prompt">alert:</span> <span class="warning">Durban port — 3 day delay</span></div><div><span class="prompt">impact:</span> ETA shift to Aug 15</div><div><span class="prompt">action:</span> <span class="success">Re-routed via Mauritius bypass</span></div><div><span class="prompt">revised ETA:</span> <span class="value">Aug 13</span></div><div><span class="prompt">resolved in:</span> <span class="value">4 minutes</span></div></div></div></div></div>
+            <div class="wf-step" id="log-step-5"><div class="text-center px-6"><div class="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto mb-4 animate-glow" style="--tw-shadow-color:rgba(52,211,153,.2)"><span class="iconify text-emerald-400 text-3xl" data-icon="carbon:checkmark-outline"></span></div><div class="text-sm font-medium text-emerald-400 mb-1">Delivered Successfully</div><div class="text-xs text-white/40 mb-4">Shipment → Delivery with autonomous exception handling</div><div class="inline-flex gap-6 text-center"><div><div class="text-lg font-medium text-white/80">32 days</div><div class="text-[9px] text-white/25">Transit</div></div><div><div class="text-lg font-medium text-emerald-400">$600</div><div class="text-[9px] text-white/25">Saved vs Suez risk</div></div><div><div class="text-lg font-medium text-white/80">4 min</div><div class="text-[9px] text-white/25">Exception Fix</div></div></div></div></div>
+          </div>
+          <div class="mt-5 flex items-center justify-center gap-3">
+            <button onclick="playWorkflow('log')" id="log-play-btn" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-medium rounded-xl hover:bg-white/90 transition-colors"><span class="iconify" data-icon="carbon:play-filled-alt" id="log-play-icon"></span><span id="log-play-text">Play Workflow</span></button>
+            <button onclick="resetWorkflow('log')" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-sm text-white/40 hover:text-white/60 border border-white/10 hover:border-white/20 transition-all"><span class="iconify" data-icon="carbon:reset"></span> Reset</button>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="bg-white/[.02] border border-white/[.06] rounded-xl p-5"><div class="text-[10px] text-white/30 uppercase tracking-widest mb-3">Data Sources</div><div class="space-y-2"><div class="flex items-center gap-2"><span class="iconify text-white/20 text-sm" data-icon="carbon:delivery-truck"></span><span class="text-xs text-white/50">Carrier APIs (rates, ETAs)</span></div><div class="flex items-center gap-2"><span class="iconify text-white/20 text-sm" data-icon="carbon:location"></span><span class="text-xs text-white/50">Port congestion feeds</span></div><div class="flex items-center gap-2"><span class="iconify text-white/20 text-sm" data-icon="carbon:warning"></span><span class="text-xs text-white/50">GDELT (geopolitical risk)</span></div></div></div>
+          <a href="logistics-agent.html" class="flex items-center justify-center gap-1 text-xs text-brand-sky/60 hover:text-brand-sky transition-colors py-2">Full agent detail page <span class="iconify" data-icon="carbon:arrow-right"></span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== TRADE AGENT WORKFLOW ====== -->
+    <div id="agent-trade" class="agent-tab-content">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2">
+          <div class="flex items-center justify-center gap-0 mb-6">
+            <div class="step-dot" id="trade-s1">1</div><div class="step-line" id="trade-l1"></div>
+            <div class="step-dot" id="trade-s2">2</div><div class="step-line" id="trade-l2"></div>
+            <div class="step-dot" id="trade-s3">3</div><div class="step-line" id="trade-l3"></div>
+            <div class="step-dot" id="trade-s4">4</div><div class="step-line" id="trade-l4"></div>
+            <div class="step-dot" id="trade-s5">5</div>
+          </div>
+          <div class="flex items-center justify-center gap-6 text-[10px] text-white/25 uppercase tracking-wider mb-6">
+            <span class="w-14 text-center">Export Order</span><span class="w-14 text-center">CBAM Calc</span><span class="w-14 text-center">Documents</span><span class="w-14 text-center">Chokepoint</span><span class="w-14 text-center">Clear</span>
+          </div>
+          <div class="workflow-canvas" id="trade-canvas">
+            <div class="wf-step" id="trade-step-1"><div class="text-center px-6"><div class="wf-node inline-block mb-3" id="trade-n1"><div class="flex items-center gap-2 mb-2"><span class="iconify text-brand-gold" data-icon="carbon:document-export"></span><span class="text-xs font-medium text-brand-gold/80">Export Order Received</span></div><div class="terminal-text text-left"><div><span class="prompt">order:</span> <span class="value">EXP-2025-0234</span></div><div><span class="prompt">product:</span> Hot Rolled Coils — 200 MT</div><div><span class="prompt">origin:</span> UAE (GCC Steel)</div><div><span class="prompt">destination:</span> Hamburg, Germany <span class="warning">⚠ EU — CBAM applies</span></div><div><span class="prompt">value:</span> <span class="value">$142,000</span></div></div></div></div></div>
+            <div class="wf-step" id="trade-step-2"><div class="w-full max-w-md px-6"><div class="text-xs font-medium text-brand-gold/60 mb-4 text-center">CBAM Certificate Cost Calculation</div><div class="wf-node"><div class="terminal-text"><div><span class="prompt">Scope 1 (direct):</span> <span class="value">1.85 tCO2/MT</span></div><div><span class="prompt">Scope 2 (electricity):</span> <span class="warning">0.62 tCO2/MT</span> <span class="text-white/20">(grid: gas)</span></div><div><span class="prompt">Scope 3 (upstream):</span> <span class="value">0.38 tCO2/MT</span></div><div class="border-t border-white/5 my-2"></div><div><span class="prompt">total embedded:</span> <span class="warning">2.85 tCO2/MT</span></div><div><span class="prompt">ETS price:</span> €68/tonne</div><div><span class="prompt">quantity:</span> 200 MT</div><div class="border-t border-white/5 my-2"></div><div><span class="prompt">CBAM COST:</span> <span style="color:#f87174;font-weight:600">€38,760 ($41,940)</span></div><div><span class="prompt">as % of value:</span> <span style="color:#f87174">29.5%</span></div></div><div class="mt-2 p-2 rounded-lg bg-brand-gold/5 border border-brand-gold/10"><span class="text-[9px] text-brand-gold/70">⚠ This is a MATERIAL cost. Renewable energy switch would reduce by ~40%.</span></div></div></div></div>
+            <div class="wf-step" id="trade-step-3"><div class="text-center px-6"><div class="wf-node success inline-block mb-3"><div class="flex items-center gap-2 mb-2"><span class="iconify text-emerald-400" data-icon="carbon:document-add"></span><span class="text-xs font-medium text-emerald-400">Documentation Generated</span></div><div class="terminal-text text-left"><div><span class="prompt">✓</span> <span class="success">CBAM Declaration Form</span> — product-level</div><div><span class="prompt">✓</span> <span class="success">Commercial Invoice</span> — with carbon data</div><div><span class="prompt">✓</span> <span class="success">Certificate of Origin</span> — UAE</div><div><span class="prompt">✓</span> <span class="success">Packing List</span> — 4x 40' containers</div><div><span class="prompt">✓</span> <span class="success">Bill of Lading</span> — pre-booked MSC</div><div><span class="prompt">✓</span> <span class="success">Carbon Intensity Report</span> — verified factors</div></div></div></div></div>
+            <div class="wf-step" id="trade-step-4"><div class="text-center px-6"><div class="wf-node warning inline-block mb-3"><div class="flex items-center gap-2 mb-2"><span class="iconify text-yellow-400" data-icon="carbon:warning-alt"></span><span class="text-xs font-medium text-yellow-400">Chokepoint Risk Check</span></div><div class="terminal-text text-left"><div><span class="prompt">Red Sea / Suez:</span> <span class="warning" style="color:#f87174">HIGH RISK — active conflict</span></div><div><span class="prompt">Strait of Hormuz:</span> <span class="value">ELEVATED — Iran tensions</span></div><div><span class="prompt">action:</span> <span class="success">Cape route pre-booked (see Logistics Agent)</span></div></div></div></div></div>
+            <div class="wf-step" id="trade-step-5"><div class="text-center px-6"><div class="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto mb-4 animate-glow" style="--tw-shadow-color:rgba(52,211,153,.2)"><span class="iconify text-emerald-400 text-3xl" data-icon="carbon:checkmark-outline"></span></div><div class="text-sm font-medium text-emerald-400 mb-1">Trade Compliance Cleared</div><div class="text-xs text-white/40 mb-4">Full documentation + CBAM + risk assessment in 4.1 seconds</div><div class="inline-flex gap-6 text-center"><div><div class="text-lg font-medium text-white/80">6 docs</div><div class="text-[9px] text-white/25">Generated</div></div><div><div class="text-lg font-medium text-brand-gold">€38.7K</div><div class="text-[9px] text-white/25">CBAM Cost</div></div><div><div class="text-lg font-medium text-white/80">0</div><div class="text-[9px] text-white/25">Compliance Gaps</div></div></div></div></div>
+          </div>
+          <div class="mt-5 flex items-center justify-center gap-3">
+            <button onclick="playWorkflow('trade')" id="trade-play-btn" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-medium rounded-xl hover:bg-white/90 transition-colors"><span class="iconify" data-icon="carbon:play-filled-alt" id="trade-play-icon"></span><span id="trade-play-text">Play Workflow</span></button>
+            <button onclick="resetWorkflow('trade')" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-sm text-white/40 hover:text-white/60 border border-white/10 hover:border-white/20 transition-all"><span class="iconify" data-icon="carbon:reset"></span> Reset</button>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="bg-white/[.02] border border-white/[.06] rounded-xl p-5"><div class="text-[10px] text-white/30 uppercase tracking-widest mb-3">Data Sources</div><div class="space-y-2"><div class="flex items-center gap-2"><span class="iconify text-white/20 text-sm" data-icon="carbon:api"></span><span class="text-xs text-white/50">Alpha Vantage (ETS price)</span></div><div class="flex items-center gap-2"><span class="iconify text-white/20 text-sm" data-icon="carbon:warning"></span><span class="text-xs text-white/50">GDELT (geopolitical risk)</span></div><div class="flex items-center gap-2"><span class="iconify text-white/20 text-sm" data-icon="carbon:document"></span><span class="text-xs text-white/50">ERP (order data)</span></div><div class="flex items-center gap-2"><span class="iconify text-white/20 text-sm" data-icon="carbon:cloud"></span><span class="text-xs text-white/50">Emissions DB (factors)</span></div></div></div>
+          <a href="trade-agent.html" class="flex items-center justify-center gap-1 text-xs text-brand-gold/60 hover:text-brand-gold transition-colors py-2">Full agent detail page <span class="iconify" data-icon="carbon:arrow-right"></span></a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
-<!-- ARCHITECTURE, CTA, FOOTER unchanged -->
+
+<!-- ARCHITECTURE SECTION -->
+<section class="relative py-16 lg:py-20 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12 reveal"><h2 class="text-2xl md:text-3xl font-serif tracking-tight mb-3">Architecture</h2><p class="text-sm text-white/40 max-w-lg mx-auto">How the orchestrator coordinates agents, data sources, and governance boundaries.</p></div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+      <div class="bg-white/[.02] border border-white/[.06] rounded-xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-brand-sky/10 border border-brand-sky/20 flex items-center justify-center mb-4"><span class="iconify text-brand-sky text-xl" data-icon="carbon:cloud-app"></span></div>
+        <h3 class="text-sm font-medium mb-2">Data Layer</h3>
+        <p class="text-xs text-white/40 leading-relaxed mb-3">Unified data environment ingesting from Tally ERP, WMS, TMS, carrier APIs, Alpha Vantage, GDELT, POS feeds, and weather services. API-first where possible, ETL where not.</p>
+        <div class="flex flex-wrap gap-1"><span class="px-2 py-0.5 text-[9px] text-white/25 border border-white/8 rounded">Tally</span><span class="px-2 py-0.5 text-[9px] text-white/25 border border-white/8 rounded">WMS</span><span class="px-2 py-0.5 text-[9px] text-white/25 border border-white/8 rounded">TMS</span><span class="px-2 py-0.5 text-[9px] text-white/25 border border-white/8 rounded">APIs</span></div>
+      </div>
+      <div class="bg-white/[.02] border border-white/[.06] rounded-xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center mb-4"><span class="iconify text-brand-gold text-xl" data-icon="carbon:iot-platform"></span></div>
+        <h3 class="text-sm font-medium mb-2">Orchestrator</h3>
+        <p class="text-xs text-white/40 leading-relaxed mb-3">Central decision coordinator that routes tasks to the right agent, manages inter-agent dependencies, enforces governance boundaries, and maintains the full audit trail.</p>
+        <div class="flex flex-wrap gap-1"><span class="px-2 py-0.5 text-[9px] text-brand-gold/40 border border-brand-gold/15 rounded">Task Routing</span><span class="px-2 py-0.5 text-[9px] text-brand-gold/40 border border-brand-gold/15 rounded">Governance</span><span class="px-2 py-0.5 text-[9px] text-brand-gold/40 border border-brand-gold/15 rounded">Audit Trail</span></div>
+      </div>
+      <div class="bg-white/[.02] border border-white/[.06] rounded-xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-brand-sky/10 border border-brand-sky/20 flex items-center justify-center mb-4"><span class="iconify text-brand-sky text-xl" data-icon="carbon:machine-learning-model"></span></div>
+        <h3 class="text-sm font-medium mb-2">Agent Layer</h3>
+        <p class="text-xs text-white/40 leading-relaxed mb-3">Four specialised agents, each operating within defined decision boundaries. Autonomous for routine decisions. Human-in-the-loop for high-stakes calls. Learning from every outcome.</p>
+        <div class="flex flex-wrap gap-1"><span class="px-2 py-0.5 text-[9px] text-white/25 border border-white/8 rounded">Procure</span><span class="px-2 py-0.5 text-[9px] text-white/25 border border-white/8 rounded">Inventory</span><span class="px-2 py-0.5 text-[9px] text-white/25 border border-white/8 rounded">Logistics</span><span class="px-2 py-0.5 text-[9px] text-white/25 border border-white/8 rounded">Trade</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="relative py-16 lg:py-20 border-t border-white/5 overflow-hidden">
+  <div class="absolute inset-0 hero-radial"></div>
+  <div class="relative z-10 max-w-3xl mx-auto px-6 text-center reveal">
+    <h2 class="text-2xl md:text-3xl font-serif italic tracking-tight mb-4">See this <span class="gold-gradient">live</span> on your data</h2>
+    <p class="text-white/40 font-light mb-8 text-sm">These are not simulations — the platform runs on real ERP data with real suppliers and real market feeds. Request a live demo.</p>
+    <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-black text-sm font-medium rounded-xl hover:bg-white/90 transition-colors shadow-lg shadow-white/10">Request Live Demo <span class="iconify" data-icon="carbon:arrow-right"></span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="relative border-t border-white/5 bg-white/[.01]">
+  <div class="max-w-7xl mx-auto px-6 py-16 lg:py-20">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+      <div class="lg:col-span-1"><div class="flex items-center gap-3 mb-4"><div class="w-8 h-8 rounded-lg bg-brand-sky/20 border border-brand-sky/30 flex items-center justify-center"><span class="iconify text-brand-sky text-base" data-icon="carbon:analytics"></span></div><span class="text-white font-semibold text-sm">VN Advisory</span></div><p class="text-sm text-white/40 leading-relaxed mb-4">Execution. Precision. Output.</p><div class="flex items-center gap-3"><a href="https://linkedin.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg border border-white/10 hover:border-brand-sky/30 hover:bg-brand-sky/5 flex items-center justify-center transition-all"><span class="iconify text-white/40 hover:text-brand-sky text-lg" data-icon="mdi:linkedin"></span></a><a href="https://youtube.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg border border-white/10 hover:border-red-500/30 hover:bg-red-500/5 flex items-center justify-center transition-all"><span class="iconify text-white/40 hover:text-red-400 text-lg" data-icon="mdi:youtube"></span></a></div></div>
+      <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-5 font-medium">Quick Links</h4><ul class="space-y-3"><li><a href="index.html" class="text-sm text-white/50 hover:text-white transition-colors">Home</a></li><li><a href="market.html" class="text-sm text-white/50 hover:text-white transition-colors">Market Intelligence</a></li><li><a href="digital.html" class="text-sm text-white/50 hover:text-white transition-colors">Digital Workforce</a></li><li><a href="insights.html" class="text-sm text-white/50 hover:text-white transition-colors">Insights & Impact</a></li><li><a href="contact.html" class="text-sm text-white/50 hover:text-white transition-colors">Contact</a></li></ul></div>
+      <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-5 font-medium">AI Agents</h4><ul class="space-y-3"><li><a href="procurement-agent.html" class="text-sm text-white/50 hover:text-white transition-colors">Procurement Agent</a></li><li><a href="inventory-agent.html" class="text-sm text-white/50 hover:text-white transition-colors">Inventory Agent</a></li><li><a href="logistics-agent.html" class="text-sm text-white/50 hover:text-white transition-colors">Logistics Agent</a></li><li><a href="trade-agent.html" class="text-sm text-white/50 hover:text-white transition-colors">Trade Agent</a></li></ul></div>
+      <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-5 font-medium">About</h4><ul class="space-y-3"><li class="text-sm text-white/50"><span class="text-white/80 font-medium">23+ years</span> experience</li><li class="text-sm text-white/50">Across <span class="text-white/80 font-medium">GCC · India · ASEAN</span></li><li class="text-sm text-white/50"><span class="text-white/80 font-medium">Supply Chain</span> leadership</li></ul></div>
+      <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-5 font-medium">Contact</h4><ul class="space-y-3"><li><a href="mailto:info@vnadvisory.in" class="text-sm text-white/50 hover:text-white transition-colors">info@vnadvisory.in</a></li><li><a href="mailto:varadha@vnadvisory.in" class="text-sm text-white/50 hover:text-white transition-colors">varadha@vnadvisory.in</a></li></ul></div>
+    </div>
+    <div class="border-t border-white/5 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-white/25">© 2025 VN Advisory. All rights reserved.</p><div class="flex items-center gap-6 text-xs text-white/25"><a href="#" class="hover:text-white/50 transition-colors">Privacy</a><a href="#" class="hover:text-white/50 transition-colors">Terms</a></div></div>
+  </div>
+</footer>
+
+<div id="toast" class="toast"><div class="flex items-center gap-3 px-5 py-3 rounded-xl bg-brand-dark/95 border border-white/10 shadow-2xl" style="backdrop-filter:blur(20px)"><span class="iconify text-emerald-400" data-icon="carbon:checkmark-filled"></span><span id="toastMsg" class="text-sm text-white/80"></span></div></div>
+
 <script>
-// Mobile menu, nav scroll, reveal, live counter, agent tabs (unchanged)
-// WORKFLOW ENGINE (height manipulation removed)
+// Mobile menu
+const mt=document.getElementById('mobileToggle'),mc=document.getElementById('mobileClose'),mm=document.getElementById('mobileMenu'),mo=document.getElementById('mobileOverlay');
+function openM(){mm.classList.add('open');mo.classList.remove('hidden');document.body.style.overflow='hidden'}
+function closeM(){mm.classList.remove('open');mo.classList.add('hidden');document.body.style.overflow=''}
+mt.addEventListener('click',openM);mc.addEventListener('click',closeM);mo.addEventListener('click',closeM);
+
+// Nav scroll
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{if(window.scrollY>50){nav.style.background='rgba(5,5,5,.95)';nav.style.borderBottom='1px solid rgba(255,255,255,.05)'}else{nav.style.background='rgba(5,5,5,.8)';nav.style.borderBottom='none'}});
+
+// Reveal
+const reveals=document.querySelectorAll('.reveal');
+const ro=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('active');ro.unobserve(en.target)}})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+reveals.forEach(el=>ro.observe(el));
+
+// Live counter simulation
+setInterval(()=>{
+  const d=document.getElementById('stat-decisions');if(d){let v=parseInt(d.textContent.replace(',',''));v+=Math.floor(Math.random()*3);d.textContent=v.toLocaleString()}
+},2000);
+
+// Agent tabs
+function switchAgent(tab){
+  document.querySelectorAll('.agent-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.agent-tab-content').forEach(c=>c.classList.remove('active'));
+  event.target.closest('.agent-tab').classList.add('active');
+  document.getElementById('agent-'+tab).classList.add('active');
+}
+
+// WORKFLOW ENGINE
 const workflowTimers={};
+
 function playWorkflow(prefix){
   const btn=document.getElementById(prefix+'-play-btn');
   const icon=document.getElementById(prefix+'-play-icon');
@@ -154,29 +627,42 @@ function playWorkflow(prefix){
   btn.disabled=true;btn.classList.add('opacity-60','cursor-not-allowed');
   icon.setAttribute('data-icon','carbon:loading');
   text.textContent='Running...';
+
   for(let i=1;i<=5;i++){
-    const s=document.getElementById(prefix+'-step-'+i);if(s)s.classList.remove('active');
-    const d=document.getElementById(prefix+'-s'+i);if(d){d.classList.remove('active','done');d.style.background='';d.style.borderColor='';d.style.color=''}
+    const s=document.getElementById(prefix+'-step-'+i);
+    if(s)s.classList.remove('active');
+    const d=document.getElementById(prefix+'-s'+i);
+    if(d){d.classList.remove('active','done');d.style.background='';d.style.borderColor='';d.style.color=''}
     if(i<5){const l=document.getElementById(prefix+'-l'+i);if(l)l.classList.remove('done')}
   }
-  const stepDelay=2800;let step=1;
+
+  const stepDelay=2800;
+  let step=1;
+
   function showStep(){
     if(step>5){
-      icon.setAttribute('data-icon','carbon:checkmark-filled');text.textContent='Completed';
+      icon.setAttribute('data-icon','carbon:checkmark-filled');
+      text.textContent='Completed';
       btn.disabled=false;btn.classList.remove('opacity-60','cursor-not-allowed');
       showToast(prefix.charAt(0).toUpperCase()+prefix.slice(1)+' agent workflow completed');
       return;
     }
-    const s=document.getElementById(prefix+'-step-'+step);if(s)s.classList.add('active');
+
+    const s=document.getElementById(prefix+'-step-'+step);
+    if(s)s.classList.add('active');
+
     for(let j=1;j<=5;j++){
-      const d=document.getElementById(prefix+'-s'+j);if(!d)continue;
+      const d=document.getElementById(prefix+'-s'+j);
+      if(!d)continue;
       if(j<step){d.classList.remove('active');d.classList.add('done')}
       else if(j===step){d.classList.add('active');d.classList.remove('done')}
       else{d.classList.remove('active','done')}
       if(j<5){const l=document.getElementById(prefix+'-l'+j);if(l){if(j<step)l.classList.add('done');else l.classList.remove('done')}}
     }
+
     if(prefix==='proc'&&step===1){
-      const t=document.getElementById('proc-time-1');if(t)t.textContent=new Date().toISOString().replace('T',' ').slice(0,19)+' UTC';
+      const t=document.getElementById('proc-time-1');
+      if(t)t.textContent=new Date().toISOString().replace('T',' ').slice(0,19)+' UTC';
       const n=document.getElementById('proc-n1');if(n)setTimeout(()=>n.classList.add('highlight'),400);
     }
     if(prefix==='proc'&&step===2){
@@ -188,13 +674,29 @@ function playWorkflow(prefix){
     }
     if(prefix==='proc'&&step===3){const n=document.getElementById('proc-n1')?.parentElement;if(n)setTimeout(()=>n.classList.add('highlight'),400)}
     if(prefix==='proc'&&step===4){const n=document.getElementById('proc-n4');if(n)setTimeout(()=>n.classList.add('highlight'),400)}
-    if(prefix==='inv'&&step===2){setTimeout(()=>{['loc1','loc2','loc3'].forEach(id=>{const el=document.getElementById('inv-'+id);if(el){const bar=el.querySelector('.wf-bar-fill');if(bar)bar.style.width=bar.style.getPropertyValue('--tw')}})},300);}
-    if(prefix==='log'&&step===2){setTimeout(()=>{document.getElementById('log-cs1')?.textContent&&(document.getElementById('log-cs1').textContent='45/100');document.getElementById('log-cs2')?.textContent&&(document.getElementById('log-cs2').textContent='82/100');document.getElementById('log-cs3')?.textContent&&(document.getElementById('log-cs3').textContent='40/100');const c2=document.getElementById('log-car2');if(c2)setTimeout(()=>c2.classList.add('highlight'),800);},400);}
+
+    if(prefix==='inv'&&step===2){
+      setTimeout(()=>{
+        ['loc1','loc2','loc3'].forEach(id=>{const el=document.getElementById('inv-'+id);if(el){const bar=el.querySelector('.wf-bar-fill');if(bar)bar.style.width=bar.style.getPropertyValue('--tw')}})
+      },300);
+    }
+
+    if(prefix==='log'&&step===2){
+      setTimeout(()=>{
+        document.getElementById('log-cs1')?.textContent && (document.getElementById('log-cs1').textContent='45/100');
+        document.getElementById('log-cs2')?.textContent && (document.getElementById('log-cs2').textContent='82/100');
+        document.getElementById('log-cs3')?.textContent && (document.getElementById('log-cs3').textContent='40/100');
+        const c2=document.getElementById('log-car2');if(c2)setTimeout(()=>c2.classList.add('highlight'),800);
+      },400);
+    }
+
     step++;
     workflowTimers[prefix]=setTimeout(showStep,stepDelay);
   }
+
   workflowTimers[prefix]=setTimeout(showStep,500);
 }
+
 function resetWorkflow(prefix){
   if(workflowTimers[prefix])clearTimeout(workflowTimers[prefix]);
   for(let i=1;i<=5;i++){
@@ -211,6 +713,7 @@ function resetWorkflow(prefix){
   if(icon)icon.setAttribute('data-icon','carbon:play-filled-alt');
   if(text)text.textContent='Play Workflow';
 }
+
 function showToast(msg){const t=document.getElementById('toast'),m=document.getElementById('toastMsg');m.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000)}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
 </script>
