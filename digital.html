@@ -31,10 +31,43 @@
     @keyframes fillBar{0%{width:0}100%{width:var(--tw)}}
     @keyframes progressPulse{0%,100%{box-shadow:0 0 0 0 rgba(56,189,248,.4)}50%{box-shadow:0 0 0 6px rgba(56,189,248,0)}}
 
-    .workflow-canvas{position:relative;background:rgba(255,255,255,.01);border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;min-height:420px}
-    .wf-step{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .6s ease;transform:scale(.97)}
-    .wf-step.active{opacity:1;pointer-events:auto;transform:scale(1)}
-    .wf-node{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;transition:all .5s}
+    /* FIXED WORKFLOW STYLES */
+    .workflow-canvas {
+      position: relative;
+      background: rgba(255,255,255,.01);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 16px;
+      overflow: visible; /* changed from hidden */
+      min-height: 0;     /* removed fixed height */
+      transition: height 0.3s ease;
+    }
+    .wf-step {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .6s ease;
+      transform: scale(.97);
+    }
+    .wf-step.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+      position: relative;   /* key change: allows natural height */
+      inset: auto;
+    }
+    .wf-node {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 16px;
+      transition: all .5s;
+      word-break: break-word; /* prevent overflow */
+    }
     .wf-node.highlight{border-color:rgba(56,189,248,.4);background:rgba(56,189,248,.05);box-shadow:0 0 20px rgba(56,189,248,.1)}
     .wf-node.success{border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.05)}
     .wf-node.warning{border-color:rgba(251,191,36,.4);background:rgba(251,191,36,.05)}
@@ -42,8 +75,18 @@
     .wf-data-packet{width:6px;height:6px;border-radius:50%;background:#38BDF8;position:absolute;animation:dataFlow 1.5s ease-in-out infinite}
     .wf-line{stroke:rgba(56,189,248,.15);stroke-width:1;stroke-dasharray:4 4;fill:none}
     .wf-line.active{stroke:rgba(56,189,248,.5);animation:dash 1s linear forwards}
-    .terminal-text{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;line-height:1.6;color:rgba(255,255,255,.5)}
-    .terminal-text .prompt{color:rgba(56,189,248,.6)}.terminal-text .success{color:rgba(52,211,153,.7)}.terminal-text .warning{color:rgba(251,191,36,.7)}.terminal-text .value{color:rgba(255,255,255,.8)}
+    .terminal-text {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      line-height: 1.6;
+      color: rgba(255,255,255,.5);
+      word-break: break-word;
+      white-space: normal;
+    }
+    .terminal-text .prompt{color:rgba(56,189,248,.6)}
+    .terminal-text .success{color:rgba(52,211,153,.7)}
+    .terminal-text .warning{color:rgba(251,191,36,.7)}
+    .terminal-text .value{color:rgba(255,255,255,.8)}
 
     .step-indicator{display:flex;align-items:center;gap:0}.step-dot{width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:rgba(255,255,255,.2);transition:all .4s;position:relative;z-index:1;flex-shrink:0}
     .step-dot.active{border-color:rgba(56,189,248,.5);color:#38BDF8;background:rgba(56,189,248,.08);animation:progressPulse 1.5s ease-in-out infinite}
@@ -58,7 +101,7 @@
 </head>
 <body>
 
-<!-- NAV -->
+<!-- NAV (unchanged) -->
 <nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:rgba(5,5,5,.8);backdrop-filter:blur(24px)">
   <div class="max-w-7xl mx-auto px-6"><div class="flex items-center justify-between h-16 lg:h-20">
     <a href="index.html" class="flex items-center gap-3"><div class="w-9 h-9 rounded-lg bg-brand-sky/20 border border-brand-sky/30 flex items-center justify-center"><span class="iconify text-brand-sky text-lg" data-icon="carbon:analytics"></span></div><span class="text-white font-semibold text-base tracking-tight">VN Advisory</span></a>
@@ -76,13 +119,14 @@
       <button id="mobileToggle" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5"><span class="iconify text-xl text-white" data-icon="carbon:menu"></span></button>
     </div>
   </div></div>
+  <!-- Mobile menu (unchanged) -->
   <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-brand-dark/98 backdrop-blur-xl border-l border-white/10 z-50 overflow-y-auto lg:hidden"><div class="p-6"><div class="flex items-center justify-between mb-8"><span class="text-white font-semibold">Menu</span><button id="mobileClose" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5"><span class="iconify text-xl text-white" data-icon="carbon:close"></span></button></div><div class="flex flex-col gap-1"><a href="index.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Home</a><a href="services.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Services</a><a href="industries.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Industries</a><a href="market.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Market Intelligence</a><a href="digital.html" class="px-4 py-3 text-white font-medium rounded-lg bg-white/5">Digital Workforce</a><a href="insights.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Insights</a><a href="contact.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Contact</a><div class="border-t border-white/5 my-3"></div><a href="contact.html" class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white text-black text-sm font-medium rounded-lg">Request Demo</a></div></div></div>
   <div id="mobileOverlay" class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden" style="backdrop-filter:blur(4px)"></div>
 </nav>
 
 <div class="pt-20 lg:pt-24 border-b border-white/5"><div class="max-w-7xl mx-auto px-6 py-3"><div class="flex items-center gap-2 text-xs text-white/30"><a href="index.html" class="hover:text-white/60 transition-colors">Home</a><span class="iconify text-[10px]" data-icon="carbon:chevron-right"></span><span class="text-white/60">Digital Workforce</span></div></div></div>
 
-<!-- HERO -->
+<!-- HERO (unchanged) -->
 <section class="relative py-16 lg:py-24 overflow-hidden">
   <div class="absolute inset-0 bg-grid"></div>
   <div class="absolute inset-0 hero-radial"></div>
@@ -102,7 +146,7 @@
   </div>
 </section>
 
-<!-- LIVE ORCHESTRATOR VIEW -->
+<!-- LIVE ORCHESTRATOR VIEW (unchanged) -->
 <section class="relative py-12 lg:py-16 border-t border-white/5">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-10 reveal">
@@ -583,6 +627,11 @@ function playWorkflow(prefix){
       text.textContent='Completed';
       btn.disabled=false;btn.classList.remove('opacity-60','cursor-not-allowed');
       showToast(prefix.charAt(0).toUpperCase()+prefix.slice(1)+' agent workflow completed');
+      
+      // Adjust canvas height for final step
+      const canvas = document.getElementById(prefix+'-canvas');
+      const activeStep = document.querySelector('#'+prefix+'-canvas .wf-step.active');
+      if(canvas && activeStep) canvas.style.height = activeStep.scrollHeight + 'px';
       return;
     }
 
@@ -600,7 +649,15 @@ function playWorkflow(prefix){
       if(j<5){const l=document.getElementById(prefix+'-l'+j);if(l){if(j<step)l.classList.add('done');else l.classList.remove('done')}}
     }
 
-    // Step-specific animations
+    // Adjust canvas height dynamically
+    const canvas = document.getElementById(prefix+'-canvas');
+    const activeStep = document.querySelector('#'+prefix+'-canvas .wf-step.active');
+    if(canvas && activeStep) {
+      canvas.style.height = 'auto';
+      canvas.style.height = activeStep.scrollHeight + 'px';
+    }
+
+    // Step-specific animations (unchanged)
     if(prefix==='proc'&&step===1){
       const t=document.getElementById('proc-time-1');
       if(t)t.textContent=new Date().toISOString().replace('T',' ').slice(0,19)+' UTC';
@@ -616,14 +673,12 @@ function playWorkflow(prefix){
     if(prefix==='proc'&&step===3){const n=document.getElementById('proc-n1')?.parentElement;if(n)setTimeout(()=>n.classList.add('highlight'),400)}
     if(prefix==='proc'&&step===4){const n=document.getElementById('proc-n4');if(n)setTimeout(()=>n.classList.add('highlight'),400)}
 
-    // Inventory bars
     if(prefix==='inv'&&step===2){
       setTimeout(()=>{
         ['loc1','loc2','loc3'].forEach(id=>{const el=document.getElementById('inv-'+id);if(el){const bar=el.querySelector('.wf-bar-fill');if(bar)bar.style.width=bar.style.getPropertyValue('--tw')}})
       },300);
     }
 
-    // Logistics scores
     if(prefix==='log'&&step===2){
       setTimeout(()=>{
         document.getElementById('log-cs1')?.textContent && (document.getElementById('log-cs1').textContent='45/100');
@@ -661,6 +716,10 @@ function resetWorkflow(prefix){
   if(btn){btn.disabled=false;btn.classList.remove('opacity-60','cursor-not-allowed')}
   if(icon)icon.setAttribute('data-icon','carbon:play-filled-alt');
   if(text)text.textContent='Play Workflow';
+  
+  // Reset canvas height
+  const canvas = document.getElementById(prefix+'-canvas');
+  if(canvas) canvas.style.height = '';
 }
 
 function showToast(msg){const t=document.getElementById('toast'),m=document.getElementById('toastMsg');m.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000)}
