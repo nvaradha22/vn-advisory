@@ -1,4 +1,0 @@
-# SPA-style redirects (not needed for multi-page, but useful for clean URLs)
-# No redirects needed — all pages are .html files served directly
-
-# API proxy handled by /functions/ directory automatically by Cloudflare Pages
