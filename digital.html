@@ -57,37 +57,42 @@
     @keyframes fillBar { 0% { width:0; } 100% { width:var(--tw); } }
     @keyframes progressPulse { 0%,100% { box-shadow:0 0 0 0 rgba(56,189,248,.4); } 50% { box-shadow:0 0 0 6px rgba(56,189,248,0); } }
 
-    /* ---------- FIXED WORKFLOW STYLES — CSS GRID STACKING (NO OVERLAP) ---------- */
+    /* ========== FIXED WORKFLOW STYLES ========== */
     .workflow-canvas {
-      min-height: 400px;
-      display: grid;
-      grid-template-areas: "stack";
+      position: relative;                        /* anchor for absolute children */
+      min-height: 420px;
       background: rgba(255,255,255,.01);
       border: 1px solid rgba(255,255,255,.06);
       border-radius: 16px;
       overflow: hidden;
+      transition: min-height 0.5s ease;
     }
 
     .wf-step {
-      grid-area: stack;               /* All steps occupy the same grid cell */
+      position: absolute;                        /* stack precisely on top of each other */
+      inset: 0;
       opacity: 0;
-      visibility: hidden;             /* Hidden by default */
+      visibility: hidden;
       pointer-events: none;
-      transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
-      transform: scale(0.98);
+      transform: translateY(8px);
+      /* When HIDING: visibility delayed until AFTER opacity finishes (0.45s) */
+      transition: opacity 0.45s ease, transform 0.45s ease, visibility 0s linear 0.45s;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 2rem;
+      overflow-y: auto;
     }
 
     .wf-step.active {
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
-      transform: scale(1);
+      transform: translateY(0);
       z-index: 10;
+      /* When SHOWING: visibility immediate, then opacity fades in with tiny delay */
+      transition: opacity 0.45s ease 0.05s, transform 0.45s ease 0.05s, visibility 0s linear 0s;
     }
 
     .wf-node {
@@ -439,9 +444,9 @@
             <div class="wf-step" id="inv-step-2">
               <div class="w-full max-w-md px-6"><div class="text-xs font-medium text-white/50 mb-4 text-center">Multi-Location Stock Analysis</div>
                 <div class="space-y-2">
-                  <div class="wf-node" id="inv-loc1"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">Dubai Warehouse</span><span class="text-xs text-red-400">12 days ⚠</span></div><div class="wf-bar"><div class="wf-bar-fill bg-red-400" style="--tw:30%"></div></div></div>
-                  <div class="wf-node" id="inv-loc2"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">Abu Dhabi Warehouse</span><span class="text-xs text-yellow-400">19 days ⚠</span></div><div class="wf-bar"><div class="wf-bar-fill bg-yellow-400" style="--tw:52%"></div></div></div>
-                  <div class="wf-node" id="inv-loc3"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">Riyadh Warehouse</span><span class="text-xs text-emerald-400">38 days ✓</span></div><div class="wf-bar"><div class="wf-bar-fill bg-emerald-400" style="--tw:85%"></div></div></div>
+                  <div class="wf-node" id="inv-loc1"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">Dubai Warehouse</span><span class="text-xs text-red-400">12 days ⚠</span></div><div class="wf-bar"><div class="wf-bar-fill bg-red-400" id="inv-bar1" style="--tw:30%"></div></div></div>
+                  <div class="wf-node" id="inv-loc2"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">Abu Dhabi Warehouse</span><span class="text-xs text-yellow-400">19 days ⚠</span></div><div class="wf-bar"><div class="wf-bar-fill bg-yellow-400" id="inv-bar2" style="--tw:52%"></div></div></div>
+                  <div class="wf-node" id="inv-loc3"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">Riyadh Warehouse</span><span class="text-xs text-emerald-400">38 days ✓</span></div><div class="wf-bar"><div class="wf-bar-fill bg-emerald-400" id="inv-bar3" style="--tw:85%"></div></div></div>
                 </div><div class="text-center text-[10px] text-yellow-400/60 mt-2">⚠ 2 of 3 locations below safety stock</div></div>
             </div>
             <div class="wf-step" id="inv-step-3">
@@ -482,7 +487,7 @@
           </div>
           <div class="workflow-canvas" id="log-canvas">
             <div class="wf-step" id="log-step-1"><div class="text-center px-6"><div class="wf-node inline-block mb-3" id="log-n1"><div class="flex items-center gap-2 mb-2"><span class="iconify text-brand-sky" data-icon="carbon:container-shipment"></span><span class="text-xs font-medium text-white/60">Shipment Created</span></div><div class="terminal-text text-left"><div><span class="prompt">shipment:</span> <span class="value">SHP-2025-8934</span></div><div><span class="prompt">origin:</span> Jebel Ali, UAE</div><div><span class="prompt">destination:</span> Rotterdam, NL</div><div><span class="prompt">cargo:</span> Steel Coils — 4x 40' containers</div><div><span class="prompt">weight:</span> 96 MT</div><div><span class="prompt">deadline:</span> 2025-08-15</div></div></div></div></div>
-            <div class="wf-step" id="log-step-2"><div class="w-full max-w-md px-6"><div class="text-xs font-medium text-white/50 mb-4 text-center">Carrier Selection — AI Evaluation</div><div class="space-y-2"><div class="wf-node" id="log-car1"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">Maersk — Direct Suez</span><span class="text-xs text-yellow-400" id="log-cs1">—</span></div><div class="wf-bar"><div class="wf-bar-fill bg-yellow-400" style="--tw:45%"></div></div><div class="text-[9px] text-white/20">$4,200 · 22 days · ⚠ Red Sea risk</div></div><div class="wf-node highlight" id="log-car2"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">MSC — Cape Route</span><span class="text-xs text-emerald-400" id="log-cs2">—</span></div><div class="wf-bar"><div class="wf-bar-fill bg-emerald-400" style="--tw:82%"></div></div><div class="text-[9px] text-white/20">$4,800 · 32 days · ✓ Safe route</div></div><div class="wf-node" id="log-car3"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">CMA CGM — Suez</span><span class="text-xs text-yellow-400" id="log-cs3">—</span></div><div class="wf-bar"><div class="wf-bar-fill bg-yellow-400" style="--tw:40%"></div></div><div class="text-[9px] text-white/20">$4,350 · 24 days · ⚠ Red Sea risk</div></div></div><div class="text-center text-[10px] text-emerald-400/60 mt-2">✓ MSC selected — risk-adjusted optimal</div></div></div>
+            <div class="wf-step" id="log-step-2"><div class="w-full max-w-md px-6"><div class="text-xs font-medium text-white/50 mb-4 text-center">Carrier Selection — AI Evaluation</div><div class="space-y-2"><div class="wf-node" id="log-car1"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">Maersk — Direct Suez</span><span class="text-xs text-yellow-400" id="log-cs1">—</span></div><div class="wf-bar"><div class="wf-bar-fill bg-yellow-400" id="log-bar1" style="--tw:45%"></div></div><div class="text-[9px] text-white/20">$4,200 · 22 days · ⚠ Red Sea risk</div></div><div class="wf-node highlight" id="log-car2"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">MSC — Cape Route</span><span class="text-xs text-emerald-400" id="log-cs2">—</span></div><div class="wf-bar"><div class="wf-bar-fill bg-emerald-400" id="log-bar2" style="--tw:82%"></div></div><div class="text-[9px] text-white/20">$4,800 · 32 days · ✓ Safe route</div></div><div class="wf-node" id="log-car3"><div class="flex justify-between mb-1"><span class="text-xs text-white/60">CMA CGM — Suez</span><span class="text-xs text-yellow-400" id="log-cs3">—</span></div><div class="wf-bar"><div class="wf-bar-fill bg-yellow-400" id="log-bar3" style="--tw:40%"></div></div><div class="text-[9px] text-white/20">$4,350 · 24 days · ⚠ Red Sea risk</div></div></div><div class="text-center text-[10px] text-emerald-400/60 mt-2">✓ MSC selected — risk-adjusted optimal</div></div></div>
             <div class="wf-step" id="log-step-3"><div class="text-center px-6"><div class="wf-node inline-block mb-3"><div class="flex items-center gap-2 mb-2"><span class="iconify text-brand-sky" data-icon="carbon:routing"></span><span class="text-xs font-medium text-white/60">Route Optimized</span></div><div class="terminal-text text-left"><div><span class="prompt">route:</span> Jebel Ali → <span class="value">Cape of Good Hope</span> → Rotterdam</div><div><span class="prompt">distance:</span> 11,400 nm (+3,200 nm vs Suez)</div><div><span class="prompt">ETA:</span> 2025-08-12</div><div><span class="prompt">war risk premium saved:</span> <span class="success">$1,200</span></div></div></div></div></div>
             <div class="wf-step" id="log-step-4"><div class="text-center px-6"><div class="wf-node warning inline-block mb-3"><div class="flex items-center gap-2 mb-2"><span class="iconify text-yellow-400" data-icon="carbon:warning-alt"></span><span class="text-xs font-medium text-yellow-400">Exception: Port Congestion</span></div><div class="terminal-text text-left"><div><span class="prompt">alert:</span> <span class="warning">Durban port — 3 day delay</span></div><div><span class="prompt">impact:</span> ETA shift to Aug 15</div><div><span class="prompt">action:</span> <span class="success">Re-routed via Mauritius bypass</span></div><div><span class="prompt">revised ETA:</span> <span class="value">Aug 13</span></div><div><span class="prompt">resolved in:</span> <span class="value">4 minutes</span></div></div></div></div></div>
             <div class="wf-step" id="log-step-5"><div class="text-center px-6"><div class="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto mb-4 animate-glow" style="--tw-shadow-color:rgba(52,211,153,.2)"><span class="iconify text-emerald-400 text-3xl" data-icon="carbon:checkmark-outline"></span></div><div class="text-sm font-medium text-emerald-400 mb-1">Delivered Successfully</div><div class="text-xs text-white/40 mb-4">Shipment → Delivery with autonomous exception handling</div><div class="inline-flex gap-6 text-center"><div><div class="text-lg font-medium text-white/80">32 days</div><div class="text-[9px] text-white/25">Transit</div></div><div><div class="text-lg font-medium text-emerald-400">$600</div><div class="text-[9px] text-white/25">Saved vs Suez risk</div></div><div><div class="text-lg font-medium text-white/80">4 min</div><div class="text-[9px] text-white/25">Exception Fix</div></div></div></div></div>
@@ -609,113 +614,214 @@ setInterval(()=>{
   const d=document.getElementById('stat-decisions');if(d){let v=parseInt(d.textContent.replace(',',''));v+=Math.floor(Math.random()*3);d.textContent=v.toLocaleString()}
 },2000);
 
-// Agent tabs
-function switchAgent(tab){
-  document.querySelectorAll('.agent-tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.agent-tab-content').forEach(c=>c.classList.remove('active'));
-  event.target.closest('.agent-tab').classList.add('active');
-  document.getElementById('agent-'+tab).classList.add('active');
+/* ========== WORKFLOW ENGINE — FIXED OVERLAP ========== */
+
+const workflowTimers = {};
+const workflowRunning = {};
+
+// Kill any running workflow for a given prefix
+function killWorkflow(prefix) {
+  if (workflowTimers[prefix]) {
+    clearTimeout(workflowTimers[prefix]);
+    delete workflowTimers[prefix];
+  }
+  workflowRunning[prefix] = false;
 }
 
-// WORKFLOW ENGINE
-const workflowTimers={};
+// Agent tabs — also kills any running workflow on the old tab
+function switchAgent(tab) {
+  // Stop ALL running workflows when switching tabs
+  ['proc','inv','log','trade'].forEach(killWorkflow);
 
-function playWorkflow(prefix){
-  const btn=document.getElementById(prefix+'-play-btn');
-  const icon=document.getElementById(prefix+'-play-icon');
-  const text=document.getElementById(prefix+'-play-text');
-  btn.disabled=true;btn.classList.add('opacity-60','cursor-not-allowed');
-  icon.setAttribute('data-icon','carbon:loading');
-  text.textContent='Running...';
+  document.querySelectorAll('.agent-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.agent-tab-content').forEach(c => c.classList.remove('active'));
+  event.target.closest('.agent-tab').classList.add('active');
+  document.getElementById('agent-' + tab).classList.add('active');
+}
 
-  for(let i=1;i<=5;i++){
-    const s=document.getElementById(prefix+'-step-'+i);
-    if(s)s.classList.remove('active');
-    const d=document.getElementById(prefix+'-s'+i);
-    if(d){d.classList.remove('active','done');d.style.background='';d.style.borderColor='';d.style.color=''}
-    if(i<5){const l=document.getElementById(prefix+'-l'+i);if(l)l.classList.remove('done')}
+function playWorkflow(prefix) {
+  const btn = document.getElementById(prefix + '-play-btn');
+  const icon = document.getElementById(prefix + '-play-icon');
+  const text = document.getElementById(prefix + '-play-text');
+
+  // Prevent double-play
+  if (workflowRunning[prefix]) return;
+  workflowRunning[prefix] = true;
+
+  btn.disabled = true;
+  btn.classList.add('opacity-60', 'cursor-not-allowed');
+  icon.setAttribute('data-icon', 'carbon:loading');
+  text.textContent = 'Running...';
+
+  // Reset everything first
+  for (let i = 1; i <= 5; i++) {
+    const s = document.getElementById(prefix + '-step-' + i);
+    if (s) s.classList.remove('active');
+    const d = document.getElementById(prefix + '-s' + i);
+    if (d) { d.classList.remove('active', 'done'); }
+    if (i < 5) {
+      const l = document.getElementById(prefix + '-l' + i);
+      if (l) l.classList.remove('done');
+    }
   }
 
-  const stepDelay=2800;
-  let step=1;
+  const stepDelay = 3000;
+  let step = 1;
 
-  function showStep(){
-    if(step>5){
-      icon.setAttribute('data-icon','carbon:checkmark-filled');
-      text.textContent='Completed';
-      btn.disabled=false;btn.classList.remove('opacity-60','cursor-not-allowed');
-      showToast(prefix.charAt(0).toUpperCase()+prefix.slice(1)+' agent workflow completed');
+  function showStep() {
+    if (!workflowRunning[prefix]) return;           // aborted by tab switch
+    if (step > 5) {
+      icon.setAttribute('data-icon', 'carbon:checkmark-filled');
+      text.textContent = 'Completed';
+      btn.disabled = false;
+      btn.classList.remove('opacity-60', 'cursor-not-allowed');
+      workflowRunning[prefix] = false;
+      showToast(prefix.charAt(0).toUpperCase() + prefix.slice(1) + ' agent workflow completed');
       return;
     }
 
-    const s=document.getElementById(prefix+'-step-'+step);
-    if(s)s.classList.add('active');
-
-    for(let j=1;j<=5;j++){
-      const d=document.getElementById(prefix+'-s'+j);
-      if(!d)continue;
-      if(j<step){d.classList.remove('active');d.classList.add('done')}
-      else if(j===step){d.classList.add('active');d.classList.remove('done')}
-      else{d.classList.remove('active','done')}
-      if(j<5){const l=document.getElementById(prefix+'-l'+j);if(l){if(j<step)l.classList.add('done');else l.classList.remove('done')}}
+    /* ---- KEY FIX: remove .active from ALL steps first ---- */
+    for (let i = 1; i <= 5; i++) {
+      const prev = document.getElementById(prefix + '-step-' + i);
+      if (prev) prev.classList.remove('active');
     }
 
-    if(prefix==='proc'&&step===1){
-      const t=document.getElementById('proc-time-1');
-      if(t)t.textContent=new Date().toISOString().replace('T',' ').slice(0,19)+' UTC';
-      const n=document.getElementById('proc-n1');if(n)setTimeout(()=>n.classList.add('highlight'),400);
-    }
-    if(prefix==='proc'&&step===2){
-      setTimeout(()=>{
-        ['bar1','bar2','bar3'].forEach((b,i)=>{const bar=document.getElementById('proc-'+b);if(bar)bar.style.width=bar.style.getPropertyValue('--tw')});
-        ['score1','score2','score3'].forEach((s,i)=>{const el=document.getElementById('proc-'+s);if(el)setTimeout(()=>{el.textContent=[92,87,83][i]+'/100'},800+i*300)});
-        const sup1=document.getElementById('proc-sup1');if(sup1)setTimeout(()=>sup1.classList.add('highlight'),1200);
-      },300);
-    }
-    if(prefix==='proc'&&step===3){const n=document.getElementById('proc-n1')?.parentElement;if(n)setTimeout(()=>n.classList.add('highlight'),400)}
-    if(prefix==='proc'&&step===4){const n=document.getElementById('proc-n4');if(n)setTimeout(()=>n.classList.add('highlight'),400)}
+    /* Brief pause so the outgoing step starts fading out
+       before the incoming step fades in (prevents overlap) */
+    workflowTimers[prefix] = setTimeout(() => {
+      if (!workflowRunning[prefix]) return;
 
-    if(prefix==='inv'&&step===2){
-      setTimeout(()=>{
-        ['loc1','loc2','loc3'].forEach(id=>{const el=document.getElementById('inv-'+id);if(el){const bar=el.querySelector('.wf-bar-fill');if(bar)bar.style.width=bar.style.getPropertyValue('--tw')}})
-      },300);
-    }
+      // Show the new step
+      const s = document.getElementById(prefix + '-step-' + step);
+      if (s) s.classList.add('active');
 
-    if(prefix==='log'&&step===2){
-      setTimeout(()=>{
-        document.getElementById('log-cs1')?.textContent && (document.getElementById('log-cs1').textContent='45/100');
-        document.getElementById('log-cs2')?.textContent && (document.getElementById('log-cs2').textContent='82/100');
-        document.getElementById('log-cs3')?.textContent && (document.getElementById('log-cs3').textContent='40/100');
-        const c2=document.getElementById('log-car2');if(c2)setTimeout(()=>c2.classList.add('highlight'),800);
-      },400);
-    }
+      // Update step-dot indicators
+      for (let j = 1; j <= 5; j++) {
+        const d = document.getElementById(prefix + '-s' + j);
+        if (!d) continue;
+        if (j < step) { d.classList.remove('active'); d.classList.add('done'); }
+        else if (j === step) { d.classList.add('active'); d.classList.remove('done'); }
+        else { d.classList.remove('active', 'done'); }
+        if (j < 5) {
+          const l = document.getElementById(prefix + '-l' + j);
+          if (l) { if (j < step) l.classList.add('done'); else l.classList.remove('done'); }
+        }
+      }
 
-    step++;
-    workflowTimers[prefix]=setTimeout(showStep,stepDelay);
+      // Step-specific animations
+      runStepAnimations(prefix, step);
+
+      step++;
+      workflowTimers[prefix] = setTimeout(showStep, stepDelay);
+    }, 200);   // 200 ms fade-out gap before new step appears
   }
 
-  workflowTimers[prefix]=setTimeout(showStep,500);
+  workflowTimers[prefix] = setTimeout(showStep, 500);
 }
 
-function resetWorkflow(prefix){
-  if(workflowTimers[prefix])clearTimeout(workflowTimers[prefix]);
-  for(let i=1;i<=5;i++){
-    const s=document.getElementById(prefix+'-step-'+i);if(s)s.classList.remove('active');
-    const d=document.getElementById(prefix+'-s'+i);if(d)d.classList.remove('active','done');
-    if(i<5){const l=document.getElementById(prefix+'-l'+i);if(l)l.classList.remove('done')}
+/* Isolated step-animation logic */
+function runStepAnimations(prefix, step) {
+  // --- Procurement ---
+  if (prefix === 'proc' && step === 1) {
+    const t = document.getElementById('proc-time-1');
+    if (t) t.textContent = new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+    const n = document.getElementById('proc-n1');
+    if (n) setTimeout(() => n.classList.add('highlight'), 400);
   }
-  document.querySelectorAll('#'+prefix+'-canvas .wf-bar-fill').forEach(b=>b.style.width='0');
-  if(prefix==='proc'){['score1','score2','score3'].forEach(s=>{const el=document.getElementById('proc-'+s);if(el)el.textContent='0'})}
-  if(prefix==='log'){['cs1','cs2','cs3'].forEach(s=>{const el=document.getElementById('log-'+s);if(el)el.textContent='—'})}
-  document.querySelectorAll('#'+prefix+'-canvas .wf-node').forEach(n=>n.classList.remove('highlight','success','warning'));
-  const btn=document.getElementById(prefix+'-play-btn'),icon=document.getElementById(prefix+'-play-icon'),text=document.getElementById(prefix+'-play-text');
-  if(btn){btn.disabled=false;btn.classList.remove('opacity-60','cursor-not-allowed')}
-  if(icon)icon.setAttribute('data-icon','carbon:play-filled-alt');
-  if(text)text.textContent='Play Workflow';
+  if (prefix === 'proc' && step === 2) {
+    setTimeout(() => {
+      ['bar1', 'bar2', 'bar3'].forEach((b) => {
+        const bar = document.getElementById('proc-' + b);
+        if (bar) bar.style.width = bar.style.getPropertyValue('--tw');
+      });
+      ['score1', 'score2', 'score3'].forEach((s, i) => {
+        const el = document.getElementById('proc-' + s);
+        if (el) setTimeout(() => { el.textContent = [92, 87, 83][i] + '/100'; }, 800 + i * 300);
+      });
+      const sup1 = document.getElementById('proc-sup1');
+      if (sup1) setTimeout(() => sup1.classList.add('highlight'), 1200);
+    }, 300);
+  }
+  if (prefix === 'proc' && step === 4) {
+    const n = document.getElementById('proc-n4');
+    if (n) setTimeout(() => n.classList.add('highlight'), 400);
+  }
+
+  // --- Inventory ---
+  if (prefix === 'inv' && step === 2) {
+    setTimeout(() => {
+      ['inv-bar1', 'inv-bar2', 'inv-bar3'].forEach(id => {
+        const bar = document.getElementById(id);
+        if (bar) bar.style.width = bar.style.getPropertyValue('--tw');
+      });
+    }, 300);
+  }
+
+  // --- Logistics ---
+  if (prefix === 'log' && step === 2) {
+    setTimeout(() => {
+      const cs1 = document.getElementById('log-cs1');
+      const cs2 = document.getElementById('log-cs2');
+      const cs3 = document.getElementById('log-cs3');
+      if (cs1) cs1.textContent = '45/100';
+      if (cs2) cs2.textContent = '82/100';
+      if (cs3) cs3.textContent = '40/100';
+      const c2 = document.getElementById('log-car2');
+      if (c2) setTimeout(() => c2.classList.add('highlight'), 800);
+      // Animate bar fills
+      ['log-bar1', 'log-bar2', 'log-bar3'].forEach(id => {
+        const bar = document.getElementById(id);
+        if (bar) bar.style.width = bar.style.getPropertyValue('--tw');
+      });
+    }, 400);
+  }
 }
 
-function showToast(msg){const t=document.getElementById('toast'),m=document.getElementById('toastMsg');m.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000)}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
+function resetWorkflow(prefix) {
+  killWorkflow(prefix);
+
+  for (let i = 1; i <= 5; i++) {
+    const s = document.getElementById(prefix + '-step-' + i);
+    if (s) s.classList.remove('active');
+    const d = document.getElementById(prefix + '-s' + i);
+    if (d) d.classList.remove('active', 'done');
+    if (i < 5) {
+      const l = document.getElementById(prefix + '-l' + i);
+      if (l) l.classList.remove('done');
+    }
+  }
+
+  document.querySelectorAll('#' + prefix + '-canvas .wf-bar-fill').forEach(b => b.style.width = '0');
+  if (prefix === 'proc') {
+    ['score1', 'score2', 'score3'].forEach(s => {
+      const el = document.getElementById('proc-' + s);
+      if (el) el.textContent = '0';
+    });
+  }
+  if (prefix === 'log') {
+    ['cs1', 'cs2', 'cs3'].forEach(s => {
+      const el = document.getElementById('log-' + s);
+      if (el) el.textContent = '—';
+    });
+  }
+  document.querySelectorAll('#' + prefix + '-canvas .wf-node').forEach(n => n.classList.remove('highlight', 'success', 'warning'));
+
+  const btn = document.getElementById(prefix + '-play-btn'),
+        icon = document.getElementById(prefix + '-play-icon'),
+        text = document.getElementById(prefix + '-play-text');
+  if (btn) { btn.disabled = false; btn.classList.remove('opacity-60', 'cursor-not-allowed'); }
+  if (icon) icon.setAttribute('data-icon', 'carbon:play-filled-alt');
+  if (text) text.textContent = 'Play Workflow';
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast'), m = document.getElementById('toastMsg');
+  m.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeM(); });
 </script>
 </body>
 </html>
