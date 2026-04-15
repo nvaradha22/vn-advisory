@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — VN Advisory</title>
+  <meta name="description" content="Contact VN Advisory for AI assessment, advisory engagement, or platform demo. GCC, India, and global supply chain intelligence.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <script>
+    tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif'],serif:['Newsreader','serif']},colors:{brand:{sky:'#38BDF8',dark:'#050505',panel:'#0F110E',gold:'#E2B340'}},animation:{'fade-up':'fadeUp 0.8s ease-out forwards','fade-up-d':'fadeUp 0.8s ease-out 0.15s forwards','fade-up-d2':'fadeUp 0.8s ease-out 0.3s forwards','glow':'glow 2s ease-in-out infinite alternate','float':'float 6s ease-in-out infinite'}}}}
+  </script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:#030303;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
+    .bg-grid{background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:100px 100px;mask-image:radial-gradient(circle at center,black 30%,transparent 80%);-webkit-mask-image:radial-gradient(circle at center,black 30%,transparent 80%)}
+    .hero-radial{background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(56,189,248,0.06) 0%,rgba(5,5,5,0) 70%)}
+    .section-radial{background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(56,189,248,0.03) 0%,transparent 70%)}
+    .sky-gradient{background:linear-gradient(135deg,#38BDF8,#0EA5E9,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gold-gradient{background:linear-gradient(135deg,#E2B340,#F5D76E,#E2B340);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-dropdown{display:none;position:absolute;top:100%;left:0;min-width:240px;z-index:100}
+    .nav-item:hover .nav-dropdown{display:block}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+    .reveal.active{opacity:1;transform:translateY(0)}
+    @keyframes fadeUp{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
+    @keyframes glow{0%{box-shadow:0 0 20px rgba(56,189,248,0.08)}100%{box-shadow:0 0 40px rgba(56,189,248,0.2)}}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    .form-input{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:12px 16px;color:#fff;font-size:14px;width:100%;transition:all .3s;outline:none;font-family:'Inter',sans-serif}
+    .form-input:focus{border-color:rgba(56,189,248,0.4);background:rgba(56,189,248,0.03);box-shadow:0 0 0 3px rgba(56,189,248,0.08)}
+    .form-input::placeholder{color:rgba(255,255,255,0.25)}
+    .form-input.error{border-color:rgba(248,113,113,0.5);box-shadow:0 0 0 3px rgba(248,113,113,0.08)}
+    .form-label{display:block;font-size:12px;font-weight:500;color:rgba(255,255,255,0.5);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em}
+    .form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='rgba(255,255,255,0.3)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+    .engagement-option{cursor:pointer;transition:all .3s;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;background:rgba(255,255,255,0.02)}
+    .engagement-option:hover{border-color:rgba(255,255,255,0.15);background:rgba(255,255,255,0.03)}
+    .engagement-option.selected{border-color:rgba(56,189,248,0.4);background:rgba(56,189,248,0.05)}
+    .engagement-option.selected .eo-check{background:#38BDF8;border-color:#38BDF8}
+    .engagement-option.selected .eo-check svg{opacity:1}
+    .eo-check{width:20px;height:20px;border-radius:6px;border:1.5px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0}
+    .eo-check svg{opacity:0;transition:opacity .2s}
+    .mobile-menu{transform:translateX(100%);transition:transform .3s ease}
+    .mobile-menu.open{transform:translateX(0)}
+    .toast{position:fixed;bottom:2rem;right:2rem;z-index:9999;transform:translateY(120%);opacity:0;transition:transform .4s ease,opacity .4s ease}
+    .toast.show{transform:translateY(0);opacity:1}
+    .toast.error .toast-icon{color:#f87171}
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:rgba(5,5,5,0.8);backdrop-filter:blur(24px)">
+  <div class="max-w-7xl mx-auto px-6"><div class="flex items-center justify-between h-16 lg:h-20">
+    <a href="index.html" class="flex items-center gap-3"><div class="w-9 h-9 rounded-lg bg-brand-sky/20 border border-brand-sky/30 flex items-center justify-center"><span class="iconify text-brand-sky text-lg" data-icon="carbon:analytics"></span></div><span class="text-white font-semibold text-base tracking-tight">VN Advisory</span></a>
+    <div class="hidden lg:flex items-center gap-1">
+      <a href="index.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Home</a>
+      <div class="nav-item relative"><button class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors flex items-center gap-1">Services <span class="iconify text-xs" data-icon="carbon:chevron-down"></span></button><div class="nav-dropdown pt-2"><div class="bg-brand-dark/95 backdrop-blur-xl border border-white/10 rounded-xl p-2 shadow-2xl"><a href="supply-chain.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-brand-sky/60" data-icon="carbon:network-4"></span><span class="text-sm text-white/80">Supply Chain</span></a><a href="procurement.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-brand-sky/60" data-icon="carbon:procurement"></span><span class="text-sm text-white/80">Procurement</span></a><a href="logistics.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-brand-sky/60" data-icon="carbon:shipment"></span><span class="text-sm text-white/80">Logistics & Trade</span></a><a href="digital.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-brand-gold/60" data-icon="carbon:machine-learning-model"></span><span class="text-sm text-white/80">Digital Workforce</span></a></div></div></div>
+      <a href="industries.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Industries</a>
+      <a href="market.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Market Intelligence</a>
+      <a href="insights.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Insights & Impact</a>
+      <a href="contact.html" class="px-4 py-2 text-sm text-white font-medium rounded-lg hover:bg-white/5 transition-colors">Contact</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="#contact-form" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition-colors">Request Demo <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></a>
+      <button id="mobileToggle" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5"><span class="iconify text-xl text-white" data-icon="carbon:menu"></span></button>
+    </div>
+  </div></div>
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-brand-dark/98 backdrop-blur-xl border-l border-white/10 z-50 overflow-y-auto lg:hidden"><div class="p-6"><div class="flex items-center justify-between mb-8"><span class="text-white font-semibold">Menu</span><button id="mobileClose" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5"><span class="iconify text-xl text-white" data-icon="carbon:close"></span></button></div><div class="flex flex-col gap-1"><a href="index.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Home</a><a href="services.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Services</a><a href="industries.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Industries</a><a href="market.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Market Intelligence</a><a href="insights.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Insights & Impact</a><a href="contact.html" class="px-4 py-3 text-white font-medium rounded-lg bg-white/5">Contact</a><div class="border-t border-white/5 my-3"></div><a href="#contact-form" class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white text-black text-sm font-medium rounded-lg">Request Demo</a></div></div></div>
+  <div id="mobileOverlay" class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden" style="backdrop-filter:blur(4px)"></div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="pt-20 lg:pt-24 border-b border-white/5"><div class="max-w-7xl mx-auto px-6 py-3"><div class="flex items-center gap-2 text-xs text-white/30"><a href="index.html" class="hover:text-white/60 transition-colors">Home</a><span class="iconify text-[10px]" data-icon="carbon:chevron-right"></span><span class="text-white/60">Contact</span></div></div></div>
+
+<!-- HERO -->
+<section class="relative py-16 lg:py-24 overflow-hidden">
+  <div class="absolute inset-0 bg-grid"></div>
+  <div class="absolute inset-0 hero-radial"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+    <div class="max-w-2xl opacity-0 animate-fade-up">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif italic tracking-tight leading-[1.08] mb-6">Let's <span class="sky-gradient">Talk</span></h1>
+      <p class="text-lg text-white/50 font-light leading-relaxed">Whether you need an AI assessment, strategic advisory, or a platform demo — start the conversation. We respond within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MAIN CONTACT SECTION ========== -->
+<section class="relative py-12 lg:py-20 border-t border-white/5" id="contact-form">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+
+      <!-- LEFT: FORM (3 cols) -->
+      <div class="lg:col-span-3 reveal">
+        <div class="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 lg:p-8">
+          <h2 class="text-xl font-medium mb-1">Request an Engagement</h2>
+          <p class="text-sm text-white/40 mb-8">Complete the form below and a senior advisor will respond within 24 hours.</p>
+
+          <form id="contactForm" onsubmit="return handleSubmit(event)" novalidate>
+            <!-- Row 1: Name, Email -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label class="form-label">Full Name *</label>
+                <input type="text" name="name" class="form-input" placeholder="Your full name" required>
+              </div>
+              <div>
+                <label class="form-label">Work Email *</label>
+                <input type="email" name="email" class="form-input" placeholder="name@company.com" required>
+              </div>
+            </div>
+
+            <!-- Row 2: Company, Phone -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label class="form-label">Company *</label>
+                <input type="text" name="company" class="form-input" placeholder="Company name" required>
+              </div>
+              <div>
+                <label class="form-label">Phone</label>
+                <input type="tel" name="phone" class="form-input" placeholder="+971 50 000 0000">
+              </div>
+            </div>
+
+            <!-- Row 3: Job Title, Region -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label class="form-label">Job Title</label>
+                <input type="text" name="title" class="form-input" placeholder="VP Supply Chain, CPO, etc.">
+              </div>
+              <div>
+                <label class="form-label">Region</label>
+                <select name="region" class="form-input form-select">
+                  <option value="" style="background:#0F110E">Select region</option>
+                  <option value="gcc" style="background:#0F110E">GCC</option>
+                  <option value="india" style="background:#0F110E">India</option>
+                  <option value="asean" style="background:#0F110E">ASEAN</option>
+                  <option value="eu" style="background:#0F110E">Europe</option>
+                  <option value="other" style="background:#0F110E">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Row 4: Service -->
+            <div class="mb-5">
+              <label class="form-label">Service of Interest *</label>
+              <select name="service" class="form-input form-select" required>
+                <option value="" style="background:#0F110E">Select a service</option>
+                <option value="supply-chain" style="background:#0F110E">Supply Chain Intelligence & Transformation</option>
+                <option value="procurement" style="background:#0F110E">Procurement & Strategic Sourcing</option>
+                <option value="logistics" style="background:#0F110E">Logistics & Trade</option>
+                <option value="digital-workforce" style="background:#0F110E">Digital Workforce (AI Platform)</option>
+                <option value="market-intel" style="background:#0F110E">Market Intelligence</option>
+                <option value="cbam" style="background:#0F110E">CBAM Compliance</option>
+                <option value="other" style="background:#0F110E">Other / Not Sure</option>
+              </select>
+            </div>
+
+            <!-- Row 5: Industry -->
+            <div class="mb-6">
+              <label class="form-label">Industry</label>
+              <select name="industry" class="form-input form-select">
+                <option value="" style="background:#0F110E">Select industry</option>
+                <option value="manufacturing" style="background:#0F110E">Manufacturing</option>
+                <option value="commodities" style="background:#0F110E">Commodities & Trading</option>
+                <option value="logistics-freight" style="background:#0F110E">Logistics & Freight</option>
+                <option value="procurement-driven" style="background:#0F110E">Procurement-Driven (Healthcare, Retail, Gov)</option>
+                <option value="infrastructure" style="background:#0F110E">Infrastructure / Construction</option>
+                <option value="other" style="background:#0F110E">Other</option>
+              </select>
+            </div>
+
+            <!-- Engagement Type (GEP-style card selector) -->
+            <div class="mb-6">
+              <label class="form-label">Engagement Type *</label>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-1">
+                <div class="engagement-option" data-value="ai-assessment" onclick="selectEngagement(this)">
+                  <div class="flex items-start gap-3">
+                    <div class="eo-check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <div>
+                      <div class="text-sm font-medium mb-0.5">AI Assessment</div>
+                      <div class="text-[11px] text-white/30 leading-relaxed">Evaluate your supply chain's AI readiness and opportunity areas</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="engagement-option" data-value="advisory" onclick="selectEngagement(this)">
+                  <div class="flex items-start gap-3">
+                    <div class="eo-check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <div>
+                      <div class="text-sm font-medium mb-0.5">Advisory</div>
+                      <div class="text-[11px] text-white/30 leading-relaxed">Strategic consulting engagement — supply chain, procurement, or logistics</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="engagement-option" data-value="demo" onclick="selectEngagement(this)">
+                  <div class="flex items-start gap-3">
+                    <div class="eo-check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <div>
+                      <div class="text-sm font-medium mb-0.5">Platform Demo</div>
+                      <div class="text-[11px] text-white/30 leading-relaxed">Live demonstration of VN Autonomous Operations AI platform</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <input type="hidden" name="engagement" id="engagementInput">
+            </div>
+
+            <!-- Message -->
+            <div class="mb-6">
+              <label class="form-label">Tell Us More</label>
+              <textarea name="message" rows="4" class="form-input" placeholder="Brief description of your challenge, timeline, or what you'd like to explore..." style="resize:vertical;min-height:100px"></textarea>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" id="submitBtn" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black text-sm font-medium rounded-xl hover:bg-white/90 transition-all duration-300 shadow-lg shadow-white/10 disabled:opacity-50 disabled:cursor-not-allowed">
+              <span id="submitText">Submit Request</span>
+              <span class="iconify" data-icon="carbon:arrow-right" id="submitIcon"></span>
+              <svg id="submitSpinner" class="hidden animate-spin h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+            </button>
+
+            <p class="text-[11px] text-white/20 mt-4">By submitting, you agree to our privacy policy. We will never share your information with third parties.</p>
+          </form>
+        </div>
+      </div>
+
+      <!-- RIGHT: CONTACT INFO (2 cols) -->
+      <div class="lg:col-span-2 reveal">
+        <div class="space-y-6">
+
+          <!-- Direct Contact -->
+          <div class="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6">
+            <h3 class="text-sm font-medium mb-5 flex items-center gap-2"><span class="iconify text-brand-sky" data-icon="carbon:email"></span> Direct Contact</h3>
+            <div class="space-y-4">
+              <a href="mailto:info@vnadvisory.in" class="flex items-start gap-3 group">
+                <div class="w-10 h-10 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center shrink-0 group-hover:border-brand-sky/20 transition-colors">
+                  <span class="iconify text-white/30 group-hover:text-brand-sky transition-colors" data-icon="carbon:email"></span>
+                </div>
+                <div>
+                  <div class="text-xs text-white/30 mb-0.5">General Inquiries</div>
+                  <div class="text-sm text-white/70 group-hover:text-white transition-colors">info@vnadvisory.in</div>
+                </div>
+              </a>
+              <a href="mailto:varadha@vnadvisory.in" class="flex items-start gap-3 group">
+                <div class="w-10 h-10 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center shrink-0 group-hover:border-brand-sky/20 transition-colors">
+                  <span class="iconify text-white/30 group-hover:text-brand-sky transition-colors" data-icon="carbon:user-avatar"></span>
+                </div>
+                <div>
+                  <div class="text-xs text-white/30 mb-0.5">Varadha — Managing Advisor</div>
+                  <div class="text-sm text-white/70 group-hover:text-white transition-colors">varadha@vnadvisory.in</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Offices -->
+          <div class="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6">
+            <h3 class="text-sm font-medium mb-5 flex items-center gap-2"><span class="iconify text-brand-sky" data-icon="carbon:location"></span> Offices</h3>
+            <div class="space-y-5">
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center shrink-0 text-base">🇦🇪</div>
+                <div>
+                  <div class="text-sm text-white/70 font-medium">GCC</div>
+                  <div class="text-xs text-white/30 leading-relaxed">United Arab Emirates<br>Serving Saudi Arabia, Oman, Qatar, Bahrain, Kuwait</div>
+                </div>
+              </div>
+              <div class="border-t border-white/5"></div>
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center shrink-0 text-base">🇮🇳</div>
+                <div>
+                  <div class="text-sm text-white/70 font-medium">India</div>
+                  <div class="text-xs text-white/30 leading-relaxed">Chennai, Tamil Nadu<br>Serving pan-India manufacturing and trading corridors</div>
+                </div>
+              </div>
+              <div class="border-t border-white/5"></div>
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center shrink-0 text-base">🌏</div>
+                <div>
+                  <div class="text-sm text-white/70 font-medium">ASEAN & Global</div>
+                  <div class="text-xs text-white/30 leading-relaxed">Singapore hub<br>Advisory delivery across Southeast Asia and European markets</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- What Happens Next (GEP-style) -->
+          <div class="bg-brand-sky/[0.03] border border-brand-sky/10 rounded-2xl p-6">
+            <h3 class="text-sm font-medium mb-5 flex items-center gap-2"><span class="iconify text-brand-sky" data-icon="carbon:time"></span> What Happens Next</h3>
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full bg-brand-sky/10 border border-brand-sky/20 flex items-center justify-center shrink-0 text-xs font-medium text-brand-sky">1</div>
+                <div><div class="text-sm text-white/70">We review your request</div><div class="text-xs text-white/30">Within 24 hours, a senior advisor reviews your submission</div></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full bg-brand-sky/10 border border-brand-sky/20 flex items-center justify-center shrink-0 text-xs font-medium text-brand-sky">2</div>
+                <div><div class="text-sm text-white/70">Discovery call scheduled</div><div class="text-xs text-white/30">30-minute call to understand your context and challenges</div></div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-7 h-7 rounded-full bg-brand-sky/10 border border-brand-sky/20 flex items-center justify-center shrink-0 text-xs font-medium text-brand-sky">3</div>
+                <div><div class="text-sm text-white/70">Tailored proposal delivered</div><div class="text-xs text-white/30">Scope

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — VN Advisory</title>
+  <meta name="description" content="VN Advisory services: Supply Chain Intelligence, Procurement & Strategic Sourcing, Logistics & Trade, and Digital Workforce — advisory backed by AI execution.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter','sans-serif'], serif: ['Newsreader','serif'] },
+          colors: { brand: { sky:'#38BDF8', dark:'#050505', panel:'#0F110E', gold:'#E2B340' } },
+          animation: {
+            'fade-up':'fadeUp 0.8s ease-out forwards','fade-up-d':'fadeUp 0.8s ease-out 0.15s forwards','fade-up-d2':'fadeUp 0.8s ease-out 0.3s forwards',
+            'glow':'glow 2s ease-in-out infinite alternate','float':'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeUp:{ '0%':{opacity:'0',transform:'translateY(30px)'},'100%':{opacity:'1',transform:'translateY(0)'} },
+            glow:{ '0%':{boxShadow:'0 0 20px rgba(56,189,248,0.08)'},'100%':{boxShadow:'0 0 40px rgba(56,189,248,0.2)'} },
+            float:{ '0%,100%':{transform:'translateY(0)'},'50%':{transform:'translateY(-12px)'} },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:#030303;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
+    .bg-grid{background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:100px 100px;mask-image:radial-gradient(circle at center,black 30%,transparent 80%);-webkit-mask-image:radial-gradient(circle at center,black 30%,transparent 80%)}
+    .hero-radial{background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(56,189,248,0.06) 0%,rgba(5,5,5,0) 70%)}
+    .section-radial{background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(56,189,248,0.03) 0%,transparent 70%)}
+    .sky-gradient{background:linear-gradient(135deg,#38BDF8,#0EA5E9,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gold-gradient{background:linear-gradient(135deg,#E2B340,#F5D76E,#E2B340);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-dropdown{display:none;position:absolute;top:100%;left:0;min-width:240px;z-index:100}
+    .nav-item:hover .nav-dropdown{display:block}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease}
+    .reveal.active{opacity:1;transform:translateY(0)}
+    .card-glow:hover{box-shadow:0 0 30px rgba(56,189,248,0.06)}
+    .service-card{transition:all 0.5s cubic-bezier(0.4,0,0.2,1)}
+    .service-card:hover{transform:translateY(-4px)}
+    .service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#38BDF8,transparent);transform:scaleX(0);transform-origin:left;transition:transform 0.5s ease}
+    .service-card:hover::after{transform:scaleX(1)}
+    .service-card-gold::after{background:linear-gradient(90deg,#E2B340,transparent)}
+    .accordion-trigger{cursor:pointer;transition:all 0.3s}
+    .accordion-trigger:hover{background:rgba(56,189,248,0.03)}
+    .accordion-trigger .icon-rotate{transition:transform 0.3s}
+    .accordion-trigger.open .icon-rotate{transform:rotate(180deg)}
+    .accordion-body{max-height:0;overflow:hidden;transition:max-height 0.5s ease}
+    .accordion-body.open{max-height:2000px}
+    .capability-item{border-left:2px solid transparent;transition:all 0.3s}
+    .capability-item:hover{border-left-color:#38BDF8;background:rgba(56,189,248,0.03)}
+    .stat-bar{height:4px;border-radius:2px;background:rgba(255,255,255,0.05);overflow:hidden}
+    .stat-bar-fill{height:100%;border-radius:2px;transition:width 1.5s ease-out;width:0}
+    .stat-bar-fill.animated{width:var(--target-width)}
+    .mobile-menu{transform:translateX(100%);transition:transform 0.3s ease}
+    .mobile-menu.open{transform:translateX(0)}
+    .number-badge{font-variant-numeric:tabular-nums}
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:rgba(5,5,5,0.8);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-brand-sky/20 border border-brand-sky/30 flex items-center justify-center group-hover:bg-brand-sky/30 transition-colors"><span class="iconify text-brand-sky text-lg" data-icon="carbon:analytics"></span></div>
+          <div><span class="text-white font-semibold text-base tracking-tight">VN Advisory</span></div>
+        </a>
+        <div class="hidden lg:flex items-center gap-1">
+          <a href="index.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Home</a>
+          <div class="nav-item relative">
+            <button class="px-4 py-2 text-sm text-white font-medium rounded-lg hover:bg-white/5 transition-colors flex items-center gap-1">Services <span class="iconify text-xs" data-icon="carbon:chevron-down"></span></button>
+            <div class="nav-dropdown pt-2">
+              <div class="bg-brand-dark/95 backdrop-blur-xl border border-white/10 rounded-xl p-2 shadow-2xl">
+                <a href="supply-chain.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors group"><span class="iconify text-brand-sky/60 group-hover:text-brand-sky" data-icon="carbon:network-4"></span><div><div class="text-sm text-white font-medium">Supply Chain</div><div class="text-xs text-white/40">Intelligence & Transformation</div></div></a>
+                <a href="procurement.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors group"><span class="iconify text-brand-sky/60 group-hover:text-brand-sky" data-icon="carbon:procurement"></span><div><div class="text-sm text-white font-medium">Procurement</div><div class="text-xs text-white/40">Strategic Sourcing & Value</div></div></a>
+                <a href="logistics.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors group"><span class="iconify text-brand-sky/60 group-hover:text-brand-sky" data-icon="carbon:shipment"></span><div><div class="text-sm text-white font-medium">Logistics & Trade</div><div class="text-xs text-white/40">Freight, Routes & Compliance</div></div></a>
+                <a href="digital.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors group"><span class="iconify text-brand-gold/60 group-hover:text-brand-gold" data-icon="carbon:machine-learning-model"></span><div><div class="text-sm text-white font-medium">Digital Workforce</div><div class="text-xs text-white/40">AI Agents & Automation</div></div></a>
+              </div>
+            </div>
+          </div>
+          <a href="industries.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Industries</a>
+          <a href="market.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Market Intelligence</a>
+          <div class="nav-item relative">
+            <button class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors flex items-center gap-1">Digital Workforce <span class="iconify text-xs" data-icon="carbon:chevron-down"></span></button>
+            <div class="nav-dropdown pt-2">
+              <div class="bg-brand-dark/95 backdrop-blur-xl border border-white/10 rounded-xl p-2 shadow-2xl">
+                <a href="digital.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-brand-gold/60" data-icon="carbon:machine-learning-model"></span><span class="text-sm text-white/80">Platform Overview</span></a>
+                <div class="border-t border-white/5 my-1"></div>
+                <a href="procurement-agent.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-white/40" data-icon="carbon:purchase"></span><span class="text-sm text-white/80">Procurement Agent</span></a>
+                <a href="inventory-agent.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-white/40" data-icon="carbon:inventory-management"></span><span class="text-sm text-white/80">Inventory Agent</span></a>
+                <a href="logistics-agent.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-white/40" data-icon="carbon:delivery-truck"></span><span class="text-sm text-white/80">Logistics Agent</span></a>
+                <a href="trade-agent.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"><span class="iconify text-white/40" data-icon="carbon:document-export"></span><span class="text-sm text-white/80">Trade Agent</span></a>
+              </div>
+            </div>
+          </div>
+          <a href="insights.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Insights & Impact</a>
+          <a href="contact.html" class="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors">Contact</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="contact.html" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition-colors">Request Demo <span class="iconify text-sm" data-icon="carbon:arrow-right"></span></a>
+          <button id="mobileToggle" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5"><span class="iconify text-xl text-white" data-icon="carbon:menu"></span></button>
+        </div>
+      </div>
+    </div>
+    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-brand-dark/98 backdrop-blur-xl border-l border-white/10 z-50 overflow-y-auto lg:hidden"><div class="p-6"><div class="flex items-center justify-between mb-8"><span class="text-white font-semibold">Menu</span><button id="mobileClose" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5"><span class="iconify text-xl text-white" data-icon="carbon:close"></span></button></div><div class="flex flex-col gap-1"><a href="index.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Home</a><a href="services.html" class="px-4 py-3 text-white font-medium rounded-lg bg-white/5">Services</a><a href="industries.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Industries</a><a href="market.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Market Intelligence</a><a href="digital.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Digital Workforce</a><a href="insights.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Insights & Impact</a><a href="contact.html" class="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5">Contact</a><div class="border-t border-white/5 my-3"></div><a href="contact.html" class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white text-black text-sm font-medium rounded-lg">Request Demo</a></div></div></div>
+    <div id="mobileOverlay" class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden" style="backdrop-filter:blur(4px)"></div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="pt-20 lg:pt-24 border-b border-white/5"><div class="max-w-7xl mx-auto px-6 py-3"><div class="flex items-center gap-2 text-xs text-white/30"><a href="index.html" class="hover:text-white/60 transition-colors">Home</a><span class="iconify text-[10px]" data-icon="carbon:chevron-right"></span><span class="text-white/60">Services</span></div></div></div>
+
+  <!-- ========== HERO ========== -->
+  <section class="relative py-20 lg:py-32 overflow-hidden">
+    <div class="absolute inset-0 bg-grid"></div>
+    <div class="absolute inset-0 hero-radial"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] mb-6 opacity-0 animate-fade-up">
+          <span class="text-xs font-medium text-white/50 tracking-wide uppercase">Four Pillars of Capability</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif italic tracking-tight leading-[1.08] mb-6 opacity-0 animate-fade-up-d">
+          Advisory Intelligence.<br><span class="sky-gradient">AI Execution.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-white/50 font-light leading-relaxed mb-10 opacity-0 animate-fade-up-d2">
+          Four integrated service pillars — from strategy and transformation to autonomous AI operations. Each links to detailed capability pages with problem, approach, AI integration, and measurable impact.
+        </p>
+        <div class="flex flex-wrap gap-3 opacity-0 animate-fade-up-d2">
+          <a href="#services-overview" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-medium rounded-xl hover:bg-white/90 transition-colors shadow-lg shadow-white/10">
+            Explore Services <span class="iconify" data-icon="carbon:arrow-down"></span>
+          </a>
+          <a href="digital.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium text-brand-gold/80 hover:text-brand-gold border border-brand-gold/20 hover:border-brand-gold/30 hover:bg-brand-gold/[0.03] transition-all">
+            <span class="iconify" data-icon="carbon:machine-learning-model"></span> See AI Platform
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STATS BAR ========== -->
+  <section class="border-y border-white/5 bg-white/[0.01]">
+    <div class="max-w-7xl mx-auto px-6 py-10 lg:py-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 reveal">
+        <div class="text-center"><div class="text-3xl md:text-4xl font-serif sky-gradient mb-1">4</div><div class="text-xs text-white/40 uppercase tracking-widest">Service Pillars</div></div>
+        <div class="text-center"><div class="text-3xl md:text-4xl font-serif sky-gradient mb-1">40+</div><div class="text-xs text-white/40 uppercase tracking-widest">Capability Modules</div></div>
+        <div class="text-center"><div class="text-3xl md:text-4xl font-serif gold-gradient mb-1">4</div><div class="text-xs text-white/40 uppercase tracking-widest">AI Agents</div></div>
+        <div class="text-center"><div class="text-3xl md:text-4xl font-serif sky-gradient mb-1">5</div><div class="text-xs text-white/40 uppercase tracking-widest">Industry Verticals</div></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== SERVICES OVERVIEW (GEP-style large cards) ========== -->
+  <section id="services-overview" class="relative py-20 lg:py-28">
+    <div class="absolute inset-0 section-radial"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-3xl md:text-4xl font-serif tracking-tight mb-4">Integrated Service Architecture</h2>
+        <p class="text-white/40 font-light max-w-xl mx-auto">Each pillar stands alone. Together, they create an end-to-end capability from strategy to autonomous execution.</p>
+      </div>
+
+      <!-- SERVICE 1: SUPPLY CHAIN -->
+      <div class="reveal mb-8">
+        <div class="service-card relative bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden card-glow">
+          <div class="grid grid-cols-1 lg:grid-cols-5">
+            <div class="relative lg:col-span-2 h-56 lg:h-auto overflow-hidden">
+              <img src="https://picsum.photos/seed/supply-chain-network-global/600/500.jpg" alt="Supply Chain" class="w-full h-full object-cover opacity-30 hover:opacity-50 transition-opacity duration-700">
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent to-brand-dark/80 hidden lg:block"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark to-transparent lg:hidden"></div>
+              <div class="absolute top-4 left-4 lg:top-6 lg:left-6">
+                <div class="w-12 h-12 rounded-xl bg-brand-sky/10 border border-brand-sky/20 flex items-center justify-center">
+                  <span class="iconify text-brand-sky text-2xl" data-icon="carbon:network-4"></span>
+                </div>
+              </div>
+              <div class="absolute bottom-4 left-4 lg:bottom-6 lg:left-6">
+                <span class="text-5xl font-serif text-white/10 number-badge">01</span>
+              </div>
+            </div>
+            <div class="lg:col-span-3 p-6 lg:p-8">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-2.5 py-1 text-[10px] text-brand-sky/70 border border-brand-sky/20 rounded-md uppercase tracking-wider">Core Service</span>
+              </div>
+              <h3 class="text-2xl font-medium mb-3">Supply Chain Intelligence & Transformation</h3>
+              <p class="text-sm text-white/40 leading-relaxed mb-5">End-to-end supply chain redesign — from network architecture and demand planning to AI-powered control towers and autonomous execution systems. We close the gap between planning and operations with continuous intelligence.</p>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+                <div class="bg-white/[0.02] rounded-lg p-3 text-center"><div class="text-lg font-medium text-brand-sky">78–88%</div><div class="text-[10px] text-white/30 mt-0.5">Forecast Accuracy</div></div>
+                <div class="bg-white/[0.02] rounded-lg p-3 text-center"><div class="text-lg font-medium text-brand-sky">–35%</div><div class="text-[10px] text-white/30 mt-0.5">Safety Stock</div></div>
+                <div class="bg-white/[0.02] rounded-lg p-3 text-center"><div class="text-lg font-medium text-emerald-400">< 12hrs</div><div class="text-[10px] text-white/30 mt-0.5">Response Time</div></div>
+                <div class="bg-white/[0.02] rounded-lg p-3 text-center"><div class="text-lg font-medium text-brand-sky">–25%</div><div class="text-[10px] text-white/30 mt-0.5">Logistics Cost</div></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2 py-0.5 text-[10px] text-white/30 border border-white/8 rounded uppercase tracking-wider">Network Design</span>
+                  <span class="px-2 py-0.5 text-[10px] text-white/30 border border-white/8 rounded uppercase tracking-wider">Demand Planning</span>
+                  <span class="px-2 py-0.5 text-[10px] text-white/30 border border-white/8 rounded uppercase tracking-wider">Control Tower</span>
+                  <span class="px-2 py-0.5 text-[10px] text-white/30 border border-white/8 rounded uppercase tracking-wider">Digital Twin</span>
+                </div>
+                <a href="supply-chain.html" class="hidden sm:inline-flex items-center gap-1 text-xs text-brand-sky/70 hover:text-brand-sky transition-colors whitespace-nowrap">Full Details <span class="iconify" data-icon="carbon:arrow-right"></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE 2: PROCUREMENT -->
+      <div class="reveal mb-8">
+        <div class="service-card relative bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden card-glow">
+          <div class="grid grid-cols-1 lg:grid-cols-5">
+            <div class="relative lg:col-span-2 h-56 lg:h-auto overflow-hidden">
+              <img src="https://picsum.photos/seed/procurement-strategic-sourcing/600/500.jpg" alt="Procurement" class="w-full h-full object-cover opacity-30 hover:opacity-50 transition-opacity duration-700">
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent to-brand-dark/80 hidden lg:block"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark to-transparent lg:hidden"></div>
+              <div class="absolute top-4 left-4 lg:top-6 lg:left-6"><div class="w-12 h-12 rounded-xl bg-brand-sky/10 border border-brand-sky/20 flex items-center justify-center"><span class="iconify text-brand-sky text-2xl" data-icon="carbon:procurement"></span></div></div>
+              <div class="absolute bottom-4 left-4 lg:bottom-6 lg:left-6"><span class="text-5xl font-serif text-white/10 number-badge">02</span></div>
+            </div>
+            <div class="lg:col-span-3 p-6 lg:p-8">
+              <div class="flex items-center gap-2 mb-3"><span class="px-2.5 py-1 text-[10px] text-brand-sky/70 border border-brand-sky/20 rounded-md uppercase tracking-wider">Core Service</span></div>
+              <h3 class="text-2xl font-medium mb-3">Procurement & Strategic Sourcing</h3>
+              <p class="text-sm text-white/40 leading-relaxed mb-5">Transform procurement from a cost centre to a value engine — category strategy, supplier intelligence, contract optimization, spend analytics, and AI-driven purchase automation that handles routine decisions autonomously.</p>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+                <div class="bg-white/[0.02] rounded-lg p-3 text-center"><div class="text-lg font-medium text-brand-sky">8–15%</div><div class="text-[10px] text-white/30 mt-0.5">Cost Savings</div></div>
+                <div class="bg-white/[0.02] rounded-lg p-3 text-center"><div class="text-lg font-medium text-brand-sky">–70%</div><div class="text-[10px] text-white/30 mt-0.5">PO Cycle Time</div></div>
+                <div class="bg-white/[0.02] rounded-lg p-3 text-center"><div class="text-lg font-medium text-emerald-400">95%+</div><div class="text-[10px] text-white/30 mt-0.5">Spend Visibility</div></div>
+                <div class="bg-white/[0.02] rounded-lg p-3 text-center"><div class="text-lg font-medium text-brand-sky">100%</div><div class="text-[10px] text-white/30 mt-0.5">T1 Risk Coverage</div></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2 py-0.5 text-[10px] text-white/30 border border-white/8 rounded uppercase tracking-wider">Category Strategy</span>
+                  <span class="px-2 py-0.5 text-[10px] text-white/30 border border-white/8 rounded uppercase tracking-wider">Spend Analytics</span>
+                  <span class="px-2 py-0.5 text-[10px] text-white/30 border border-white/8 rounded uppercase tracking-wider">Supplier Intel</span>
+                  <span class="px-2 py-0.5 text-[10px] text-white/30 border border-white/8 rounded uppercase tracking-wider">AI PO</span>
+                </div>
+                <a href="procurement.html" class="hidden sm:inline-flex items-center gap-1 text-xs text-brand-sky/70 hover:text-brand-sky transition-colors whitespace-nowrap">Full Details <span class="iconify" data-icon="carbon:arrow-right"></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE 3: LOGISTICS & TRADE -->
+      <div class="reveal mb-8">
+        <div class="service-card relative bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden card-glow">
+          <div class="grid grid-cols-1 lg:grid-cols-5">
+            <div class="relative lg:col-span-2 h-56 lg:h-auto overflow-hidden">
+              <img src="https://picsum.photos/seed/logistics-trade-freight-global/600/500.jpg" alt="Logistics" class="w-full h-full object-cover opacity-30 hover:opacity-50 transition-opacity duration-700">
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent to-brand-dark/80 hidden lg:block"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark to-transparent lg:hidden"></div>
+              <div class="absolute top-4 left-4 lg:top-6 lg:left-6"><div class="w-12 h-12 rounded-xl bg-brand-sky/10 border border-brand-sky/20 flex items-center justify-center"><span class="iconify text-brand-sky text-2xl" data-icon="carbon:shipment"></span></div></div>
+              <div class="absolute bottom-4 left-4 lg:bottom-6 lg:left-6"><span class="text-5xl font-serif text-white/10 number-badge">03</span></div>
+            </div>
+            <div class="lg:col-span-3 p-6 lg:p-8">
+              <div class="flex items-center gap-2 mb-3"><span class="px-2.5 py-1 text-[10px] text-brand-sky/70 border border-brand-sky/20 rounded-md uppercase tracking-wider">Core Service</span></div>
+              <h3 class="text-2xl font-medium mb-3">Logistics & Trade</h3>
+              <p class="text-sm text-white/40 leading-relaxed mb-5">Freight optimization, trade compliance, route risk management, CBAM documentation, and war risk assessment — from first mile to last mile across GCC–India–EU corridors. Beyond visibility. Decision intelligence.</p>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+                <div class="bg-white/[0.02] rounded-lg p-3 text-center"><div class="text-lg font-medium text-brand-sky">–90%</div><div class="text-[10px] text-white/30 mt-0.5">Exception Time</div></div>
+                <div class="bg-white/[0.02] rounded-lg p-3 text-center"><div class="text-lg font-medium text-brand-sky">–15%</div><div class="text-[10px] text-white/30 mt-0.5">Freight Cost</div></div>
+                <div class="bg-white/[0.02] rounded-lg p-3 text-center"><div class="text-lg font-medium text-emerald-400">+15%</div><div class="text-[10px] text-white/30 mt-0.5">OTIF Rate</div></div>
+                <div class="bg-white/[0.02] rounded-lg p-3 text-center"><div class="text-lg font-medium text-brand-gold">24/7</div><div class="text-[10px] text-white/30 mt-0.5">Monitoring</div></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2 py-0.5 text-[10px] text-white/30 border border-white/8 rounded uppercase tracking-wider">Carrier Opt.</span>
+                  <span class="px-2 py-0.5 text-[10px] text-white/30 border border-white/8 rounded uppercase tracking-wider">CBAM Docs</span>
+                  <span class="px-2 py-0.5 text-[10px] text-white/30 border border-white/8 rounded uppercase tracking-wider">Route Risk</span>
+                  <span class="px-2 py-0.5 text-[10px] text-white/30 border border-white/8 rounded uppercase tracking-wider">Freight Audit</span>
+                </div>
+                <a href="logistics.html" class="hidden sm:inline-flex items-center gap-1 text-xs text-brand-sky/70 hover:text-brand-sky transition-colors whitespace-nowrap">Full Details <span class="iconify" data-icon="carbon:arrow-right"></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE 4: DIGITAL WORKFORCE (Gold highlighted) -->
+      <div class="reveal">
+        <div class="service-card service-card-gold relative bg-brand-gold/[0.02] border border-brand-gold/15 rounded-2xl overflow-hidden card-glow">
+          <div class="grid grid-cols-1 lg:grid-cols-5">
+            <div class="relative lg:col-span-2 h-56 lg:h-auto overflow-hidden">
+              <img src="https://picsum.photos/seed/ai-digital-workforce-platform/600/500.jpg" alt="Digital Workforce" class="w-full h-full object-cover opacity-30 hover:opacity-50 transition-opacity duration-700">
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent to-brand-dark/80 hidden lg:block"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark to-transparent lg:hidden"></div>
+              <div class="absolute top-4 left-4 lg:top-6 lg:left-6"><div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center animate-glow"><span class="iconify text-brand-gold text-2xl" data-icon="carbon:machine-learning-model"></span></div></div>
+              <div class="absolute bottom-4 left-4 lg:bottom-6 lg:left-6"><span class="text-5xl font-serif text-brand-gold/10 number-badge">04</span></div>
+            </div>
+            <div class="lg:col-span-3 p-6 lg:p-8">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-2.5 py-1 text-[10px] text-brand-gold/70 border border-brand-gold/20 rounded-md uppercase tracking-wider">Core Product</span>
+                <span class="flex items-center gap-1.5 px-2.5 py-1 text-[10px] text-emerald-400/70 border border-emerald-400/20 rounded-md uppercase tracking-wider"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>Live</span>
+              </div>
+              <h3 class="text-2xl font-medium mb-3 gold-gradient">Digital Workforce — VN Autonomous Operations AI</h3>
+              <p class="text-sm text-white/40 leading-relaxed mb-5">AI agents that don't just advise — they execute. An orchestrator-powered platform managing procurement, inventory, logistics, and trade autonomously. Connected to Tally, ERP, WMS, and external APIs. Operating 24/7.</p>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+                <div class="bg-brand-gold/[0.03] border border-brand-gold/10 rounded-lg p-3 text-center"><div class="text-lg font-medium text-brand-gold">4</div><div class="text-[10px] text-white/30 mt-0.5">AI Agents</div></div>
+                <div class="bg-brand-gold/[0.03] border border-brand-gold/10 rounded-lg p-3 text-center"><div class="text-lg font-medium text-brand-gold">60–70%</div><div class="text-[10px] text-white/30 mt-0.5">Time Freed</div></div>
+                <div class="bg-brand-gold/[0.03] border border-brand-gold/10 rounded-lg p-3 text-center"><div class="text-lg font-medium text-emerald-400">< 4hrs</div><div class="text-[10px] text-white/30 mt-0.5">Response</div></div>
+                <div class="bg-brand-gold/[0.03] border border-brand-gold/10 rounded-lg p-3 text-center"><div class="text-lg font-medium text-brand-gold">24/7</div><div class="text-[10px] text-white/30 mt-0.5">Autonomous</div></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2 py-0.5 text-[10px] text-brand-gold/40 border border-brand-gold/20 rounded uppercase tracking-wider">Orchestrator</span>
+                  <span class="px-2 py-0.5 text-[10px] text-brand-gold/40 border border-brand-gold/20 rounded uppercase tracking-wider">Procurement AI</span>
+                  <span class="px-2 py-0.5 text-[10px] text-brand-gold/40 border border-brand-gold/20 rounded uppercase tracking-wider">Inventory AI</span>
+                  <span class="px-2 py-0.5 text-[10px] text-brand-gold/40 border border-brand-gold/20 rounded uppercase tracking-wider">Logistics AI</span>
+                  <span class="px-2 py-0.5 text-[10px] text-brand-gold/40 border border-brand-gold/20 rounded uppercase tracking-wider">Trade AI</span>
+                </div>
+                <a href="digital.html" class="hidden sm:inline-flex items-center gap-1 text-xs text-brand-gold/70 hover:text-brand-gold transition-colors whitespace-nowrap">Explore Platform <span class="iconify" data-icon="carbon:arrow-right"></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== CAPABILITY DETAIL (GEP-style accordion) ========== -->
+  <section class="relative py-20 lg:py-28 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-3xl md:text-4xl font-serif tracking-tight mb-4">Capability Breakdown</h2>
+        <p class="text-white/40 font-light max-w-xl mx-auto">Expand each service to see the full capability stack, AI integration points, and approach methodology.</p>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-3 reveal">
+
+        <!-- Accordion: Supply Chain -->
+        <div class="bg-white/[0.02] border border-white/[0.06] rounded-xl overflow-hidden">
+          <button class="accordion-trigger w-full flex items-center justify-between p-5 lg:p-6 text-left" onclick="toggleAccordion(this)">
+            <div class="flex items-center gap-4">
+              <span class="iconify text-brand-sky text-xl" data-icon="carbon:network-4"></span>
+              <div><h3 class="text-base font-medium">Supply Chain Intelligence & Transformation</h3><p class="text-xs text-white/30 mt-0.5">Network design · Demand planning · Control Tower 2.0 · Digital twin</p></div>
+            </div>
+            <span class="iconify icon-rotate text-white/30 text-lg flex-shrink-0" data-icon="carbon:chevron-down"></span>
+          </button>
+          <div class="accordion-body">
+            <div class="px-5 lg:px-6 pb-6 border-t border-white/5 pt-5">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="text-xs text-white/30 uppercase tracking-widest mb-3">Problem We Solve</h4>
+                  <p class="text-sm text-white/50 leading-relaxed">Supply chains operating on weekly planning cycles in a market that moves daily. Fragmented data across ERP, WMS, and TMS. Planners spending 60–70% of time on exceptions instead of strategy. Disruption response measured in days, not hours.</p>
+                </div>
+                <div>
+                  <h4 class="text-xs text-white/30 uppercase tracking-widest mb-3">Our Approach</h4>
+                  <p class="text-sm text-white/50 leading-relaxed">Phase 1: Unified data architecture. Phase 2: Predictive intelligence layer — demand sensing, risk scoring, disruption prediction. Phase 3: Autonomous execution within defined governance boundaries. Each phase has measurable outcomes and clear ROI.</p>
+                </div>
+              </div>
+              <div class="mt-5">
+                <h4 class="text-xs text-white/30 uppercase tracking-widest mb-3">Key Capabilities</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-1">
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">Multi-echelon network design & optimization</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">Demand sensing with POS & macro signal integration</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">Control Tower 2.0 — descriptive to autonomous</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">Digital twin scenario simulation for decisions</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">Safety stock optimization by risk profile</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">S&OP process redesign for real-time operation</span></div>
+                </div>
+              </div>
+              <div class="mt-5 flex items-center gap-3">
+                <span class="text-xs text-white/30">AI Integration:</span>
+                <span class="px-2 py-0.5 text-[10px] text-brand-sky/50 border border-brand-sky/15 rounded">Inventory Agent</span>
+                <span class="px-2 py-0.5 text-[10px] text-brand-sky/50 border border-brand-sky/15 rounded">Logistics Agent</span>
+                <span class="px-2 py-0.5 text-[10px] text-brand-sky/50 border border-brand-sky/15 rounded">Procurement Agent</span>
+              </div>
+              <div class="mt-4"><a href="supply-chain.html" class="inline-flex items-center gap-1 text-xs text-brand-sky/70 hover:text-brand-sky transition-colors">View full service page <span class="iconify" data-icon="carbon:arrow-right"></span></a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion: Procurement -->
+        <div class="bg-white/[0.02] border border-white/[0.06] rounded-xl overflow-hidden">
+          <button class="accordion-trigger w-full flex items-center justify-between p-5 lg:p-6 text-left" onclick="toggleAccordion(this)">
+            <div class="flex items-center gap-4">
+              <span class="iconify text-brand-sky text-xl" data-icon="carbon:procurement"></span>
+              <div><h3 class="text-base font-medium">Procurement & Strategic Sourcing</h3><p class="text-xs text-white/30 mt-0.5">Category strategy · Spend analytics · Supplier intelligence · AI PO</p></div>
+            </div>
+            <span class="iconify icon-rotate text-white/30 text-lg flex-shrink-0" data-icon="carbon:chevron-down"></span>
+          </button>
+          <div class="accordion-body">
+            <div class="px-5 lg:px-6 pb-6 border-t border-white/5 pt-5">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-3">Problem We Solve</h4><p class="text-sm text-white/50 leading-relaxed">Procurement teams processing POs instead of driving value. Fragmented spend data with no visibility across categories. Supplier risk discovered too late — after disruption, not before. No connection between procurement decisions and carbon compliance requirements.</p></div>
+                <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-3">Our Approach</h4><p class="text-sm text-white/50 leading-relaxed">Start with spend cleansing and classification to establish visibility. Build category strategies with clear sourcing policies. Deploy supplier intelligence covering financial health, carbon intensity, and performance. Automate routine PO processing with AI agents — freeing the team for strategic work.</p></div>
+              </div>
+              <div class="mt-5">
+                <h4 class="text-xs text-white/30 uppercase tracking-widest mb-3">Key Capabilities</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-1">
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">Spend analytics with AI-powered cleansing</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">Category strategy & sourcing policy design</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">Supplier financial health & risk scoring</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">Carbon intensity tracking per supplier & category</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">Contract compliance & maverick spend detection</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">Tally-integrated autonomous PO generation</span></div>
+                </div>
+              </div>
+              <div class="mt-5 flex items-center gap-3">
+                <span class="text-xs text-white/30">AI Integration:</span>
+                <span class="px-2 py-0.5 text-[10px] text-brand-sky/50 border border-brand-sky/15 rounded">Procurement Agent (Primary)</span>
+                <span class="px-2 py-0.5 text-[10px] text-brand-sky/50 border border-brand-sky/15 rounded">Inventory Agent</span>
+              </div>
+              <div class="mt-4"><a href="procurement.html" class="inline-flex items-center gap-1 text-xs text-brand-sky/70 hover:text-brand-sky transition-colors">View full service page <span class="iconify" data-icon="carbon:arrow-right"></span></a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion: Logistics -->
+        <div class="bg-white/[0.02] border border-white/[0.06] rounded-xl overflow-hidden">
+          <button class="accordion-trigger w-full flex items-center justify-between p-5 lg:p-6 text-left" onclick="toggleAccordion(this)">
+            <div class="flex items-center gap-4">
+              <span class="iconify text-brand-sky text-xl" data-icon="carbon:shipment"></span>
+              <div><h3 class="text-base font-medium">Logistics & Trade</h3><p class="text-xs text-white/30 mt-0.5">Carrier optimization · Route risk · CBAM docs · Trade compliance</p></div>
+            </div>
+            <span class="iconify icon-rotate text-white/30 text-lg flex-shrink-0" data-icon="carbon:chevron-down"></span>
+          </button>
+          <div class="accordion-body">
+            <div class="px-5 lg:px-6 pb-6 border-t border-white/5 pt-5">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-3">Problem We Solve</h4><p class="text-sm text-white/50 leading-relaxed">Logistics managed reactively — exceptions discovered late, carrier selection manual, freight costs unaudited. Trade compliance treated as paperwork rather than commercial intelligence. Red Sea disruptions exposing the fragility of single-route dependency.</p></div>
+                <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-3">Our Approach</h4><p class="text-sm text-white/50 leading-relaxed">Build decision intelligence — not just visibility. Autonomous carrier selection within approved panels. Route risk scoring with real-time geopolitical feeds. CBAM documentation automation that turns compliance from cost centre to competitive advantage. Freight audit with anomaly detection.</p></div>
+              </div>
+              <div class="mt-5">
+                <h4 class="text-xs text-white/30 uppercase tracking-widest mb-3">Key Capabilities</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-1">
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">Multi-modal carrier selection & optimization</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">Real-time route risk scoring (geopolitical + weather)</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">CBAM certificate cost calculation per product</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">Trade documentation automation & compliance</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">Freight invoice audit & rate benchmarking</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg"><span class="text-sm text-white/60">War risk & insurance cost modeling per corridor</span></div>
+                </div>
+              </div>
+              <div class="mt-5 flex items-center gap-3">
+                <span class="text-xs text-white/30">AI Integration:</span>
+                <span class="px-2 py-0.5 text-[10px] text-brand-sky/50 border border-brand-sky/15 rounded">Logistics Agent (Primary)</span>
+                <span class="px-2 py-0.5 text-[10px] text-brand-gold/50 border border-brand-gold/15 rounded">Trade Agent</span>
+              </div>
+              <div class="mt-4"><a href="logistics.html" class="inline-flex items-center gap-1 text-xs text-brand-sky/70 hover:text-brand-sky transition-colors">View full service page <span class="iconify" data-icon="carbon:arrow-right"></span></a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion: Digital Workforce -->
+        <div class="bg-brand-gold/[0.02] border border-brand-gold/15 rounded-xl overflow-hidden">
+          <button class="accordion-trigger w-full flex items-center justify-between p-5 lg:p-6 text-left" onclick="toggleAccordion(this)">
+            <div class="flex items-center gap-4">
+              <span class="iconify text-brand-gold text-xl" data-icon="carbon:machine-learning-model"></span>
+              <div><h3 class="text-base font-medium gold-gradient">Digital Workforce — VN Autonomous Operations AI</h3><p class="text-xs text-white/30 mt-0.5">Orchestrator · 4 AI agents · Tally integration · 24/7 autonomous</p></div>
+            </div>
+            <span class="iconify icon-rotate text-white/30 text-lg flex-shrink-0" data-icon="carbon:chevron-down"></span>
+          </button>
+          <div class="accordion-body">
+            <div class="px-5 lg:px-6 pb-6 border-t border-brand-gold/10 pt-5">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-3">Problem We Solve</h4><p class="text-sm text-white/50 leading-relaxed">Supply chain teams drowning in routine decisions — PO processing, carrier selection, stock replenishment, documentation. Humans making thousands of micro-decisions daily that follow predictable rules. The result: planner burnout, slow response times, and inconsistent execution.</p></div>
+                <div><h4 class="text-xs text-white/30 uppercase tracking-widest mb-3">Our Approach</h4><p class="text-sm text-white/50 leading-relaxed">Deploy an orchestrator that coordinates four specialized AI agents. Each agent handles a decision domain — procurement, inventory, logistics, trade — within governance boundaries you define. Connected to Tally, ERP, WMS, TMS, and external data APIs. Humans approve high-stakes decisions; AI handles the rest.</p></div>
+              </div>
+              <div class="mt-5">
+                <h4 class="text-xs text-white/30 uppercase tracking-widest mb-3">Agent Capabilities</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-1">
+                  <div class="capability-item px-3 py-2 rounded-r-lg" style="--tw-border-opacity:1;border-left-color:rgba(226,179,64,0.3)"><span class="text-sm text-white/60"><span class="text-brand-gold font-medium">Procurement:</span> Autonomous PO, supplier scoring, price benchmarking</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg" style="--tw-border-opacity:1;border-left-color:rgba(226,179,64,0.3)"><span class="text-sm text-white/60"><span class="text-brand-gold font-medium">Inventory:</span> Demand-driven replenishment, dead-stock ID, multi-location</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg" style="--tw-border-opacity:1;border-left-color:rgba(226,179,64,0.3)"><span class="text-sm text-white/60"><span class="text-brand-gold font-medium">Logistics:</span> Carrier selection, route optimization, exception management</span></div>
+                  <div class="capability-item px-3 py-2 rounded-r-lg" style="--tw-border-opacity:1;border-left-color:rgba(226,179,64,0.3)"><span class="text-sm text-white/60"><span class="text-brand-gold font-medium">Trade:</span> CBAM compliance, doc automation, chokepoint monitoring</span></div>
+                </div>
+              </div>
+              <div class="mt-5 flex items-center gap-3">
+                <span class="text-xs text-white/30">Data Sources:</span>
+                <span class="px-2 py-0.5 text-[10px] text-brand-gold/50 border border-brand-gold/15 rounded">Tally ERP</span>
+                <span class="px-2 py-0.5 text-[10px] text-brand-gold/50 border border-brand-gold/15 rounded">WMS</span>
+                <span class="px-2 py-0.5 text-[10px] text-brand-gold/50 border border-brand-gold/15 rounded">TMS</span>
+                <span class="px-2 py-0.5 text-[10px] text-brand-gold/50 border border-brand-gold/15 rounded">Alpha Vantage</span>
+                <span class="px-2 py-0.5 text-[10px] text-brand-gold/50 border border-brand-gold/15 rounded">GDELT</span>
+              </div>
+              <div class="mt-4"><a href="
