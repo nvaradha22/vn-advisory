@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights &amp; Case Studies — VN Advisory</title>
+<meta name="description" content="10 deep-analysis articles and 5 case studies on supply chain risk, CBAM, geopolitics, AI operations, and procurement transformation across GCC, India, and ASEAN. By Varadha N., Principal VN Advisory.">
+<meta name="keywords" content="supply chain insights GCC India, CBAM articles, supply chain risk analysis, procurement transformation insights, VN Advisory intelligence">
+<meta name="author" content="Varadha N.">
+<link rel="canonical" href="https://vnadvisory.in/insights.html">
+<meta property="og:type"        content="website">
+<meta property="og:title"       content="Insights &amp; Case Studies — VN Advisory">
+<meta property="og:description" content="10 deep-analysis articles and 5 case studies on supply chain risk, CBAM, geopolitics, AI operations, and procurement transformation.">
+<meta property="og:url"         content="https://vnadvisory.in/insights.html">
+<meta property="og:image"       content="https://vnadvisory.in/assets/og/insights-og.jpg">
+<meta property="og:site_name"   content="VN Advisory">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Insights &amp; Case Studies — VN Advisory">
+<meta name="twitter:description" content="10 articles and 5 case studies on supply chain risk, CBAM, geopolitics, AI operations, and procurement transformation.">
+<meta name="twitter:image"       content="https://vnadvisory.in/assets/og/insights-og.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/main.css">
+
+<style>
+.insights-hero {
+  background: linear-gradient(150deg, var(--navy) 0%, var(--navy-dk) 100%);
+  color: var(--text-invert);
+  padding: 72px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+.insights-hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(248,246,241,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(248,246,241,.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+/* Filter tabs */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 24px 0;
+  border-bottom: 0.5px solid var(--gray-bd);
+  margin-bottom: 48px;
+}
+.filter-btn {
+  font-family: var(--sans);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border-radius: 3px;
+  border: 0.5px solid var(--gray-bd);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all .2s;
+  text-decoration: none;
+  display: inline-block;
+}
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--navy);
+  color: var(--text-invert);
+  border-color: var(--navy);
+}
+
+/* Section headings */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 56px 0 32px;
+}
+.section-divider-label {
+  font-family: var(--sans);
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.section-divider-line {
+  flex: 1;
+  height: 0.5px;
+  background: var(--gray-bd);
+}
+
+/* Article grid */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+/* Case studies grid — 2-col, wider cards */
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* Case study card (wider format) */
+.cs-card {
+  background: var(--surface);
+  border: 0.5px solid var(--gray-bd);
+  border-radius: 6px;
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.cs-card:hover {
+  border-color: rgba(10,37,64,.25);
+  box-shadow: 0 4px 24px rgba(0,0,0,.08);
+  transform: translateY(-2px);
+}
+.cs-header {
+  background: linear-gradient(150deg, var(--navy) 0%, var(--navy-dk) 100%);
+  padding: 28px 28px 24px;
+  position: relative;
+}
+.cs-header-rule {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent 60%);
+}
+.cs-category {
+  font-family: var(--sans);
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.cs-title {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--text-invert);
+  line-height: 1.35;
+}
+.cs-outcomes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 0.5px solid rgba(248,246,241,.1);
+  margin-top: 20px;
+}
+.cs-outcome {
+  padding: 12px 0;
+  border-right: 0.5px solid rgba(248,246,241,.1);
+}
+.cs-outcome:nth-child(even) { border-right: none; padding-left: 16px; }
+.cs-outcome:nth-child(odd) { padding-right: 16px; }
+.cs-outcome-val {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.cs-outcome-desc {
+  font-family: var(--sans);
+  font-size: .68rem;
+  color: rgba(248,246,241,.5);
+  line-height: 1.4;
+}
+.cs-body {
+  padding: 20px 28px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cs-excerpt {
+  font-family: var(--serif-body);
+  font-size: .88rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.cs-read-link {
+  font-family: var(--sans);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: var(--teal);
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .articles-grid { grid-template-columns: 1fr 1fr; }
+  .case-studies-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .articles-grid { grid-template-columns: 1fr; }
+  .cs-outcomes { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+
+<body>
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<section class="insights-hero">
+  <div style="position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold),transparent 60%)"></div>
+  <div class="insights-hero-grid"></div>
+  <div class="container" style="position:relative">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Insights</span></div>
+    <div style="display:inline-block;background:rgba(201,162,39,.15);border:1px solid rgba(201,162,39,.3);color:var(--gold);font-family:var(--sans);font-size:.65rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;padding:4px 13px;border-radius:3px;margin-bottom:20px">
+      Intelligence · 2025 Edition
+    </div>
+    <h1 style="font-family:var(--serif);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:400;color:var(--text-invert);letter-spacing:-.3px;max-width:680px;margin-bottom:16px;line-height:1.1">
+      Insights &amp; Case Studies
+    </h1>
+    <p style="font-family:var(--serif-body);font-size:1rem;font-weight:300;color:rgba(248,246,241,.62);max-width:560px;line-height:1.85;margin:0">
+      Ten deep-analysis articles and five engagement case studies on supply chain risk, trade compliance, procurement transformation, geopolitical fragmentation, and AI-augmented operations. By Varadha N., Principal VN Advisory.
+    </p>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<div class="container" style="padding-top:40px;padding-bottom:80px">
+
+  <!-- Filter bar -->
+  <div class="filter-bar">
+    <a href="#insights"      class="filter-btn active">All Insights</a>
+    <a href="#risk"          class="filter-btn">Risk &amp; Finance</a>
+    <a href="#trade"         class="filter-btn">Trade &amp; CBAM</a>
+    <a href="#geopolitics"   class="filter-btn">Geopolitics</a>
+    <a href="#ai-digital"    class="filter-btn">AI &amp; Digital</a>
+    <a href="#operations"    class="filter-btn">Operations</a>
+    <a href="#case-studies"  class="filter-btn">Case Studies</a>
+  </div>
+
+  <!-- ══ INSIGHTS ══ -->
+  <div id="insights">
+
+    <!-- Risk & Finance -->
+    <div class="section-divider" id="risk">
+      <span class="section-divider-label">Risk &amp; Finance</span>
+      <div class="section-divider-line"></div>
+    </div>
+
+    <div class="articles-grid">
+      <a href="insights/supply-chain-risk-financial.html" class="insight-card" style="text-decoration:none">
+        <div class="ic-img" style="background:linear-gradient(150deg,var(--navy),var(--navy-dk))"></div>
+        <div class="ic-body">
+          <div class="ic-cat">Risk · 9 min read</div>
+          <div class="ic-title">Supply Chain Risk is Now Financial Risk</div>
+          <p class="ic-excerpt">The organisational boundary between supply chain and finance is a structural liability. Supply chain disruptions cost S&amp;P 500 companies $4.3T in 2021–22 — most from known, unpriced concentration risks.</p>
+          <div class="ic-meta"><span>5 Feb 2025</span><span>Varadha N.</span></div>
+        </div>
+      </a>
+
+      <a href="insights/procurement-transformation.html" class="insight-card" style="text-decoration:none">
+        <div class="ic-img" style="background:linear-gradient(150deg,#061539,#0a2463)"></div>
+        <div class="ic-body">
+          <div class="ic-cat">Procurement · 9 min read</div>
+          <div class="ic-title">Procurement Transformation: From Cost Centre to Value Engine</div>
+          <p class="ic-excerpt">Procurement measured only on savings is optimised for the wrong outcome. It delivers cost reductions that accumulate resilience risk. Eventually that risk materialises — and costs more than the savings achieved.</p>
+          <div class="ic-meta"><span>10 Jan 2025</span><span>Varadha N.</span></div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Trade & CBAM -->
+    <div class="section-divider" id="trade">
+      <span class="section-divider-label">Trade &amp; CBAM</span>
+      <div class="section-divider-line"></div>
+    </div>
+
+    <div class="articles-grid">
+      <a href="insights/cbam-2026.html" class="insight-card" style="text-decoration:none">
+        <div class="ic-img" style="background:linear-gradient(150deg,#061030,#0d2060)"></div>
+        <div class="ic-body">
+          <div class="ic-cat">Trade Policy · 10 min read</div>
+          <div class="ic-title">CBAM 2026: The New Cost Architecture of Global Trade</div>
+          <p class="ic-excerpt">CBAM has moved from policy discussion to financial line item. For GCC and Indian exporters, the gap between internally estimated liability and actual exposure is consistently 50–110%.</p>
+          <div class="ic-meta"><span>1 Apr 2025</span><span>Varadha N.</span></div>
+        </div>
+      </a>
+
+      <a href="insights/climate-compliance.html" class="insight-card" style="text-decoration:none">
+        <div class="ic-img" style="background:linear-gradient(150deg,#061530,#0a2550)"></div>
+        <div class="ic-body">
+          <div class="ic-cat">Sustainability · 8 min read</div>
+          <div class="ic-title">Climate Regulations and Compliance-Driven Supply Chains</div>
+          <p class="ic-excerpt">Climate regulation has left the sustainability department and arrived on the operations director's desk. The supply chain decisions that once lived in category management now have direct regulatory consequences.</p>
+          <div class="ic-meta"><span>25 Jan 2025</span><span>Varadha N.</span></div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Geopolitics -->
+    <div class="section-divider" id="geopolitics">
+      <span class="section-divider-label">Geopolitics &amp; Manufacturing</span>
+      <div class="section-divider-line"></div>
+    </div>
+
+    <div class="articles-grid">
+      <a href="insights/geopolitical-fragmentation.html" class="insight-card" style="text-decoration:none">
+        <div class="ic-img" style="background:linear-gradient(150deg,#0a2020,#0d3535)"></div>
+        <div class="ic-body">
+          <div class="ic-cat">Geopolitics · 9 min read</div>
+          <div class="ic-title">Geopolitical Fragmentation of Global Supply Chains</div>
+          <p class="ic-excerpt">The supply chain model built on stable globalisation is under simultaneous structural attack. This is not a temporary disruption cycle. It is a permanent shift requiring a deliberate architecture response.</p>
+          <div class="ic-meta"><span>20 Feb 2025</span><span>Varadha N.</span></div>
+        </div>
+      </a>
+
+      <a href="insights/manufacturing-multi-regional.html" class="insight-card" style="text-decoration:none">
+        <div class="ic-img" style="background:linear-gradient(150deg,#0a1a20,#0d2a30)"></div>
+        <div class="ic-body">
+          <div class="ic-cat">Manufacturing · 9 min read</div>
+          <div class="ic-title">Manufacturing Shift: From China+1 to Multi-Regional Networks</div>
+          <p class="ic-excerpt">China+1 bought time. It did not buy resilience. Companies that moved to a single alternative have discovered that concentration risk does not disappear — it relocates. The next phase requires a different architecture.</p>
+          <div class="ic-meta"><span>10 Mar 2025</span><span>Varadha N.</span></div>
+        </div>
+      </a>
+
+      <a href="insights/lean-adaptive-operations.html" class="insight-card" style="text-decoration:none">
+        <div class="ic-img" style="background:linear-gradient(150deg,#0a1510,#0d2515)"></div>
+        <div class="ic-body">
+          <div class="ic-cat">Operations · 8 min read</div>
+          <div class="ic-title">Lean is No Longer Enough: The Case for Adaptive Operations</div>
+          <p class="ic-excerpt">Lean principles are sound. The problem is applying a philosophy designed for stable conditions to an operating environment that is structurally volatile. The answer is lean plus resilience — not one or the other.</p>
+          <div class="ic-meta"><span>15 Feb 2025</span><span>Varadha N.</span></div>
+        </div>
+      </a>
+    </div>
+
+    <!-- AI & Digital -->
+    <div class="section-divider" id="ai-digital">
+      <span class="section-divider-label">AI &amp; Digital Supply Chain</span>
+      <div class="section-divider-line"></div>
+    </div>
+
+    <div class="articles-grid">
+      <a href="insights/ai-supply-chain.html" class="insight-card" style="text-decoration:none">
+        <div class="ic-img" style="background:linear-gradient(150deg,#061020,#0a1a40)"></div>
+        <div class="ic-body">
+          <div class="ic-cat">Supply Chain AI · 9 min read</div>
+          <div class="ic-title">AI-Driven Supply Chains: From Planning to Autonomous Execution</div>
+          <p class="ic-excerpt">AI is not making the planning cycle faster. It is replacing the cycle itself with a continuous decision loop. A demand shift at 2am triggers a supply response before the planning team arrives at 9am.</p>
+          <div class="ic-meta"><span>15 Mar 2025</span><span>Varadha N.</span></div>
+        </div>
+      </a>
+
+      <a href="insights/control-tower-2.html" class="insight-card" style="text-decoration:none">
+        <div class="ic-img" style="background:linear-gradient(150deg,#061539,#0a2463)"></div>
+        <div class="ic-body">
+          <div class="ic-cat">Digital Supply Chain · 9 min read</div>
+          <div class="ic-title">Control Tower 2.0: From Visibility Dashboard to Decision Intelligence</div>
+          <p class="ic-excerpt">The first generation of control towers solved visibility. The problem they did not solve was what to do about it — and how fast. A 64-hour supply exception in FMCG costs $180–320K. Control Tower 2.0 is built around that gap.</p>
+          <div class="ic-meta"><span>1 Mar 2025</span><span>Varadha N.</span></div>
+        </div>
+      </a>
+
+      <a href="insights/future-operating-model.html" class="insight-card" style="text-decoration:none">
+        <div class="ic-img" style="background:linear-gradient(150deg,#081020,#0c1a38)"></div>
+        <div class="ic-body">
+          <div class="ic-cat">Future Strategy · 10 min read</div>
+          <div class="ic-title">Future Supply Chain Operating Model: Intelligence, Resilience, Autonomy</div>
+          <p class="ic-excerpt">Most supply chain operating models were designed for a world that no longer exists. Three pillars, four horizons, and the honest diagnostic questions that separate strategy from slide deck.</p>
+          <div class="ic-meta"><span>5 Apr 2025</span><span>Varadha N.</span></div>
+        </div>
+      </a>
+    </div>
+
+  </div><!-- /insights -->
+
+
+  <!-- ══ CASE STUDIES ══ -->
+  <div id="case-studies">
+
+    <div class="section-divider" style="margin-top:72px">
+      <span class="section-divider-label">Case Studies — Five Engagements. Real Outcomes. Numbers as Measured.</span>
+      <div class="section-divider-line"></div>
+    </div>
+
+    <div class="case-studies-grid">
+
+      <!-- CS01 -->
+      <a href="case-studies/cbam-gcc-steel.html" class="cs-card">
+        <div class="cs-header">
+          <div class="cs-header-rule"></div>
+          <div class="cs-category">Carbon &amp; Trade Compliance · 9-month engagement</div>
+          <div class="cs-title">Navigating CBAM: Carbon Cost Restructuring for a GCC Steel Exporter</div>
+          <div class="cs-outcomes">
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">€4.2M</div>
+              <div class="cs-outcome-desc">CBAM liability identified</div>
+            </div>
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">61%</div>
+              <div class="cs-outcome-desc">Liability reduced in 9 months</div>
+            </div>
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">€1.64M</div>
+              <div class="cs-outcome-desc">Annual liability post-intervention</div>
+            </div>
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">58%</div>
+              <div class="cs-outcome-desc">Renewable energy trajectory</div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-body">
+          <p class="cs-excerpt">A GCC integrated steel manufacturer with 34% EU revenue discovered its actual CBAM liability was double the internal estimate. Three-track parallel intervention: energy transition acceleration, supplier carbon qualification, and product-level declaration restructuring.</p>
+          <span class="cs-read-link">Read the engagement →</span>
+        </div>
+      </a>
+
+      <!-- CS02 -->
+      <a href="case-studies/procurement-intelligence-transformation.html" class="cs-card">
+        <div class="cs-header">
+          <div class="cs-header-rule"></div>
+          <div class="cs-category">Procurement Strategy &amp; Transformation · 9-month engagement</div>
+          <div class="cs-title">Procurement Intelligence Transformation: From Fragmented Buying to Strategic Control</div>
+          <div class="cs-outcomes">
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">$18.7M</div>
+              <div class="cs-outcome-desc">Addressable savings identified</div>
+            </div>
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">$11.4M</div>
+              <div class="cs-outcome-desc">Savings delivered Year 1</div>
+            </div>
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">44%</div>
+              <div class="cs-outcome-desc">Cycle time reduction</div>
+            </div>
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">67%</div>
+              <div class="cs-outcome-desc">Fewer supplier risk incidents</div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-body">
+          <p class="cs-excerpt">$2.4B in annual spend across 14 GCC business units, zero group-level visibility. Four-pillar transformation: spend intelligence platform, supplier risk monitoring, category management restructure, and technology consolidation.</p>
+          <span class="cs-read-link">Read the engagement →</span>
+        </div>
+      </a>
+
+      <!-- CS03 -->
+      <a href="case-studies/control-tower-deployment.html" class="cs-card">
+        <div class="cs-header">
+          <div class="cs-header-rule"></div>
+          <div class="cs-category">Digital Supply Chain &amp; AI · 12-month engagement</div>
+          <div class="cs-title">Control Tower Deployment: From Reactive Exception Management to Decision Intelligence</div>
+          <div class="cs-outcomes">
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">72→6hrs</div>
+              <div class="cs-outcome-desc">Exception resolution time</div>
+            </div>
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">38%</div>
+              <div class="cs-outcome-desc">Expediting cost reduction</div>
+            </div>
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">67%</div>
+              <div class="cs-outcome-desc">Fewer stock-out incidents</div>
+            </div>
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">$3.1M</div>
+              <div class="cs-outcome-desc">Annual savings delivered</div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-body">
+          <p class="cs-excerpt">$680M FMCG distributor across 8 countries running on spreadsheets and WhatsApp. Three-phase implementation: data integration layer, exception intelligence engine, and automated resolution with three-tier governance framework.</p>
+          <span class="cs-read-link">Read the engagement →</span>
+        </div>
+      </a>
+
+      <!-- CS04 -->
+      <a href="case-studies/manufacturing-network-transition.html" class="cs-card">
+        <div class="cs-header">
+          <div class="cs-header-rule"></div>
+          <div class="cs-category">Manufacturing Strategy &amp; Network Design · 8-month engagement</div>
+          <div class="cs-title">Multi-Regional Manufacturing Transition: From Single Factory to Distributed Network</div>
+          <div class="cs-outcomes">
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">22→6%</div>
+              <div class="cs-outcome-desc">EU tariff rate on affected lines</div>
+            </div>
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">$34M</div>
+              <div class="cs-outcome-desc">GCC revenue protected</div>
+            </div>
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">$5.8M</div>
+              <div class="cs-outcome-desc">Annual tariff cost avoidance</div>
+            </div>
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">18mo</div>
+              <div class="cs-outcome-desc">UAE facility payback</div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-body">
+          <p class="cs-excerpt">Indian precision components manufacturer with world-class single-site facility facing 22% EU tariffs and GCC localisation pressure. Three-horizon network transition: UAE assembly node, Morocco EU-origin routing, India hub repositioning.</p>
+          <span class="cs-read-link">Read the engagement →</span>
+        </div>
+      </a>
+
+      <!-- CS05 -->
+      <a href="case-studies/war-risk-maritime.html" class="cs-card" style="grid-column: 1 / -1; max-width: 680px;">
+        <div class="cs-header">
+          <div class="cs-header-rule"></div>
+          <div class="cs-category">Maritime Risk &amp; Logistics Strategy · 4-month advisory + ongoing retainer</div>
+          <div class="cs-title">War Risk and Maritime Exposure: Restructuring Trade Routes Under Red Sea Disruption</div>
+          <div class="cs-outcomes" style="grid-template-columns: repeat(4, 1fr)">
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">$2.3M</div>
+              <div class="cs-outcome-desc">Direct annual savings</div>
+            </div>
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">34%</div>
+              <div class="cs-outcome-desc">War risk premium reduction</div>
+            </div>
+            <div class="cs-outcome">
+              <div class="cs-outcome-val">$890K</div>
+              <div class="cs-outcome-desc">Marine insurance saving</div>
+            </div>
+            <div class="cs-outcome" style="border-right:none">
+              <div class="cs-outcome-val">$2.1M</div>
+              <div class="cs-outcome-desc">Penalty exposure eliminated</div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-body">
+          <p class="cs-excerpt">GCC commodity trader absorbing $8.4M in unplanned annual cost from reactive Red Sea rerouting. Four-track restructuring: routing optimisation, war risk insurance restructuring, force majeure contract claims, and bunker hedging programme.</p>
+          <span class="cs-read-link">Read the engagement →</span>
+        </div>
+      </a>
+
+    </div><!-- /case-studies-grid -->
+  </div><!-- /case-studies -->
+
+</div><!-- /container -->
+
+
+<!-- CTA BAND -->
+<section style="background:linear-gradient(150deg,var(--navy),var(--navy-dk));padding:72px 0;position:relative;overflow:hidden">
+  <div style="position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--gold),transparent 50%)"></div>
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(248,246,241,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(248,246,241,.02) 1px,transparent 1px);background-size:48px 48px;pointer-events:none"></div>
+  <div class="container center" style="position:relative;max-width:580px">
+    <div style="font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">VN Advisory · Strategic Intelligence</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;color:var(--text-invert);margin-bottom:16px;letter-spacing:-.2px">
+      Facing a similar challenge?
+    </h2>
+    <p style="font-family:var(--serif-body);font-size:1rem;font-weight:300;color:rgba(248,246,241,.6);margin:0 auto 32px;line-height:1.85">
+      We work with a limited number of clients at a time. Tell us your situation and we'll tell you candidly whether and how we can help.
+    </p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="contact.html" class="btn btn-primary btn-lg" style="background:var(--gold);color:var(--navy);font-weight:600">Request a Briefing</a>
+      <a href="about.html" class="btn btn-outline-white">About Varadha N.</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

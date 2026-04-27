@@ -1,0 +1,32 @@
+/* ============================================================
+   main.css — VN Advisory
+   PLACEHOLDER — replace with your v2 main.css build.
+   This file is referenced by every page in the site.
+   Variables required:
+   --navy, --navy-dk, --gold, --teal, --gray-bg, --gray-bd,
+   --surface, --text-invert, --text-invert-muted, --text-body,
+   --text-muted, --serif, --serif-body, --sans
+   ============================================================ */
+</EOF>
+
+# Insight articles
+cp /mnt/user-data/outputs/supply-chain-risk-financial.html  vnadvisory/insights/
+cp /mnt/user-data/outputs/cbam-2026.html                    vnadvisory/insights/
+cp /mnt/user-data/outputs/climate-compliance.html           vnadvisory/insights/
+cp /mnt/user-data/outputs/control-tower-2.html              vnadvisory/insights/
+cp /mnt/user-data/outputs/ai-supply-chain.html              vnadvisory/insights/
+cp /mnt/user-data/outputs/future-operating-model.html       vnadvisory/insights/
+cp /mnt/user-data/outputs/geopolitical-fragmentation.html   vnadvisory/insights/
+cp /mnt/user-data/outputs/lean-adaptive-operations.html     vnadvisory/insights/
+cp /mnt/user-data/outputs/manufacturing-multi-regional.html vnadvisory/insights/
+cp /mnt/user-data/outputs/procurement-transformation.html   vnadvisory/insights/
+
+# Case studies
+cp /mnt/user-data/outputs/cbam-gcc-steel.html                        vnadvisory/case-studies/
+cp /mnt/user-data/outputs/procurement-intelligence-transformation.html vnadvisory/case-studies/
+cp /mnt/user-data/outputs/control-tower-deployment.html              vnadvisory/case-studies/
+cp /mnt/user-data/outputs/manufacturing-network-transition.html      vnadvisory/case-studies/
+cp /mnt/user-data/outputs/war-risk-maritime.html                     vnadvisory/case-studies/
+
+echo "Done. Structure:"
+find vnadvisory -type f | sort

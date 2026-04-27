@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — VN Advisory</title>
+<meta name="description" content="Six practice areas: Supply Chain Intelligence, Procurement &amp; Strategic Sourcing, Geopolitical Risk, AI Operations, Commodity &amp; Trade Advisory, and Logistics &amp; Transportation. GCC · India · ASEAN.">
+<meta name="keywords" content="supply chain advisory services GCC India, procurement transformation consulting, geopolitical risk advisory, AI supply chain operations, CBAM advisory, VN Advisory services">
+<meta name="author" content="Varadha N.">
+<link rel="canonical" href="https://vnadvisory.in/services.html">
+<meta property="og:type"        content="website">
+<meta property="og:title"       content="Services — VN Advisory">
+<meta property="og:description" content="Six practice areas covering supply chain intelligence, procurement, geopolitical risk, AI operations, commodity trade, and logistics across GCC, India, and ASEAN.">
+<meta property="og:url"         content="https://vnadvisory.in/services.html">
+<meta property="og:image"       content="https://vnadvisory.in/assets/og/services-og.jpg">
+<meta property="og:site_name"   content="VN Advisory">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Services — VN Advisory">
+<meta name="twitter:description" content="Six practice areas: supply chain intelligence, procurement, geopolitical risk, AI operations, commodity trade, and logistics. GCC · India · ASEAN.">
+<meta name="twitter:image"       content="https://vnadvisory.in/assets/og/services-og.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/main.css">
+
+<style>
+.services-hero {
+  background: linear-gradient(150deg, var(--navy) 0%, var(--navy-dk) 100%);
+  color: var(--text-invert);
+  padding: 80px 0 72px;
+  position: relative;
+  overflow: hidden;
+}
+.services-hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(248,246,241,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(248,246,241,.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+/* Practice area card */
+.practice-area {
+  scroll-margin-top: 80px;
+  padding: 56px 0;
+  border-bottom: 0.5px solid var(--gray-bd);
+}
+.practice-area:last-child { border-bottom: none; }
+
+.pa-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 64px;
+  align-items: flex-start;
+}
+.pa-sidebar {
+  position: sticky;
+  top: 88px;
+}
+.pa-number {
+  font-family: var(--serif);
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: rgba(10,37,64,.08);
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: -.04em;
+}
+.pa-category {
+  font-family: var(--sans);
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.pa-heading {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.25;
+  letter-spacing: -.1px;
+  margin-bottom: 20px;
+}
+.pa-markets {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.pa-market-tag {
+  font-family: var(--sans);
+  font-size: .65rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border: 0.5px solid var(--gray-bd);
+  border-radius: 3px;
+  color: var(--text-muted);
+}
+
+.pa-body p {
+  font-family: var(--serif-body);
+  font-size: .95rem;
+  font-weight: 300;
+  color: var(--text-body);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.pa-body p:last-of-type { margin-bottom: 0; }
+
+.pa-scope {
+  margin-top: 28px;
+  background: var(--gray-bg);
+  border: 0.5px solid var(--gray-bd);
+  border-radius: 5px;
+  padding: 22px 24px;
+}
+.pa-scope-heading {
+  font-family: var(--sans);
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.pa-scope-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pa-scope-list li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-family: var(--sans);
+  font-size: .8rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+.pa-scope-list li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.pa-related {
+  margin-top: 24px;
+}
+.pa-related-heading {
+  font-family: var(--sans);
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.pa-related-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pa-related-links a {
+  font-family: var(--sans);
+  font-size: .78rem;
+  color: var(--teal);
+  text-decoration: none;
+  transition: color .2s;
+}
+.pa-related-links a:hover { color: var(--navy); }
+
+/* Engagement model strip */
+.engagement-strip {
+  background: var(--gray-bg);
+  border-top: 0.5px solid var(--gray-bd);
+  border-bottom: 0.5px solid var(--gray-bd);
+  padding: 48px 0;
+  margin: 0;
+}
+.engagement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.engagement-item {
+  padding: 24px;
+  background: var(--surface);
+  border: 0.5px solid var(--gray-bd);
+  border-radius: 5px;
+}
+.engagement-item h3 {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.engagement-item p {
+  font-family: var(--sans);
+  font-size: .8rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .pa-grid { grid-template-columns: 1fr; gap: 32px; }
+  .pa-sidebar { position: static; }
+  .pa-number { font-size: 2.4rem; }
+  .engagement-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .engagement-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<section class="services-hero">
+  <div style="position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold),transparent 60%)"></div>
+  <div class="services-hero-grid"></div>
+  <div class="container" style="position:relative">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Services</span></div>
+    <div style="display:inline-block;background:rgba(201,162,39,.15);border:1px solid rgba(201,162,39,.3);color:var(--gold);font-family:var(--sans);font-size:.65rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;padding:4px 13px;border-radius:3px;margin-bottom:20px">Six Practice Areas</div>
+    <h1 style="font-family:var(--serif);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:400;color:var(--text-invert);letter-spacing:-.3px;max-width:680px;margin-bottom:16px;line-height:1.1">
+      Intelligence that earns its place in a decision
+    </h1>
+    <p style="font-family:var(--serif-body);font-size:1rem;font-weight:300;color:rgba(248,246,241,.62);max-width:560px;line-height:1.85;margin:0">
+      Six practice areas. Each grounded in operations experience across GCC, India, and ASEAN — not framework consulting applied from a distance. We work with a limited number of clients at a time. Every engagement is principal-led.
+    </p>
+  </div>
+</section>
+
+
+<!-- ENGAGEMENT MODEL STRIP -->
+<div class="engagement-strip">
+  <div class="container">
+    <div class="label" style="margin-bottom:24px;text-align:center">Engagement Model</div>
+    <div class="engagement-grid">
+      <div class="engagement-item">
+        <h3>Principal-led</h3>
+        <p>Varadha N. leads every engagement directly. No associates, no hand-off to junior analysts. Clients get 20 years of GCC and India operations experience on their specific problem.</p>
+      </div>
+      <div class="engagement-item">
+        <h3>Limited concurrent engagements</h3>
+        <p>VN Advisory works with a small number of clients at any one time. This is a structural choice, not a positioning claim — it is what makes principal-led delivery possible at the quality level we hold to.</p>
+      </div>
+      <div class="engagement-item">
+        <h3>Project and retainer basis</h3>
+        <p>Most engagements run 4–12 months. Structured either as a defined-scope project with a clear deliverable, or a retainer for ongoing intelligence and advisory access. Scope defined to what is actually useful.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- PRACTICE AREAS -->
+<div class="container" style="padding-top:48px;padding-bottom:80px">
+
+  <!-- 01 Supply Chain Intelligence -->
+  <div class="practice-area" id="supply-chain">
+    <div class="pa-grid">
+      <div class="pa-sidebar">
+        <div class="pa-number">01</div>
+        <div class="pa-category">Practice Area</div>
+        <h2 class="pa-heading">Supply Chain Intelligence</h2>
+        <div class="pa-markets">
+          <span class="pa-market-tag">GCC</span>
+          <span class="pa-market-tag">India</span>
+          <span class="pa-market-tag">ASEAN</span>
+          <span class="pa-market-tag">EU trade flows</span>
+        </div>
+        <div class="pa-related" style="margin-top:24px">
+          <div class="pa-related-heading">Related Intelligence</div>
+          <div class="pa-related-links">
+            <a href="insights/supply-chain-risk-financial.html">Supply Chain Risk is Now Financial Risk →</a>
+            <a href="insights/future-operating-model.html">Future Supply Chain Operating Model →</a>
+            <a href="case-studies/control-tower-deployment.html">Control Tower Deployment Case Study →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pa-body">
+        <p>Supply chain intelligence is the foundation practice area — the work that makes everything else possible. Most companies have operational data. Very few have converted that data into a structured view of where their supply chain is exposed, what the financial consequence of those exposures is, and what the priority order for intervention should be.</p>
+        <p>The starting point in every engagement is a risk-mapped picture of the supply network: where concentration exists, which corridors are geopolitically exposed, which suppliers carry financial or operational risk signals, and what the revenue-at-risk figure is for the top ten scenarios. This is not a qualitative red/amber/green exercise — it is a quantified financial model that can be presented to a CFO or capital committee.</p>
+        <p>From that foundation, the work moves to intelligence architecture: what data needs to flow from where, at what frequency, and into what decision process. This is the design work that separates a supply chain that sees problems coming from one that discovers them when the stock runs out or the customer calls to complain.</p>
+        <div class="pa-scope">
+          <div class="pa-scope-heading">Typical Scope</div>
+          <ul class="pa-scope-list">
+            <li>Multi-tier supply chain risk mapping and financial exposure quantification</li>
+            <li>Supplier financial health monitoring and early warning system design</li>
+            <li>Real-time data architecture: ERP, WMS, TMS, carrier API, POS integration</li>
+            <li>Control tower design and decision intelligence deployment</li>
+            <li>Disruption scenario planning and business continuity framework</li>
+            <li>Board-ready supply chain risk reporting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 Procurement -->
+  <div class="practice-area" id="procurement">
+    <div class="pa-grid">
+      <div class="pa-sidebar">
+        <div class="pa-number">02</div>
+        <div class="pa-category">Practice Area</div>
+        <h2 class="pa-heading">Procurement &amp; Strategic Sourcing</h2>
+        <div class="pa-markets">
+          <span class="pa-market-tag">GCC</span>
+          <span class="pa-market-tag">India</span>
+          <span class="pa-market-tag">Multi-entity</span>
+        </div>
+        <div class="pa-related" style="margin-top:24px">
+          <div class="pa-related-heading">Related Intelligence</div>
+          <div class="pa-related-links">
+            <a href="insights/procurement-transformation.html">Procurement Transformation →</a>
+            <a href="case-studies/procurement-intelligence-transformation.html">Procurement Intelligence Case Study →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pa-body">
+        <p>Procurement functions measured only on savings are optimised for the wrong outcome. The engagements that create the most value are not savings projects — they are mandate redefinitions. The question is not how to save 8% on next year's addressable spend. It is what the procurement function should be accountable for delivering over five years, and what capability it needs to deliver that.</p>
+        <p>In multi-entity organisations, the starting point is almost always spend visibility — which does not exist at group level in most conglomerates grown through acquisition. A focused spend analysis covering 24 months of accounts payable data will typically reveal savings of 2–3x what leadership has estimated, because the savings are in the gaps between business units that no one has been looking at: duplicate suppliers at different prices, off-contract spend flowing to spot markets, and category fragmentation that eliminates any volume leverage.</p>
+        <p>Beyond the immediate savings programme, the durable work is building the strategic procurement capability: supplier intelligence systems, risk-adjusted total cost modelling, digitised source-to-pay, and the category management structure that reallocates time from transactional processing to strategic supplier development.</p>
+        <div class="pa-scope">
+          <div class="pa-scope-heading">Typical Scope</div>
+          <ul class="pa-scope-list">
+            <li>Group-level spend analytics and addressable savings identification</li>
+            <li>Supplier intelligence: financial health, delivery performance, ESG, carbon intensity</li>
+            <li>Risk-adjusted total cost of ownership modelling</li>
+            <li>Category management restructure and mandate redefinition</li>
+            <li>Source-to-pay digitisation and e-procurement deployment</li>
+            <li>Procurement transformation programme design and implementation support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 Geopolitical Risk -->
+  <div class="practice-area" id="geopolitical">
+    <div class="pa-grid">
+      <div class="pa-sidebar">
+        <div class="pa-number">03</div>
+        <div class="pa-category">Practice Area</div>
+        <h2 class="pa-heading">Geopolitical Risk</h2>
+        <div class="pa-markets">
+          <span class="pa-market-tag">GCC–India</span>
+          <span class="pa-market-tag">EU trade</span>
+          <span class="pa-market-tag">US markets</span>
+        </div>
+        <div class="pa-related" style="margin-top:24px">
+          <div class="pa-related-heading">Related Intelligence</div>
+          <div class="pa-related-links">
+            <a href="insights/geopolitical-fragmentation.html">Geopolitical Fragmentation →</a>
+            <a href="insights/manufacturing-multi-regional.html">Manufacturing Shift: China+1 →</a>
+            <a href="case-studies/war-risk-maritime.html">War Risk Maritime Case Study →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pa-body">
+        <p>Geopolitical risk has moved from background monitoring to front-line supply chain design. US-China tariffs, Red Sea disruption, EU supply chain due diligence requirements, GCC localisation mandates, and friend-shoring procurement conditions have collectively created a trade environment where production origin, supplier nationality, and logistics routing are now commercial variables — not just operational preferences.</p>
+        <p>The work in this practice area starts with a geopolitical concentration map: which spend categories, production locations, and logistics corridors are exposed to which geopolitical risk factors, and what is the financial consequence of each scenario materialising. This is the analysis that converts geopolitical risk from a boardroom concern into a capital committee input.</p>
+        <p>From that map, the engagement moves to restructuring: alternative supplier qualification in less-exposed geographies, production network redesign to achieve better regulatory and tariff positioning, logistics routing contingencies for disrupted corridors, and the contract language changes that prevent disruption events from triggering avoidable penalty exposure.</p>
+        <div class="pa-scope">
+          <div class="pa-scope-heading">Typical Scope</div>
+          <ul class="pa-scope-list">
+            <li>Geopolitical concentration mapping and financial exposure quantification</li>
+            <li>Tariff exposure analysis and supply chain restructuring for market access</li>
+            <li>Friend-shoring requirements and supplier qualification in compliant geographies</li>
+            <li>Maritime route vulnerability assessment and routing contingency design</li>
+            <li>War risk monitoring and contingency protocol design</li>
+            <li>GCC–India corridor opportunity identification and network design</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 AI Operations -->
+  <div class="practice-area" id="digital">
+    <div class="pa-grid">
+      <div class="pa-sidebar">
+        <div class="pa-number">04</div>
+        <div class="pa-category">Practice Area</div>
+        <h2 class="pa-heading">AI Operations</h2>
+        <div class="pa-markets">
+          <span class="pa-market-tag">Manufacturing</span>
+          <span class="pa-market-tag">Distribution</span>
+          <span class="pa-market-tag">Trading</span>
+        </div>
+        <div class="pa-related" style="margin-top:24px">
+          <div class="pa-related-heading">Related Intelligence</div>
+          <div class="pa-related-links">
+            <a href="insights/ai-supply-chain.html">AI-Driven Supply Chains →</a>
+            <a href="insights/control-tower-2.html">Control Tower 2.0 →</a>
+            <a href="insights/future-operating-model.html">Future Operating Model →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pa-body">
+        <p>AI supply chain transformation is not a technology project. It is an operating model redesign that happens to involve technology. The organisations that approach it as a technology procurement exercise consistently underdeliver their business cases — because the platform is not the constraint. The data foundation, the governance framework, and the organisational readiness to trust AI recommendations within defined boundaries are the constraints.</p>
+        <p>The sequencing that consistently produces results: data foundation first (months 1–6), intelligence layer second (months 6–18), autonomous execution third (months 18–36). Attempting to shortcut this sequence by deploying AI on fragmented, inconsistent data produces recommendations no planner will trust and no governance framework can safely automate.</p>
+        <p>The specific applications with the highest ROI at mid-market scale are demand sensing, predictive exception management, control tower decision intelligence, and autonomous resolution for defined categories of routine exception. Each has a clear, measurable financial return and a payback period that supports the capital case without requiring enterprise-scale technology investment.</p>
+        <div class="pa-scope">
+          <div class="pa-scope-heading">Typical Scope</div>
+          <ul class="pa-scope-list">
+            <li>Supply chain data architecture assessment and unified data platform design</li>
+            <li>Control tower maturity audit and Stage 2/3 deployment roadmap</li>
+            <li>AI exception management: scoring, recommendation engine, Tier 1 automation</li>
+            <li>Demand sensing deployment and forecast accuracy improvement</li>
+            <li>Decision governance framework: Tier 1/2/3 boundary definition</li>
+            <li>Digital twin baseline and scenario simulation capability</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 Commodity & Trade Advisory -->
+  <div class="practice-area" id="commodity">
+    <div class="pa-grid">
+      <div class="pa-sidebar">
+        <div class="pa-number">05</div>
+        <div class="pa-category">Practice Area</div>
+        <h2 class="pa-heading">Commodity &amp; Trade Advisory</h2>
+        <div class="pa-markets">
+          <span class="pa-market-tag">GCC exporters</span>
+          <span class="pa-market-tag">EU trade</span>
+          <span class="pa-market-tag">India manufacturers</span>
+        </div>
+        <div class="pa-related" style="margin-top:24px">
+          <div class="pa-related-heading">Related Intelligence</div>
+          <div class="pa-related-links">
+            <a href="insights/cbam-2026.html">CBAM 2026 →</a>
+            <a href="insights/climate-compliance.html">Climate Regulations →</a>
+            <a href="case-studies/cbam-gcc-steel.html">CBAM GCC Steel Case Study →</a>
+            <a href="case-studies/war-risk-maritime.html">War Risk Maritime Case Study →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pa-body">
+        <p>The regulatory and geopolitical shifts of 2024–2026 have created a new set of commercial variables in GCC–EU and India–EU trade that did not exist three years ago. CBAM certificate costs, war risk insurance restructuring, bunker hedging, force majeure contract claims, and supply chain carbon accounting are all now operational finance problems — not sustainability or insurance department concerns.</p>
+        <p>CBAM is the most immediately consequential for GCC steel, aluminium, and fertiliser exporters. The gap between internally estimated liability and actual exposure — once multi-tier Scope 1, 2, and 3 carbon accounting is applied — is consistently 50–110% across the companies we have assessed. The intervention with the highest immediate ROI is almost always energy transition acceleration, reframed from a sustainability investment to a CBAM liability hedge with a defined payback.</p>
+        <p>Maritime risk restructuring is the second acute area. Companies that rerouted via the Cape of Good Hope reactively in 2024 are absorbing full additional cost in their P&amp;L — typically $6–10M annually for a mid-size trading company. The structured response covers routing optimisation, war risk insurance market review (policies placed during stable conditions are rarely repriced when risk parameters change), force majeure contract claims, and bunker hedging to convert variable fuel cost to a predictable budget line.</p>
+        <div class="pa-scope">
+          <div class="pa-scope-heading">Typical Scope</div>
+          <ul class="pa-scope-list">
+            <li>CBAM liability audit: multi-tier Scope 1, 2, and 3 carbon accounting</li>
+            <li>Carbon reduction programme design and investment case remodelling</li>
+            <li>Supplier carbon qualification and joint baseline programmes</li>
+            <li>War risk insurance market review and placement restructuring</li>
+            <li>Bunker hedging programme design and implementation</li>
+            <li>Force majeure contract claims and forward contract language renegotiation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 Logistics & Transportation -->
+  <div class="practice-area" id="logistics">
+    <div class="pa-grid">
+      <div class="pa-sidebar">
+        <div class="pa-number">06</div>
+        <div class="pa-category">Practice Area</div>
+        <h2 class="pa-heading">Logistics &amp; Transportation</h2>
+        <div class="pa-markets">
+          <span class="pa-market-tag">GCC</span>
+          <span class="pa-market-tag">India</span>
+          <span class="pa-market-tag">GCC–EU corridor</span>
+        </div>
+        <div class="pa-related" style="margin-top:24px">
+          <div class="pa-related-heading">Related Intelligence</div>
+          <div class="pa-related-links">
+            <a href="insights/geopolitical-fragmentation.html">Geopolitical Fragmentation →</a>
+            <a href="insights/lean-adaptive-operations.html">Lean &amp; Adaptive Operations →</a>
+            <a href="case-studies/manufacturing-network-transition.html">Manufacturing Network Case Study →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pa-body">
+        <p>Logistics and transportation advisory sits at the intersection of network design, carrier strategy, and route risk management. The questions that drive most engagements in this area are: what does the optimal logistics network look like given the current geopolitical and regulatory environment, what does it cost to operate versus the current state, and what is the transition plan.</p>
+        <p>For GCC–India corridor businesses, the immediate work is often routing contingency design — pre-built alternatives for the Red Sea, Hormuz, and other chokepoint scenarios that can be activated in 24 hours rather than assembled under disruption pressure. For businesses building new production nodes in the GCC, UAE free zone, or India, the work is distribution network design: where to locate, how to structure the outbound logistics, and how to manage the first 12 months of ramp-up when the new node is below efficient volume.</p>
+        <p>Carrier strategy is the third area — particularly for companies that have been managing logistics reactively through freight forwarders rather than strategically through direct carrier relationships, volume commitments, and data-backed performance management.</p>
+        <div class="pa-scope">
+          <div class="pa-scope-heading">Typical Scope</div>
+          <ul class="pa-scope-list">
+            <li>Logistics network design and total cost modelling across route options</li>
+            <li>Maritime route vulnerability assessment and routing contingency protocols</li>
+            <li>Carrier strategy: panel design, volume commitment structures, performance KPIs</li>
+            <li>Distribution centre location analysis for GCC and India production networks</li>
+            <li>Freight cost optimisation: cargo aggregation, port call sequencing, carrier renegotiation</li>
+            <li>Logistics carbon intensity assessment for CBAM-exposed GCC–EU trade flows</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+
+<!-- CTA BAND -->
+<section style="background:linear-gradient(150deg,var(--navy),var(--navy-dk));padding:80px 0;position:relative;overflow:hidden">
+  <div style="position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--gold),transparent 50%)"></div>
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(248,246,241,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(248,246,241,.02) 1px,transparent 1px);background-size:48px 48px;pointer-events:none"></div>
+  <div class="container center" style="position:relative;max-width:580px">
+    <div style="font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">VN Advisory · Strategic Intelligence</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;color:var(--text-invert);margin-bottom:16px;letter-spacing:-.2px">
+      Tell us what you are dealing with.
+    </h2>
+    <p style="font-family:var(--serif-body);font-size:1rem;font-weight:300;color:rgba(248,246,241,.6);margin:0 auto 32px;line-height:1.85">
+      We assess every situation before agreeing an engagement scope. If there is a fit, we will say so clearly. If there is not, we will say that too — and often suggest where to look instead.
+    </p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="contact.html" class="btn btn-primary btn-lg" style="background:var(--gold);color:var(--navy);font-weight:600">Request a Briefing</a>
+      <a href="insights.html" class="btn btn-outline-white">Browse Insights &amp; Case Studies</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

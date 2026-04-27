@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Varadha N. · Principal, VN Advisory</title>
+<meta name="description" content="Varadha N. is the founder of VN Advisory. 20 years of operations experience across GCC, India, and ASEAN. Six Sigma Black Belt. MBA. Supply chain intelligence, procurement transformation, AI-augmented operations.">
+<meta name="keywords" content="Varadha N., VN Advisory, supply chain consultant GCC India, Six Sigma Black Belt, procurement transformation, about">
+<meta name="author" content="Varadha N.">
+<link rel="canonical" href="https://vnadvisory.in/about.html">
+
+<meta property="og:type"        content="profile">
+<meta property="og:title"       content="About — Varadha N. · Principal, VN Advisory">
+<meta property="og:description" content="20 years of operations experience across GCC, India, and ASEAN. Six Sigma Black Belt. MBA. Founder of VN Advisory.">
+<meta property="og:url"         content="https://vnadvisory.in/about.html">
+<meta property="og:image"       content="https://vnadvisory.in/assets/og/about-og.jpg">
+<meta property="og:site_name"   content="VN Advisory">
+
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="About — Varadha N. · Principal, VN Advisory">
+<meta name="twitter:description" content="20 years of operations experience across GCC, India, and ASEAN. Six Sigma Black Belt. MBA. Founder of VN Advisory.">
+<meta name="twitter:image"       content="https://vnadvisory.in/assets/og/about-og.jpg">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/main.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Varadha N.",
+  "jobTitle": "Principal, VN Advisory",
+  "url": "https://vnadvisory.in/about.html",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "VN Advisory",
+    "url": "https://vnadvisory.in"
+  },
+  "description": "Varadha N. is the founder of VN Advisory, with 20 years of operations experience across GCC, India, and ASEAN. Six Sigma Black Belt. MBA.",
+  "knowsAbout": ["Supply Chain Intelligence", "Procurement Transformation", "Geopolitical Risk", "AI Operations", "GCC India ASEAN markets"]
+}
+</script>
+
+<style>
+.about-hero {
+  background: linear-gradient(150deg, var(--navy) 0%, var(--navy-dk) 100%);
+  color: var(--text-invert);
+  padding: 80px 0 72px;
+  position: relative;
+  overflow: hidden;
+}
+.about-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(248,246,241,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(248,246,241,.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+/* Bio block */
+.bio-block {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+  align-items: flex-start;
+  padding: 48px 0;
+  border-bottom: 0.5px solid var(--gray-bd);
+}
+.bio-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 6px;
+  background: linear-gradient(150deg, var(--navy) 0%, #0d3060 100%);
+  border: 0.5px solid var(--gray-bd);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.bio-photo-monogram {
+  font-family: var(--serif);
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: var(--gold);
+  opacity: .7;
+}
+.bio-name {
+  font-family: var(--serif);
+  font-size: 1.9rem;
+  font-weight: 400;
+  color: var(--navy);
+  letter-spacing: -.2px;
+  margin-bottom: 4px;
+}
+.bio-title {
+  font-family: var(--sans);
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.bio-body {
+  font-family: var(--serif-body);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-body);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.bio-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.bio-linkedin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-invert);
+  background: #0a66c2;
+  padding: 10px 20px;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: opacity .2s, transform .15s;
+}
+.bio-linkedin-btn:hover { opacity: .88; transform: translateY(-1px); }
+
+/* Credentials grid */
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 48px 0;
+}
+.credential-card {
+  background: var(--gray-bg);
+  border: 0.5px solid var(--gray-bd);
+  border-radius: 6px;
+  padding: 28px 24px;
+}
+.credential-label {
+  font-family: var(--sans);
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.credential-value {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.45;
+}
+.credential-note {
+  font-family: var(--sans);
+  font-size: .75rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  line-height: 1.55;
+}
+
+/* Approach section */
+.approach-section {
+  padding: 72px 0;
+  border-top: 0.5px solid var(--gray-bd);
+}
+.approach-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 40px;
+}
+.approach-item h3 {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+.approach-item p {
+  font-family: var(--serif-body);
+  font-size: .9rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .bio-block { grid-template-columns: 1fr; }
+  .bio-photo { width: 120px; height: 120px; }
+  .credentials-grid { grid-template-columns: 1fr 1fr; }
+  .approach-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .credentials-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div style="position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold),transparent 60%)"></div>
+  <div class="about-hero-grid"></div>
+  <div class="container" style="position:relative">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>About</span></div>
+    <div style="display:inline-block;background:rgba(201,162,39,.15);border:1px solid rgba(201,162,39,.3);color:var(--gold);font-family:var(--sans);font-size:.65rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;padding:4px 13px;border-radius:3px;margin-bottom:20px">
+      The Principal
+    </div>
+    <h1 style="font-family:var(--serif);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:400;color:var(--text-invert);letter-spacing:-.3px;max-width:720px;margin-bottom:18px;line-height:1.1">
+      One principal. Every engagement.
+    </h1>
+    <p style="font-family:var(--serif-body);font-size:1.05rem;font-weight:300;color:rgba(248,246,241,.65);max-width:580px;line-height:1.85;margin:0">
+      VN Advisory is structured deliberately as a one-principal firm. Clients work directly with Varadha N. — no associates, no hand-off, no dilution of experience through the engagement.
+    </p>
+  </div>
+</section>
+
+
+<!-- MAIN CONTENT -->
+<div class="container" style="padding-top:60px;padding-bottom:80px">
+
+  <!-- ─── BIO BLOCK ─── -->
+  <div class="bio-block">
+
+    <!-- Photo placeholder -->
+    <div class="bio-photo" aria-label="Varadha N. — photo placeholder">
+      <span class="bio-photo-monogram">VN</span>
+    </div>
+
+    <!-- Bio text -->
+    <div>
+      <h2 class="bio-name">Varadha N.</h2>
+      <p class="bio-title">Founder &amp; Principal · VN Advisory</p>
+
+      <p class="bio-body">
+        Varadha N. is the founder of VN Advisory, with 20 years of operations experience across GCC, India, and ASEAN. Six Sigma Black Belt. MBA. He advises mid-market companies on supply chain intelligence, procurement transformation, and AI-augmented operations.
+      </p>
+
+      <p class="bio-body">
+        His work spans supply chain risk architecture, procurement transformation, geopolitical exposure analysis, and AI-augmented operations — with a particular focus on the GCC–India corridor and companies navigating the trade and regulatory shifts of 2024–2026. He has advised businesses across steel, FMCG distribution, precision manufacturing, commodity trading, and industrial logistics.
+      </p>
+
+      <p class="bio-body">
+        Before founding VN Advisory, Varadha held senior operations roles across manufacturing and distribution businesses in the GCC and India, where he led supply chain transformations, procurement restructurings, and technology deployments at operating scale. He brings that operational grounding to every advisory engagement — the work is specific, measurable, and grounded in what operations teams actually face.
+      </p>
+
+      <div class="bio-actions">
+        <a href="https://linkedin.com/in/varadhan" target="_blank" rel="noopener" class="bio-linkedin-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          Connect on LinkedIn
+        </a>
+        <a href="mailto:varadha@vnadvisory.in" class="btn" style="border:1px solid var(--gray-bd);color:var(--text-muted);font-family:var(--sans);font-size:.78rem;padding:10px 20px;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
+          varadha@vnadvisory.in
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /bio-block -->
+
+
+  <!-- ─── CREDENTIALS ─── -->
+  <div style="padding-top:48px">
+    <div class="label" style="margin-bottom:28px">Credentials &amp; Background</div>
+    <div class="credentials-grid">
+
+      <div class="credential-card">
+        <div class="credential-label">Qualification</div>
+        <div class="credential-value">Six Sigma Black Belt</div>
+        <div class="credential-note">Applied to supply chain and operations transformation engagements across GCC and India manufacturing sectors.</div>
+      </div>
+
+      <div class="credential-card">
+        <div class="credential-label">Education</div>
+        <div class="credential-value">MBA</div>
+        <div class="credential-note">Business administration with focus on operations management and strategic decision-making.</div>
+      </div>
+
+      <div class="credential-card">
+        <div class="credential-label">Governance Certification</div>
+        <div class="credential-value">IICA Independent Director Certification</div>
+        <div class="credential-note">Ministry of Corporate Affairs / Indian Institute of Corporate Affairs. Board-level governance and independent director programme.</div>
+      </div>
+
+      <div class="credential-card">
+        <div class="credential-label">Experience</div>
+        <div class="credential-value">~20 Years</div>
+        <div class="credential-note">Operations leadership across GCC, India, and ASEAN markets. Manufacturing, distribution, trading, and logistics sectors.</div>
+      </div>
+
+      <div class="credential-card">
+        <div class="credential-label">Geographies</div>
+        <div class="credential-value">GCC · India · ASEAN</div>
+        <div class="credential-note">Active advisory engagements across UAE, Saudi Arabia, Kuwait, India, and ASEAN-facing supply chains.</div>
+      </div>
+
+      <div class="credential-card">
+        <div class="credential-label">Sectors</div>
+        <div class="credential-value">Steel · FMCG · Manufacturing · Commodities · Logistics</div>
+        <div class="credential-note">Specific engagement experience across these five sectors. Engagement scope defined by operational fit, not sector breadth.</div>
+      </div>
+
+    </div>
+  </div><!-- /credentials -->
+
+
+  <!-- ─── APPROACH ─── -->
+  <div class="approach-section">
+    <div class="label" style="margin-bottom:16px">How We Work</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.3rem);font-weight:400;color:var(--navy);max-width:540px;letter-spacing:-.2px;margin-bottom:12px">
+      Direct. Specific. No consulting jargon.
+    </h2>
+    <p style="font-family:var(--serif-body);font-size:.95rem;font-weight:300;color:var(--text-muted);max-width:560px;line-height:1.85;margin:0">
+      The advisory practice is structured to deliver what mid-market operations leaders actually need: a specific answer to a specific problem, from someone who has operated in the same environment.
+    </p>
+
+    <div class="approach-grid">
+
+      <div class="approach-item">
+        <h3>Limited concurrent engagements</h3>
+        <p>VN Advisory works with a small number of clients at any one time. This is a deliberate structural choice — not a positioning claim. It means every client gets the principal's full attention, not a managed relationship with an account team.</p>
+      </div>
+
+      <div class="approach-item">
+        <h3>No boilerplate frameworks</h3>
+        <p>Every engagement starts with the specific operational situation, not a pre-built framework applied to it. The output is a recommendation specific enough to act on — not a 40-slide deck of industry benchmarks.</p>
+      </div>
+
+      <div class="approach-item">
+        <h3>Candid assessment over comfortable consensus</h3>
+        <p>If the answer to a client's problem is "you don't need an advisory engagement — you need to fix your data infrastructure," that is what they will hear. Engagements are scoped to what is actually useful, not what is billable.</p>
+      </div>
+
+      <div class="approach-item">
+        <h3>GCC–India corridor depth</h3>
+        <p>Most of the work sits at the intersection of GCC operations, India manufacturing and sourcing, and EU-bound trade flows. The regulatory shifts of 2024–2026 — CBAM, CSDDD, friend-shoring — make this corridor the most consequential for the clients we work with.</p>
+      </div>
+
+    </div>
+  </div><!-- /approach -->
+
+</div><!-- /container -->
+
+
+<!-- CTA BAND -->
+<section style="background:linear-gradient(150deg,var(--navy),var(--navy-dk));padding:72px 0;position:relative;overflow:hidden">
+  <div style="position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--gold),transparent 50%)"></div>
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(248,246,241,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(248,246,241,.02) 1px,transparent 1px);background-size:48px 48px;pointer-events:none"></div>
+  <div class="container center" style="position:relative;max-width:600px">
+    <div style="font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">VN Advisory · Strategic Intelligence</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;color:var(--text-invert);margin-bottom:16px;letter-spacing:-.2px">
+      Working on something we might be useful for?
+    </h2>
+    <p style="font-family:var(--serif-body);font-size:1rem;font-weight:300;color:rgba(248,246,241,.6);margin:0 auto 32px;line-height:1.85">
+      Tell us what you are dealing with. We will assess it and tell you candidly whether an engagement makes sense.
+    </p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="contact.html" class="btn btn-primary btn-lg" style="background:var(--gold);color:var(--navy);font-weight:600">Request a Briefing</a>
+      <a href="https://linkedin.com/in/varadhan" target="_blank" rel="noopener" class="bio-linkedin-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<div id="footer-placeholder"></div>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
