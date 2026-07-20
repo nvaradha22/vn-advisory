@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CBAM Compliance Tool — VN Advisory</title>
+<meta name="description" content="Free EU CBAM compliance tool for GCC and India exporters. Check HS codes, calculate embedded emissions, validate and generate reports. Built by VN Advisory.">
+<link rel="canonical" href="https://vnadvisory.in/cbam/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23080f24'/%3E%3Ctext x='50' y='62' font-family='Georgia,serif' font-size='42' font-weight='600' fill='%23C4982E' text-anchor='middle'%3EVN%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="CBAM Compliance Tool — VN Advisory">
+<meta property="og:description" content="Free EU CBAM compliance tool for GCC exporters. Check HS codes, calculate emissions, generate reports.">
+<meta property="og:url" content="https://vnadvisory.in/cbam/">
+<meta property="og:site_name" content="VN Advisory">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#080f24;color:#e8e4dc;font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.vn-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid rgba(255,255,255,0.07);background:#080f24;position:sticky;top:0;z-index:100}
+.vn-logo{display:flex;align-items:center;gap:10px}
+.vn-logo-vn{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#fff;letter-spacing:3px}
+.vn-logo-sub{font-size:8px;letter-spacing:3px;color:#C4982E;text-transform:uppercase;margin-top:-2px}
+.vn-div{width:1px;height:22px;background:rgba(255,255,255,0.12);margin:0 10px}
+.nav-tag{font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.25);text-transform:uppercase}
+.nav-back{font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.12);padding:6px 14px;transition:all .2s}
+.nav-back:hover{color:#C4982E;border-color:rgba(196,152,46,0.4)}
+.hero{padding:72px 32px 56px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.06);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(196,152,46,0.06) 0%,transparent 65%);pointer-events:none}
+.eyebrow{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#C4982E;margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:10px}
+.eyebrow::before,.eyebrow::after{content:'';width:32px;height:1px;background:rgba(196,152,46,0.3)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#fff;line-height:1.08;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:#C4982E}
+.hero-sub{font-size:15px;color:rgba(255,255,255,0.5);max-width:520px;margin:0 auto 28px;line-height:1.75}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(196,152,46,0.2);padding:6px 16px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:32px}
+.hero-badge span{color:#C4982E}
+.btn-launch{padding:14px 32px;background:#C4982E;color:#080f24;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;cursor:pointer;border:none;font-family:inherit;transition:all .25s;display:inline-block}
+.btn-launch:hover{background:#d4aa3e}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(255,255,255,0.06);border-left:1px solid rgba(255,255,255,0.06)}
+.feature{padding:32px 28px;border-right:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);transition:background .2s}
+.feature:hover{background:rgba(13,27,62,0.6)}
+.feature-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:rgba(196,152,46,0.25);line-height:1;margin-bottom:12px}
+.feature-title{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#fff;margin-bottom:8px}
+.feature-desc{font-size:12px;color:rgba(255,255,255,0.38);line-height:1.7}
+.sectors{padding:56px 32px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.wrap{max-width:900px;margin:0 auto}
+.section-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#C4982E;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.section-label::after{content:'';flex:1;height:1px;background:rgba(196,152,46,0.15)}
+.sector-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px}
+.sector-item{padding:20px 14px;background:rgba(13,27,62,0.5);border:1px solid rgba(255,255,255,0.06);text-align:center}
+.sector-icon{font-size:22px;margin-bottom:8px}
+.sector-name{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.55)}
+.app-section{background:#060c1e}
+.app-header{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;background:#0a1128;border-bottom:1px solid rgba(255,255,255,0.06)}
+.app-dots{display:flex;gap:6px}
+.app-dot{width:10px;height:10px;border-radius:50%}
+.app-url{font-size:11px;color:rgba(255,255,255,0.25);font-family:monospace;background:rgba(255,255,255,0.04);padding:3px 12px;border-radius:3px}
+.app-frame{width:100%;height:85vh;border:none;display:block}
+.footer{padding:28px 32px;border-top:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-left{font-size:11px;color:rgba(255,255,255,0.3)}
+.footer-left a{color:#C4982E}
+.footer-right{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.2)}
+@media(max-width:768px){
+  .hero h1{font-size:36px}
+  .features{grid-template-columns:1fr}
+  .sector-grid{grid-template-columns:repeat(3,1fr)}
+  .vn-nav{padding:12px 16px}
+  .hero{padding:48px 16px 40px}
+  .app-frame{height:70vh}
+}
+</style>
+</head>
+<body>
+ 
+<nav class="vn-nav">
+  <a href="https://vnadvisory.in" class="vn-logo">
+    <div>
+      <div class="vn-logo-vn">VN</div>
+      <div class="vn-logo-sub">Advisory</div>
+    </div>
+    <div class="vn-div"></div>
+    <div class="nav-tag">CBAM Tool</div>
+  </a>
+  <a href="https://vnadvisory.in" class="nav-back">← Back to Advisory</a>
+</nav>
+ 
+<section class="hero">
+  <div class="eyebrow">EU Regulation 2023/956</div>
+  <h1>CBAM <em>Compliance</em><br>for GCC &amp; India Exporters</h1>
+  <p class="hero-sub">Calculate embedded emissions, validate your data against EU MRR rules, and generate submission-ready reports — at no cost.</p>
+  <div class="hero-badge"><span>Free</span> · Open Source · No signup required</div>
+  <br>
+  <a href="#tool" class="btn-launch">Open the Tool ↓</a>
+</section>
+ 
+<div class="features">
+  <div class="feature">
+    <div class="feature-num">01</div>
+    <div class="feature-title">HS Code Checker</div>
+    <div class="feature-desc">Verify CBAM applicability across 70 covered CN codes from Annex I of EU Reg 2023/956.</div>
+  </div>
+  <div class="feature">
+    <div class="feature-num">02</div>
+    <div class="feature-title">Emission Calculator</div>
+    <div class="feature-desc">EU MRR methodology for BOF steel, EAF steel, aluminium, cement, and fertilizers.</div>
+  </div>
+  <div class="feature">
+    <div class="feature-num">03</div>
+    <div class="feature-title">Emission Factor Library</div>
+    <div class="feature-desc">29 IEA 2023 + IPCC AR6 + EU MRR factors by country and material type.</div>
+  </div>
+  <div class="feature">
+    <div class="feature-num">04</div>
+    <div class="feature-title">Validation Engine</div>
+    <div class="feature-desc">12 rule-based checks scored 0–100. Flags errors and warnings before submission.</div>
+  </div>
+  <div class="feature">
+    <div class="feature-num">05</div>
+    <div class="feature-title">Report Generator</div>
+    <div class="feature-desc">XML output for EU Transitional Registry + PDF — quarterly, per declarant.</div>
+  </div>
+  <div class="feature">
+    <div class="feature-num">06</div>
+    <div class="feature-title">Supplier Management</div>
+    <div class="feature-desc">Track supplier-level emission data required for CBAM declaration filings.</div>
+  </div>
+</div>
+ 
+<section class="sectors">
+  <div class="wrap">
+    <div class="section-label">Covered Sectors</div>
+    <div class="sector-grid">
+      <div class="sector-item"><div class="sector-icon">⚙️</div><div class="sector-name">Steel</div></div>
+      <div class="sector-item"><div class="sector-icon">🔩</div><div class="sector-name">Aluminium</div></div>
+      <div class="sector-item"><div class="sector-icon">🏗️</div><div class="sector-name">Cement</div></div>
+      <div class="sector-item"><div class="sector-icon">🌱</div><div class="sector-name">Fertilizers</div></div>
+      <div class="sector-item"><div class="sector-icon">⚡</div><div class="sector-name">Electricity</div></div>
+    </div>
+  </div>
+</section>
+ 
+<div id="tool">
+  <div class="app-section">
+    <div class="app-header">
+      <div class="app-dots">
+        <div class="app-dot" style="background:#ff5f57"></div>
+        <div class="app-dot" style="background:#febc2e"></div>
+        <div class="app-dot" style="background:#28c840"></div>
+      </div>
+      <div class="app-url">vnadvisory.in/cbam</div>
+      <div style="width:60px"></div>
+    </div>
+    <iframe
+      class="app-frame"
+      src="https://cbam-assistant-tau.vercel.app"
+      title="CBAM Assistant Tool"
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+ 
+<footer class="footer">
+  <div class="footer-left">
+    Built by <a href="https://vnadvisory.in">VN Advisory</a> ·
+    <a href="https://github.com/nvaradha22/cbam-assistant" target="_blank" rel="noopener">Open Source (MIT)</a> ·
+    <a href="mailto:varadha@vnadvisory.in">varadha@vnadvisory.in</a>
+  </div>
+  <div class="footer-right">EU Reg 2023/956</div>
+</footer>
+ 
+</body>
+</html>
+ 
