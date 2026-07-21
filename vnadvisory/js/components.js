@@ -34,6 +34,12 @@
       <li><a href="${root}index.html"    class="nav-link">Home</a></li>
       <li><a href="${root}services.html" class="nav-link">Services</a></li>
       <li><a href="${root}insights.html" class="nav-link">Insights</a></li>
+      <li class="nav-dropdown-wrap">
+        <button class="nav-link nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">Tools ▾</button>
+        <ul class="nav-dropdown" role="menu">
+          <li><a href="/cbam/" class="nav-dropdown-item" role="menuitem">CBAM Compliance</a></li>
+        </ul>
+      </li>
       <li><a href="${root}about.html"    class="nav-link">About</a></li>
     </ul>
 
@@ -53,6 +59,7 @@
       <li><a href="${root}index.html"    class="nav-link">Home</a></li>
       <li><a href="${root}services.html" class="nav-link">Services</a></li>
       <li><a href="${root}insights.html" class="nav-link">Insights</a></li>
+      <li><a href="/cbam/" class="nav-link">Tools — CBAM</a></li>
       <li><a href="${root}about.html"    class="nav-link">About</a></li>
       <li><a href="${root}contact.html"  class="nav-link nav-link--cta">Request a Briefing</a></li>
     </ul>
@@ -303,6 +310,51 @@
   font-size: .78rem;
   color: rgba(248,246,241,.4);
   text-decoration: none;
+}
+.nav-dropdown-wrap {
+  position: relative;
+}
+.nav-dropdown-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--sans);
+}
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy-dk);
+  border: 0.5px solid rgba(201,162,39,.2);
+  border-radius: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+  min-width: 180px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+  z-index: 100;
+}
+.nav-dropdown-wrap:hover .nav-dropdown,
+.nav-dropdown-wrap:focus-within .nav-dropdown {
+  display: block;
+}
+.nav-dropdown-item {
+  display: block;
+  padding: 10px 18px;
+  font-family: var(--sans);
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .04em;
+  color: rgba(248,246,241,.75);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color .15s, background .15s;
+}
+.nav-dropdown-item:hover {
+  color: var(--gold);
+  background: rgba(255,255,255,.04);
 }
 @media (max-width: 768px) {
   .nav-links, .nav-cta { display: none; }
