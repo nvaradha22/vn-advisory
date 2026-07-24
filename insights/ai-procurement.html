@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moving AI from Pilot to Production in Supply Chain — VN Advisory</title>
+<meta name="description" content="Most supply chain AI projects produce a successful pilot and then stop. The gap between pilot and production is not technical. It is organisational.">
+<link rel="canonical" href="https://vnadvisory.in/insights/ai-procurement.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23080f24'/%3E%3Ctext x='50' y='62' font-family='Georgia,serif' font-size='42' font-weight='600' fill='%23C4982E' text-anchor='middle'%3EVN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#fff;color:#111827;font-family:'DM Sans',system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--navy:#080f24;--gold:#C4982E;--cream:#f8f7f4;--border:#e5e7eb;--serif:'Cormorant Garamond',Georgia,serif;--muted:#6b7280;--mid:#374151}
+.vn-nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:68px;background:rgba(255,255,255,.97);border-bottom:1px solid var(--border);backdrop-filter:blur(8px)}
+.nav-logo{display:flex;align-items:center}
+.nav-logo-vn{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--navy);letter-spacing:4px;line-height:1}
+.nav-logo-sub{font-size:7.5px;letter-spacing:3.5px;color:var(--gold);text-transform:uppercase;margin-top:-2px;display:block}
+.nd{width:1px;height:24px;background:var(--border);margin:0 24px}
+.nl{display:flex;align-items:center;list-style:none;height:68px}
+.nli{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);padding:0 16px;height:68px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.nli:hover{color:var(--navy);border-bottom-color:var(--gold)}
+.ncta{padding:9px 22px;background:var(--navy);color:#fff;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;border:none;cursor:pointer;transition:background .25s}
+.ncta:hover{background:#0d1b3e}
+.mtog{display:none;background:none;border:1px solid var(--border);color:var(--navy);width:36px;height:36px;font-size:20px;align-items:center;justify-content:center;cursor:pointer}
+.mmenu{display:none;position:fixed;inset:0;background:#fff;z-index:500;flex-direction:column;padding:80px 32px 32px;overflow-y:auto}
+.mmenu.open{display:flex}
+.mmenu a{display:block;padding:14px 0;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);border-bottom:1px solid var(--border)}
+.aw{max-width:1160px;margin:0 auto;padding:0 56px}
+.ah{padding:64px 0 48px;border-bottom:1px solid var(--border)}
+.ab-bc{display:flex;align-items:center;gap:8px;font-size:.72rem;color:#9ca3af;letter-spacing:.5px;margin-bottom:24px}
+.ab-bc a{color:#9ca3af;transition:color .2s}.ab-bc a:hover{color:var(--gold)}.ab-bc span{color:var(--border)}
+.acat{display:inline-block;font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;background:var(--navy);color:var(--gold);padding:4px 12px;margin-bottom:20px}
+.atitle{font-family:var(--serif);font-size:clamp(2rem,4vw,3.4rem);font-weight:400;color:var(--navy);line-height:1.08;margin-bottom:20px;max-width:820px}
+.adeck{font-family:var(--serif);font-size:clamp(1.1rem,1.8vw,1.4rem);font-weight:300;font-style:italic;color:#374151;line-height:1.55;max-width:700px;margin-bottom:32px}
+.ameta{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.am-author{font-size:.82rem;color:var(--navy);font-weight:500}
+.am-dot{width:3px;height:3px;background:#d1d5db;border-radius:50%}
+.am-date,.am-read{font-size:.78rem;color:#9ca3af}
+.ab{display:grid;grid-template-columns:1fr 280px;gap:80px;padding:56px 0 80px;align-items:start}
+.ac{max-width:680px}
+.ac h2{font-family:var(--serif);font-size:1.7rem;font-weight:400;color:var(--navy);line-height:1.2;margin:44px 0 16px}
+.ac h3{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--navy);margin:32px 0 12px}
+.ac p{font-size:.92rem;color:#1f2937;line-height:1.9;margin-bottom:20px}
+.ac ul,.ac ol{margin:0 0 20px 20px}
+.ac li{font-size:.9rem;color:#1f2937;line-height:1.8;margin-bottom:6px}
+.ac strong{color:var(--navy);font-weight:500}
+.pq{border-left:3px solid var(--gold);padding:20px 28px;margin:40px 0;background:var(--cream)}
+.pq p{font-family:var(--serif);font-size:1.25rem;font-weight:300;font-style:italic;color:var(--navy);line-height:1.5;margin:0}
+.aside{position:sticky;top:88px}
+.sb{border:1px solid var(--border);margin-bottom:24px}
+.sb-h{padding:14px 18px;border-bottom:1px solid var(--border);font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:#4b5563}
+.sb-b{padding:18px}
+.sb-stat{padding:14px 0;border-bottom:1px solid var(--border)}
+.sb-stat:last-child{border-bottom:none}
+.sb-val{font-family:var(--serif);font-size:1.6rem;font-weight:300;color:var(--navy);line-height:1}
+.sb-lbl{font-size:.72rem;color:#9ca3af;margin-top:4px;line-height:1.5}
+.sb-cta{background:var(--navy);padding:24px 18px}
+.sb-cta p{font-size:.78rem;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:16px}
+.sb-cta a{display:block;text-align:center;padding:10px;background:var(--gold);color:var(--navy);font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:500;transition:background .2s}
+.sb-cta a:hover{background:#b08828}
+.rel-section{border-top:1px solid var(--border);padding:56px 0 80px}
+.rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:32px}
+.rel-card{background:#fff;padding:28px 24px;border-left:3px solid transparent;transition:border-color .2s}
+.rel-card:hover{border-left-color:var(--gold)}
+.rel-cat{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#9ca3af;margin-bottom:10px}
+.rel-title{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--navy);line-height:1.3;margin-bottom:12px}
+.rel-link{font-size:.75rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.footer{background:#050a1a;border-top:1px solid rgba(255,255,255,.06);padding:24px 56px}
+.footer-bar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.7rem;color:rgba(255,255,255,.22)}
+.footer-bar a{color:rgba(255,255,255,.22)}.footer-bar a:hover{color:var(--gold)}
+@media(max-width:1024px){.vn-nav,.aw{padding-left:32px;padding-right:32px}.ab{grid-template-columns:1fr;gap:48px}.aside{position:static}.rel-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nl,.nd,.ncta{display:none}.mtog{display:flex}.vn-nav{padding:0 20px;height:58px}.aw{padding:0 20px}.rel-grid{grid-template-columns:1fr}.ah{padding:40px 0 32px}}
+</style>
+</head>
+<body>
+<nav class="vn-nav">
+  <a href="../index.html" class="nav-logo">
+    <div><div class="nav-logo-vn">VN</div><div class="nav-logo-sub">Advisory</div></div>
+  </a>
+  <div class="nd"></div>
+  <ul class="nl">
+    <li><a href="../index.html" class="nli">Home</a></li>
+    <li><a href="../about.html" class="nli">About</a></li>
+    <li><a href="../services.html" class="nli">What We Do</a></li>
+    <li><a href="../insights.html" class="nli">Our Thinking</a></li>
+    <li><a href="../tools.html" class="nli">Tools</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:12px">
+    <a href="../contact.html" class="ncta">Contact us</a>
+    <button class="mtog" onclick="document.getElementById('mob').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+<div class="mmenu" id="mob">
+  <button style="position:absolute;top:18px;right:20px;background:none;border:none;color:var(--navy);font-size:28px;cursor:pointer" onclick="document.getElementById('mob').classList.remove('open')">×</button>
+  <a href="../index.html">Home</a><a href="../about.html">About</a><a href="../services.html">What We Do</a><a href="../insights.html">Our Thinking</a><a href="../tools.html">Tools</a><a href="../contact.html">Contact</a>
+</div>
+
+<main>
+<div class="aw">
+  <div class="ah">
+    <div class="ab-bc">
+      <a href="../index.html">Home</a><span>/</span>
+      <a href="../insights.html">Our Thinking</a><span>/</span>
+      <span>AI & Digital</span>
+    </div>
+    <div class="acat">AI &amp; Digital</div>
+    <h1 class="atitle">Moving AI from Pilot to Production in Supply Chain</h1>
+    <p class="adeck">Most supply chain AI projects produce a successful pilot and then stop. The gap between pilot and production is not technical. It is organisational.</p>
+    <div class="ameta">
+      <span class="am-author">Varadha Narayanan</span>
+      <span class="am-dot"></span>
+      <span class="am-date">July 2026</span>
+      <span class="am-dot"></span>
+      <span class="am-read">8 min read</span>
+    </div>
+  </div>
+
+  <div class="ab">
+    <article class="ac">
+
+      <p>A global logistics company ran a demand forecasting pilot in 2023 using a gradient-boosted model trained on three years of shipment data. The pilot covered four trade lanes. Forecast accuracy improved by 23 percentage points over the statistical baseline. The chief supply chain officer declared it a success at the annual technology conference. Eighteen months later, the model is still running on four trade lanes. Nothing has been scaled.</p>
+
+      <p>This is not an unusual outcome. Across procurement, logistics, and inventory management, AI pilots demonstrate clear value and then stop. The diagnosis offered is usually technical: insufficient data, model drift, integration complexity. These are real issues, but they are rarely the primary cause of failure. The primary cause is that the pilot was designed to prove a hypothesis, not to build an operating capability — and those are structurally different things.</p>
+
+      <h2>Why pilots work and production does not</h2>
+
+      <p>A pilot is designed to succeed. It operates on a carefully scoped set of data that is cleaned for the purpose. It has a dedicated data scientist or vendor team providing intensive support. The success metric — usually forecast accuracy or cost reduction against a baseline — is chosen because it is measurable in the pilot window. The business case is clear and the stakeholders are engaged because the pilot is new.</p>
+
+      <p>Production is different. The data is not clean; it comes from multiple systems with inconsistent schemas, delayed updates, and missing fields. The dedicated support team has moved to the next pilot. The success metric in production needs to connect to a business outcome — inventory turns, service level, working capital — not a model metric. And the stakeholders are no longer engaged because the technology is no longer new.</p>
+
+      <p>The transition from pilot to production requires three things that pilots do not require: clean master data at scale, process redesign to incorporate AI outputs into decision-making workflows, and a clear ownership structure for the model's outputs once the implementation team has left.</p>
+
+      <h2>Demand sensing versus demand forecasting: the critical distinction</h2>
+
+      <p>Before discussing what production-grade AI deployment requires, it is worth establishing a distinction that is frequently confused in procurement and supply chain circles. Demand sensing and demand forecasting are not the same thing. They answer different questions, operate over different time horizons, and require different data inputs. Deploying one when you need the other produces confident wrong answers faster than manual methods.</p>
+
+      <p><strong>Demand forecasting</strong> operates over medium to long time horizons — typically four to twenty-six weeks out. It uses historical sales data, promotional calendars, seasonal patterns, and macroeconomic indicators to project future demand at the SKU or product family level. It is the right tool for production planning, supplier capacity booking, and safety stock calculation. Its data requirement is primarily internal historical data and structured external signals.</p>
+
+      <p><strong>Demand sensing</strong> operates over a short horizon — one to fourteen days. It uses real-time or near-real-time signals: point-of-sale data from retail channels, distributor sell-through data, web traffic, social sentiment, and weather data. It is the right tool for distribution centre replenishment, last-mile logistics optimisation, and promotional response. Its data requirement is external, granular, and time-sensitive — and most supply chain organisations do not have a reliable feed of that data.</p>
+
+      <div class="pq"><p>"The organisations that get value from AI in supply chain are those that ask first: what decision does this model need to improve? That question determines the time horizon, the data requirement, and the integration architecture. The model architecture is the last thing to decide, not the first."</p></div>
+
+      <p>The practical implication is that many companies buying demand forecasting software actually have a demand sensing problem — their medium-term forecast is acceptable, but their short-term execution is chaotic because they cannot see real-time channel data. A better statistical model applied to weekly shipment data does not fix a sensing gap. It produces a more precise estimate of a number that is already wrong.</p>
+
+      <h2>Data quality: the problem that precedes the model</h2>
+
+      <p>In production AI deployments across supply chain, data quality problems account for more value destruction than model quality problems. The sequence in which organisations approach this is almost always inverted: they invest in selecting and configuring a model before they have established that the data feeding it is reliable.</p>
+
+      <p>The data requirements for production-grade AI in supply chain are specific. Demand forecasting models require a minimum of two to three years of demand history at the appropriate granularity — and that history needs to be demand history, not shipment history. These are frequently different: shipment history captures what was dispatched, which reflects supply constraints, stockouts, and order batching as much as it reflects true demand. Organisations that train demand models on shipment data train models to replicate historical supply patterns, not to predict future demand.</p>
+
+      <p>Master data — the definitions of products, customers, locations, and time periods that structure every transaction record — needs to be standardised before model training. A product that exists under three different SKU codes in three different systems, or a customer that appears under two different names after a business unit restructure, produces training data that will confuse any model.</p>
+
+      <p>In the Indian and GCC context, distribution complexity adds another layer. Supply chains serving fragmented retail — kirana stores in India, independent traders in the GCC — typically lack point-of-sale visibility. Demand is inferred from distributor orders, which are themselves batch-driven and forward-bought. AI models trained on distributor order patterns effectively forecast distributor purchasing behaviour, which is a noisy proxy for actual consumer demand.</p>
+
+      <h2>Process redesign before automation</h2>
+
+      <p>The most common mistake in supply chain AI deployment is automating an existing process without first asking whether the process itself is correct. If the demand planning process produces a consensus forecast through a series of committee meetings in which the sales team's number is adjusted upward and the operations team's number is adjusted downward until a political compromise is reached, then automating that process produces a faster political compromise — not a better forecast.</p>
+
+      <p>Production-grade AI deployment requires a clear decision about what the model's output is supposed to replace. If the model produces a baseline forecast, who adjusts it, by how much, based on what criteria, and with what accountability for the adjustment? If the model recommends a procurement quantity, who approves it, what is the override threshold, and what happens to overrides in model retraining?</p>
+
+      <p>These are not technology questions. They are process and governance questions, and they need to be answered before the model goes live — not discovered in the first month of operation when planners are adjusting model outputs by forty percent because they do not trust them.</p>
+
+      <h2>Ownership after implementation</h2>
+
+      <p>The final structural gap between pilot and production is ownership. In a pilot, the technology vendor or the internal data science team owns the model. They monitor it, retrain it when accuracy degrades, and handle integration issues. When the pilot ends, that ownership needs to transfer to a business team — but the business team has rarely been prepared for model ownership.</p>
+
+      <p>Production AI in supply chain requires a model owner who understands what inputs the model uses, what signals indicate model drift, how to interpret accuracy metrics, and when to escalate a technical issue versus when to adjust a business parameter. This person is not a data scientist. They are a supply chain professional with sufficient technical literacy to distinguish between a model problem and a data problem.</p>
+
+      <p>Building that capability takes longer than building the model. Organisations that treat it as a training exercise at go-live — rather than as a capability that needs to be developed throughout the pilot phase — end up with production models that degrade quietly over six to twelve months and are eventually switched off by planners who have lost confidence in the outputs.</p>
+
+    </article>
+
+    <aside class="aside">
+      <div class="sb">
+        <div class="sb-h">Key Numbers</div>
+        <div class="sb-b">
+          <div class="sb-stat">
+            <div class="sb-val">85%</div>
+            <div class="sb-lbl">of enterprise AI pilots do not reach full production deployment (Gartner, 2024)</div>
+          </div>
+          <div class="sb-stat">
+            <div class="sb-val">60%</div>
+            <div class="sb-lbl">of supply chain AI value is estimated to come from demand management and inventory optimisation applications</div>
+          </div>
+          <div class="sb-stat">
+            <div class="sb-val">2–3 years</div>
+            <div class="sb-lbl">of clean demand history required as minimum for production-grade forecasting model training</div>
+          </div>
+        </div>
+      </div>
+      <div class="sb-cta">
+        <p>VN Advisory helps supply chain and operations teams design AI deployment roadmaps that bridge the gap from pilot to scaled production.</p>
+        <a href="../contact.html">Start the conversation</a>
+      </div>
+    </aside>
+  </div>
+
+  <div class="rel-section">
+    <div class="aw" style="padding:0">
+      <div style="font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted)">Related Articles</div>
+      <div class="rel-grid">
+        <a href="procurement-failure.html" class="rel-card">
+          <div class="rel-cat">Procurement</div>
+          <div class="rel-title">Procurement Transformation: Common Points of Failure</div>
+          <div class="rel-link">Read →</div>
+        </a>
+        <a href="supply-chain-geopolitics.html" class="rel-card">
+          <div class="rel-cat">Geopolitics</div>
+          <div class="rel-title">Supply Chain Geopolitics: What Practitioners Need to Track</div>
+          <div class="rel-link">Read →</div>
+        </a>
+        <a href="demand-sensing.html" class="rel-card">
+          <div class="rel-cat">AI & Digital</div>
+          <div class="rel-title">Demand Sensing and Demand Forecasting: The Operational Distinction</div>
+          <div class="rel-link">Read →</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer class="footer">
+  <div class="footer-bar">
+    <span>© 2026 VN Advisory. All rights reserved.</span>
+    <span><a href="../index.html">Home</a> · <a href="../contact.html">Contact</a> · <a href="https://vnadvisory.in">vnadvisory.in</a></span>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Procurement Transformation: Common Points of Failure — VN Advisory</title>
+<meta name="description" content="Most procurement transformation programmes stall not because the strategy is wrong but because the operating model does not change.">
+<link rel="canonical" href="https://vnadvisory.in/insights/procurement-failure.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23080f24'/%3E%3Ctext x='50' y='62' font-family='Georgia,serif' font-size='42' font-weight='600' fill='%23C4982E' text-anchor='middle'%3EVN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#fff;color:#111827;font-family:'DM Sans',system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--navy:#080f24;--gold:#C4982E;--cream:#f8f7f4;--border:#e5e7eb;--serif:'Cormorant Garamond',Georgia,serif;--muted:#6b7280;--mid:#374151}
+.vn-nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:68px;background:rgba(255,255,255,.97);border-bottom:1px solid var(--border);backdrop-filter:blur(8px)}
+.nav-logo{display:flex;align-items:center}
+.nav-logo-vn{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--navy);letter-spacing:4px;line-height:1}
+.nav-logo-sub{font-size:7.5px;letter-spacing:3.5px;color:var(--gold);text-transform:uppercase;margin-top:-2px;display:block}
+.nd{width:1px;height:24px;background:var(--border);margin:0 24px}
+.nl{display:flex;align-items:center;list-style:none;height:68px}
+.nli{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);padding:0 16px;height:68px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.nli:hover{color:var(--navy);border-bottom-color:var(--gold)}
+.ncta{padding:9px 22px;background:var(--navy);color:#fff;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;border:none;cursor:pointer;transition:background .25s}
+.ncta:hover{background:#0d1b3e}
+.mtog{display:none;background:none;border:1px solid var(--border);color:var(--navy);width:36px;height:36px;font-size:20px;align-items:center;justify-content:center;cursor:pointer}
+.mmenu{display:none;position:fixed;inset:0;background:#fff;z-index:500;flex-direction:column;padding:80px 32px 32px;overflow-y:auto}
+.mmenu.open{display:flex}
+.mmenu a{display:block;padding:14px 0;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);border-bottom:1px solid var(--border)}
+.aw{max-width:1160px;margin:0 auto;padding:0 56px}
+.ah{padding:64px 0 48px;border-bottom:1px solid var(--border)}
+.ab-bc{display:flex;align-items:center;gap:8px;font-size:.72rem;color:#9ca3af;letter-spacing:.5px;margin-bottom:24px}
+.ab-bc a{color:#9ca3af;transition:color .2s}.ab-bc a:hover{color:var(--gold)}.ab-bc span{color:var(--border)}
+.acat{display:inline-block;font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;background:var(--navy);color:var(--gold);padding:4px 12px;margin-bottom:20px}
+.atitle{font-family:var(--serif);font-size:clamp(2rem,4vw,3.4rem);font-weight:400;color:var(--navy);line-height:1.08;margin-bottom:20px;max-width:820px}
+.adeck{font-family:var(--serif);font-size:clamp(1.1rem,1.8vw,1.4rem);font-weight:300;font-style:italic;color:#374151;line-height:1.55;max-width:700px;margin-bottom:32px}
+.ameta{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.am-author{font-size:.82rem;color:var(--navy);font-weight:500}
+.am-dot{width:3px;height:3px;background:#d1d5db;border-radius:50%}
+.am-date,.am-read{font-size:.78rem;color:#9ca3af}
+.ab{display:grid;grid-template-columns:1fr 280px;gap:80px;padding:56px 0 80px;align-items:start}
+.ac{max-width:680px}
+.ac h2{font-family:var(--serif);font-size:1.7rem;font-weight:400;color:var(--navy);line-height:1.2;margin:44px 0 16px}
+.ac h3{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--navy);margin:32px 0 12px}
+.ac p{font-size:.92rem;color:#1f2937;line-height:1.9;margin-bottom:20px}
+.ac ul,.ac ol{margin:0 0 20px 20px}
+.ac li{font-size:.9rem;color:#1f2937;line-height:1.8;margin-bottom:6px}
+.ac strong{color:var(--navy);font-weight:500}
+.pq{border-left:3px solid var(--gold);padding:20px 28px;margin:40px 0;background:var(--cream)}
+.pq p{font-family:var(--serif);font-size:1.25rem;font-weight:300;font-style:italic;color:var(--navy);line-height:1.5;margin:0}
+.aside{position:sticky;top:88px}
+.sb{border:1px solid var(--border);margin-bottom:24px}
+.sb-h{padding:14px 18px;border-bottom:1px solid var(--border);font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:#4b5563}
+.sb-b{padding:18px}
+.sb-stat{padding:14px 0;border-bottom:1px solid var(--border)}
+.sb-stat:last-child{border-bottom:none}
+.sb-val{font-family:var(--serif);font-size:1.6rem;font-weight:300;color:var(--navy);line-height:1}
+.sb-lbl{font-size:.72rem;color:#9ca3af;margin-top:4px;line-height:1.5}
+.sb-cta{background:var(--navy);padding:24px 18px}
+.sb-cta p{font-size:.78rem;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:16px}
+.sb-cta a{display:block;text-align:center;padding:10px;background:var(--gold);color:var(--navy);font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:500;transition:background .2s}
+.sb-cta a:hover{background:#b08828}
+.rel-section{border-top:1px solid var(--border);padding:56px 0 80px}
+.rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:32px}
+.rel-card{background:#fff;padding:28px 24px;border-left:3px solid transparent;transition:border-color .2s}
+.rel-card:hover{border-left-color:var(--gold)}
+.rel-cat{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#9ca3af;margin-bottom:10px}
+.rel-title{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--navy);line-height:1.3;margin-bottom:12px}
+.rel-link{font-size:.75rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.footer{background:#050a1a;border-top:1px solid rgba(255,255,255,.06);padding:24px 56px}
+.footer-bar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.7rem;color:rgba(255,255,255,.22)}
+.footer-bar a{color:rgba(255,255,255,.22)}.footer-bar a:hover{color:var(--gold)}
+@media(max-width:1024px){.vn-nav,.aw{padding-left:32px;padding-right:32px}.ab{grid-template-columns:1fr;gap:48px}.aside{position:static}.rel-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nl,.nd,.ncta{display:none}.mtog{display:flex}.vn-nav{padding:0 20px;height:58px}.aw{padding:0 20px}.rel-grid{grid-template-columns:1fr}.ah{padding:40px 0 32px}}
+</style>
+</head>
+<body>
+<nav class="vn-nav">
+  <a href="../index.html" class="nav-logo">
+    <div><div class="nav-logo-vn">VN</div><div class="nav-logo-sub">Advisory</div></div>
+  </a>
+  <div class="nd"></div>
+  <ul class="nl">
+    <li><a href="../index.html" class="nli">Home</a></li>
+    <li><a href="../about.html" class="nli">About</a></li>
+    <li><a href="../services.html" class="nli">What We Do</a></li>
+    <li><a href="../insights.html" class="nli">Our Thinking</a></li>
+    <li><a href="../tools.html" class="nli">Tools</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:12px">
+    <a href="../contact.html" class="ncta">Contact us</a>
+    <button class="mtog" onclick="document.getElementById('mob').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+<div class="mmenu" id="mob">
+  <button style="position:absolute;top:18px;right:20px;background:none;border:none;color:var(--navy);font-size:28px;cursor:pointer" onclick="document.getElementById('mob').classList.remove('open')">×</button>
+  <a href="../index.html">Home</a><a href="../about.html">About</a><a href="../services.html">What We Do</a><a href="../insights.html">Our Thinking</a><a href="../tools.html">Tools</a><a href="../contact.html">Contact</a>
+</div>
+
+<main>
+<div class="aw">
+  <div class="ah">
+    <div class="ab-bc">
+      <a href="../index.html">Home</a><span>/</span>
+      <a href="../insights.html">Our Thinking</a><span>/</span>
+      <span>Procurement</span>
+    </div>
+    <div class="acat">Procurement</div>
+    <h1 class="atitle">Procurement Transformation: Common Points of Failure</h1>
+    <p class="adeck">Most procurement transformation programmes stall not because the strategy is wrong but because the operating model does not change.</p>
+    <div class="ameta">
+      <span class="am-author">Varadha Narayanan</span>
+      <span class="am-dot"></span>
+      <span class="am-date">July 2026</span>
+      <span class="am-dot"></span>
+      <span class="am-read">8 min read</span>
+    </div>
+  </div>
+
+  <div class="ab">
+    <article class="ac">
+
+      <p>Procurement transformation is one of the most frequently attempted and least frequently completed exercises in corporate operations. Boards approve the investment, consultants deliver the strategy, technology vendors provide the platform, and eighteen months later the organisation is largely doing what it was doing before — with a new e-procurement portal that half the business units have stopped using.</p>
+
+      <p>The failure is not strategic. Most organisations diagnose their procurement problems correctly: too much maverick spend, poor supplier visibility, absence of category management, limited negotiation leverage. The diagnosis is usually sound. What goes wrong is the translation from strategy to operating model — and that failure follows a recognisable pattern.</p>
+
+      <h2>Sponsorship that evaporates after kick-off</h2>
+
+      <p>Procurement transformation requires cross-functional authority. The CPO cannot change procurement behaviour in engineering, finance, or operations without sustained backing from the CEO or CFO. That backing is typically abundant at programme launch and progressively scarce as other priorities compete for executive attention.</p>
+
+      <p>The inflection point arrives when the programme first encounters serious internal resistance — usually when category managers begin renegotiating incumbent supplier contracts or when a business unit head objects to using the approved vendor list. If the CPO cannot escalate and receive a decision within a week, the programme loses credibility. Business unit leaders draw the correct conclusion: compliance is optional. The transformation stalls at precisely the moment it needs momentum.</p>
+
+      <p>The practical implication is that transformation programmes need a governance mechanism that does not rely on ad hoc escalation. A procurement steering committee that meets monthly and has authority to resolve disputes — with a CFO or COO sponsor who attends consistently — is structurally more durable than informal CEO support.</p>
+
+      <h2>Category strategy without data</h2>
+
+      <p>Category management is the operational core of any serious procurement transformation. It requires segmenting spend into coherent categories, understanding the supply market for each, and developing a sourcing strategy appropriate to that market. In principle, this is straightforward. In practice, most organisations attempting category management for the first time do not have the spend data to do it properly.</p>
+
+      <p>The fundamental data requirement is a clean, classified spend cube: purchase transactions mapped to a coherent category taxonomy, attributed to cost centres, and linked to supplier master data. This sounds basic. It is extraordinarily difficult to produce when purchase orders are raised across multiple ERP systems, coded inconsistently, and partially bypassed through petty cash, credit cards, and intercompany transactions.</p>
+
+      <p>In the GCC context, the problem is compounded by procurement that has historically been relationship-driven rather than process-driven. Supplier selection is often managed by the business unit that raised the requirement, and purchase orders are raised retroactively to formalise decisions already made. The spend data exists in the ERP but does not reflect how procurement actually happened — so any category strategy built on that data will contain structural gaps.</p>
+
+      <div class="pq"><p>"You cannot build a category strategy on data you do not trust. The first six months of a procurement transformation should be spent cleaning spend data, not producing category strategies."</p></div>
+
+      <p>The implication is uncomfortable: the first deliverable of a procurement transformation is not a category strategy. It is a spend analysis. Organisations that skip this step produce category strategies that are directionally correct but quantitatively unreliable — and category managers who cannot answer basic questions from finance about what the savings projections are based on lose credibility fast.</p>
+
+      <h2>E-procurement tools without process redesign</h2>
+
+      <p>Technology vendors have made it easy to buy e-procurement platforms and difficult to implement them. The implementation difficulty is not technical. It is that e-procurement tools enforce process discipline, and process discipline exposes how much informal discretion procurement currently relies on.</p>
+
+      <p>A purchase requisition workflow in Coupa or SAP Ariba that requires a line manager's approval, a category code, a budget confirmation, and a preferred supplier selection before the order can be raised is not a complicated process. But if the organisation's current practice is for department heads to call a known supplier, agree the work verbally, and ask finance to raise the PO after the fact, then implementing the system means changing deeply embedded behaviour — not configuring software.</p>
+
+      <p>The organisations that extract value from e-procurement tools invest heavily in process redesign before the technology goes live: mapping the as-is process in detail, identifying where the informal practices are and why they exist, and redesigning the to-be process with the people who will use it. Those that treat implementation as a technology project — define requirements, configure, train, go-live — typically end up with a system that handles routine low-value transactions correctly and gets bypassed for everything important.</p>
+
+      <h2>Savings targets that erode supplier relationships</h2>
+
+      <p>Procurement transformation programmes are almost always sold on a savings case. The CFO approves the investment because the CPO has promised a savings figure that exceeds the programme cost — typically by a factor of three to five. The savings target then becomes the primary accountability metric for the procurement team.</p>
+
+      <p>This creates a structural problem. Year-one savings are achievable through competitive tendering and renegotiation of incumbent contracts. Year-two savings require deeper measures: demand management, specification rationalisation, process efficiency. But procurement teams under savings pressure in year one frequently negotiate in ways that damage supplier relationships — pushing for reductions that are not supported by market benchmarks, or running re-tenders purely to create competitive pressure rather than to change supplier.</p>
+
+      <p>In India and the GCC, where supplier relationships are often personal and long-standing, aggressive negotiation without relationship management produces visible downstream costs: suppliers who deprioritise the customer's orders when capacity is tight, who reduce technical support, or who quietly escalate prices on the next contract cycle. The savings appear in the procurement report; the costs appear in operations and project management.</p>
+
+      <h2>What actually works</h2>
+
+      <p>The procurement transformations that deliver sustained results share three characteristics: category management built on real spend data, supplier segmentation that distinguishes strategic partners from commodity vendors, and cross-functional ownership of procurement outcomes rather than sole accountability for the procurement function.</p>
+
+      <p>Supplier segmentation is particularly underinvested. Most organisations treat procurement as a uniform activity. In practice, the relationship with a sole-source capital equipment supplier that is critical to production continuity requires fundamentally different management than the relationship with a stationery supplier. Applying the same contracting approach, the same payment terms, and the same performance review cadence to both is inefficient in both directions — too much overhead for the commodity, too little engagement for the strategic partner.</p>
+
+      <p>Cross-functional ownership means that savings targets are shared between procurement and the business units that generate the spend. When finance owns the budget and procurement owns the savings target, neither owns the outcome. When the engineering department is accountable for its procurement spend as part of its operating budget, the incentive to work with procurement rather than around it changes materially.</p>
+
+      <p>In the GCC and India context, one further adaptation matters: maverick spend management cannot rely solely on systems enforcement. Relationship-based procurement cultures require a parallel programme of stakeholder engagement — explaining the commercial logic of the approved supplier list, demonstrating that preferred suppliers have been selected on quality and value grounds, and giving business units a clear process for requesting exceptions when the approved supplier genuinely cannot meet the requirement. Systems and culture need to move together.</p>
+
+    </article>
+
+    <aside class="aside">
+      <div class="sb">
+        <div class="sb-h">Key Numbers</div>
+        <div class="sb-b">
+          <div class="sb-stat">
+            <div class="sb-val">42%</div>
+            <div class="sb-lbl">of procurement transformations fail to meet their savings targets within 3 years (McKinsey, 2023)</div>
+          </div>
+          <div class="sb-stat">
+            <div class="sb-val">30–40%</div>
+            <div class="sb-lbl">of enterprise spend typically classified as maverick in organisations without enforced procurement policy</div>
+          </div>
+          <div class="sb-stat">
+            <div class="sb-val">18 months</div>
+            <div class="sb-lbl">average time before executive sponsorship becomes inconsistent in multi-year transformation programmes</div>
+          </div>
+        </div>
+      </div>
+      <div class="sb-cta">
+        <p>VN Advisory works with CPOs and CFOs on procurement operating model design, spend analysis, and category strategy in the GCC and India.</p>
+        <a href="../contact.html">Discuss your programme</a>
+      </div>
+    </aside>
+  </div>
+
+  <div class="rel-section">
+    <div class="aw" style="padding:0">
+      <div style="font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted)">Related Articles</div>
+      <div class="rel-grid">
+        <a href="cbam-cost-architecture.html" class="rel-card">
+          <div class="rel-cat">Trade Policy</div>
+          <div class="rel-title">CBAM: What GCC and Indian Exporters Need to Quantify</div>
+          <div class="rel-link">Read →</div>
+        </a>
+        <a href="ai-procurement.html" class="rel-card">
+          <div class="rel-cat">AI & Digital</div>
+          <div class="rel-title">Moving AI from Pilot to Production in Supply Chain</div>
+          <div class="rel-link">Read →</div>
+        </a>
+        <a href="steel-price-volatility.html" class="rel-card">
+          <div class="rel-cat">Commodities</div>
+          <div class="rel-title">Steel Price Volatility: Options for Procurement Teams</div>
+          <div class="rel-link">Read →</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer class="footer">
+  <div class="footer-bar">
+    <span>© 2026 VN Advisory. All rights reserved.</span>
+    <span><a href="../index.html">Home</a> · <a href="../contact.html">Contact</a> · <a href="https://vnadvisory.in">vnadvisory.in</a></span>
+  </div>
+</footer>
+</body>
+</html>
