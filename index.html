@@ -321,6 +321,15 @@ button{font-family:inherit;cursor:pointer}
   transition:gap .2s,border-color .2s;
 }
 .link-ghost:hover{gap:14px;border-color:var(--navy);color:var(--ink-muted)}
+.ins-carousel-wrap{position:relative;overflow:hidden}
+.ins-carousel{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.ins-slide{min-width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.ins-carousel-controls{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px}
+.ins-prev,.ins-next{background:none;border:1px solid var(--border);color:var(--navy);width:36px;height:36px;font-size:16px;cursor:pointer;transition:border-color .2s,color .2s;display:flex;align-items:center;justify-content:center}
+.ins-prev:hover,.ins-next:hover{border-color:var(--gold);color:var(--gold)}
+.ins-dots{display:flex;gap:8px}
+.ins-dot{width:8px;height:8px;border-radius:50%;border:none;background:var(--border);cursor:pointer;transition:background .2s,transform .2s;padding:0}
+.ins-dot.active{background:var(--gold);transform:scale(1.3)}
 .thinking-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:1px solid var(--border);background:var(--border)}
 .ins-card{
   background:#fff;display:flex;flex-direction:column;
@@ -433,6 +442,7 @@ button{font-family:inherit;cursor:pointer}
   .wrap{padding:0 20px}
   .services-grid{grid-template-columns:1fr 1fr}
   .thinking-grid{grid-template-columns:1fr}
+  .ins-slide{grid-template-columns:1fr}
   .process-grid{grid-template-columns:1fr 1fr}
   .process-connector{display:none}
   .process-step{border-bottom:1px solid var(--border);border-right:none}
@@ -866,38 +876,120 @@ button{font-family:inherit;cursor:pointer}
       <a href="insights.html" class="link-ghost">All topics →</a>
     </div>
 
-    <div class="thinking-grid">
+    <div class="ins-carousel-wrap">
+      <div class="ins-carousel" id="insCarousel">
 
-      <div class="ins-card">
-        <span class="ins-cat-tag">Trade Policy</span>
-        <div class="ins-body">
-          <div class="ins-title">CBAM 2026: The New Cost Architecture of Global Trade</div>
-          <p class="ins-excerpt">CBAM has moved from a policy discussion to a financial line item. For GCC and Indian exporters, carbon is becoming a cost that appears in the P&L whether or not you have a strategy for it.</p>
-          <button class="ins-btn" onclick="location.href='insights/cbam-cost-architecture.html'">Read article →</button>
+        <div class="ins-slide">
+          <div class="ins-card">
+            <span class="ins-cat-tag">Trade Policy</span>
+            <div class="ins-body">
+              <div class="ins-title">CBAM 2026: The New Cost Architecture of Global Trade</div>
+              <p class="ins-excerpt">CBAM has moved from a policy discussion to a financial line item. For GCC and Indian exporters, carbon is becoming a cost that appears in the P&amp;L whether or not you have a strategy for it.</p>
+              <button class="ins-btn" onclick="location.href='insights/cbam-cost-architecture.html'">Read article →</button>
+            </div>
+          </div>
+          <div class="ins-card">
+            <span class="ins-cat-tag">Geopolitics</span>
+            <div class="ins-body">
+              <div class="ins-title">Geopolitical Fragmentation of Global Supply Chains</div>
+              <p class="ins-excerpt">The supply chain model built on stable globalisation is under pressure from multiple structural directions. This is not a temporary disruption cycle — it requires a deliberate architecture response.</p>
+              <button class="ins-btn" onclick="location.href='insights/supply-chain-geopolitics.html'">Read article →</button>
+            </div>
+          </div>
+          <div class="ins-card">
+            <span class="ins-cat-tag">Procurement</span>
+            <div class="ins-body">
+              <div class="ins-title">Procurement Transformation: From Cost Centre to Value Engine</div>
+              <p class="ins-excerpt">Procurement functions measured only on savings are optimised for the wrong outcome. They deliver cost reductions that accumulate resilience risk — a trade-off that surfaces badly during disruption.</p>
+              <button class="ins-btn" onclick="location.href='insights/procurement-failure.html'">Read article →</button>
+            </div>
+          </div>
         </div>
+
+        <div class="ins-slide">
+          <div class="ins-card">
+            <span class="ins-cat-tag">AI & Technology</span>
+            <div class="ins-body">
+              <div class="ins-title">Moving AI from Pilot to Production in Supply Chain</div>
+              <p class="ins-excerpt">The gap between a successful AI pilot and production deployment is not technical. It is organisational — and most companies hit it at the same three points.</p>
+              <button class="ins-btn" onclick="location.href='insights/ai-procurement.html'">Read article →</button>
+            </div>
+          </div>
+          <div class="ins-card">
+            <span class="ins-cat-tag">Maritime Risk</span>
+            <div class="ins-body">
+              <div class="ins-title">Red Sea, Hormuz, Malacca: Risk Profiles and Mitigation Options</div>
+              <p class="ins-excerpt">Three chokepoints. Different disruption probabilities, different costs, different mitigation options. The response to each is not the same.</p>
+              <button class="ins-btn" onclick="location.href='insights/red-sea-risk.html'">Read article →</button>
+            </div>
+          </div>
+          <div class="ins-card">
+            <span class="ins-cat-tag">Commodities</span>
+            <div class="ins-body">
+              <div class="ins-title">Steel Price Volatility: Options for Procurement Teams</div>
+              <p class="ins-excerpt">Steel prices have swung more than 60 percent peak-to-trough in three of the last five years. Procurement teams that manage steel as a spot buy absorb that volatility entirely.</p>
+              <button class="ins-btn" onclick="location.href='insights/steel-price-volatility.html'">Read article →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="ins-slide">
+          <div class="ins-card">
+            <span class="ins-cat-tag">Trade Policy</span>
+            <div class="ins-body">
+              <div class="ins-title">India–UAE CEPA: Duty Implications for Key Categories</div>
+              <p class="ins-excerpt">The India–UAE CEPA eliminated tariffs on more than 80 percent of tariff lines. Rules of origin requirements determine where the benefit is real and where it is not.</p>
+              <button class="ins-btn" onclick="location.href='insights/india-uae-cepa.html'">Read article →</button>
+            </div>
+          </div>
+          <div class="ins-card">
+            <span class="ins-cat-tag">Sourcing Strategy</span>
+            <div class="ins-body">
+              <div class="ins-title">China+1 Sourcing: Operational Requirements</div>
+              <p class="ins-excerpt">China+1 is a procurement strategy with sound logic and difficult execution. Each alternative country has specific operational constraints that determine whether diversification actually reduces risk.</p>
+              <button class="ins-btn" onclick="location.href='insights/china-plus-one.html'">Read article →</button>
+            </div>
+          </div>
+          <div class="ins-card">
+            <span class="ins-cat-tag">Forecasting</span>
+            <div class="ins-body">
+              <div class="ins-title">Demand Sensing vs. Demand Forecasting: The Operational Distinction</div>
+              <p class="ins-excerpt">Demand sensing and demand forecasting answer different questions, operate over different time horizons, and require different data inputs. Conflating them produces neither.</p>
+              <button class="ins-btn" onclick="location.href='insights/demand-sensing.html'">Read article →</button>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <div class="ins-card">
-        <span class="ins-cat-tag">Geopolitics</span>
-        <div class="ins-body">
-          <div class="ins-title">Geopolitical Fragmentation of Global Supply Chains</div>
-          <p class="ins-excerpt">The supply chain model built on stable globalisation is under pressure from multiple structural directions. This is not a temporary disruption cycle — it requires a deliberate architecture response.</p>
-          <button class="ins-btn" onclick="location.href='insights/supply-chain-geopolitics.html'">Read article →</button>
+      <div class="ins-carousel-controls">
+        <button class="ins-prev" onclick="insMove(-1)" aria-label="Previous">&#8592;</button>
+        <div class="ins-dots" id="insDots">
+          <button class="ins-dot active" onclick="insGo(0)" aria-label="Slide 1"></button>
+          <button class="ins-dot" onclick="insGo(1)" aria-label="Slide 2"></button>
+          <button class="ins-dot" onclick="insGo(2)" aria-label="Slide 3"></button>
         </div>
+        <button class="ins-next" onclick="insMove(1)" aria-label="Next">&#8594;</button>
       </div>
-
-      <div class="ins-card">
-        <span class="ins-cat-tag">Procurement</span>
-        <div class="ins-body">
-          <div class="ins-title">Procurement Transformation: From Cost Centre to Value Engine</div>
-          <p class="ins-excerpt">Procurement functions measured only on savings are optimised for the wrong outcome. They deliver cost reductions that accumulate resilience risk — a trade-off that surfaces badly during disruption.</p>
-          <button class="ins-btn" onclick="location.href='insights/procurement-failure.html'">Read article →</button>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  var cur=0, total=3, timer;
+  function insGo(n){
+    cur=n;
+    var c=document.getElementById('insCarousel');
+    c.style.transform='translateX(-'+(cur*100)+'%)';
+    document.querySelectorAll('.ins-dot').forEach(function(d,i){d.classList.toggle('active',i===cur);});
+  }
+  window.insMove=function(d){insGo((cur+d+total)%total);resetTimer();};
+  window.insGo=function(n){insGo(n);resetTimer();};
+  function resetTimer(){clearInterval(timer);timer=setInterval(function(){insGo((cur+1)%total);},5000);}
+  resetTimer();
+})();
+</script>
 
 <!-- ════════ CTA BAND — dark navy ════════ -->
 <section class="cta-band" aria-labelledby="cta-heading">
