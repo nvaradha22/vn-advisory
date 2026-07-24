@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industries — VN Advisory</title>
+<meta name="description" content="VN Advisory works across manufacturing, commodities & trading, logistics, procurement-driven businesses, and infrastructure. Sector-specific supply chain and procurement intelligence.">
+<link rel="canonical" href="https://vnadvisory.in/industries.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23080f24'/%3E%3Ctext x='50' y='62' font-family='Georgia,serif' font-size='42' font-weight='600' fill='%23C4982E' text-anchor='middle'%3EVN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#fff;color:#111827;font-family:'DM Sans',system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+:root{--navy:#080f24;--gold:#C4982E;--gold-lt:rgba(196,152,46,.10);--cream:#f8f7f4;--border:#e5e7eb;--serif:'Cormorant Garamond',Georgia,serif;--ink-muted:#6b7280;--ink-mid:#374151}
+
+/* NAV */
+.vn-nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:68px;background:rgba(255,255,255,.97);border-bottom:1px solid var(--border);backdrop-filter:blur(8px)}
+.nav-logo-vn{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--navy);letter-spacing:4px;line-height:1}
+.nav-logo-sub{font-size:7.5px;letter-spacing:3.5px;color:var(--gold);text-transform:uppercase;margin-top:-2px;display:block}
+.nav-divider{width:1px;height:24px;background:var(--border);margin:0 24px}
+.nav-links{display:flex;align-items:center;list-style:none;height:68px}
+.nav-item{position:relative;height:68px;display:flex;align-items:center}
+.nav-link{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink-muted);padding:0 16px;height:68px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
+.nav-link:hover,.nav-item.active .nav-link{color:var(--navy);border-bottom-color:var(--gold)}
+.nav-cta{padding:9px 22px;background:var(--navy);color:#fff;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;border:none;transition:background .25s}
+.nav-cta:hover{background:#0d1b3e}
+.nav-item:hover .nav-dropdown{display:block}
+.nav-dropdown{display:none;position:absolute;top:68px;left:0;background:#fff;border:1px solid var(--border);border-top:2px solid var(--gold);min-width:230px;padding:8px 0;z-index:300;box-shadow:0 8px 32px rgba(0,0,0,.08)}
+.nav-dropdown a{display:block;padding:10px 20px;font-size:12px;color:var(--ink-mid);transition:color .15s,background .15s}
+.nav-dropdown a:hover{color:var(--gold);background:var(--cream)}
+.mob-toggle{display:none;background:none;border:1px solid var(--border);color:var(--navy);width:36px;height:36px;font-size:20px;align-items:center;justify-content:center}
+.mob-menu{display:none;position:fixed;inset:0;background:#fff;z-index:500;flex-direction:column;padding:80px 32px 32px;overflow-y:auto}
+.mob-menu.open{display:flex}
+.mob-close{position:absolute;top:18px;right:20px;background:none;border:none;color:var(--navy);font-size:28px}
+.mob-menu a{display:block;padding:14px 0;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-mid);border-bottom:1px solid var(--border)}
+.mob-menu a:hover{color:var(--gold)}
+
+/* PAGE HERO */
+.page-hero{background:var(--navy);padding:80px 0 72px;position:relative;overflow:hidden}
+.page-hero::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),rgba(196,152,46,0) 70%)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 56px}
+.page-eyebrow{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.page-title{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3.6rem);font-weight:300;color:#fff;line-height:1.08;margin-bottom:20px}
+.page-title em{font-style:italic;color:var(--gold)}
+.page-sub{font-size:.88rem;color:rgba(255,255,255,.45);max-width:560px;line-height:1.9}
+
+/* INDUSTRY TABS */
+.ind-section{padding:0;background:#fff}
+.ind-subnav{position:sticky;top:68px;z-index:100;background:#fff;border-bottom:1px solid var(--border)}
+.ind-subnav-inner{max-width:1160px;margin:0 auto;padding:0 56px;display:flex;overflow-x:auto}
+.ind-tab{padding:18px 24px;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#9ca3af;border-bottom:2px solid transparent;background:none;border-top:none;border-left:none;border-right:none;transition:all .2s;white-space:nowrap;cursor:pointer}
+.ind-tab:hover,.ind-tab.active{color:var(--navy);border-bottom-color:var(--gold)}
+
+/* PANELS */
+.ind-panels{padding:64px 0 96px}
+.ind-panel{display:none}
+.ind-panel.active{display:grid;grid-template-columns:1fr 320px;gap:64px;align-items:start}
+.ind-number{font-family:var(--serif);font-size:5rem;font-weight:300;color:rgba(196,152,46,.12);line-height:1;margin-bottom:-8px}
+.ind-eyebrow{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:#4b5563;margin-bottom:12px}
+.ind-summary{font-family:var(--serif);font-size:clamp(1.5rem,2.4vw,2rem);font-weight:300;color:var(--navy);line-height:1.25;margin-bottom:20px}
+.ind-body{font-size:.88rem;color:var(--ink-muted);line-height:1.9;margin-bottom:36px;max-width:580px}
+.ind-caps{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+.ind-cap{background:#fff;padding:24px;border-left:3px solid transparent;transition:border-color .2s}
+.ind-cap:hover{border-left-color:var(--gold)}
+.ind-cap h4{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:8px}
+.ind-cap p{font-size:.78rem;color:var(--ink-muted);line-height:1.75}
+
+/* SIDEBAR */
+.ind-sidebar{display:flex;flex-direction:column;gap:16px}
+.ind-side-card{border:1px solid var(--border);padding:24px}
+.ind-side-h{font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:#4b5563;margin-bottom:16px}
+.ind-side-item{font-size:.8rem;color:var(--ink-mid);padding:8px 0;display:flex;gap:10px;border-bottom:1px solid var(--border)}
+.ind-side-item:last-child{border-bottom:none}
+.ind-side-item::before{content:'→';color:var(--gold);flex-shrink:0}
+.ind-side-item a{color:var(--ink-mid);transition:color .2s}
+.ind-side-item a:hover{color:var(--gold)}
+.btn-gold{padding:11px 22px;background:var(--gold);color:var(--navy);font-size:9.5px;letter-spacing:1.8px;text-transform:uppercase;font-weight:500;border:none;display:inline-block;transition:background .2s;cursor:pointer}
+.btn-gold:hover{background:#b08828}
+
+/* ALL INDUSTRIES GRID */
+.all-industries{background:var(--cream);padding:72px 0;border-top:1px solid var(--border)}
+.ind-overview-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:40px}
+.ind-overview-card{background:var(--cream);padding:32px 24px;border-left:3px solid transparent;transition:border-color .2s,background .2s;cursor:pointer}
+.ind-overview-card:hover,.ind-overview-card.active-card{border-left-color:var(--gold);background:#fff}
+.ioc-num{font-family:var(--serif);font-size:2rem;font-weight:300;color:rgba(196,152,46,.25);line-height:1;margin-bottom:12px}
+.ioc-name{font-family:var(--serif);font-size:1.05rem;font-weight:400;color:var(--navy);margin-bottom:8px;line-height:1.2}
+.ioc-desc{font-size:.75rem;color:var(--ink-muted);line-height:1.7}
+
+/* CTA */
+.cta-band{background:var(--navy);padding:80px 0;text-align:center;position:relative}
+.cta-band::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 10%,var(--gold) 50%,transparent 90%)}
+.cta-band h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;color:#fff;margin-bottom:16px;line-height:1.15}
+.cta-band h2 em{font-style:italic;color:var(--gold)}
+.cta-band p{font-size:.88rem;color:rgba(255,255,255,.45);max-width:440px;margin:0 auto 36px;line-height:1.9}
+
+/* FOOTER */
+.footer{background:#050a1a;border-top:1px solid rgba(255,255,255,.06);padding:48px 0 24px}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.f-logo-vn{font-family:var(--serif);font-size:22px;font-weight:600;color:#fff;letter-spacing:4px}
+.f-logo-sub{font-size:7.5px;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+.f-desc{font-size:.78rem;color:rgba(255,255,255,.38);line-height:1.8;margin:16px 0}
+.f-social{display:flex;gap:8px}
+.f-social a{width:34px;height:34px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.35);transition:all .2s}
+.f-social a:hover{border-color:var(--gold);color:var(--gold)}
+.footer-col h4{font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:8px}
+.footer-col a{font-size:.78rem;color:rgba(255,255,255,.38);transition:color .2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.7rem;color:rgba(255,255,255,.22)}
+.footer-bottom a{color:rgba(255,255,255,.22)}.footer-bottom a:hover{color:var(--gold)}
+.back-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#fff;border:1px solid var(--border);color:var(--navy);font-size:16px;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .25s;z-index:100}
+.back-top.show{opacity:1;visibility:visible}
+.back-top:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+@media(max-width:1024px){
+  .vn-nav,.wrap,.ind-subnav-inner,.footer-grid{padding-left:32px;padding-right:32px}
+  .ind-panel.active{grid-template-columns:1fr;gap:40px}
+  .ind-sidebar{display:none}
+  .ind-overview-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-divider,.nav-cta{display:none}
+  .mob-toggle{display:flex}
+  .vn-nav{padding:0 20px;height:58px}
+  .wrap,.ind-subnav-inner{padding:0 20px}
+  .ind-caps{grid-template-columns:1fr}
+  .ind-overview-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:24px}
+  .footer-bottom{flex-direction:column;align-items:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="vn-nav">
+  <a href="index.html"><div><div class="nav-logo-vn">VN</div><div class="nav-logo-sub">Advisory</div></div></a>
+  <div class="nav-divider"></div>
+  <ul class="nav-links">
+    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+    <li class="nav-item">
+      <a href="services.html" class="nav-link">What We Do</a>
+      <div class="nav-dropdown">
+        <a href="services.html#supply-chain">Supply Chain Risk</a>
+        <a href="services.html#procurement">Procurement Strategy</a>
+        <a href="services.html#ai">AI & Digital</a>
+        <a href="services.html#cbam">Carbon & CBAM</a>
+        <a href="services.html#war-risk">War Risk & Marine</a>
+        <a href="services.html#commodities">Commodity Intelligence</a>
+      </div>
+    </li>
+    <li class="nav-item active"><a href="industries.html" class="nav-link">Industries</a></li>
+    <li class="nav-item"><a href="insights.html" class="nav-link">Our Thinking</a></li>
+    <li class="nav-item"><a href="tools.html" class="nav-link">Tools</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:12px">
+    <a href="contact.html" class="nav-cta">Contact us</a>
+    <button class="mob-toggle" onclick="toggleMob()">☰</button>
+  </div>
+</nav>
+<div class="mob-menu" id="mob-menu">
+  <button class="mob-close" onclick="toggleMob()">×</button>
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">What We Do</a><a href="industries.html">Industries</a><a href="insights.html">Our Thinking</a><a href="tools.html">Tools</a><a href="contact.html">Contact</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="page-eyebrow">Industries</div>
+    <h1 class="page-title">Advisory built for<br><em>sector realities.</em></h1>
+    <p class="page-sub">Every industry has supply chain and procurement dynamics that generic frameworks miss. We work from the specifics — not from templates.</p>
+  </div>
+</section>
+
+<!-- STICKY SUB-NAV -->
+<div class="ind-subnav">
+  <div class="ind-subnav-inner">
+    <button class="ind-tab active" onclick="showInd(0)">Manufacturing</button>
+    <button class="ind-tab" onclick="showInd(1)">Commodities & Trading</button>
+    <button class="ind-tab" onclick="showInd(2)">Logistics & Freight</button>
+    <button class="ind-tab" onclick="showInd(3)">Procurement-Driven</button>
+    <button class="ind-tab" onclick="showInd(4)">Infrastructure & Construction</button>
+  </div>
+</div>
+
+<!-- PANELS -->
+<section class="ind-section">
+  <div class="ind-panels">
+    <div class="wrap">
+
+      <!-- 01 Manufacturing -->
+      <div class="ind-panel active" id="ind-0">
+        <div>
+          <div class="ind-number">01</div>
+          <div class="ind-eyebrow">Manufacturing</div>
+          <h2 class="ind-summary">Steel, aluminium, FMCG, chemicals — from China+1 transitions to multi-regional network design and CBAM-driven cost restructuring.</h2>
+          <p class="ind-body">Manufacturers are operating in conditions their existing footprint was not designed for: demand volatility, supplier concentration risk that has shifted but not disappeared, and a carbon cost layer arriving via CBAM that most internal estimates have understated. We work on the structural decisions — network design, supplier ecosystem, carbon strategy — not dashboards.</p>
+          <div class="ind-caps">
+            <div class="ind-cap"><h4>Network Redesign</h4><p>Multi-regional manufacturing footprint review balancing cost, risk, and market access — including China+1 transitions.</p></div>
+            <div class="ind-cap"><h4>CBAM Compliance</h4><p>Product-level carbon framing for EU-bound steel and aluminium — turning compliance into a sourcing decision input.</p></div>
+            <div class="ind-cap"><h4>Production Planning</h4><p>Demand-driven scheduling that accounts for supplier reliability, capacity constraints, and forecasting limits.</p></div>
+            <div class="ind-cap"><h4>Supplier Ecosystem</h4><p>Systematic qualification of alternative suppliers in new geographies — built before disruption forces it.</p></div>
+          </div>
+        </div>
+        <div class="ind-sidebar">
+          <div class="ind-side-card">
+            <div class="ind-side-h">Related Practice Areas</div>
+            <div class="ind-side-item"><a href="services.html#supply-chain">Supply Chain Risk Governance</a></div>
+            <div class="ind-side-item"><a href="services.html#procurement">Procurement Strategy</a></div>
+            <div class="ind-side-item"><a href="services.html#cbam">Carbon & Trade Compliance</a></div>
+            <div class="ind-side-item"><a href="services.html#ai">AI & Digital Transformation</a></div>
+          </div>
+          <div class="ind-side-card">
+            <div class="ind-side-h">Related Reading</div>
+            <div class="ind-side-item"><a href="insights/cbam-cost-architecture.html">CBAM: What Exporters Need to Quantify</a></div>
+            <div class="ind-side-item"><a href="insights/china-plus-one.html">China+1 Sourcing: Operational Requirements</a></div>
+          </div>
+          <div class="ind-side-card" style="background:var(--navy);border-color:var(--navy)">
+            <div class="ind-side-h" style="color:rgba(255,255,255,.4)">Start here</div>
+            <p style="font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:16px">If your manufacturing footprint or CBAM exposure is the issue, start with a diagnostic.</p>
+            <a href="contact.html" class="btn-gold">Request a Diagnostic</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 Commodities & Trading -->
+      <div class="ind-panel" id="ind-1">
+        <div>
+          <div class="ind-number">02</div>
+          <div class="ind-eyebrow">Commodities & Trading</div>
+          <h2 class="ind-summary">Metal trading, agri-commodities, energy — price risk, trade corridor optimisation, and counterparty governance.</h2>
+          <p class="ind-body">Commodity trading houses operate with information asymmetry as the edge. Real-time pricing inputs, geopolitical risk signals, freight cost volatility, and a CBAM cost layer that affects deal economics all need to be reasoned about together. We work on the intelligence infrastructure and the decisions it informs — not on reporting layers.</p>
+          <div class="ind-caps">
+            <div class="ind-cap"><h4>Price Risk Framing</h4><p>Steel, aluminium, copper, crude, iron ore — price intelligence embedded in trade decisions, not parallel to them.</p></div>
+            <div class="ind-cap"><h4>Trade Corridor Analysis</h4><p>GCC–India–EU corridor mapping with freight cost, duty, and carbon cost framing for every realistic route option.</p></div>
+            <div class="ind-cap"><h4>Chokepoint Risk Scoring</h4><p>Red Sea, Hormuz, Malacca — disruption probability and impact framing for routing and insurance decisions.</p></div>
+            <div class="ind-cap"><h4>Carbon Cost Modelling</h4><p>CBAM cost per tonne per product — factored into trade P&L before execution, not after the contract is signed.</p></div>
+          </div>
+        </div>
+        <div class="ind-sidebar">
+          <div class="ind-side-card">
+            <div class="ind-side-h">Related Practice Areas</div>
+            <div class="ind-side-item"><a href="services.html#commodities">Commodity Market Intelligence</a></div>
+            <div class="ind-side-item"><a href="services.html#war-risk">War Risk & Marine Advisory</a></div>
+            <div class="ind-side-item"><a href="services.html#cbam">Carbon & Trade Compliance</a></div>
+          </div>
+          <div class="ind-side-card">
+            <div class="ind-side-h">Related Reading</div>
+            <div class="ind-side-item"><a href="insights/steel-price-volatility.html">Steel Price Volatility: Options for Procurement</a></div>
+            <div class="ind-side-item"><a href="insights/red-sea-risk.html">Red Sea, Hormuz, Malacca: Risk Profiles</a></div>
+          </div>
+          <div class="ind-side-card" style="background:var(--navy);border-color:var(--navy)">
+            <div class="ind-side-h" style="color:rgba(255,255,255,.4)">Start here</div>
+            <p style="font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:16px">Discuss your commodity or trade corridor situation.</p>
+            <a href="contact.html" class="btn-gold">Request a Diagnostic</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 Logistics & Freight -->
+      <div class="ind-panel" id="ind-2">
+        <div>
+          <div class="ind-number">03</div>
+          <div class="ind-eyebrow">Logistics & Freight</div>
+          <h2 class="ind-summary">Ocean, air, road freight — carrier strategy, route risk management, chokepoint monitoring, and contract governance.</h2>
+          <p class="ind-body">Logistics is no longer a back-office function. War risk surcharges, port congestion, and regulatory changes have made freight a strategic line item. We work on carrier strategy, route risk, freight cost governance, and the contract terms that determine who carries risk when something goes wrong.</p>
+          <div class="ind-caps">
+            <div class="ind-cap"><h4>Carrier Strategy</h4><p>Carrier selection and performance frameworks — moving beyond rate negotiation to total cost and reliability.</p></div>
+            <div class="ind-cap"><h4>Route Risk Management</h4><p>Pre-designed routing alternatives for critical corridors with cost and time impact understood in advance.</p></div>
+            <div class="ind-cap"><h4>Freight Audit</h4><p>Spend visibility and audit design — recovering value from the gap between contracted and billed amounts.</p></div>
+            <div class="ind-cap"><h4>Contract Governance</h4><p>Force majeure clauses, surcharge mechanisms, and liability allocation built for the current risk environment.</p></div>
+          </div>
+        </div>
+        <div class="ind-sidebar">
+          <div class="ind-side-card">
+            <div class="ind-side-h">Related Practice Areas</div>
+            <div class="ind-side-item"><a href="services.html#war-risk">War Risk & Marine Advisory</a></div>
+            <div class="ind-side-item"><a href="services.html#supply-chain">Supply Chain Risk Governance</a></div>
+            <div class="ind-side-item"><a href="services.html#commodities">Commodity Market Intelligence</a></div>
+          </div>
+          <div class="ind-side-card">
+            <div class="ind-side-h">Related Reading</div>
+            <div class="ind-side-item"><a href="insights/red-sea-risk.html">Red Sea, Hormuz, Malacca: Risk Profiles</a></div>
+            <div class="ind-side-item"><a href="insights/supply-chain-geopolitics.html">Supply Chain Restructuring Under Geopolitical Pressure</a></div>
+          </div>
+          <div class="ind-side-card" style="background:var(--navy);border-color:var(--navy)">
+            <div class="ind-side-h" style="color:rgba(255,255,255,.4)">Start here</div>
+            <p style="font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:16px">Discuss your freight or route risk situation.</p>
+            <a href="contact.html" class="btn-gold">Request a Diagnostic</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 Procurement-Driven -->
+      <div class="ind-panel" id="ind-3">
+        <div>
+          <div class="ind-number">04</div>
+          <div class="ind-eyebrow">Procurement-Driven Businesses</div>
+          <h2 class="ind-summary">Large buyers across sectors — strategic sourcing, supplier intelligence, category strategy, and contract governance.</h2>
+          <p class="ind-body">Some businesses live or die on procurement: hospitality groups, healthcare systems, large retailers, infrastructure operators. We focus on structural improvements — spend visibility, category strategy, supplier governance, and the technology architecture that supports it. Not systems implementations. Decisions.</p>
+          <div class="ind-caps">
+            <div class="ind-cap"><h4>Spend Analysis & Category Strategy</h4><p>Comprehensive spend visibility with category strategy that distinguishes commodity buying from strategic sourcing.</p></div>
+            <div class="ind-cap"><h4>Supplier Intelligence</h4><p>Frameworks for supplier financial health, performance, and risk monitoring — operational signals, not annual reviews.</p></div>
+            <div class="ind-cap"><h4>Contract Governance</h4><p>Contract structures that allocate risk appropriately — and the governance to enforce them when conditions change.</p></div>
+            <div class="ind-cap"><h4>Source-to-Pay Architecture</h4><p>Technology selection grounded in operational reality, not vendor pitch decks.</p></div>
+          </div>
+        </div>
+        <div class="ind-sidebar">
+          <div class="ind-side-card">
+            <div class="ind-side-h">Related Practice Areas</div>
+            <div class="ind-side-item"><a href="services.html#procurement">Procurement Strategy</a></div>
+            <div class="ind-side-item"><a href="services.html#supply-chain">Supply Chain Risk Governance</a></div>
+            <div class="ind-side-item"><a href="services.html#ai">AI & Digital Transformation</a></div>
+          </div>
+          <div class="ind-side-card">
+            <div class="ind-side-h">Related Reading</div>
+            <div class="ind-side-item"><a href="insights/procurement-failure.html">Procurement Transformation: Common Failures</a></div>
+            <div class="ind-side-item"><a href="insights/ai-procurement.html">Moving AI from Pilot to Production</a></div>
+          </div>
+          <div class="ind-side-card" style="background:var(--navy);border-color:var(--navy)">
+            <div class="ind-side-h" style="color:rgba(255,255,255,.4)">Start here</div>
+            <p style="font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:16px">Discuss your procurement transformation.</p>
+            <a href="contact.html" class="btn-gold">Request a Diagnostic</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 Infrastructure & Construction -->
+      <div class="ind-panel" id="ind-4">
+        <div>
+          <div class="ind-number">05</div>
+          <div class="ind-eyebrow">Infrastructure & Construction</div>
+          <h2 class="ind-summary">Projects, MEP, capital goods — materials sourcing, subcontractor risk, and project procurement governance.</h2>
+          <p class="ind-body">Project businesses face procurement and supply chain problems that are different in kind, not degree. Materials price volatility hits project cash flow directly. Subcontractor financial health is rarely systematically monitored. We work on the specific operational realities of project environments — not corporate procurement templates applied to project conditions.</p>
+          <div class="ind-caps">
+            <div class="ind-cap"><h4>Materials Sourcing Strategy</h4><p>Sourcing strategy for project-critical materials — accounting for price volatility, lead time risk, and trade route exposure.</p></div>
+            <div class="ind-cap"><h4>Subcontractor Risk</h4><p>Financial health monitoring and performance management — before insolvency surfaces during a critical phase.</p></div>
+            <div class="ind-cap"><h4>Project Procurement Process</h4><p>Procurement process design aligned with project delivery realities, not corporate procurement templates.</p></div>
+            <div class="ind-cap"><h4>Logistics Risk Assessment</h4><p>Trade route and chokepoint analysis for the specific corridors serving your projects — contingency routing built in.</p></div>
+          </div>
+        </div>
+        <div class="ind-sidebar">
+          <div class="ind-side-card">
+            <div class="ind-side-h">Related Practice Areas</div>
+            <div class="ind-side-item"><a href="services.html#procurement">Procurement Strategy</a></div>
+            <div class="ind-side-item"><a href="services.html#supply-chain">Supply Chain Risk Governance</a></div>
+            <div class="ind-side-item"><a href="services.html#commodities">Commodity Intelligence</a></div>
+          </div>
+          <div class="ind-side-card">
+            <div class="ind-side-h">Related Reading</div>
+            <div class="ind-side-item"><a href="insights/steel-price-volatility.html">Steel Price Volatility: Options for Procurement</a></div>
+            <div class="ind-side-item"><a href="insights/procurement-failure.html">Procurement Transformation: Common Failures</a></div>
+          </div>
+          <div class="ind-side-card" style="background:var(--navy);border-color:var(--navy)">
+            <div class="ind-side-h" style="color:rgba(255,255,255,.4)">Start here</div>
+            <p style="font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:16px">Discuss your project procurement or materials challenge.</p>
+            <a href="contact.html" class="btn-gold">Request a Diagnostic</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ALL INDUSTRIES OVERVIEW -->
+<section class="all-industries">
+  <div class="wrap">
+    <div class="page-eyebrow" style="color:#4b5563">All Sectors</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.6rem,2.4vw,2.2rem);font-weight:300;color:var(--navy);margin-top:8px">Five industries. One <em style="font-style:italic;color:var(--gold)">corridor.</em></h2>
+    <div class="ind-overview-grid">
+      <div class="ind-overview-card active-card" onclick="showInd(0);document.querySelector('.ind-subnav').scrollIntoView({behavior:'smooth'})">
+        <div class="ioc-num">01</div>
+        <div class="ioc-name">Manufacturing</div>
+        <div class="ioc-desc">Steel, aluminium, FMCG, chemicals. Network redesign, CBAM, China+1.</div>
+      </div>
+      <div class="ind-overview-card" onclick="showInd(1);document.querySelector('.ind-subnav').scrollIntoView({behavior:'smooth'})">
+        <div class="ioc-num">02</div>
+        <div class="ioc-name">Commodities & Trading</div>
+        <div class="ioc-desc">Metals, agri, energy. Price risk, trade corridors, chokepoint intelligence.</div>
+      </div>
+      <div class="ind-overview-card" onclick="showInd(2);document.querySelector('.ind-subnav').scrollIntoView({behavior:'smooth'})">
+        <div class="ioc-num">03</div>
+        <div class="ioc-name">Logistics & Freight</div>
+        <div class="ioc-desc">Ocean, air, road. Carrier strategy, route risk, contract governance.</div>
+      </div>
+      <div class="ind-overview-card" onclick="showInd(3);document.querySelector('.ind-subnav').scrollIntoView({behavior:'smooth'})">
+        <div class="ioc-num">04</div>
+        <div class="ioc-name">Procurement-Driven</div>
+        <div class="ioc-desc">Large buyers. Category strategy, supplier intelligence, source-to-pay.</div>
+      </div>
+      <div class="ind-overview-card" onclick="showInd(4);document.querySelector('.ind-subnav').scrollIntoView({behavior:'smooth'})">
+        <div class="ioc-num">05</div>
+        <div class="ioc-name">Infrastructure</div>
+        <div class="ioc-desc">Projects, MEP, capital goods. Materials sourcing, subcontractor risk.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Not sure which sector<br><em>framing fits?</em></h2>
+    <p>Most engagements start with a diagnostic call — no agenda, no pitch. Tell us what you are dealing with.</p>
+    <a href="contact.html" class="btn-gold">Request a Diagnostic</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="f-logo-vn">VN</div><div class="f-logo-sub">Advisory</div>
+        <p class="f-desc">Senior advisory for CXOs across supply chain, procurement, and AI strategy. GCC–India corridor specialists.</p>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/vn-advisory" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:15px;height:15px"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14M8.5 18v-8H6v8h2.5M7.25 8.85a1.45 1.45 0 100-2.9 1.45 1.45 0 000 2.9M18 18v-4.55c0-2.07-1.13-3.05-2.75-3.05a2.4 2.4 0 00-2.17 1.18V10.5h-2.5V18h2.5v-4.05c0-1.07.5-1.7 1.45-1.7s1.45.63 1.45 1.7V18H18z"/></svg>
+          </a>
+          <a href="mailto:info@vnadvisory.in" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="width:15px;height:15px"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 7l9 6 9-6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">What We Do</a></li><li><a href="industries.html">Industries</a></li><li><a href="insights.html">Our Thinking</a></li><li><a href="tools.html">Tools</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Practice Areas</h4><ul><li><a href="services.html#supply-chain">Supply Chain Risk</a></li><li><a href="services.html#procurement">Procurement Strategy</a></li><li><a href="services.html#ai">AI & Digital</a></li><li><a href="services.html#cbam">Carbon & CBAM</a></li><li><a href="services.html#war-risk">War Risk & Marine</a></li><li><a href="services.html#commodities">Commodities</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:info@vnadvisory.in">info@vnadvisory.in</a></li><li><a href="https://www.linkedin.com/company/vn-advisory" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 VN Advisory · Chennai, India · All rights reserved.</span>
+      <span style="display:flex;gap:20px"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleMob(){
+  const m=document.getElementById('mob-menu');
+  document.body.style.overflow=m.classList.toggle('open')?'hidden':'';
+}
+function showInd(n){
+  document.querySelectorAll('.ind-panel').forEach((p,i)=>p.classList.toggle('active',i===n));
+  document.querySelectorAll('.ind-tab').forEach((t,i)=>t.classList.toggle('active',i===n));
+  document.querySelectorAll('.ind-overview-card').forEach((c,i)=>c.classList.toggle('active-card',i===n));
+}
+window.addEventListener('scroll',()=>document.getElementById('back-top').classList.toggle('show',scrollY>400),{passive:true});
+</script>
+</body>
+</html>
