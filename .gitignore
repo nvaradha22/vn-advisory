@@ -1,0 +1,15 @@
+# Exclude large raw video files — keep only hero.mp4
+assets/videos/12215489_1920_1080_30fps.mp4
+assets/videos/12291686_3840_2160_30fps.mp4
+assets/videos/13751607_3840_2160_50fps.mp4
+assets/videos/14052551_3840_2160_60fps.mp4
+assets/videos/14838738_3840_2160_30fps.mp4
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# OS
+.DS_Store
+Thumbs.db

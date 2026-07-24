@@ -171,6 +171,11 @@ button{font-family:inherit;cursor:pointer}
 .hero-stat-lbl{font-size:9px;letter-spacing:1.8px;text-transform:uppercase;color:rgba(255,255,255,.4)}
 .hero-stat-div{width:1px;height:36px;background:rgba(255,255,255,.12);margin-right:32px;flex-shrink:0}
 
+/* Hero pillars */
+.hero-pillars{display:flex;gap:40px;flex-wrap:wrap;padding-top:36px;border-top:1px solid rgba(255,255,255,.08)}
+.pillar-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.pillar-val{font-size:.78rem;color:rgba(255,255,255,.45);line-height:1.7}
+
 /* Spotlight — bottom right */
 .hero-spotlight{
   position:absolute;right:0;bottom:0;z-index:3;
@@ -440,6 +445,7 @@ button{font-family:inherit;cursor:pointer}
 }
 @media(max-width:480px){
   .services-grid{grid-template-columns:1fr}
+  .hero-pillars{flex-direction:column;gap:20px}
   .hero-actions{flex-direction:column;align-items:flex-start}
   .cta-actions{flex-direction:column;align-items:center}
   .stat-val{font-size:1.8rem}
