@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tools — VN Advisory</title>
+<meta name="description" content="Free CBAM liability calculator. Estimate your Carbon Border Adjustment Mechanism exposure for EU-bound exports from India and GCC.">
+<link rel="canonical" href="https://vnadvisory.in/tools.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23080f24'/%3E%3Ctext x='50' y='62' font-family='Georgia,serif' font-size='42' font-weight='600' fill='%23C4982E' text-anchor='middle'%3EVN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#fff;color:#111827;font-family:'DM Sans',system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+:root{
+  --navy:#080f24;--gold:#C4982E;--gold-lt:rgba(196,152,46,.10);
+  --ink:#111827;--ink-mid:#374151;--ink-muted:#6b7280;
+  --cream:#f8f7f4;--border:#e5e7eb;--serif:'Cormorant Garamond',Georgia,serif;
+}
+
+/* ── NAV ── */
+.vn-nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:68px;background:rgba(255,255,255,.97);border-bottom:1px solid var(--border);backdrop-filter:blur(8px)}
+.nav-logo{display:flex;align-items:center;flex-shrink:0}
+.nav-logo-vn{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--navy);letter-spacing:4px;line-height:1}
+.nav-logo-sub{font-size:7.5px;letter-spacing:3.5px;color:var(--gold);text-transform:uppercase;margin-top:-2px;display:block}
+.nav-divider{width:1px;height:24px;background:var(--border);margin:0 24px}
+.nav-links{display:flex;align-items:center;list-style:none;height:68px}
+.nav-item{position:relative;height:68px;display:flex;align-items:center}
+.nav-link{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink-muted);padding:0 16px;height:68px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none}
+.nav-link:hover,.nav-item.active .nav-link{color:var(--navy);border-bottom-color:var(--gold)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-cta{padding:9px 22px;background:var(--navy);color:#fff;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;border:none;transition:background .25s}
+.nav-cta:hover{background:#0d1b3e}
+.nav-item:hover .nav-dropdown{display:block}
+.nav-dropdown{display:none;position:absolute;top:68px;left:0;background:#fff;border:1px solid var(--border);border-top:2px solid var(--gold);min-width:230px;padding:8px 0;z-index:300;box-shadow:0 8px 32px rgba(0,0,0,.08)}
+.nav-dropdown a{display:block;padding:10px 20px;font-size:12px;color:var(--ink-mid);transition:color .15s,background .15s}
+.nav-dropdown a:hover{color:var(--gold);background:var(--cream)}
+.mob-toggle{display:none;background:none;border:1px solid var(--border);color:var(--navy);width:36px;height:36px;font-size:20px;align-items:center;justify-content:center}
+.mob-menu{display:none;position:fixed;inset:0;background:#fff;z-index:500;flex-direction:column;padding:80px 32px 32px;overflow-y:auto}
+.mob-menu.open{display:flex}
+.mob-close{position:absolute;top:18px;right:20px;background:none;border:none;color:var(--navy);font-size:28px}
+.mob-menu a{display:block;padding:14px 0;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-mid);border-bottom:1px solid var(--border)}
+.mob-menu a:hover{color:var(--gold)}
+
+/* ── PAGE HERO ── */
+.page-hero{background:var(--navy);padding:80px 0 72px;position:relative;overflow:hidden}
+.page-hero::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),rgba(196,152,46,0) 70%)}
+.page-hero-wrap{max-width:1160px;margin:0 auto;padding:0 56px}
+.page-eyebrow{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.page-title{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3.6rem);font-weight:300;color:#fff;line-height:1.08;margin-bottom:20px}
+.page-title em{font-style:italic;color:var(--gold)}
+.page-sub{font-size:.88rem;color:rgba(255,255,255,.45);max-width:560px;line-height:1.9}
+
+/* ── TOOLS GRID ── */
+.tools-intro{padding:72px 0 48px;background:#fff}
+.wrap{max-width:1160px;margin:0 auto;padding:0 56px}
+.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:48px}
+.tool-card{background:#fff;padding:32px;border-left:3px solid transparent;transition:border-color .2s,box-shadow .2s;cursor:pointer}
+.tool-card:hover,.tool-card.active-tool{border-left-color:var(--gold);box-shadow:inset 0 0 0 0 transparent}
+.tool-tag{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:#9ca3af;margin-bottom:14px}
+.tool-tag.free{color:var(--gold)}
+.tool-title{font-family:var(--serif);font-size:1.3rem;font-weight:400;color:var(--navy);margin-bottom:8px;line-height:1.2}
+.tool-desc{font-size:.8rem;color:var(--ink-muted);line-height:1.75}
+.tool-badge{display:inline-block;margin-top:14px;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;background:var(--gold-lt);color:var(--gold)}
+.tool-badge.soon{background:#f3f4f6;color:#9ca3af}
+
+/* ── CBAM CALCULATOR ── */
+.calc-section{padding:0 0 96px;background:#fff}
+.calc-header{padding:56px 0 40px;border-top:1px solid var(--border)}
+.calc-eyebrow{font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;color:#4b5563;margin-bottom:10px}
+.calc-h{font-family:var(--serif);font-size:clamp(1.8rem,2.8vw,2.4rem);font-weight:300;color:var(--navy);margin-bottom:12px}
+.calc-h em{font-style:italic;color:var(--gold)}
+.calc-sub{font-size:.85rem;color:var(--ink-muted);line-height:1.8;max-width:640px}
+
+.calc-wrap{display:grid;grid-template-columns:1fr 380px;gap:56px;align-items:start}
+
+/* form side */
+.calc-form{background:#fff;border:1px solid var(--border)}
+.calc-form-header{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.calc-form-title{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-mid)}
+.calc-form-body{padding:28px 24px;display:flex;flex-direction:column;gap:20px}
+.cf-field{display:flex;flex-direction:column;gap:6px}
+.cf-label{font-size:9px;letter-spacing:1.8px;text-transform:uppercase;color:#4b5563;display:flex;align-items:center;gap:8px}
+.cf-label span{font-size:9px;letter-spacing:0;text-transform:none;color:#9ca3af;font-style:italic}
+.cf-input,.cf-select{
+  width:100%;padding:10px 12px;border:1px solid var(--border);
+  font-family:'DM Sans',system-ui,sans-serif;font-size:.85rem;color:var(--navy);
+  background:#fff;outline:none;transition:border-color .2s;
+}
+.cf-input:focus,.cf-select:focus{border-color:var(--navy)}
+.cf-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;-webkit-appearance:none;appearance:none;cursor:pointer}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cf-input-wrap{position:relative}
+.cf-unit{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:.75rem;color:#9ca3af;pointer-events:none}
+.calc-btn{width:100%;padding:13px;background:var(--navy);color:#fff;font-size:10px;letter-spacing:2px;text-transform:uppercase;border:none;transition:background .25s;margin-top:4px}
+.calc-btn:hover{background:#0d1b3e}
+.calc-reset{background:none;border:none;font-size:.75rem;color:#9ca3af;text-align:center;display:block;width:100%;margin-top:8px;transition:color .2s}
+.calc-reset:hover{color:var(--ink-mid)}
+
+/* results side */
+.calc-results{position:sticky;top:88px}
+.result-panel{border:1px solid var(--border)}
+.result-top{background:var(--navy);padding:28px 28px 24px}
+.result-top-label{font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px}
+.result-top-amount{font-family:var(--serif);font-size:2.8rem;font-weight:300;color:#fff;line-height:1;margin-bottom:4px}
+.result-top-amount .currency{font-size:1.2rem;color:var(--gold);vertical-align:super;font-family:'DM Sans',system-ui,sans-serif;font-size:1rem;margin-right:4px}
+.result-top-sub{font-size:.75rem;color:rgba(255,255,255,.35)}
+
+.result-body{padding:24px 28px;background:#fff;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border)}
+.result-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--border)}
+.result-row:last-child{border-bottom:none}
+.result-key{font-size:.78rem;color:var(--ink-muted)}
+.result-val{font-size:.85rem;color:var(--navy);font-weight:500;text-align:right}
+.result-val.highlight{color:var(--gold)}
+
+.result-note{background:var(--cream);padding:18px 28px;font-size:.75rem;color:var(--ink-muted);line-height:1.7;border-top:1px solid var(--border)}
+.result-note strong{color:var(--navy)}
+
+.result-cta{padding:20px 28px;background:#fff;border-top:1px solid var(--border)}
+.result-cta p{font-size:.78rem;color:var(--ink-muted);line-height:1.7;margin-bottom:14px}
+.result-cta a{display:block;text-align:center;padding:11px;background:var(--gold);color:var(--navy);font-size:9.5px;letter-spacing:2px;text-transform:uppercase;font-weight:500;transition:background .2s}
+.result-cta a:hover{background:#b08828}
+
+/* placeholder state */
+.result-placeholder{padding:40px 28px;text-align:center}
+.placeholder-icon{width:48px;height:48px;border:1px solid var(--border);margin:0 auto 16px;display:flex;align-items:center;justify-content:center}
+.placeholder-icon svg{width:22px;height:22px;color:#d1d5db}
+.placeholder-text{font-size:.82rem;color:#9ca3af;line-height:1.7}
+
+/* methodology */
+.methodology{background:var(--cream);padding:64px 0}
+.method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:40px}
+.method-card{background:var(--cream);padding:28px 24px}
+.method-n{font-family:var(--serif);font-size:2rem;font-weight:300;color:rgba(196,152,46,.3);line-height:1;margin-bottom:10px}
+.method-title{font-size:.8rem;color:var(--navy);font-weight:500;margin-bottom:6px}
+.method-body{font-size:.75rem;color:var(--ink-muted);line-height:1.75}
+
+/* cbam sectors info */
+.info-band{padding:56px 0;background:#fff;border-top:1px solid var(--border)}
+.info-grid{display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start}
+.info-aside{font-family:var(--serif);font-size:1.6rem;font-weight:300;color:var(--navy);line-height:1.3}
+.info-aside em{font-style:italic;color:var(--gold)}
+.info-content{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+.sector-item{background:#fff;padding:18px 20px;display:flex;align-items:center;gap:14px;border-left:3px solid transparent;transition:border-color .2s}
+.sector-item:hover{border-left-color:var(--gold)}
+.sector-icon{font-size:1.3rem;width:36px;text-align:center;flex-shrink:0}
+.sector-name{font-size:.82rem;color:var(--navy);font-weight:500}
+.sector-code{font-size:.72rem;color:#9ca3af}
+
+/* disclaimer */
+.disclaimer{background:#f9fafb;border-top:1px solid var(--border);padding:28px 0}
+.disclaimer-text{font-size:.72rem;color:#9ca3af;line-height:1.8;max-width:880px}
+.disclaimer-text strong{color:#6b7280}
+
+/* ── FOOTER ── */
+.footer{background:#050a1a;border-top:1px solid rgba(255,255,255,.06);padding:64px 0 28px}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.f-logo-vn{font-family:var(--serif);font-size:22px;font-weight:600;color:#fff;letter-spacing:4px}
+.f-logo-sub{font-size:7.5px;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+.f-desc{font-size:.78rem;color:rgba(255,255,255,.38);line-height:1.8;margin:16px 0}
+.f-social{display:flex;gap:8px;margin-top:4px}
+.f-social a{width:34px;height:34px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.35);transition:all .2s}
+.f-social a:hover{border-color:var(--gold);color:var(--gold)}
+.f-social svg{width:15px;height:15px}
+.footer-col h4{font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:9px}
+.footer-col a,.footer-col li{font-size:.78rem;color:rgba(255,255,255,.38);transition:color .2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.7rem;color:rgba(255,255,255,.22)}
+.footer-bottom a{color:rgba(255,255,255,.22)}
+.footer-bottom a:hover{color:var(--gold)}
+
+.back-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#fff;border:1px solid var(--border);color:var(--navy);font-size:16px;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .25s;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.back-top.show{opacity:1;visibility:visible}
+.back-top:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+@media(max-width:1024px){
+  .vn-nav,.page-hero-wrap,.wrap,.footer-grid{padding-left:32px;padding-right:32px}
+  .calc-wrap{grid-template-columns:1fr}
+  .calc-results{position:static}
+  .tools-grid{grid-template-columns:1fr 1fr}
+  .method-grid{grid-template-columns:1fr 1fr}
+  .info-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-divider,.nav-cta{display:none}
+  .mob-toggle{display:flex}
+  .vn-nav{padding:0 20px;height:58px}
+  .page-hero-wrap,.wrap{padding:0 20px}
+  .tools-grid{grid-template-columns:1fr}
+  .cf-row{grid-template-columns:1fr}
+  .method-grid{grid-template-columns:1fr}
+  .info-content{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+  .footer-bottom{flex-direction:column;align-items:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="vn-nav">
+  <a href="index.html" class="nav-logo">
+    <div><div class="nav-logo-vn">VN</div><div class="nav-logo-sub">Advisory</div></div>
+  </a>
+  <div class="nav-divider"></div>
+  <ul class="nav-links">
+    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+    <li class="nav-item">
+      <a href="services.html" class="nav-link">What We Do</a>
+      <div class="nav-dropdown">
+        <a href="services.html#supply-chain">Supply Chain Risk</a>
+        <a href="services.html#procurement">Procurement Strategy</a>
+        <a href="services.html#ai">AI & Digital</a>
+        <a href="services.html#cbam">Carbon & CBAM</a>
+        <a href="services.html#war-risk">War Risk & Marine</a>
+        <a href="services.html#commodities">Commodity Intelligence</a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="insights.html" class="nav-link">Our Thinking</a></li>
+    <li class="nav-item active"><a href="tools.html" class="nav-link">Tools</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact.html" class="nav-cta">Contact us</a>
+    <button class="mob-toggle" onclick="toggleMob()">☰</button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mob-menu">
+  <button class="mob-close" onclick="toggleMob()">×</button>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">What We Do</a>
+  <a href="insights.html">Our Thinking</a>
+  <a href="tools.html">Tools</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-wrap">
+    <div class="page-eyebrow">Practical Tools</div>
+    <h1 class="page-title">Calculators for<br><em>complex trade realities.</em></h1>
+    <p class="page-sub">Free tools built from our advisory practice. Use them to estimate exposure, prepare for conversations with your board or counsel, and decide when to bring in expert support.</p>
+  </div>
+</section>
+
+<!-- TOOLS OVERVIEW -->
+<section class="tools-intro">
+  <div class="wrap">
+    <div class="page-eyebrow">Available Tools</div>
+    <div class="tools-grid">
+      <div class="tool-card active-tool">
+        <div class="tool-tag free">Free · Live</div>
+        <div class="tool-title">CBAM Assistant</div>
+        <div class="tool-desc">Full Carbon Border Adjustment Mechanism tool — estimate EU liability, model scenarios, and get sector-specific guidance. Covers all six regulated sectors.</div>
+        <a href="https://cbam.vnadvisory.in" target="_blank" rel="noopener" class="tool-badge" style="display:inline-block">Launch CBAM Assistant ↗</a>
+        <div style="margin-top:10px"><button onclick="document.getElementById('cbam-calc').scrollIntoView({behavior:'smooth'})" style="background:none;border:none;font-size:.75rem;color:#9ca3af;padding:0;cursor:pointer">or use quick estimator below ↓</button></div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-tag soon">Coming Soon</div>
+        <div class="tool-title">Landed Cost & Tariff Calculator</div>
+        <div class="tool-desc">Model total landed cost across GCC–India corridors including freight, duty, insurance, and port handling — by HS code.</div>
+        <div class="tool-badge soon">In development</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-tag soon">Coming Soon</div>
+        <div class="tool-title">War Risk Premium Benchmarker</div>
+        <div class="tool-desc">Compare indicative war risk and SRCC premiums for Red Sea, Persian Gulf, and Indian Ocean routing scenarios.</div>
+        <div class="tool-badge soon">In development</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CBAM CALCULATOR -->
+<section class="calc-section" id="cbam-calc">
+  <div class="wrap">
+    <div class="calc-header">
+      <div class="calc-eyebrow">CBAM Calculator · EU Regulation 2023/956</div>
+      <h2 class="calc-h">CBAM <em>Liability Estimator</em></h2>
+      <p class="calc-sub">Enter your export details below to estimate annual CBAM certificate liability. Figures are indicative — based on default embedded emission factors and current ETS carbon price. For verified reporting, actual production emissions must be used.</p>
+      <div style="display:inline-flex;align-items:center;gap:16px;margin-top:24px;padding:16px 24px;background:var(--gold-lt);border:1px solid rgba(196,152,46,.25)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" style="width:20px;height:20px;flex-shrink:0"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        <div>
+          <div style="font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:2px">Full Tool Available</div>
+          <div style="font-size:.82rem;color:var(--navy)">Use the <a href="https://cbam.vnadvisory.in" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid rgba(196,152,46,.4)">CBAM Assistant ↗</a> for scenario modelling, sector benchmarks, and detailed reporting guidance.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-wrap">
+      <!-- FORM -->
+      <div>
+        <div class="calc-form">
+          <div class="calc-form-header">
+            <span class="calc-form-title">Inputs</span>
+            <span style="font-size:.72rem;color:#9ca3af">All fields required for base estimate</span>
+          </div>
+          <div class="calc-form-body">
+
+            <div class="cf-field">
+              <label class="cf-label">Sector / Product <span>Select your primary exported product category</span></label>
+              <select class="cf-select" id="sector" onchange="updateDefaults()">
+                <option value="">— Select sector —</option>
+                <optgroup label="CBAM Regulated Sectors">
+                  <option value="steel_flat" data-ef="1.89" data-unit="t CO₂e / tonne">Steel — Flat Products (hot-rolled coil, cold-rolled)</option>
+                  <option value="steel_long" data-ef="1.76" data-unit="t CO₂e / tonne">Steel — Long Products (rebar, wire rod, sections)</option>
+                  <option value="iron_pig" data-ef="1.45" data-unit="t CO₂e / tonne">Iron — Pig Iron / Direct Reduced Iron (DRI)</option>
+                  <option value="aluminium_primary" data-ef="6.72" data-unit="t CO₂e / tonne">Aluminium — Primary (smelted)</option>
+                  <option value="aluminium_secondary" data-ef="0.61" data-unit="t CO₂e / tonne">Aluminium — Secondary / Recycled</option>
+                  <option value="cement_clinker" data-ef="0.83" data-unit="t CO₂e / tonne">Cement — Clinker</option>
+                  <option value="cement_grey" data-ef="0.73" data-unit="t CO₂e / tonne">Cement — Grey Cement (OPC)</option>
+                  <option value="fertiliser_urea" data-ef="2.28" data-unit="t CO₂e / tonne">Fertilisers — Urea</option>
+                  <option value="fertiliser_ammonia" data-ef="1.94" data-unit="t CO₂e / tonne">Fertilisers — Ammonia</option>
+                  <option value="fertiliser_nitric" data-ef="8.90" data-unit="t CO₂e / tonne">Fertilisers — Nitric Acid</option>
+                  <option value="hydrogen" data-ef="10.00" data-unit="t CO₂e / tonne">Hydrogen (grey / SMR-based)</option>
+                  <option value="electricity" data-ef="0.000" data-unit="t CO₂e / MWh">Electricity</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="cf-row">
+              <div class="cf-field">
+                <label class="cf-label">Annual Export Volume <span>to EU</span></label>
+                <div class="cf-input-wrap">
+                  <input type="number" class="cf-input" id="volume" placeholder="e.g. 10000" min="0" step="100">
+                  <span class="cf-unit" id="vol-unit">tonnes</span>
+                </div>
+              </div>
+              <div class="cf-field">
+                <label class="cf-label">Embedded Emissions <span>t CO₂e / tonne; default auto-fills</span></label>
+                <div class="cf-input-wrap">
+                  <input type="number" class="cf-input" id="emission-factor" placeholder="auto" step="0.01" min="0">
+                  <span class="cf-unit">t CO₂e</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="cf-row">
+              <div class="cf-field">
+                <label class="cf-label">EU ETS Carbon Price <span>€ / t CO₂e</span></label>
+                <div class="cf-input-wrap">
+                  <input type="number" class="cf-input" id="ets-price" value="65" min="0" step="1">
+                  <span class="cf-unit">€ / t</span>
+                </div>
+              </div>
+              <div class="cf-field">
+                <label class="cf-label">Carbon Price Paid <span>in country of origin</span></label>
+                <div class="cf-input-wrap">
+                  <input type="number" class="cf-input" id="carbon-paid" value="0" min="0" step="1">
+                  <span class="cf-unit">€ / t</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="cf-field">
+              <label class="cf-label">Phase-in Year <span>determines applicable % of liability</span></label>
+              <select class="cf-select" id="phase-year">
+                <option value="0" selected>2024–2025 — Transitional (reporting only, no certificates)</option>
+                <option value="0.025">2026 — 2.5% of full obligation</option>
+                <option value="0.05">2027 — 5% of full obligation</option>
+                <option value="0.1">2028 — 10% of full obligation</option>
+                <option value="0.225">2029 — 22.5% of full obligation</option>
+                <option value="0.5">2030 — 50% of full obligation</option>
+                <option value="1">2034 onwards — 100% full obligation</option>
+              </select>
+            </div>
+
+            <button class="calc-btn" onclick="calculate()">Calculate CBAM Liability</button>
+            <button class="calc-reset" onclick="resetCalc()">Reset all fields</button>
+          </div>
+        </div>
+
+        <!-- METHODOLOGY NOTES -->
+        <div style="margin-top:24px;padding:20px 24px;background:var(--cream);border:1px solid var(--border)">
+          <div style="font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:#4b5563;margin-bottom:10px">Methodology</div>
+          <p style="font-size:.78rem;color:var(--ink-muted);line-height:1.8">
+            Liability = Volume × Embedded Emissions × (ETS Price − Carbon Price Paid) × Phase-in Factor<br><br>
+            Default embedded emission factors are CBAM Regulation Annex III default values (t CO₂e per tonne of goods). If you have third-party verified production emissions, enter those instead — they will typically be lower than defaults and reduce your actual liability.
+          </p>
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="calc-results">
+        <div class="result-panel" id="result-panel">
+          <div class="result-placeholder" id="result-placeholder">
+            <div class="placeholder-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 7H6a2 2 0 00-2 2v9a2 2 0 002 2h12a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1-4H9a1 1 0 00-1 1v4h8V4a1 1 0 00-1-1z"/></svg>
+            </div>
+            <p class="placeholder-text">Fill in your export details and click Calculate to see your estimated CBAM certificate obligation.</p>
+          </div>
+          <div id="result-content" style="display:none">
+            <div class="result-top">
+              <div class="result-top-label">Estimated Annual CBAM Liability</div>
+              <div class="result-top-amount"><span class="currency">€</span><span id="r-total">—</span></div>
+              <div class="result-top-sub" id="r-certificates">— CBAM certificates required</div>
+            </div>
+            <div class="result-body">
+              <div class="result-row">
+                <span class="result-key">Total embedded emissions</span>
+                <span class="result-val" id="r-emissions">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-key">Gross liability (at full obligation)</span>
+                <span class="result-val" id="r-gross">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-key">Carbon price credit</span>
+                <span class="result-val" id="r-credit">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-key">Phase-in factor</span>
+                <span class="result-val" id="r-phase">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-key">Net certificate obligation</span>
+                <span class="result-val highlight" id="r-net">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-key">As % of gross</span>
+                <span class="result-val" id="r-pct">—</span>
+              </div>
+            </div>
+            <div class="result-note">
+              <strong>Note:</strong> This is an indicative estimate using default emission factors. Your actual obligation may differ based on verified production data, indirect emissions treatment, and final CBAM regulation implementing acts. Certificates are purchased on the CBAM registry at the weekly average EU ETS price.
+            </div>
+            <div class="result-cta">
+              <p>Need a verified CBAM assessment, reporting support, or a decarbonisation roadmap for your supply chain?</p>
+              <a href="contact.html">Speak to our CBAM team</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY STEPS -->
+<section class="methodology">
+  <div class="wrap">
+    <div class="page-eyebrow">How CBAM Works</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.6rem,2.4vw,2.2rem);font-weight:300;color:var(--navy);margin-top:10px">Four steps from export to<br><em style="font-style:italic;color:var(--gold)">certificate obligation.</em></h2>
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="method-n">01</div>
+        <div class="method-title">Identify covered goods</div>
+        <div class="method-body">Determine whether your HS codes fall within CBAM's six regulated sectors: steel, iron, aluminium, cement, fertilisers, hydrogen, and electricity.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-n">02</div>
+        <div class="method-title">Calculate embedded emissions</div>
+        <div class="method-body">Report total CO₂ and N₂O embedded in the goods — direct (Scope 1) and in some sectors indirect (Scope 2). Until you have verified data, use EU default values.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-n">03</div>
+        <div class="method-title">Deduct carbon costs paid</div>
+        <div class="method-body">Any carbon price paid in the country of production (India, GCC, etc.) is deductible from CBAM liability — provided it can be evidenced to EU Customs.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-n">04</div>
+        <div class="method-title">Purchase CBAM certificates</div>
+        <div class="method-body">EU declarants (your EU importer) submit CBAM declarations and surrender certificates annually. Price tracks weekly EU ETS auctions.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS -->
+<section class="info-band">
+  <div class="wrap">
+    <div class="info-grid">
+      <div>
+        <div style="font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:#4b5563;margin-bottom:12px">Regulated Sectors</div>
+        <div class="info-aside">Six sectors face <em>CBAM</em> from 2026 onwards.</div>
+        <p style="font-size:.82rem;color:var(--ink-muted);margin-top:20px;line-height:1.8">India and GCC are among the top exporters in steel, aluminium, and fertilisers to the EU. Exporters in these sectors are most immediately affected.</p>
+      </div>
+      <div class="info-content">
+        <div class="sector-item"><div class="sector-icon">🏗</div><div><div class="sector-name">Steel & Iron</div><div class="sector-code">HS 7201–7229 · highest volume sector</div></div></div>
+        <div class="sector-item"><div class="sector-icon">⚗</div><div><div class="sector-name">Fertilisers</div><div class="sector-code">HS 3102–3105 · urea, ammonia, nitric acid</div></div></div>
+        <div class="sector-item"><div class="sector-icon">🔩</div><div><div class="sector-name">Aluminium</div><div class="sector-code">HS 7601–7616 · primary and secondary</div></div></div>
+        <div class="sector-item"><div class="sector-icon">⚡</div><div><div class="sector-name">Electricity</div><div class="sector-code">HS 2716 · cross-border power</div></div></div>
+        <div class="sector-item"><div class="sector-icon">🧱</div><div><div class="sector-name">Cement</div><div class="sector-code">HS 2523 · clinker and grey cement</div></div></div>
+        <div class="sector-item"><div class="sector-icon">💧</div><div><div class="sector-name">Hydrogen</div><div class="sector-code">HS 2804 · grey and green hydrogen</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <div class="wrap">
+    <p class="disclaimer-text"><strong>Disclaimer.</strong> This calculator is provided for indicative purposes only. Embedded emission factors are drawn from EU CBAM Regulation (EU) 2023/956 Annex III default values and published IPCC/IEA references. The carbon price used is user-defined; actual EU ETS prices fluctuate daily. This tool does not constitute regulatory or legal advice. CBAM obligations are the responsibility of the EU declarant (your EU-based importer or customs representative), not the exporter. For verified emissions reporting, production data must be measured and certified under an accredited methodology. VN Advisory accepts no liability for decisions made on the basis of this calculator's output.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="f-logo-vn">VN</div>
+        <div class="f-logo-sub">Advisory</div>
+        <p class="f-desc">Senior advisory for CXOs across supply chain, procurement, and AI strategy. GCC–India corridor specialists.</p>
+        <p style="font-size:.78rem;color:rgba(255,255,255,.3)">Chennai, India</p>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/vn-advisory" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14M8.5 18v-8H6v8h2.5M7.25 8.85a1.45 1.45 0 100-2.9 1.45 1.45 0 000 2.9M18 18v-4.55c0-2.07-1.13-3.05-2.75-3.05a2.4 2.4 0 00-2.17 1.18V10.5h-2.5V18h2.5v-4.05c0-1.07.5-1.7 1.45-1.7s1.45.63 1.45 1.7V18H18z"/></svg>
+          </a>
+          <a href="mailto:info@vnadvisory.in" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 7l9 6 9-6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">What We Do</a></li>
+          <li><a href="insights.html">Our Thinking</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Practice Areas</h4>
+        <ul>
+          <li><a href="services.html#supply-chain">Supply Chain Risk</a></li>
+          <li><a href="services.html#procurement">Procurement Strategy</a></li>
+          <li><a href="services.html#ai">AI & Digital</a></li>
+          <li><a href="services.html#cbam">Carbon & CBAM</a></li>
+          <li><a href="services.html#war-risk">War Risk & Marine</a></li>
+          <li><a href="services.html#commodities">Commodities</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@vnadvisory.in">info@vnadvisory.in</a></li>
+          <li><a href="https://www.linkedin.com/company/vn-advisory" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 VN Advisory · Chennai, India · All rights reserved.</span>
+      <span style="display:flex;gap:20px"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleMob(){
+  const m=document.getElementById('mob-menu');
+  document.body.style.overflow=m.classList.toggle('open')?'hidden':'';
+}
+
+function updateDefaults(){
+  const sel=document.getElementById('sector');
+  const opt=sel.options[sel.selectedIndex];
+  const ef=opt.dataset.ef;
+  const unit=opt.dataset.unit;
+  if(ef!==undefined){
+    document.getElementById('emission-factor').value=ef;
+    const vu=document.getElementById('vol-unit');
+    if(unit){
+      // unit is like "t CO₂e / tonne" → extract the denominator
+      const parts=unit.split('/');
+      vu.textContent=parts[1]?parts[1].trim():'tonnes';
+    }
+  }
+}
+
+function fmtNum(n,dec=0){
+  if(isNaN(n)||n===null)return '—';
+  return n.toLocaleString('en-IN',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+}
+
+function calculate(){
+  const sector=document.getElementById('sector').value;
+  const volume=parseFloat(document.getElementById('volume').value);
+  const ef=parseFloat(document.getElementById('emission-factor').value);
+  const etsPrice=parseFloat(document.getElementById('ets-price').value)||65;
+  const carbonPaid=parseFloat(document.getElementById('carbon-paid').value)||0;
+  const phaseFactor=parseFloat(document.getElementById('phase-year').value)||0;
+
+  if(!sector){alert('Please select a sector.');return;}
+  if(isNaN(volume)||volume<=0){alert('Please enter a valid export volume.');return;}
+  if(isNaN(ef)||ef<0){alert('Please enter or confirm the embedded emission factor.');return;}
+
+  const totalEmissions=volume*ef;            // t CO₂e
+  const netEtsPrice=Math.max(0,etsPrice-carbonPaid);
+  const grossLiability=totalEmissions*etsPrice; // without deductions
+  const creditAmount=totalEmissions*carbonPaid;
+  const netBeforePhase=totalEmissions*netEtsPrice;
+  const finalLiability=netBeforePhase*phaseFactor;
+  const certRequired=totalEmissions*phaseFactor;
+
+  // populate results
+  document.getElementById('r-total').textContent=fmtNum(finalLiability);
+  document.getElementById('r-certificates').textContent=fmtNum(certRequired,1)+' CBAM certificates required';
+  document.getElementById('r-emissions').textContent=fmtNum(totalEmissions,1)+' t CO₂e';
+  document.getElementById('r-gross').textContent='€ '+fmtNum(grossLiability);
+  document.getElementById('r-credit').textContent='- € '+fmtNum(creditAmount);
+  document.getElementById('r-phase').textContent=(phaseFactor*100).toFixed(1)+'%';
+  document.getElementById('r-net').textContent='€ '+fmtNum(finalLiability);
+  document.getElementById('r-pct').textContent=grossLiability>0?((finalLiability/grossLiability)*100).toFixed(1)+'%':'—';
+
+  document.getElementById('result-placeholder').style.display='none';
+  document.getElementById('result-content').style.display='block';
+}
+
+function resetCalc(){
+  document.getElementById('sector').value='';
+  document.getElementById('volume').value='';
+  document.getElementById('emission-factor').value='';
+  document.getElementById('ets-price').value='65';
+  document.getElementById('carbon-paid').value='0';
+  document.getElementById('phase-year').value='0';
+  document.getElementById('vol-unit').textContent='tonnes';
+  document.getElementById('result-placeholder').style.display='block';
+  document.getElementById('result-content').style.display='none';
+}
+
+const bt=document.getElementById('back-top');
+window.addEventListener('scroll',()=>bt.classList.toggle('show',window.scrollY>400),{passive:true});
+</script>
+</body>
+</html>

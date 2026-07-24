@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What We Do — VN Advisory | Supply Chain, Procurement, AI & Trade</title>
+<meta name="description" content="Six advisory practice areas: Supply Chain Risk, Procurement Strategy, AI & Digital, Carbon & CBAM, War Risk & Marine, Commodity Intelligence. GCC–India corridor specialists.">
+<link rel="canonical" href="https://vnadvisory.in/services.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23080f24'/%3E%3Ctext x='50' y='62' font-family='Georgia,serif' font-size='42' font-weight='600' fill='%23C4982E' text-anchor='middle'%3EVN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#fff;color:#111827;font-family:'DM Sans',system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer}
+
+:root{
+  --navy:#080f24;
+  --gold:#C4982E;
+  --gold-lt:rgba(196,152,46,.12);
+  --ink:#111827;
+  --ink-mid:#374151;
+  --ink-muted:#6b7280;
+  --cream:#f8f7f4;
+  --border:#e5e7eb;
+  --serif:'Cormorant Garamond',Georgia,serif;
+}
+
+/* ── NAV ── */
+.vn-nav{
+  position:sticky;top:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 56px;height:68px;
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(8px);
+}
+.nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.nav-logo-vn{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--navy);letter-spacing:4px;line-height:1}
+.nav-logo-sub{font-size:7.5px;letter-spacing:3.5px;color:var(--gold);text-transform:uppercase;margin-top:-2px;display:block}
+.nav-divider{width:1px;height:24px;background:var(--border);margin:0 24px}
+.nav-links{display:flex;align-items:center;list-style:none;height:68px}
+.nav-item{position:relative;height:68px;display:flex;align-items:center}
+.nav-link{
+  font-size:11px;letter-spacing:1.4px;text-transform:uppercase;
+  color:var(--ink-muted);padding:0 16px;height:68px;
+  display:flex;align-items:center;
+  border-bottom:2px solid transparent;
+  transition:color .2s,border-color .2s;white-space:nowrap;
+  background:none;border-top:none;border-left:none;border-right:none;
+}
+.nav-link:hover,.nav-item.active .nav-link{color:var(--navy);border-bottom-color:var(--gold)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-cta{
+  padding:9px 22px;background:var(--navy);color:#fff;
+  font-size:10px;letter-spacing:1.6px;text-transform:uppercase;
+  border:none;transition:background .25s;
+}
+.nav-cta:hover{background:#0d1b3e}
+.nav-item:hover .nav-dropdown{display:block}
+.nav-dropdown{
+  display:none;position:absolute;top:68px;left:0;
+  background:#fff;border:1px solid var(--border);
+  border-top:2px solid var(--gold);min-width:230px;
+  padding:8px 0;z-index:300;
+  box-shadow:0 8px 32px rgba(0,0,0,.08);
+}
+.nav-dropdown a{
+  display:block;padding:10px 20px;font-size:12px;
+  color:var(--ink-mid);transition:color .15s,background .15s;
+}
+.nav-dropdown a:hover{color:var(--gold);background:var(--cream)}
+.mob-toggle{display:none;background:none;border:1px solid var(--border);color:var(--navy);width:36px;height:36px;font-size:20px;align-items:center;justify-content:center}
+.mob-menu{display:none;position:fixed;inset:0;background:#fff;z-index:500;flex-direction:column;padding:80px 32px 32px;overflow-y:auto}
+.mob-menu.open{display:flex}
+.mob-close{position:absolute;top:18px;right:20px;background:none;border:none;color:var(--navy);font-size:28px}
+.mob-menu a{display:block;padding:14px 0;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-mid);border-bottom:1px solid var(--border)}
+.mob-menu a:hover{color:var(--gold)}
+
+/* ── PAGE HERO ── */
+.page-hero{
+  background:var(--navy);padding:80px 0 72px;
+  position:relative;overflow:hidden;
+}
+.page-hero::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),rgba(196,152,46,0) 70%);
+}
+.page-hero-wrap{max-width:1160px;margin:0 auto;padding:0 56px}
+.page-eyebrow{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.page-title{
+  font-family:var(--serif);font-size:clamp(2.4rem,4vw,3.6rem);
+  font-weight:300;color:#fff;line-height:1.08;letter-spacing:-.3px;
+  margin-bottom:20px;
+}
+.page-title em{font-style:italic;color:var(--gold)}
+.page-sub{font-size:.88rem;color:rgba(255,255,255,.45);max-width:480px;line-height:1.9}
+
+/* ── SERVICES SUB-NAV ── */
+.svc-subnav{
+  position:sticky;top:68px;z-index:100;
+  background:#fff;border-bottom:1px solid var(--border);
+  overflow-x:auto;
+}
+.svc-subnav-inner{
+  max-width:1160px;margin:0 auto;padding:0 56px;
+  display:flex;gap:0;
+}
+.svc-subnav a{
+  font-size:10px;letter-spacing:1.4px;text-transform:uppercase;
+  color:var(--ink-muted);padding:16px 20px;white-space:nowrap;
+  border-bottom:2px solid transparent;transition:all .2s;
+  display:block;
+}
+.svc-subnav a:hover,.svc-subnav a.active{color:var(--navy);border-bottom-color:var(--gold)}
+
+/* ── SHARED LAYOUT ── */
+.wrap{max-width:1160px;margin:0 auto;padding:0 56px}
+.section{padding:96px 0}
+.section-alt{background:var(--cream)}
+
+/* ── SERVICE SECTION ── */
+.svc-section{padding:80px 0;border-bottom:1px solid var(--border)}
+.svc-section:last-of-type{border-bottom:none}
+.svc-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:64px;align-items:center;
+}
+.svc-grid.reverse{direction:rtl}
+.svc-grid.reverse > *{direction:ltr}
+
+.svc-img-wrap{position:relative}
+.svc-img-wrap img{
+  width:100%;height:420px;object-fit:cover;
+  display:block;
+}
+.svc-img-num{
+  position:absolute;bottom:-1px;left:-1px;
+  background:var(--navy);
+  font-family:var(--serif);font-size:3.5rem;font-weight:300;
+  color:rgba(196,152,46,.25);
+  padding:12px 20px;line-height:1;
+}
+
+.svc-content{}
+.svc-tag{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#4b5563;margin-bottom:12px}
+.svc-h{
+  font-family:var(--serif);font-size:clamp(1.8rem,2.8vw,2.5rem);
+  font-weight:300;color:var(--navy);line-height:1.12;margin-bottom:20px;
+}
+.svc-h em{font-style:italic;color:var(--gold)}
+.svc-lead{font-size:.92rem;color:var(--ink-mid);line-height:1.9;margin-bottom:32px;max-width:460px}
+
+.svc-caps{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-bottom:32px}
+.svc-cap{background:#fff;padding:18px 20px;border-left:2px solid transparent;transition:border-color .2s}
+.svc-cap:hover{border-left-color:var(--gold)}
+.svc-cap h4{font-family:var(--serif);font-size:.95rem;font-weight:600;color:var(--navy);margin-bottom:4px}
+.svc-cap p{font-size:.75rem;color:var(--ink-muted);line-height:1.7}
+.svc-section.section-alt .svc-cap{background:var(--cream)}
+.svc-section.section-alt .svc-caps{background:rgba(196,152,46,.08)}
+
+.svc-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:1.6px;text-transform:uppercase;
+  color:var(--navy);border-bottom:1px solid rgba(8,15,36,.2);
+  padding-bottom:3px;transition:gap .2s,border-color .2s,color .2s;
+}
+.svc-cta:hover{gap:16px;border-color:var(--gold);color:var(--gold)}
+
+/* ── CTA BAND ── */
+.cta-band{
+  background:var(--navy);padding:100px 0;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-band::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent 10%,var(--gold) 50%,transparent 90%);
+}
+.cta-band h2{
+  font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);
+  font-weight:300;color:#fff;margin-bottom:16px;line-height:1.12;
+}
+.cta-band h2 em{font-style:italic;color:var(--gold)}
+.cta-band p{font-size:.88rem;color:rgba(255,255,255,.45);max-width:400px;margin:0 auto 36px;line-height:1.9}
+.btn-gold{
+  padding:14px 32px;background:var(--gold);color:var(--navy);
+  font-size:10px;letter-spacing:1.8px;text-transform:uppercase;font-weight:500;
+  border:none;display:inline-block;transition:background .25s;
+}
+.btn-gold:hover{background:#d4aa3e}
+
+/* ── FOOTER ── */
+.footer{background:#050a1a;border-top:1px solid rgba(255,255,255,.06);padding:64px 0 28px}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.f-logo-vn{font-family:var(--serif);font-size:22px;font-weight:600;color:#fff;letter-spacing:4px}
+.f-logo-sub{font-size:7.5px;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+.f-desc{font-size:.78rem;color:rgba(255,255,255,.38);line-height:1.8;margin:16px 0}
+.f-social{display:flex;gap:8px;margin-top:4px}
+.f-social a{width:34px;height:34px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.35);transition:all .2s}
+.f-social a:hover{border-color:var(--gold);color:var(--gold)}
+.f-social svg{width:15px;height:15px}
+.footer-col h4{font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:9px}
+.footer-col a,.footer-col li{font-size:.78rem;color:rgba(255,255,255,.38);transition:color .2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.06);padding-top:22px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  font-size:.7rem;color:rgba(255,255,255,.22);
+}
+.footer-bottom a{color:rgba(255,255,255,.22)}
+.footer-bottom a:hover{color:var(--gold)}
+
+/* ── BACK TO TOP ── */
+.back-top{
+  position:fixed;bottom:28px;right:28px;width:44px;height:44px;
+  background:#fff;border:1px solid var(--border);color:var(--navy);
+  font-size:16px;display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:all .25s;z-index:100;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);
+}
+.back-top.show{opacity:1;visibility:visible}
+.back-top:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .vn-nav,.page-hero-wrap,.wrap,.svc-subnav-inner,.footer-grid{padding-left:32px;padding-right:32px}
+  .svc-grid{grid-template-columns:1fr;gap:40px}
+  .svc-grid.reverse{direction:ltr}
+  .svc-img-wrap img{height:300px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-divider,.nav-cta{display:none}
+  .mob-toggle{display:flex}
+  .vn-nav{padding:0 20px;height:58px}
+  .page-hero-wrap,.wrap{padding:0 20px}
+  .page-hero{padding:60px 0 52px}
+  .svc-subnav-inner{padding:0 20px}
+  .svc-caps{grid-template-columns:1fr}
+  .svc-section{padding:56px 0}
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+  .footer-bottom{flex-direction:column;align-items:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="vn-nav">
+  <a href="index.html" class="nav-logo">
+    <div>
+      <div class="nav-logo-vn">VN</div>
+      <div class="nav-logo-sub">Advisory</div>
+    </div>
+  </a>
+  <div class="nav-divider"></div>
+  <ul class="nav-links">
+    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+    <li class="nav-item active">
+      <a href="services.html" class="nav-link">What We Do</a>
+      <div class="nav-dropdown">
+        <a href="#supply-chain">Supply Chain Risk</a>
+        <a href="#procurement">Procurement Strategy</a>
+        <a href="#ai">AI & Digital</a>
+        <a href="#cbam">Carbon & CBAM</a>
+        <a href="#war-risk">War Risk & Marine</a>
+        <a href="#commodities">Commodity Intelligence</a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="industries.html" class="nav-link">Industries</a></li>
+    <li class="nav-item"><a href="insights.html" class="nav-link">Our Thinking</a></li>
+    <li class="nav-item"><a href="tools.html" class="nav-link">Tools</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact.html" class="nav-cta">Contact us</a>
+    <button class="mob-toggle" onclick="toggleMob()">☰</button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mob-menu">
+  <button class="mob-close" onclick="toggleMob()">×</button>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">What We Do</a>
+  <a href="industries.html">Industries</a>
+  <a href="insights.html">Our Thinking</a>
+  <a href="tools.html">Tools</a>
+  <a href="contact.html" style="color:var(--gold)">Contact us →</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-wrap">
+    <div class="page-eyebrow">What We Do</div>
+    <h1 class="page-title">Six practices.<br><em>One integrated view.</em></h1>
+    <p class="page-sub">Each practice area is independent — but the real value is in seeing how supply chain, procurement, carbon, and risk intersect. That is where we operate.</p>
+  </div>
+</section>
+
+<!-- STICKY SUB-NAV -->
+<nav class="svc-subnav" aria-label="What We Do navigation">
+  <div class="svc-subnav-inner">
+    <a href="#supply-chain">Supply Chain</a>
+    <a href="#procurement">Procurement</a>
+    <a href="#ai">AI & Digital</a>
+    <a href="#cbam">Carbon & CBAM</a>
+    <a href="#war-risk">War Risk & Marine</a>
+    <a href="#commodities">Commodities</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ── 01 SUPPLY CHAIN ── -->
+<section class="svc-section" id="supply-chain">
+  <div class="wrap">
+    <div class="svc-grid">
+      <div class="svc-img-wrap">
+        <img src="assets/images/practice-supply-chain.jpg" alt="Supply chain operations" loading="lazy">
+        <div class="svc-img-num">01</div>
+      </div>
+      <div class="svc-content">
+        <div class="svc-tag">Practice Area · Supply Chain</div>
+        <h2 class="svc-h">Supply Chain<br><em>Risk Governance</em></h2>
+        <p class="svc-lead">Most supply chain risk programmes are reactive — they respond to events after they occur. We build the visibility, scenario frameworks, and decision protocols that allow organisations to move first. Multi-tier supplier mapping, geopolitical exposure scoring, and real-time exception management — designed for the complexity of the GCC–India corridor.</p>
+        <div class="svc-caps">
+          <div class="svc-cap">
+            <h4>Multi-tier Visibility</h4>
+            <p>Mapping supplier dependencies beyond tier-1 to expose concentration risks that are invisible in standard reporting.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>Scenario Modelling</h4>
+            <p>Pre-built response playbooks for disruption scenarios — before the disruption forces an improvised response.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>Geopolitical Risk Scoring</h4>
+            <p>Country and corridor-level exposure assessment with continuous monitoring against predefined thresholds.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>Exception Management</h4>
+            <p>Alert architecture and decision protocols that route the right signal to the right person in time to act.</p>
+          </div>
+        </div>
+        <a href="contact.html" class="svc-cta">Discuss your situation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 02 PROCUREMENT ── -->
+<section class="svc-section section-alt" id="procurement">
+  <div class="wrap">
+    <div class="svc-grid reverse">
+      <div class="svc-img-wrap">
+        <img src="assets/images/practice-procurement.jpg" alt="Procurement strategy" loading="lazy">
+        <div class="svc-img-num">02</div>
+      </div>
+      <div class="svc-content">
+        <div class="svc-tag">Practice Area · Procurement</div>
+        <h2 class="svc-h">Procurement<br><em>Strategy</em></h2>
+        <p class="svc-lead">Procurement that is only measured on savings is optimised for the wrong outcome. It accumulates resilience risk that surfaces badly during disruption. We design procurement strategy that delivers cost efficiency and supply continuity — category by category, with full spend visibility and supplier intelligence built in.</p>
+        <div class="svc-caps">
+          <div class="svc-cap">
+            <h4>Spend Analysis</h4>
+            <p>Full spend visibility across categories, suppliers, and geographies — the foundation every other improvement is built on.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>Category Strategy</h4>
+            <p>Category-by-category approach that distinguishes strategic sourcing from commodity buying and manages each appropriately.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>Supplier Intelligence</h4>
+            <p>Financial health, performance, and risk monitoring — operational signals, not annual review questionnaires.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>Contract Governance</h4>
+            <p>Contract structures that allocate risk correctly and the governance to enforce them when conditions change.</p>
+          </div>
+        </div>
+        <a href="contact.html" class="svc-cta">Discuss your situation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 03 AI & DIGITAL ── -->
+<section class="svc-section" id="ai">
+  <div class="wrap">
+    <div class="svc-grid">
+      <div class="svc-img-wrap">
+        <img src="assets/images/practice-ai.jpg" alt="AI and data infrastructure" loading="lazy">
+        <div class="svc-img-num">03</div>
+      </div>
+      <div class="svc-content">
+        <div class="svc-tag">Practice Area · AI & Digital</div>
+        <h2 class="svc-h">AI & Digital<br><em>Transformation</em></h2>
+        <p class="svc-lead">Most AI initiatives in supply chain stop at the pilot. The gap between a proof of concept and production deployment is where organisations lose momentum and investment. We bridge that gap — designing the control tower architecture, AI governance, and change management that takes AI from demonstration to operational impact.</p>
+        <div class="svc-caps">
+          <div class="svc-cap">
+            <h4>Control Tower Design</h4>
+            <p>End-to-end visibility architecture with the alert logic and escalation pathways that make it operationally useful.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>Demand Sensing</h4>
+            <p>AI-driven demand signal architecture — moving beyond statistical forecasting to real-time market signal integration.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>AI Governance</h4>
+            <p>Frameworks for responsible AI deployment: model monitoring, bias controls, explainability, and human-in-the-loop design.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>Technology Selection</h4>
+            <p>Vendor-independent technology evaluation grounded in operational reality — not vendor pitch decks or analyst rankings.</p>
+          </div>
+        </div>
+        <a href="contact.html" class="svc-cta">Discuss your situation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 04 CBAM ── -->
+<section class="svc-section section-alt" id="cbam">
+  <div class="wrap">
+    <div class="svc-grid reverse">
+      <div class="svc-img-wrap">
+        <img src="assets/images/practice-cbam.jpg" alt="Industrial emissions and carbon compliance" loading="lazy">
+        <div class="svc-img-num">04</div>
+      </div>
+      <div class="svc-content">
+        <div class="svc-tag">Practice Area · Trade & Carbon</div>
+        <h2 class="svc-h">Carbon & Trade<br><em>Compliance</em></h2>
+        <p class="svc-lead">CBAM is no longer a policy discussion — it is a financial line item for every GCC and Indian exporter to EU markets. The cost arrives whether or not you have a strategy for it. We quantify the liability, identify the product-level exposure, and build the compliance infrastructure before the EU enforcement phase makes it urgent.</p>
+        <div class="svc-caps">
+          <div class="svc-cap">
+            <h4>CBAM Liability Quantification</h4>
+            <p>Product-level carbon cost calculation for steel, aluminium, fertilisers, and other CBAM-covered goods — factored into trade P&L.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>Carbon Cost Restructuring</h4>
+            <p>Sourcing and manufacturing decisions reframed around carbon cost — turning compliance into a competitive input.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>Compliance Infrastructure</h4>
+            <p>Embedded reporting processes and data flows that meet EU declarant requirements without creating a separate compliance bureaucracy.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>CBAM Calculator</h4>
+            <p>Use our free tool to estimate your CBAM exposure by product and volume before committing to a full assessment.</p>
+          </div>
+        </div>
+        <a href="tools.html" class="svc-cta">Try the CBAM calculator →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 05 WAR RISK ── -->
+<section class="svc-section" id="war-risk">
+  <div class="wrap">
+    <div class="svc-grid">
+      <div class="svc-img-wrap">
+        <img src="assets/images/practice-marine.jpg" alt="Cargo vessel at sea" loading="lazy">
+        <div class="svc-img-num">05</div>
+      </div>
+      <div class="svc-content">
+        <div class="svc-tag">Practice Area · Maritime Risk</div>
+        <h2 class="svc-h">War Risk &<br><em>Marine Advisory</em></h2>
+        <p class="svc-lead">The Red Sea disruption made freight route risk a boardroom topic. But route vulnerability, war risk insurance, and force majeure contract exposure require sustained intelligence — not a one-time review. We provide continuous monitoring, routing contingency architecture, and the contract governance that determines who carries cost when something goes wrong.</p>
+        <div class="svc-caps">
+          <div class="svc-cap">
+            <h4>Route Vulnerability Assessment</h4>
+            <p>Red Sea, Hormuz, Malacca — disruption probability framing for the specific corridors your cargo moves through.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>Routing Contingency Design</h4>
+            <p>Alternative routing options with full cost and lead time impact understood before disruption forces the decision.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>Marine Insurance Strategy</h4>
+            <p>War risk premium optimisation, coverage gap identification, and insurer negotiation aligned to your actual cargo profile.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>Contract Position Management</h4>
+            <p>Force majeure clauses, surcharge mechanisms, and liability allocation — reviewed against current risk conditions, not standard templates.</p>
+          </div>
+        </div>
+        <a href="contact.html" class="svc-cta">Discuss your situation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 06 COMMODITY ── -->
+<section class="svc-section section-alt" id="commodities">
+  <div class="wrap">
+    <div class="svc-grid reverse">
+      <div class="svc-img-wrap">
+        <img src="assets/images/practice-commodity.jpg" alt="Commodity trading and market data" loading="lazy">
+        <div class="svc-img-num">06</div>
+      </div>
+      <div class="svc-content">
+        <div class="svc-tag">Practice Area · Commodities</div>
+        <h2 class="svc-h">Commodity Market<br><em>Intelligence</em></h2>
+        <p class="svc-lead">Commodity trading operates on information asymmetry. Price signals, trade corridor economics, geopolitical disruption risk, and now carbon cost all need to be integrated into a single trading view. We provide the market intelligence and risk frameworks that bring these inputs together — grounded in 20 years of direct commodity market operating experience.</p>
+        <div class="svc-caps">
+          <div class="svc-cap">
+            <h4>Price Risk Intelligence</h4>
+            <p>Steel, aluminium, copper, crude, iron ore — price intelligence embedded in trade decisions, not delivered separately via market reports.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>Trade Corridor Economics</h4>
+            <p>GCC–India–EU corridor mapping with freight cost, duty, and carbon cost framing — total landed cost per route.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>Hedging Strategy</h4>
+            <p>Hedging approaches calibrated to your actual exposure profile — not generic financial hedging frameworks.</p>
+          </div>
+          <div class="svc-cap">
+            <h4>Sourcing Intelligence</h4>
+            <p>Alternative supplier identification in new geographies with full origin risk, quality, and logistics cost framing.</p>
+          </div>
+        </div>
+        <a href="contact.html" class="svc-cta">Discuss your situation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Senior advisory from day one.<br><em>No juniors on your engagement.</em></h2>
+    <p>We take a limited number of mandates at any time to ensure the principal stays on the work.</p>
+    <a href="contact.html" class="btn-gold">Request a Diagnostic</a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="f-logo-vn">VN</div>
+        <div class="f-logo-sub">Advisory</div>
+        <p class="f-desc">Senior advisory for CXOs across supply chain, procurement, and AI strategy. GCC–India corridor specialists.</p>
+        <p style="font-size:.78rem;color:rgba(255,255,255,.3)">Chennai, India</p>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/vn-advisory" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14M8.5 18v-8H6v8h2.5M7.25 8.85a1.45 1.45 0 100-2.9 1.45 1.45 0 000 2.9M18 18v-4.55c0-2.07-1.13-3.05-2.75-3.05a2.4 2.4 0 00-2.17 1.18V10.5h-2.5V18h2.5v-4.05c0-1.07.5-1.7 1.45-1.7s1.45.63 1.45 1.7V18H18z"/></svg>
+          </a>
+          <a href="mailto:info@vnadvisory.in" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 7l9 6 9-6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">What We Do</a></li>
+          <li><a href="industries.html">Industries</a></li>
+          <li><a href="insights.html">Our Thinking</a></li>
+          <li><a href="tools.html">Tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>What We Do</h4>
+        <ul>
+          <li><a href="#supply-chain">Supply Chain Risk</a></li>
+          <li><a href="#procurement">Procurement Strategy</a></li>
+          <li><a href="#ai">AI & Digital</a></li>
+          <li><a href="#cbam">Carbon & CBAM</a></li>
+          <li><a href="#war-risk">War Risk & Marine</a></li>
+          <li><a href="#commodities">Commodities</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@vnadvisory.in">info@vnadvisory.in</a></li>
+          <li><a href="https://www.linkedin.com/company/vn-advisory" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" style="width:13px;height:13px;vertical-align:middle;margin-right:5px"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14M8.5 18v-8H6v8h2.5M7.25 8.85a1.45 1.45 0 100-2.9 1.45 1.45 0 000 2.9M18 18v-4.55c0-2.07-1.13-3.05-2.75-3.05a2.4 2.4 0 00-2.17 1.18V10.5h-2.5V18h2.5v-4.05c0-1.07.5-1.7 1.45-1.7s1.45.63 1.45 1.7V18H18z"/></svg>LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 VN Advisory · Chennai, India · All rights reserved.</span>
+      <span style="display:flex;gap:20px">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleMob(){
+  const m=document.getElementById('mob-menu');
+  document.body.style.overflow=m.classList.toggle('open')?'hidden':'';
+}
+// Highlight active sub-nav link on scroll
+const sections=document.querySelectorAll('section[id]');
+const links=document.querySelectorAll('.svc-subnav a');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));
+    }
+  });
+},{threshold:.35});
+sections.forEach(s=>obs.observe(s));
+const bt=document.getElementById('back-top');
+window.addEventListener('scroll',()=>bt.classList.toggle('show',window.scrollY>400),{passive:true});
+</script>
+</body>
+</html>

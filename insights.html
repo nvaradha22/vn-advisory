@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Thinking — VN Advisory | Supply Chain, Trade & AI Intelligence</title>
+<meta name="description" content="Practitioner perspectives on supply chain risk, CBAM, geopolitics, procurement, AI transformation, and commodity markets from VN Advisory.">
+<link rel="canonical" href="https://vnadvisory.in/insights.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23080f24'/%3E%3Ctext x='50' y='62' font-family='Georgia,serif' font-size='42' font-weight='600' fill='%23C4982E' text-anchor='middle'%3EVN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#fff;color:#111827;font-family:'DM Sans',system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer}
+
+:root{
+  --navy:#080f24;
+  --gold:#C4982E;
+  --gold-lt:rgba(196,152,46,.12);
+  --ink:#111827;
+  --ink-mid:#374151;
+  --ink-muted:#6b7280;
+  --cream:#f8f7f4;
+  --border:#e5e7eb;
+  --serif:'Cormorant Garamond',Georgia,serif;
+}
+
+/* ── NAV ── */
+.vn-nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:68px;background:rgba(255,255,255,.97);border-bottom:1px solid var(--border);backdrop-filter:blur(8px)}
+.nav-logo{display:flex;align-items:center;flex-shrink:0}
+.nav-logo-vn{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--navy);letter-spacing:4px;line-height:1}
+.nav-logo-sub{font-size:7.5px;letter-spacing:3.5px;color:var(--gold);text-transform:uppercase;margin-top:-2px;display:block}
+.nav-divider{width:1px;height:24px;background:var(--border);margin:0 24px}
+.nav-links{display:flex;align-items:center;list-style:none;height:68px}
+.nav-item{position:relative;height:68px;display:flex;align-items:center}
+.nav-link{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink-muted);padding:0 16px;height:68px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none}
+.nav-link:hover,.nav-item.active .nav-link{color:var(--navy);border-bottom-color:var(--gold)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-cta{padding:9px 22px;background:var(--navy);color:#fff;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;border:none;transition:background .25s}
+.nav-cta:hover{background:#0d1b3e}
+.nav-item:hover .nav-dropdown{display:block}
+.nav-dropdown{display:none;position:absolute;top:68px;left:0;background:#fff;border:1px solid var(--border);border-top:2px solid var(--gold);min-width:230px;padding:8px 0;z-index:300;box-shadow:0 8px 32px rgba(0,0,0,.08)}
+.nav-dropdown a{display:block;padding:10px 20px;font-size:12px;color:var(--ink-mid);transition:color .15s,background .15s}
+.nav-dropdown a:hover{color:var(--gold);background:var(--cream)}
+.mob-toggle{display:none;background:none;border:1px solid var(--border);color:var(--navy);width:36px;height:36px;font-size:20px;align-items:center;justify-content:center}
+.mob-menu{display:none;position:fixed;inset:0;background:#fff;z-index:500;flex-direction:column;padding:80px 32px 32px;overflow-y:auto}
+.mob-menu.open{display:flex}
+.mob-close{position:absolute;top:18px;right:20px;background:none;border:none;color:var(--navy);font-size:28px}
+.mob-menu a{display:block;padding:14px 0;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-mid);border-bottom:1px solid var(--border)}
+.mob-menu a:hover{color:var(--gold)}
+
+/* ── PAGE HERO ── */
+.page-hero{background:var(--navy);padding:80px 0 72px;position:relative;overflow:hidden}
+.page-hero::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),rgba(196,152,46,0) 70%)}
+.page-hero-wrap{max-width:1160px;margin:0 auto;padding:0 56px}
+.page-eyebrow{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.page-title{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3.6rem);font-weight:300;color:#fff;line-height:1.08;margin-bottom:20px}
+.page-title em{font-style:italic;color:var(--gold)}
+.page-sub{font-size:.88rem;color:rgba(255,255,255,.45);max-width:520px;line-height:1.9}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1160px;margin:0 auto;padding:0 56px}
+
+/* ── FILTER BAR ── */
+.filter-bar{border-bottom:1px solid var(--border);background:#fff;position:sticky;top:68px;z-index:100}
+.filter-inner{max-width:1160px;margin:0 auto;padding:0 56px;display:flex;gap:0;overflow-x:auto}
+.filter-btn{
+  font-size:10px;letter-spacing:1.4px;text-transform:uppercase;
+  color:var(--ink-muted);padding:16px 20px;white-space:nowrap;
+  border:none;border-bottom:2px solid transparent;
+  background:none;transition:all .2s;cursor:pointer;
+}
+.filter-btn:hover,.filter-btn.active{color:var(--navy);border-bottom-color:var(--gold)}
+
+/* ── FEATURED ── */
+.featured-section{padding:64px 0;border-bottom:1px solid var(--border)}
+.featured-grid{display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:stretch}
+.featured-card{
+  background:var(--navy);padding:56px 48px;
+  border-left:4px solid var(--gold);
+  display:flex;flex-direction:column;justify-content:space-between;
+  min-height:380px;
+}
+.featured-tag{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:inline-block}
+.featured-title{font-family:var(--serif);font-size:clamp(1.8rem,2.8vw,2.4rem);font-weight:300;color:#fff;line-height:1.15;margin-bottom:20px}
+.featured-excerpt{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.85;margin-bottom:32px;flex:1}
+.featured-link{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid rgba(196,152,46,.3);padding-bottom:3px;transition:gap .2s}
+.featured-link:hover{gap:14px}
+.featured-sidebar{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border)}
+.sidebar-card{
+  background:#fff;padding:24px 22px;flex:1;
+  border-left:3px solid transparent;
+  transition:border-color .2s,background .2s;
+  display:flex;flex-direction:column;
+}
+.sidebar-card:hover{border-left-color:var(--gold);background:var(--cream)}
+.sidebar-tag{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#4b5563;margin-bottom:8px}
+.sidebar-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--navy);line-height:1.3;margin-bottom:8px;flex:1}
+.sidebar-link{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:6px;transition:gap .2s;margin-top:auto}
+.sidebar-link:hover{gap:10px}
+
+/* ── ARTICLE GRID ── */
+.grid-section{padding:64px 0}
+.grid-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px}
+.grid-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#4b5563}
+.article-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.article-card{
+  background:#fff;padding:32px 28px;
+  border-left:3px solid transparent;
+  transition:border-color .2s,background .2s;
+  display:flex;flex-direction:column;
+}
+.article-card:hover{border-left-color:var(--gold);background:var(--cream)}
+.article-tag{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#4b5563;margin-bottom:10px}
+.article-title{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--navy);line-height:1.3;margin-bottom:12px;flex:1}
+.article-excerpt{font-size:.78rem;color:var(--ink-muted);line-height:1.8;margin-bottom:20px}
+.article-link{font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid rgba(8,15,36,.15);padding-bottom:2px;transition:all .2s;align-self:flex-start}
+.article-card:hover .article-link{border-color:var(--gold);color:var(--gold);gap:10px}
+
+/* ── TOPICS BAND ── */
+.topics-band{background:var(--cream);padding:64px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.topics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:40px}
+.topic-card{
+  background:#fff;padding:24px 22px;
+  border-top:3px solid transparent;
+  transition:border-color .2s,background .2s;cursor:pointer;
+}
+.topic-card:hover{border-top-color:var(--gold);background:var(--cream)}
+.topic-name{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:6px}
+.topic-count{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#9ca3af}
+
+/* ── CTA ── */
+.cta-band{background:var(--navy);padding:100px 0;text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 10%,var(--gold) 50%,transparent 90%)}
+.cta-band h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:#fff;margin-bottom:16px;line-height:1.12}
+.cta-band h2 em{font-style:italic;color:var(--gold)}
+.cta-band p{font-size:.88rem;color:rgba(255,255,255,.45);max-width:400px;margin:0 auto 36px;line-height:1.9}
+.btn-gold{padding:14px 32px;background:var(--gold);color:var(--navy);font-size:10px;letter-spacing:1.8px;text-transform:uppercase;font-weight:500;border:none;display:inline-block;transition:background .25s}
+.btn-gold:hover{background:#d4aa3e}
+
+/* ── FOOTER ── */
+.footer{background:#050a1a;border-top:1px solid rgba(255,255,255,.06);padding:64px 0 28px}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.f-logo-vn{font-family:var(--serif);font-size:22px;font-weight:600;color:#fff;letter-spacing:4px}
+.f-logo-sub{font-size:7.5px;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+.f-desc{font-size:.78rem;color:rgba(255,255,255,.38);line-height:1.8;margin:16px 0}
+.f-social{display:flex;gap:8px;margin-top:4px}
+.f-social a{width:34px;height:34px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.35);transition:all .2s}
+.f-social a:hover{border-color:var(--gold);color:var(--gold)}
+.f-social svg{width:15px;height:15px}
+.footer-col h4{font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:9px}
+.footer-col a,.footer-col li{font-size:.78rem;color:rgba(255,255,255,.38);transition:color .2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.7rem;color:rgba(255,255,255,.22)}
+.footer-bottom a{color:rgba(255,255,255,.22)}
+.footer-bottom a:hover{color:var(--gold)}
+.back-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#fff;border:1px solid var(--border);color:var(--navy);font-size:16px;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .25s;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.back-top.show{opacity:1;visibility:visible}
+.back-top:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* ── HIDDEN FILTER STATE ── */
+.article-card[data-cat]{transition:border-color .2s,background .2s,opacity .3s}
+.article-card.hidden{display:none}
+
+@media(max-width:1024px){
+  .vn-nav,.page-hero-wrap,.wrap,.filter-inner,.footer-grid{padding-left:32px;padding-right:32px}
+  .featured-grid{grid-template-columns:1fr;gap:0}
+  .featured-sidebar{flex-direction:row}
+  .topics-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-divider,.nav-cta{display:none}
+  .mob-toggle{display:flex}
+  .vn-nav{padding:0 20px;height:58px}
+  .page-hero-wrap,.wrap,.filter-inner{padding:0 20px}
+  .featured-sidebar{flex-direction:column}
+  .article-grid{grid-template-columns:1fr}
+  .topics-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+  .footer-bottom{flex-direction:column;align-items:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="vn-nav">
+  <a href="index.html" class="nav-logo">
+    <div><div class="nav-logo-vn">VN</div><div class="nav-logo-sub">Advisory</div></div>
+  </a>
+  <div class="nav-divider"></div>
+  <ul class="nav-links">
+    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+    <li class="nav-item">
+      <a href="services.html" class="nav-link">What We Do</a>
+      <div class="nav-dropdown">
+        <a href="services.html#supply-chain">Supply Chain Risk</a>
+        <a href="services.html#procurement">Procurement Strategy</a>
+        <a href="services.html#ai">AI & Digital</a>
+        <a href="services.html#cbam">Carbon & CBAM</a>
+        <a href="services.html#war-risk">War Risk & Marine</a>
+        <a href="services.html#commodities">Commodity Intelligence</a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="industries.html" class="nav-link">Industries</a></li>
+    <li class="nav-item active"><a href="insights.html" class="nav-link">Our Thinking</a></li>
+    <li class="nav-item"><a href="tools.html" class="nav-link">Tools</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact.html" class="nav-cta">Contact us</a>
+    <button class="mob-toggle" onclick="toggleMob()">☰</button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mob-menu">
+  <button class="mob-close" onclick="toggleMob()">×</button>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">What We Do</a>
+  <a href="industries.html">Industries</a>
+  <a href="insights.html">Our Thinking</a>
+  <a href="tools.html">Tools</a>
+  <a href="contact.html" style="color:var(--gold)">Contact us →</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-wrap">
+    <div class="page-eyebrow">Our Thinking</div>
+    <h1 class="page-title">Perspectives from<br><em>the operating room.</em></h1>
+    <p class="page-sub">Not commentary. Not repacked research. Practitioner perspectives on the supply chain, trade, and procurement situations we see in the GCC–India corridor — written for the people who have to make the decisions.</p>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="filter-btn active" onclick="filterCards('all',this)">All Topics</button>
+    <button class="filter-btn" onclick="filterCards('trade-policy',this)">Trade Policy</button>
+    <button class="filter-btn" onclick="filterCards('geopolitics',this)">Geopolitics</button>
+    <button class="filter-btn" onclick="filterCards('procurement',this)">Procurement</button>
+    <button class="filter-btn" onclick="filterCards('ai',this)">AI & Digital</button>
+    <button class="filter-btn" onclick="filterCards('maritime',this)">Maritime Risk</button>
+    <button class="filter-btn" onclick="filterCards('commodities',this)">Commodities</button>
+  </div>
+</div>
+
+<main>
+
+<!-- FEATURED -->
+<section class="featured-section">
+  <div class="wrap">
+    <div class="featured-grid">
+      <div class="featured-card">
+        <div>
+          <span class="featured-tag">Featured · Trade Policy</span>
+          <h2 class="featured-title">CBAM: What GCC and Indian Exporters Need to Quantify</h2>
+          <p class="featured-excerpt">The EU Carbon Border Adjustment Mechanism moves into full enforcement in 2026. For exporters of steel, aluminium, fertilisers, and other covered goods, the liability is product-specific and quantifiable now. This note covers what the calculation requires and where most initial estimates fall short.</p>
+        </div>
+        <a href="contact.html" class="featured-link">Discuss this with us →</a>
+      </div>
+      <div class="featured-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-tag">Geopolitics</div>
+          <div class="sidebar-title">Red Sea Rerouting: Cost and Lead Time Implications for GCC–India Trade</div>
+          <a href="contact.html" class="sidebar-link">Read more →</a>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-tag">Procurement</div>
+          <div class="sidebar-title">Common Points of Failure in Procurement Transformation Programmes</div>
+          <a href="contact.html" class="sidebar-link">Read more →</a>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-tag">AI & Digital</div>
+          <div class="sidebar-title">Supply Chain Control Towers: What Operational Deployment Requires</div>
+          <a href="contact.html" class="sidebar-link">Read more →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE GRID -->
+<section class="grid-section">
+  <div class="wrap">
+    <div class="grid-header">
+      <span class="grid-label">All Topics</span>
+    </div>
+    <div class="article-grid" id="article-grid">
+
+      <div class="article-card" data-cat="trade-policy">
+        <div class="article-tag">Trade Policy</div>
+        <div class="article-title">CBAM: What GCC and Indian Exporters Need to Quantify</div>
+        <p class="article-excerpt">The liability is product-specific and calculable. This note covers what the CBAM calculation requires and where most initial estimates are incomplete.</p>
+        <a href="contact.html" class="article-link">Discuss with us →</a>
+      </div>
+
+      <div class="article-card" data-cat="geopolitics">
+        <div class="article-tag">Geopolitics</div>
+        <div class="article-title">Supply Chain Restructuring Under Geopolitical Pressure</div>
+        <p class="article-excerpt">Trade policy fragmentation is changing sourcing economics across multiple categories. This note covers what the structural shifts mean for network design decisions.</p>
+        <a href="contact.html" class="article-link">Discuss with us →</a>
+      </div>
+
+      <div class="article-card" data-cat="procurement">
+        <div class="article-tag">Procurement</div>
+        <div class="article-title">Procurement Transformation: Common Points of Failure</div>
+        <p class="article-excerpt">Procurement programmes that focus on savings targets often create supply resilience gaps. This note covers where the trade-offs typically emerge and how to frame them.</p>
+        <a href="contact.html" class="article-link">Discuss with us →</a>
+      </div>
+
+      <div class="article-card" data-cat="ai">
+        <div class="article-tag">AI & Digital</div>
+        <div class="article-title">Moving AI from Pilot to Production in Supply Chain</div>
+        <p class="article-excerpt">Most supply chain AI deployments remain at pilot stage. This note covers the operational and organisational conditions that determine whether deployment succeeds.</p>
+        <a href="contact.html" class="article-link">Discuss with us →</a>
+      </div>
+
+      <div class="article-card" data-cat="maritime">
+        <div class="article-tag">Maritime Risk</div>
+        <div class="article-title">Red Sea, Hormuz, Malacca: Risk Profiles and Mitigation Options</div>
+        <p class="article-excerpt">Each chokepoint has a different disruption probability, alternative routing option, and cost impact. This note covers how to frame each for contingency planning purposes.</p>
+        <a href="contact.html" class="article-link">Discuss with us →</a>
+      </div>
+
+      <div class="article-card" data-cat="commodities">
+        <div class="article-tag">Commodities</div>
+        <div class="article-title">Steel Price Volatility: Options for Procurement Teams</div>
+        <p class="article-excerpt">Steel price volatility affects project and manufacturing costs directly. This note covers the hedging and contractual options available to procurement teams operating in the GCC–India market.</p>
+        <a href="contact.html" class="article-link">Discuss with us →</a>
+      </div>
+
+      <div class="article-card" data-cat="trade-policy">
+        <div class="article-tag">Trade Policy</div>
+        <div class="article-title">India–UAE CEPA: Duty Implications for Key Categories</div>
+        <p class="article-excerpt">The India–UAE CEPA changed duty economics across a range of categories. This note covers which categories are most affected and what the landed cost implications are.</p>
+        <a href="contact.html" class="article-link">Discuss with us →</a>
+      </div>
+
+      <div class="article-card" data-cat="geopolitics">
+        <div class="article-tag">Geopolitics</div>
+        <div class="article-title">China+1 Sourcing: Operational Requirements</div>
+        <p class="article-excerpt">Shifting sourcing away from China requires supplier qualification, quality transfer, and logistics architecture decisions that are rarely covered in the strategic rationale.</p>
+        <a href="contact.html" class="article-link">Discuss with us →</a>
+      </div>
+
+      <div class="article-card" data-cat="ai">
+        <div class="article-tag">AI & Digital</div>
+        <div class="article-title">Demand Sensing and Demand Forecasting: The Operational Distinction</div>
+        <p class="article-excerpt">The two approaches have different data requirements, organisational dependencies, and planning infrastructure implications. This note covers what each requires to function in practice.</p>
+        <a href="contact.html" class="article-link">Discuss with us →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TOPICS BAND -->
+<section class="topics-band">
+  <div class="wrap">
+    <div style="margin-bottom:0">
+      <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#4b5563;margin-bottom:12px">Browse by Topic</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(1.8rem,2.8vw,2.4rem);font-weight:300;color:var(--navy);line-height:1.12">Areas we write about <em>most.</em></h2>
+    </div>
+    <div class="topics-grid">
+      <div class="topic-card" onclick="filterCards('trade-policy',null);window.scrollTo({top:300,behavior:'smooth'})">
+        <div class="topic-name">Trade Policy & CBAM</div>
+        <div class="topic-count">2 topics</div>
+      </div>
+      <div class="topic-card" onclick="filterCards('geopolitics',null);window.scrollTo({top:300,behavior:'smooth'})">
+        <div class="topic-name">Geopolitics & Risk</div>
+        <div class="topic-count">2 topics</div>
+      </div>
+      <div class="topic-card" onclick="filterCards('procurement',null);window.scrollTo({top:300,behavior:'smooth'})">
+        <div class="topic-name">Procurement</div>
+        <div class="topic-count">1 topic</div>
+      </div>
+      <div class="topic-card" onclick="filterCards('ai',null);window.scrollTo({top:300,behavior:'smooth'})">
+        <div class="topic-name">AI & Digital</div>
+        <div class="topic-count">2 topics</div>
+      </div>
+      <div class="topic-card" onclick="filterCards('maritime',null);window.scrollTo({top:300,behavior:'smooth'})">
+        <div class="topic-name">Maritime & War Risk</div>
+        <div class="topic-count">1 topic</div>
+      </div>
+      <div class="topic-card" onclick="filterCards('commodities',null);window.scrollTo({top:300,behavior:'smooth'})">
+        <div class="topic-name">Commodities</div>
+        <div class="topic-count">1 topic</div>
+      </div>
+      <div class="topic-card" onclick="filterCards('all',null);window.scrollTo({top:300,behavior:'smooth'})">
+        <div class="topic-name">All Topics</div>
+        <div class="topic-count">9 topics</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>A topic relevant to<br><em>your situation?</em></h2>
+    <p>Most of our engagements start with a conversation about something we wrote. We are happy to talk through the specifics of your context.</p>
+    <a href="contact.html" class="btn-gold">Start a conversation</a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="f-logo-vn">VN</div>
+        <div class="f-logo-sub">Advisory</div>
+        <p class="f-desc">Senior advisory for CXOs across supply chain, procurement, and AI strategy. GCC–India corridor specialists.</p>
+        <p style="font-size:.78rem;color:rgba(255,255,255,.3)">Chennai, India</p>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/vn-advisory" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14M8.5 18v-8H6v8h2.5M7.25 8.85a1.45 1.45 0 100-2.9 1.45 1.45 0 000 2.9M18 18v-4.55c0-2.07-1.13-3.05-2.75-3.05a2.4 2.4 0 00-2.17 1.18V10.5h-2.5V18h2.5v-4.05c0-1.07.5-1.7 1.45-1.7s1.45.63 1.45 1.7V18H18z"/></svg>
+          </a>
+          <a href="mailto:info@vnadvisory.in" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 7l9 6 9-6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">What We Do</a></li>
+          <li><a href="industries.html">Industries</a></li>
+          <li><a href="insights.html">Our Thinking</a></li>
+          <li><a href="tools.html">Tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Topics</h4>
+        <ul>
+          <li>Trade Policy & CBAM</li>
+          <li>Geopolitics & Risk</li>
+          <li>Procurement</li>
+          <li>AI & Digital</li>
+          <li>Maritime & War Risk</li>
+          <li>Commodities</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@vnadvisory.in">info@vnadvisory.in</a></li>
+          <li><a href="https://www.linkedin.com/company/vn-advisory" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" style="width:13px;height:13px;vertical-align:middle;margin-right:5px"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14M8.5 18v-8H6v8h2.5M7.25 8.85a1.45 1.45 0 100-2.9 1.45 1.45 0 000 2.9M18 18v-4.55c0-2.07-1.13-3.05-2.75-3.05a2.4 2.4 0 00-2.17 1.18V10.5h-2.5V18h2.5v-4.05c0-1.07.5-1.7 1.45-1.7s1.45.63 1.45 1.7V18H18z"/></svg>LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 VN Advisory · Chennai, India · All rights reserved.</span>
+      <span style="display:flex;gap:20px"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleMob(){
+  const m=document.getElementById('mob-menu');
+  document.body.style.overflow=m.classList.toggle('open')?'hidden':'';
+}
+
+function filterCards(cat, btn){
+  // update filter buttons
+  if(btn){
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  // show/hide cards
+  document.querySelectorAll('.article-card').forEach(card=>{
+    if(cat==='all'||card.dataset.cat===cat){
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+
+const bt=document.getElementById('back-top');
+window.addEventListener('scroll',()=>bt.classList.toggle('show',window.scrollY>400),{passive:true});
+</script>
+</body>
+</html>
