@@ -252,6 +252,11 @@ button{font-family:inherit;cursor:pointer}
 <meta name="twitter:description" content="Varadha Narayanan — 20+ years operating across GCC and India. Supply chain, procurement, and AI advisory. Practitioner-led, senior delivery.">
 <meta name="twitter:image" content="https://vnadvisory.in/assets/images/og-image.jpg">
 <!-- vn:hero-photo-css-banner-about --><style>.page-hero{position:relative}.page-hero-photo{position:absolute;inset:0;z-index:0}.page-hero-photo img{width:100%;height:100%;object-fit:cover;opacity:.28}.page-hero-wrap{position:relative;z-index:1}</style>
+<!-- vn:reveal-css --><style>
+.vn-reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
+.vn-reveal.vn-revealed{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.vn-reveal{opacity:1;transform:none;transition:none}}
+</style>
 </head>
 <body>
 
@@ -544,6 +549,19 @@ function toggleMob(){
 }
 const bt=document.getElementById('back-top');
 window.addEventListener('scroll',()=>bt.classList.toggle('show',window.scrollY>400),{passive:true});
+</script>
+<!-- vn:reveal-js --><script>
+(function(){
+  if (!("IntersectionObserver" in window)) return;
+  var els = document.querySelectorAll(".section, .featured-section, .grid-section, .topics-band, .cta-band, .ind-panel");
+  els.forEach(function(el){ el.classList.add("vn-reveal"); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) { entry.target.classList.add("vn-revealed"); io.unobserve(entry.target); }
+    });
+  }, {threshold: 0.12});
+  els.forEach(function(el){ io.observe(el); });
+})();
 </script>
 </body>
 </html>

@@ -266,7 +266,7 @@ button{font-family:inherit;cursor:pointer}
 .process-section{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .process-grid{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
 .process-connector{
-  position:absolute;top:40px;left:calc(12.5% + 8px);right:calc(12.5% + 8px);
+  position:absolute;top:88px;left:calc(12.5% + 8px);right:calc(12.5% + 8px);
   height:1px;background:linear-gradient(90deg,var(--gold),rgba(196,152,46,.2));
   z-index:0;
 }
@@ -468,6 +468,17 @@ button{font-family:inherit;cursor:pointer}
 }
 </style>
 <style>@media (prefers-reduced-motion: reduce){.hero-video.vn-loop{display:none !important}}.hero-poster-fallback{display:none}@media (prefers-reduced-motion: reduce){.hero-poster-fallback{display:block !important;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22;z-index:0}}</style>
+<!-- vn:tab-strip-css-index --><style>
+.ind-tabs{scrollbar-width:none;-ms-overflow-style:none;position:relative}
+.ind-tabs::-webkit-scrollbar{display:none}
+.ind-tabs-wrap,.ind-subnav{position:relative}
+.ind-tabs-wrap::after,.ind-subnav::after{content:"";position:absolute;top:0;right:0;bottom:0;width:32px;background:linear-gradient(90deg,rgba(0,0,0,0),var(--cream));pointer-events:none}
+</style>
+<!-- vn:reveal-css --><style>
+.vn-reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
+.vn-reveal.vn-revealed{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.vn-reveal{opacity:1;transform:none;transition:none}}
+</style>
 </head>
 
 <body>
@@ -722,14 +733,14 @@ button{font-family:inherit;cursor:pointer}
       <p class="section-body">Every industry has distinct supply chain dynamics. Our advisory is architected for the specifics — not generic frameworks.</p>
     </div>
 
-    <div class="ind-tabs" role="tablist">
+    <div class="ind-tabs-wrap"><div class="ind-tabs" role="tablist">
       <button class="ind-tab active" role="tab" aria-selected="true" onclick="showInd(0)">Manufacturing</button>
       <button class="ind-tab" role="tab" aria-selected="false" onclick="showInd(1)">Commodities & Trading</button>
       <button class="ind-tab" role="tab" aria-selected="false" onclick="showInd(2)">Logistics & Freight</button>
       <button class="ind-tab" role="tab" aria-selected="false" onclick="showInd(3)">Procurement-Driven</button>
       <button class="ind-tab" role="tab" aria-selected="false" onclick="showInd(4)">Infrastructure & Construction</button>
       <a href="industries.html" style="margin-left:auto;padding:0 0 0 24px;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;white-space:nowrap;border-bottom:2px solid transparent">All Industries →</a>
-    </div>
+    </div></div>
 
     <div class="ind-panel active" id="ind-0">
       <div>
@@ -1085,6 +1096,19 @@ function showInd(i){
 }
 const bt=document.getElementById('back-top');
 window.addEventListener('scroll',()=>bt.classList.toggle('show',window.scrollY>400),{passive:true});
+</script>
+<!-- vn:reveal-js --><script>
+(function(){
+  if (!("IntersectionObserver" in window)) return;
+  var els = document.querySelectorAll(".section, .featured-section, .grid-section, .topics-band, .cta-band, .ind-panel");
+  els.forEach(function(el){ el.classList.add("vn-reveal"); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) { entry.target.classList.add("vn-revealed"); io.unobserve(entry.target); }
+    });
+  }, {threshold: 0.12});
+  els.forEach(function(el){ io.observe(el); });
+})();
 </script>
 </body>
 </html>

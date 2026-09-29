@@ -89,6 +89,11 @@ a{color:inherit;text-decoration:none}
 <meta name="twitter:description" content="The gap between a successful AI pilot and production deployment is not technical. It is organisational.">
 <meta name="twitter:image" content="https://vnadvisory.in/assets/images/og-image.jpg">
 <!-- vn:art-hero-css-art-ai-procurement --><style>.art-hero-photo{width:100%;aspect-ratio:21/9;object-fit:cover;margin-bottom:32px}</style>
+<!-- vn:reveal-css --><style>
+.vn-reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
+.vn-reveal.vn-revealed{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.vn-reveal{opacity:1;transform:none;transition:none}}
+</style>
 </head>
 <body>
 <nav class="vn-nav">
@@ -254,5 +259,18 @@ a{color:inherit;text-decoration:none}
     <span><a href="../index.html">Home</a> · <a href="../contact.html">Contact</a> · <a href="https://vnadvisory.in">vnadvisory.in</a></span>
   </div>
 </footer>
+<!-- vn:reveal-js --><script>
+(function(){
+  if (!("IntersectionObserver" in window)) return;
+  var els = document.querySelectorAll(".section, .featured-section, .grid-section, .topics-band, .cta-band, .ind-panel");
+  els.forEach(function(el){ el.classList.add("vn-reveal"); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) { entry.target.classList.add("vn-revealed"); io.unobserve(entry.target); }
+    });
+  }, {threshold: 0.12});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
 </body>
 </html>

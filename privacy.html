@@ -31,6 +31,11 @@ a:hover{text-decoration:underline}
 footer{background:var(--navy);padding:40px 56px;text-align:center;font-size:.78rem;color:rgba(255,255,255,.35)}
 footer a{color:rgba(255,255,255,.5)}
 </style>
+<!-- vn:reveal-css --><style>
+.vn-reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
+.vn-reveal.vn-revealed{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.vn-reveal{opacity:1;transform:none;transition:none}}
+</style>
 </head>
 <body>
 <nav class="vn-nav">
@@ -93,5 +98,18 @@ footer a{color:rgba(255,255,255,.5)}
 <footer>
   © 2026 VN Advisory &nbsp;·&nbsp; <a href="/privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="/terms.html">Terms</a> &nbsp;·&nbsp; <a href="mailto:info@vnadvisory.in">info@vnadvisory.in</a>
 </footer>
+<!-- vn:reveal-js --><script>
+(function(){
+  if (!("IntersectionObserver" in window)) return;
+  var els = document.querySelectorAll(".section, .featured-section, .grid-section, .topics-band, .cta-band, .ind-panel");
+  els.forEach(function(el){ el.classList.add("vn-reveal"); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) { entry.target.classList.add("vn-revealed"); io.unobserve(entry.target); }
+    });
+  }, {threshold: 0.12});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
 </body>
 </html>

@@ -17,6 +17,11 @@ body{background:#080f24;color:#fff;font-family:'DM Sans',system-ui,sans-serif;mi
 .btn:hover{background:#b08828}
 .bar{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#C4982E,rgba(196,152,46,0) 70%)}
 </style>
+<!-- vn:reveal-css --><style>
+.vn-reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
+.vn-reveal.vn-revealed{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.vn-reveal{opacity:1;transform:none;transition:none}}
+</style>
 </head>
 <body>
 <div class="bar"></div>
@@ -24,5 +29,18 @@ body{background:#080f24;color:#fff;font-family:'DM Sans',system-ui,sans-serif;mi
 <h1 class="h404">Page Not Found</h1>
 <p class="p404">The page you are looking for may have moved or no longer exists.</p>
 <a href="/" class="btn">Return to Home</a>
+<!-- vn:reveal-js --><script>
+(function(){
+  if (!("IntersectionObserver" in window)) return;
+  var els = document.querySelectorAll(".section, .featured-section, .grid-section, .topics-band, .cta-band, .ind-panel");
+  els.forEach(function(el){ el.classList.add("vn-reveal"); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) { entry.target.classList.add("vn-revealed"); io.unobserve(entry.target); }
+    });
+  }, {threshold: 0.12});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
 </body>
 </html>

@@ -152,6 +152,17 @@ button{font-family:inherit;cursor:pointer}
 <!-- vn:ind-side-photo-css --><style>.ind-side-photo{width:100%;aspect-ratio:4/3;object-fit:cover;margin-bottom:16px}</style>
 <!-- vn:reduced-motion-css --><style>@media (prefers-reduced-motion: reduce){.vn-loop{display:none !important}.vn-loop-poster{display:block !important}}</style>
 <!-- vn:ind-hero-loop-css --><style>.page-hero{position:relative;overflow:hidden}.ind-hero-loop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25;z-index:0}.page-hero .wrap{position:relative;z-index:1}</style>
+<!-- vn:tab-strip-css-industries --><style>
+.ind-subnav-inner{scrollbar-width:none;-ms-overflow-style:none;position:relative}
+.ind-subnav-inner::-webkit-scrollbar{display:none}
+.ind-tabs-wrap,.ind-subnav{position:relative}
+.ind-tabs-wrap::after,.ind-subnav::after{content:"";position:absolute;top:0;right:0;bottom:0;width:32px;background:linear-gradient(90deg,rgba(0,0,0,0),#fff);pointer-events:none}
+</style>
+<!-- vn:reveal-css --><style>
+.vn-reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
+.vn-reveal.vn-revealed{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.vn-reveal{opacity:1;transform:none;transition:none}}
+</style>
 </head>
 <body>
 
@@ -197,14 +208,14 @@ button{font-family:inherit;cursor:pointer}
 </section>
 
 <!-- STICKY SUB-NAV -->
-<div class="ind-subnav">
+<div class="ind-subnav-wrap"><div class="ind-subnav">
   <div class="ind-subnav-inner">
     <button class="ind-tab active" onclick="showInd(0)">Manufacturing</button>
     <button class="ind-tab" onclick="showInd(1)">Commodities & Trading</button>
     <button class="ind-tab" onclick="showInd(2)">Logistics & Freight</button>
     <button class="ind-tab" onclick="showInd(3)">Procurement-Driven</button>
     <button class="ind-tab" onclick="showInd(4)">Infrastructure & Construction</button>
-  </div>
+</div>  </div>
 </div>
 
 <!-- PANELS -->
@@ -471,6 +482,19 @@ function showInd(n){
   document.querySelectorAll('.ind-overview-card').forEach((c,i)=>c.classList.toggle('active-card',i===n));
 }
 window.addEventListener('scroll',()=>document.getElementById('back-top').classList.toggle('show',scrollY>400),{passive:true});
+</script>
+<!-- vn:reveal-js --><script>
+(function(){
+  if (!("IntersectionObserver" in window)) return;
+  var els = document.querySelectorAll(".section, .featured-section, .grid-section, .topics-band, .cta-band, .ind-panel");
+  els.forEach(function(el){ el.classList.add("vn-reveal"); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) { entry.target.classList.add("vn-revealed"); io.unobserve(entry.target); }
+    });
+  }, {threshold: 0.12});
+  els.forEach(function(el){ io.observe(el); });
+})();
 </script>
 </body>
 </html>
