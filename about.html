@@ -251,7 +251,7 @@ button{font-family:inherit;cursor:pointer}
 <meta name="twitter:title" content="About — VN Advisory">
 <meta name="twitter:description" content="Varadha Narayanan — 20+ years operating across GCC and India. Supply chain, procurement, and AI advisory. Practitioner-led, senior delivery.">
 <meta name="twitter:image" content="https://vnadvisory.in/assets/images/og-image.jpg">
-<!-- vn:hero-photo-css-banner-about --><style>.page-hero{position:relative}.page-hero-photo{position:absolute;inset:0;z-index:0}.page-hero-photo img{width:100%;height:100%;object-fit:cover;opacity:.28}.page-hero-wrap{position:relative;z-index:1}</style>
+<!-- vn:hero-photo-css-banner-about --><style>.page-hero{position:relative}.page-hero-photo{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;opacity:.28;pointer-events:none}.page-hero-wrap{position:relative;z-index:1}</style>
 <!-- vn:reveal-css --><style>
 .vn-reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
 .vn-reveal.vn-revealed{opacity:1;transform:none}
@@ -465,11 +465,15 @@ button{font-family:inherit;cursor:pointer}
         <div class="eco-name">VN Trade</div>
         <p class="eco-desc">Commodity trade facilitation across the GCC–India corridor. Direct operating experience in the physical commodity markets that informs the advisory practice.</p>
       </div>
-      <a class="eco-card" href="https://www.youtube.com/@capitalfronts" target="_blank" rel="noopener" style="display:block">
+      <div class="eco-card">
         <div class="eco-tag">Content · YouTube</div>
         <div class="eco-name">CapitalFronts</div>
-        <p class="eco-desc">Geopolitical Trade Intelligence — where capital meets consequence. Hidden trade flows, supply chain choke points, and geopolitics explained for practitioners. Watch on <span style="color:var(--gold)">insights.html → Content</span>.</p>
-      </a>
+        <p class="eco-desc">Geopolitical Trade Intelligence — where capital meets consequence. Hidden trade flows, supply chain choke points, and geopolitics explained for practitioners.</p>
+        <div style="margin-top:14px;display:flex;gap:18px">
+          <a href="https://www.youtube.com/@capitalfronts" target="_blank" rel="noopener" style="font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold)">Watch on YouTube →</a>
+          <a href="insights.html#capitalfronts" style="font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold)">Content hub →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>

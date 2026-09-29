@@ -201,13 +201,20 @@ button{font-family:inherit;cursor:pointer}
 <meta name="twitter:title" content="Content — VN Advisory">
 <meta name="twitter:description" content="Practitioner analysis on supply chain risk, CBAM, procurement, AI, maritime risk, and commodity markets across the GCC–India corridor.">
 <meta name="twitter:image" content="https://vnadvisory.in/assets/images/og-image.jpg">
-<!-- vn:hero-photo-css-banner-content --><style>.page-hero{position:relative}.page-hero-photo{position:absolute;inset:0;z-index:0}.page-hero-photo img{width:100%;height:100%;object-fit:cover;opacity:.28}.page-hero-wrap{position:relative;z-index:1}</style>
+<!-- vn:hero-photo-css-banner-content --><style>.page-hero{position:relative}.page-hero-photo{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;opacity:.28;pointer-events:none}.page-hero-wrap{position:relative;z-index:1}</style>
 <!-- vn:reduced-motion-css --><style>@media (prefers-reduced-motion: reduce){.vn-loop{display:none !important}.vn-loop-poster{display:block !important}}</style>
 <!-- vn:cf-band-loop-css --><style>#capitalfronts{position:relative;overflow:hidden}.cf-band-loop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.15;z-index:0}#capitalfronts .wrap{position:relative;z-index:1}</style>
 <!-- vn:reveal-css --><style>
 .vn-reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
 .vn-reveal.vn-revealed{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.vn-reveal{opacity:1;transform:none;transition:none}}
+</style>
+<!-- vn:cf-band-grid-fixed --><style>.cf-band-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}@media(max-width:768px){.cf-band-grid{grid-template-columns:1fr;gap:32px}}</style>
+<!-- vn:filter-bar-scrollbar-css --><style>
+.filter-inner{scrollbar-width:none;-ms-overflow-style:none}
+.filter-inner::-webkit-scrollbar{display:none}
+.filter-bar{position:relative}
+.filter-bar::after{content:"";position:absolute;top:0;right:0;bottom:0;width:32px;background:linear-gradient(90deg,rgba(255,255,255,0),#fff);pointer-events:none}
 </style>
 </head>
 <body>
@@ -325,6 +332,7 @@ button{font-family:inherit;cursor:pointer}
     <div class="grid-header">
       <span class="grid-label">All Topics</span>
     </div>
+    <div id="no-results-message" style="display:none;padding:48px 0;text-align:center;color:var(--ink-muted);font-size:.88rem">No results match this combination of filters. Try a different topic or type.</div>
     <div class="article-grid" id="article-grid">
 
       <div class="article-card" data-cat="trade-policy" data-type="article">
@@ -383,7 +391,7 @@ button{font-family:inherit;cursor:pointer}
         <a href="insights/china-plus-one.html" class="article-link">Read article →</a>
       </div>
 
-      <div class="article-card video-card" data-cat="geopolitics" data-type="video" data-video-id="a5Hvd5UsGH8" tabindex="0" role="button" aria-label="Play: Saudi Arabia and the Two Chokepoints. (opens inline)">
+      <a class="article-card video-card" data-cat="geopolitics" data-type="video" href="https://www.youtube.com/watch?v=a5Hvd5UsGH8" target="_blank" rel="noopener">
         <div class="im-wrap" style="position:relative;aspect-ratio:16/9;margin-bottom:14px;background:var(--navy)">
           <img src="assets/images/capitalfronts/a5Hvd5UsGH8.jpg" alt="Saudi Arabia and the Two Chokepoints." loading="lazy" width="480" height="360" style="width:100%;height:100%;object-fit:cover">
           <span class="play-badge" aria-hidden="true" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(8,15,36,.25)"><span style="width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--navy)">▶</span></span>
@@ -392,8 +400,8 @@ button{font-family:inherit;cursor:pointer}
         <div class="article-tag">CapitalFronts · Video</div>
         <div class="article-title">Saudi Arabia and the Two Chokepoints.</div>
         <p class="article-excerpt">Watch on CapitalFronts, our geopolitical trade intelligence channel.</p>
-      </div>
-      <div class="article-card video-card" data-cat="geopolitics" data-type="video" data-video-id="WvuZaluAQdw" tabindex="0" role="button" aria-label="Play: Germany's Industrial Crisis: The End of a Model (opens inline)">
+      </a>
+      <a class="article-card video-card" data-cat="geopolitics" data-type="video" href="https://www.youtube.com/watch?v=WvuZaluAQdw" target="_blank" rel="noopener">
         <div class="im-wrap" style="position:relative;aspect-ratio:16/9;margin-bottom:14px;background:var(--navy)">
           <img src="assets/images/capitalfronts/WvuZaluAQdw.jpg" alt="Germany's Industrial Crisis: The End of a Model" loading="lazy" width="480" height="360" style="width:100%;height:100%;object-fit:cover">
           <span class="play-badge" aria-hidden="true" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(8,15,36,.25)"><span style="width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--navy)">▶</span></span>
@@ -402,7 +410,7 @@ button{font-family:inherit;cursor:pointer}
         <div class="article-tag">CapitalFronts · Video</div>
         <div class="article-title">Germany's Industrial Crisis: The End of a Model</div>
         <p class="article-excerpt">Watch on CapitalFronts, our geopolitical trade intelligence channel.</p>
-      </div>
+      </a>
       <div class="article-card" data-cat="ai" data-type="article">
         <!-- vn:hub-thumb-art-demand-sensing --><img src="assets/images/stock/art-demand-sensing-600.jpg" alt="" width="600" height="338" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:14px"><div class="article-tag">AI & Digital</div>
         <div class="article-title">Demand Sensing and Demand Forecasting: The Operational Distinction</div>
@@ -415,9 +423,9 @@ button{font-family:inherit;cursor:pointer}
 </section>
 
 <!-- CAPITALFRONTS -->
-<!-- vn:cf-band-loop-video --><video class="vn-loop cf-band-loop" autoplay muted loop playsinline preload="metadata" poster="assets/videos/capitalfronts-band-poster.jpg" aria-hidden="true"><source src="assets/videos/capitalfronts-band.mp4" type="video/mp4"></video><img class="vn-loop-poster cf-band-loop" src="assets/videos/capitalfronts-band-poster.jpg" width="1280" height="720" alt="" style="display:none" aria-hidden="true">
 <section class="cta-band" id="capitalfronts" style="text-align:left">
-  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center">
+  <!-- vn:cf-band-loop-video --><video class="vn-loop cf-band-loop" autoplay muted loop playsinline preload="metadata" poster="assets/videos/capitalfronts-band-poster.jpg" aria-hidden="true"><source src="assets/videos/capitalfronts-band.mp4" type="video/mp4"></video><img class="vn-loop-poster cf-band-loop" src="assets/videos/capitalfronts-band-poster.jpg" width="1280" height="720" alt="" style="display:none" aria-hidden="true">
+  <div class="wrap cf-band-grid">
     <div>
       <div class="page-eyebrow">CapitalFronts · YouTube</div>
       <h2 style="font-family:var(--serif);font-weight:300;font-size:clamp(1.8rem,2.8vw,2.4rem);color:#fff;margin-bottom:16px">
@@ -427,16 +435,17 @@ button{font-family:inherit;cursor:pointer}
         New videos from the practice, on CapitalFronts.</p>
       <a href="https://www.youtube.com/@capitalfronts?sub_confirmation=1" target="_blank" rel="noopener" class="btn-gold">
         Subscribe on YouTube</a>
+      <a href="https://www.youtube.com/@capitalfronts/videos" target="_blank" rel="noopener" style="display:inline-block;margin-left:16px;font-size:.78rem;color:rgba(255,255,255,.6);text-decoration:underline">See all videos →</a>
     </div>
     <div style="display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.08)">
-      <div class="video-card" data-video-id="a5Hvd5UsGH8" tabindex="0" role="button" aria-label="Play: Saudi Arabia and the Two Chokepoints. (opens inline)" style="background:var(--navy);padding:16px;display:flex;gap:14px;align-items:center;cursor:pointer">
+      <a class="video-card" href="https://www.youtube.com/watch?v=a5Hvd5UsGH8" target="_blank" rel="noopener" style="background:var(--navy);padding:16px;display:flex;gap:14px;align-items:center;cursor:pointer;text-decoration:none">
         <div class="im-wrap" style="position:relative;flex:none;width:120px;aspect-ratio:16/9"><img src="assets/images/capitalfronts/a5Hvd5UsGH8.jpg" alt="Saudi Arabia and the Two Chokepoints." loading="lazy" width="120" height="68" style="width:100%;height:100%;object-fit:cover"></div>
         <div style="font-size:.82rem;color:#fff;line-height:1.4">Saudi Arabia and the Two Chokepoints.<div style="font-size:.72rem;color:rgba(255,255,255,.4);margin-top:4px">8:34</div></div>
-      </div>
-      <div class="video-card" data-video-id="WvuZaluAQdw" tabindex="0" role="button" aria-label="Play: Germany's Industrial Crisis: The End of a Model (opens inline)" style="background:var(--navy);padding:16px;display:flex;gap:14px;align-items:center;cursor:pointer">
+      </a>
+      <a class="video-card" href="https://www.youtube.com/watch?v=WvuZaluAQdw" target="_blank" rel="noopener" style="background:var(--navy);padding:16px;display:flex;gap:14px;align-items:center;cursor:pointer;text-decoration:none">
         <div class="im-wrap" style="position:relative;flex:none;width:120px;aspect-ratio:16/9"><img src="assets/images/capitalfronts/WvuZaluAQdw.jpg" alt="Germany's Industrial Crisis: The End of a Model" loading="lazy" width="120" height="68" style="width:100%;height:100%;object-fit:cover"></div>
         <div style="font-size:.82rem;color:#fff;line-height:1.4">Germany's Industrial Crisis: The End of a Model<div style="font-size:.72rem;color:rgba(255,255,255,.4);margin-top:4px">11:22</div></div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -557,7 +566,14 @@ function filterType(type, btn){
     card.dataset.typeHidden = (type!=='all' && card.dataset.type!==type) ? '1' : '';
     applyVisibility(card);
   });
+  updateEmptyState();
 }
+function updateEmptyState(){
+  const anyVisible = Array.from(document.querySelectorAll('.article-card')).some(c => c.style.display !== 'none');
+  const msg = document.getElementById('no-results-message');
+  if (msg) msg.style.display = anyVisible ? 'none' : 'block';
+}
+<!-- vn:combined-filter-fix -->
 function applyVisibility(card){
   const catHidden = card.classList.contains('hidden');
   const typeHidden = card.dataset.typeHidden === '1';
@@ -584,9 +600,10 @@ function toggleMob(){
 }
 
 function filterCards(cat, btn){
-  // update filter buttons
+  // update filter buttons — :not(.type-btn) so this never clears
+  // the separate Articles/Videos row's own active state (that was Important 6 in the final review).
   if(btn){
-    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.filter-btn:not(.type-btn)').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
   }
   // show/hide cards
@@ -598,6 +615,7 @@ function filterCards(cat, btn){
     }
     applyVisibility(card);
   });
+  updateEmptyState();
 }
 
 const bt=document.getElementById('back-top');
