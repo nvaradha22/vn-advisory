@@ -32,7 +32,7 @@ body{background:#080f24;color:#fff;font-family:'DM Sans',system-ui,sans-serif;mi
 <!-- vn:reveal-js --><script>
 (function(){
   if (!("IntersectionObserver" in window)) return;
-  var els = document.querySelectorAll(".section, .featured-section, .grid-section, .topics-band, .cta-band, .ind-panel");
+  var els = document.querySelectorAll(".section, .featured-section, .grid-section, .topics-band, .cta-band");
   els.forEach(function(el){ el.classList.add("vn-reveal"); });
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
