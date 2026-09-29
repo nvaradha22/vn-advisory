@@ -237,7 +237,7 @@ button{font-family:inherit;cursor:pointer}
   display:flex;flex-direction:column;
 }
 .svc-card:hover{border-left-color:var(--gold);background:var(--cream)}
-.svc-img{display:none}
+.svc-img{width:100%;height:220px;object-fit:cover}
 .svc-body{flex:1;display:flex;flex-direction:column}
 .svc-number{
   font-family:var(--serif);font-size:1.4rem;font-weight:300;
@@ -535,7 +535,7 @@ button{font-family:inherit;cursor:pointer}
 
 <!-- ════════ HERO — dark, video ════════ -->
 <section class="hero" aria-label="Hero">
-  <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/videos/hero-poster.jpg" aria-hidden="true">
     <source src="assets/videos/hero.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay" aria-hidden="true"></div>
@@ -600,7 +600,7 @@ button{font-family:inherit;cursor:pointer}
 
     <div class="services-grid">
       <div class="svc-card">
-        <img class="svc-img" src="assets/images/practice-supply-chain.jpg" alt="Supply chain operations" loading="lazy">
+        <picture class="svc-img"><source srcset="assets/images/practice-supply-chain-800.webp 800w, assets/images/practice-supply-chain-1600.webp 1600w" sizes="(max-width:768px) 100vw, 33vw" type="image/webp"><img class="svc-img" src="assets/images/practice-supply-chain-1600.jpg" width="1600" height="1067" alt="Supply chain operations" loading="lazy"></picture>
         <div class="svc-body">
           <div class="svc-number">01</div>
           <div class="svc-cat">Supply Chain</div>
@@ -611,7 +611,7 @@ button{font-family:inherit;cursor:pointer}
       </div>
 
       <div class="svc-card">
-        <img class="svc-img" src="assets/images/practice-procurement.jpg" alt="Procurement strategy" loading="lazy">
+        <picture class="svc-img"><source srcset="assets/images/practice-procurement-800.webp 800w, assets/images/practice-procurement-1600.webp 1600w" sizes="(max-width:768px) 100vw, 33vw" type="image/webp"><img class="svc-img" src="assets/images/practice-procurement-1600.jpg" width="1600" height="1067" alt="Procurement strategy" loading="lazy"></picture>
         <div class="svc-body">
           <div class="svc-number">02</div>
           <div class="svc-cat">Procurement</div>
@@ -622,7 +622,7 @@ button{font-family:inherit;cursor:pointer}
       </div>
 
       <div class="svc-card">
-        <img class="svc-img" src="assets/images/practice-ai.jpg" alt="AI and digital infrastructure" loading="lazy">
+        <picture class="svc-img"><source srcset="assets/images/practice-ai-800.webp 800w, assets/images/practice-ai-1600.webp 1600w" sizes="(max-width:768px) 100vw, 33vw" type="image/webp"><img class="svc-img" src="assets/images/practice-ai-1600.jpg" width="1600" height="1068" alt="AI and digital infrastructure" loading="lazy"></picture>
         <div class="svc-body">
           <div class="svc-number">03</div>
           <div class="svc-cat">AI & Digital</div>
@@ -633,7 +633,7 @@ button{font-family:inherit;cursor:pointer}
       </div>
 
       <div class="svc-card">
-        <img class="svc-img" src="assets/images/practice-cbam.jpg" alt="Industrial plant and carbon emissions" loading="lazy">
+        <picture class="svc-img"><source srcset="assets/images/practice-cbam-800.webp 800w, assets/images/practice-cbam-1600.webp 1600w" sizes="(max-width:768px) 100vw, 33vw" type="image/webp"><img class="svc-img" src="assets/images/practice-cbam-1600.jpg" width="1600" height="1095" alt="Industrial plant and carbon emissions" loading="lazy"></picture>
         <div class="svc-body">
           <div class="svc-number">04</div>
           <div class="svc-cat">Trade & Carbon</div>
@@ -644,7 +644,7 @@ button{font-family:inherit;cursor:pointer}
       </div>
 
       <div class="svc-card">
-        <img class="svc-img" src="assets/images/practice-marine.jpg" alt="Cargo vessel at sea" loading="lazy">
+        <picture class="svc-img"><source srcset="assets/images/practice-marine-800.webp 800w, assets/images/practice-marine-1600.webp 1600w" sizes="(max-width:768px) 100vw, 33vw" type="image/webp"><img class="svc-img" src="assets/images/practice-marine-1600.jpg" width="1600" height="1200" alt="Cargo vessel at sea" loading="lazy"></picture>
         <div class="svc-body">
           <div class="svc-number">05</div>
           <div class="svc-cat">Maritime Risk</div>
@@ -655,7 +655,7 @@ button{font-family:inherit;cursor:pointer}
       </div>
 
       <div class="svc-card">
-        <img class="svc-img" src="assets/images/practice-commodity.jpg" alt="Commodity trading screens" loading="lazy">
+        <picture class="svc-img"><source srcset="assets/images/practice-commodity-800.webp 800w, assets/images/practice-commodity-1600.webp 1600w" sizes="(max-width:768px) 100vw, 33vw" type="image/webp"><img class="svc-img" src="assets/images/practice-commodity-1600.jpg" width="1600" height="1067" alt="Commodity trading screens" loading="lazy"></picture>
         <div class="svc-body">
           <div class="svc-number">06</div>
           <div class="svc-cat">Commodities</div>
